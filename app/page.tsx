@@ -35,6 +35,11 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+         <div className='flex gap-4 items-center flex-col sm:flex-row'>
+          <a>
+            Read our docs, pls
+          </a>
+        </div>
       </main>
       <footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'>
         <a
