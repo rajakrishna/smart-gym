@@ -24,9 +24,9 @@
 <table style="width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="LINKEDIN_URL_1">
-        <img src="TEAM_MEMBER_IMAGE_1" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
-        <sub><b>Team Member Name 1</b></sub>
+      <a href="https://www.linkedin.com/in/developerdiego/">
+        <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_800_800/B56ZYiPX.lHoAg-/0/1744331178327?e=1752793200&v=beta&t=aCq2ZmcIA1Wpdo9zaXwflkJ3DCLe96-ve1xNC9iDtDs" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
+        <sub><b>Diego Espino</b></sub>
       </a>
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
