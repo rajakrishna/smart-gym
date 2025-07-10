@@ -24,9 +24,9 @@
 <table style="width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="LINKEDIN_URL_1">
-        <img src="TEAM_MEMBER_IMAGE_1" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
-        <sub><b>Team Member Name 1</b></sub>
+      <a href="www.linkedin.com/in/joeaguado">
+        <img src="https://github.com/user-attachments/assets/ed822669-8b90-4d8e-bd15-82513aaffe3e" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
+        <sub><b>Joe Aguado</b></sub>
       </a>
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
