@@ -44,9 +44,9 @@
     </tr>
    <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="LINKEDIN_URL_4">
+      <a href="https://www.linkedin.com/in/dannyrivasdev/">
         <img src="TEAM_MEMBER_IMAGE_4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
-        <sub><b>Team Member Name 4</b></sub>
+        <sub><b>Danny Rivas</b></sub>
       </a>
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
