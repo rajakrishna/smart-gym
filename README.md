@@ -45,7 +45,7 @@
    <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/dannyrivasdev/">
-        <img src="TEAM_MEMBER_IMAGE_4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
+        <img src="https://github.com/user-attachments/assets/53cebcf7-2e3e-46f3-9346-94ec5a27ad19" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
         <sub><b>Danny Rivas</b></sub>
       </a>
     </td>
