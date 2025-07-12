@@ -36,9 +36,9 @@
       </a>
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="LINKEDIN_URL_3">
-        <img src="TEAM_MEMBER_IMAGE_3" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
-        <sub><b>Team Member Name 3</b></sub>
+      <a href="https://linkedin.com/in/noahwhlim">
+        <img src="https://avatars.githubusercontent.com/u/91938285?v=4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
+        <sub><b>Noah Lim</b></sub>
       </a>
     </td>
     </tr>
