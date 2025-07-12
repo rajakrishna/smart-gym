@@ -1,8 +1,8 @@
 ![image](PROJECT_BANNER_IMAGE_URL)
 
-# [Brief Problem Statement - What challenge does your app solve?]
+# [Brief Problem Statement - coordinating and organizing operations for a gym to make life easier for staff and guests]
 
-## [One-sentence solution description highlighting key features and benefits]
+## [app that serves as a center for membership management, class scheduling, ordering from the cafe, and analytics to study membership growth and usage]
 
 # Technologies Used
 
@@ -16,7 +16,7 @@
 
 | Framework 1                     | Service 1                     | Database                       | Library 1                     |
 | ------------------------------- | ----------------------------- | ------------------------------ | ----------------------------- |
-| [Docs Link](FRAMEWORK_DOCS_URL) | [Docs Link](SERVICE_DOCS_URL) | [Docs Link](DATABASE_DOCS_URL) | [Docs Link](LIBRARY_DOCS_URL) |
+| [Next.js](https://nextjs.org/docs) | [Docs Link](SERVICE_DOCS_URL) | [Supabase](https://supabase.com/docs) | [Docs Link](LIBRARY_DOCS_URL) |
 
 ## Team Contributors To The Project
 
@@ -27,9 +27,9 @@
 
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="LINKEDIN_URL_2">
-        <img src="TEAM_MEMBER_IMAGE_2" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
-        <sub><b>Team Member Name 2</b></sub>
+      <a href="https://www.linkedin.com/in/gojoego/">
+        <img src="https://imgur.com/a/hhLhUBX" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
+        <sub><b>Joe Gallego</b></sub>
       </a>
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
