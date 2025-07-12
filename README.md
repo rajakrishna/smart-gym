@@ -53,9 +53,9 @@
       </a>
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="LINKEDIN_URL_6">
-        <img src="TEAM_MEMBER_IMAGE_6" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
-        <sub><b>Team Member Name 6</b></sub>
+      <a href="https://www.linkedin.com/in/sunnith-ch/">
+        <img src="https://media.licdn.com/dms/image/v2/D4E35AQFNoT9iC9_h1A/profile-framedphoto-shrink_400_400/B4EZfSaDO2HwAc-/0/1751581734372?e=1752937200&v=beta&t=4YOJlnlGTsUdbsUa0NqXLf6h5HlfmBE9uKYJRGckBSM" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Sunnith Profile Picture" /><br />
+        <sub><b>Sunnith CH</b></sub>
       </a>
     </td>
        </tr>
