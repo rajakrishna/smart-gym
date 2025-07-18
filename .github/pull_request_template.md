@@ -4,15 +4,13 @@ What kind of change does this PR introduce?
 
 [ ] Feature
 [ ] Bugfix
-[ ] Code style update (formatting, local variables)
+[ ] Style update (formatting)
 [ ] Refactoring (no functional changes, no api changes)
-[ ] Build related changes
-[ ] CI related changes
-[ ] Documentation content changes
+[ ] CI/CD
+[ ] Documentation
 [ ] Tests
 [ ] Other
 ```
-[Jira Link](https://xsolve.atlassian.net/browse/PROJECT_KEY)
 
 ## What's new?
 -
