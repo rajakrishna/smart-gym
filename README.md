@@ -100,6 +100,7 @@ An app that serves as a center for membership management, class scheduling, orde
     </td>
   </tr>
 </table>
+
 # 💪 Smart Gym Documentation
 
 ## 📑 Table of Contents
