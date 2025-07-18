@@ -1,85 +1,107 @@
-![image](PROJECT_BANNER_IMAGE_URL)
+![smart-gym-logo](https://github.com/rajakrishna/smart-gym/blob/master/public/smart-gym-logo.png)
 
-# [Brief Problem Statement - coordinating and organizing operations for a gym to make life easier for staff and guests]
 
-## [app that serves as a center for membership management, class scheduling, ordering from the cafe, and analytics to study membership growth and usage]
+
+# Smart Gym
+
+Coordinating and organizing operations for a gym to make life easier for staff and members.
+
+An app that serves as a center for membership management, class scheduling, ordering from the cafe and analytics for membership growth and usage.
+
+
 
 # Technologies Used
 
-<img style="height:125px; margin-right: 20px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" />
-<img style="height:125px; margin-right: 20px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
-<img style="height:125px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" />
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+  <img style="height:100px;" src="https://cdn.brandfetch.io/id2alue-rx/theme/dark/idqNI71Hra.svg?c=1bxid64Mup7aczewSAYMX&t=1714556221292" alt="Next.js logo" />
+  <img style="height:100px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" alt="React logo" />
+  <img style="height:100px;" src="https://cdn.brandfetch.io/idKX_Hb7va/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1748419318745" alt="TypeScript logo" />
+  <img style="height:100px; width:160px" src="https://cdn.brandfetch.io/idsSceG8fK/theme/light/logo.svg?c=1bxid64Mup7aczewSAYMX&t=16610081495951" alt="Supabase logo" />
+  <img style="height:100px; width:160px" src="https://cdn.brandfetch.io/idMNEQh7-0/theme/light/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1687779045485" alt="Tailwind CSS logo" />
+  <img style="height:100px; width:160px" src="https://lucide.dev/library-logos/shadcn-ui-light.svg" alt="Shadcn logo" />
+  <img style="height:100px;width:160px" src="https://cdn.brandfetch.io/idxAg10C0L/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1746435914582" alt="Stripe logo" />
+  <img style="height:100px" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma logo" />
+</div>
 
 ## Docs for this project
 
-<!-- Update with your project's documentation links -->
-
-| Framework 1                     | Service 1                     | Database                       | Library 1                     |
-| ------------------------------- | ----------------------------- | ------------------------------ | ----------------------------- |
-| [Next.js](https://nextjs.org/docs) | [Docs Link](SERVICE_DOCS_URL) | [Supabase](https://supabase.com/docs) | [Docs Link](LIBRARY_DOCS_URL) |
+- [Next.js](https://nextjs.org/docs)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [Supabase](https://supabase.com/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [shadcn/ui](https://ui.shadcn.com/docs)
+- [Stripe](https://stripe.com/docs)
 
 ## Team Contributors To The Project
 
-<!-- Replace with your team members -->
-<table style="width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
-  <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="www.linkedin.com/in/joeaguado">
-        <img src="https://github.com/user-attachments/assets/ed822669-8b90-4d8e-bd15-82513aaffe3e" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
+<div style="width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
+    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px; border-radius: 50%;">
+      <a href="https://www.linkedin.com/in/joeaguado">
+        <img src="https://github.com/user-attachments/assets/ed822669-8b90-4d8e-bd15-82513aaffe3e" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%; "alt="Joe Aguado Profile Picture" /><br />
         <sub><b>Joe Aguado</b></sub>
       </a>
-    </td>
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </div>
+    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/gojoego/">
-        <img src="https://imgur.com/a/hhLhUBX" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
+        <img src="https://media.licdn.com/dms/image/v2/C5603AQGAtMQlfyBafw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1525922045693?e=1755734400&v=beta&t=CtFk8lDe7GgoOU3NSKkp_GsZGqcD9J3nsRiacSldjb4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Joe Gallego Profile Picture" /><br />
         <sub><b>Joe Gallego</b></sub>
       </a>
-    </td>
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </div>
+    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://linkedin.com/in/noahwhlim">
-        <img src="https://avatars.githubusercontent.com/u/91938285?v=4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
+        <img src="https://avatars.githubusercontent.com/u/91938285?v=4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Noah Lim Profile Picture" /><br />
         <sub><b>Noah Lim</b></sub>
       </a>
-    </td>
-    </tr>
-   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="https://www.linkedin.com/in/dannyrivasdev/">
-        <img src="https://github.com/user-attachments/assets/53cebcf7-2e3e-46f3-9346-94ec5a27ad19" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
-        <sub><b>Danny Rivas</b></sub>
-      </a>
-    </td>
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="https://www.linkedin.com/in/developerdiego/">
-        <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_800_800/B56ZYiPX.lHoAg-/0/1744331178327?e=1752793200&v=beta&t=aCq2ZmcIA1Wpdo9zaXwflkJ3DCLe96-ve1xNC9iDtDs" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
-        <sub><b>Diego Espino</b></sub>
-      </a>
-    </td>
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="https://www.linkedin.com/in/sunnith-ch/">
-        <img src="https://media.licdn.com/dms/image/v2/D4E35AQFNoT9iC9_h1A/profile-framedphoto-shrink_400_400/B4EZfSaDO2HwAc-/0/1751581734372?e=1752937200&v=beta&t=4YOJlnlGTsUdbsUa0NqXLf6h5HlfmBE9uKYJRGckBSM" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Sunnith Profile Picture" /><br />
-        <sub><b>Sunnith CH</b></sub>
-      </a>
-    </td>
-       </tr>
-   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
-     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </div>
+    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/devmonika/">
         <img src="https://avatars.githubusercontent.com/u/85965486?v=4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Monika Profile Picture" /><br />
         <sub><b>Monika Garg</b></sub>
       </a>
-    </td>
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="TECH_LEAD_LINKEDIN_URL">
-        <img src="TECH_LEAD_IMAGE" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" /><br />
-        <sub><b>Tech Lead Name</b></sub>
+    </div>
+    </div>
+   <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
+    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+      <a href="https://www.linkedin.com/in/dannyrivasdev/">
+        <img src="https://github.com/user-attachments/assets/53cebcf7-2e3e-46f3-9346-94ec5a27ad19" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" 
+        alt="Danny Rivas Profile Picture" /><br />
+        <sub><b>Danny Rivas</b></sub>
+      </a>
+    </div>
+    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+      <a href="https://www.linkedin.com/in/developerdiego/">
+        <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_200_200/B56ZYiPX.lHoAY-/0/1744331178327?e=1753473600&v=beta&t=R18fxZsGd_s84v-PEXi0cmmZfHT4jjmqBBGMsrW6Gj8" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
+        <sub><b>Diego Espino</b></sub>
+      </a>
+    </div>
+    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+      <a href="https://www.linkedin.com/in/sunnith-ch/">
+        <img src="https://media.licdn.com/dms/image/v2/D4E35AQFNoT9iC9_h1A/profile-framedphoto-shrink_400_400/B4EZfSaDO2HwAc-/0/1751581734372?e=1752937200&v=beta&t=4YOJlnlGTsUdbsUa0NqXLf6h5HlfmBE9uKYJRGckBSM" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Sunnith Profile Picture" /><br />
+        <sub><b>Sunnith CH</b></sub>
+      </a>
+    </div>
+    </div>  
+   <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
+    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+      <a href="https://www.linkedin.com/in/rajakrishna/">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQFDLs3Zm3m01A/profile-displayphoto-shrink_200_200/B56Zd56YWwGoAc-/0/1750097037071?e=1755734400&v=beta&t=BMpj0zVVOMehE_fiukehMx2GkxnrZvAtZ9UsDSjUPDo" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Raja Krishna Profile Picture" /><br />
+        <sub><b>Raja Krishna</b></sub>
         <br /><sub>(Tech Lead)</sub>
       </a>
-    </td>
-  </tr>
-</table>
+    </div>
+    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+      <a href="https://www.linkedin.com/in/belle-duran-127760204/">
+        <img src="https://media.licdn.com/dms/image/v2/C4E03AQG61KH5tTPj3A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1617765154387?e=1755734400&v=beta&t=OfW7wIAZ5cQ9h1LIupO-L7sxVB25wqBw8nJYGaKgCs4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Belle Duran Profile Picture" /><br />
+        <sub><b>Belle Duran</b></sub>
+        <br /><sub>(Tech Lead)</sub>
+      </a>
+    </div>
+  </div>
+</div>
 
-# 🚀 [Project Name] Documentation
+# 💪 Smart Gym Documentation
 
 ## 📑 Table of Contents
 
@@ -124,67 +146,40 @@ The application follows a [architectural pattern] where [describe the flow betwe
 
 ### 🖥️ Frontend
 
-| Technology         | Version/Description       |
-| ------------------ | ------------------------- |
-| **Framework**      | [Framework Name][version] |
-| **UI Library**     | [UI Library][version]     |
-| **[Tool/Library]** | [Description]             |
-| **Icons**          | [Icon library]            |
-| **Styling**        | [Styling solution]        |
+| Technology         | Version/Description         |
+| ------------------ | -------------------------- |
+| **Framework**      | Next.js 15                 |
+| **UI Library**     | shadcn/ui                  |
+| **Icons**          | Lucide, Radix Icons        |
+| **Styling**        | Tailwind CSS v4            |
 
 ### ⚙️ Backend
 
 | Technology               | Version/Description         |
 | ------------------------ | --------------------------- |
-| **API Framework**        | [API framework description] |
-| **Database ORM**         | [ORM][version]              |
-| **Database**             | [Database type and client]  |
-| **Authentication**       | [Auth service]              |
-| **[Additional Service]** | [Service description]       |
+| **API Framework**        | Next.js API Routes          |
+| **Database ORM**         | Supabase                    |
+| **Database**             | Supabase                    |
+| **Authentication**       | Supabase Auth               |
+| **Payment Processing**   | Stripe                      |
 
 ### 🧰 Development Tools
 
-| Tool                    | Purpose           |
-| ----------------------- | ----------------- |
-| **TypeScript**          | Type checking     |
-| **[Testing Framework]** | Testing framework |
-| **[Testing Library]**   | Component testing |
-| **ESLint**              | Code linting      |
+| Tool           | Purpose                                 |
+| -------------- | --------------------------------------- |
+| **TypeScript** | Type checking and static analysis        |
+| **Prettier**   | Code formatting and style consistency   |
+| **ESLint**     | Code linting and enforcing best practices|
+| **Husky**      | Git hooks for pre-commit checks         |
+| **Commitlint** | Enforces commit message conventions     |
 
 ---
 
 ## 💾 Database Schema
 
-The application uses a [Database Type] database with the following key models:
+The application uses a PostgreSQL(Supabase) database. Below is the ERD (Entity Relationship Diagram) illustrating the key models and their relationships:
 
-### 👤 [Primary Entity] (e.g., User)
-
-| Field     | Type     | Description                    |
-| --------- | -------- | ------------------------------ |
-| id        | String   | Unique identifier              |
-| [field1]  | String   | [Description]                  |
-| [field2]  | String   | [Description]                  |
-| [field3]  | String   | [Description]                  |
-| [field4]  | Enum     | [Description with enum values] |
-| createdAt | DateTime | Record creation timestamp      |
-| updatedAt | DateTime | Record update timestamp        |
-
-**Relationships**: [Describe relationships to other entities]
-
-### 🏢 [Secondary Entity]
-
-| Field     | Type     | Description               |
-| --------- | -------- | ------------------------- |
-| id        | String   | Unique identifier         |
-| [field1]  | String   | [Description]             |
-| [field2]  | String   | [Description]             |
-| [field3]  | String   | [Description]             |
-| createdAt | DateTime | Record creation timestamp |
-| updatedAt | DateTime | Record update timestamp   |
-
-**Relationships**: [Describe relationships to other entities]
-
-<!-- Add additional entities as needed -->
+![ERD Image](https://github.com/rajakrishna/smart-gym/blob/master/public/erd-image.png)
 
 ---
 
@@ -237,10 +232,15 @@ The application uses [Authentication Service] for authentication. The authentica
 
 ---
 
-## 🔌 API Structure
+## 🔌 API's
 
-The application uses [API framework] organized by feature:
+The application uses Next.js API Routes organized by feature:
 
+### API's Overview
+
+<!-- Example: 
+| `/api/[notifications]` | Manage  notifications |
+-->
 | API Endpoint       | Purpose               |
 | ------------------ | --------------------- |
 | `/api/[endpoint1]` | [Purpose description] |
@@ -250,6 +250,28 @@ The application uses [API framework] organized by feature:
 | `/api/[endpoint5]` | [Purpose description] |
 
 ---
+
+### API Endpoints
+
+<!-- Example: 
+- API Endpoint: `/api/notifications	`
+- Purpose: Manage notifications
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to notifications page
+  - Admin user clicks on "Manage Notifications" button
+  - Admin user is redirected to notifications page
+-->
+- API Endpoint: `/api/[endpoint1]`
+- Purpose: [Purpose description]
+- Triggered by: [Triggered by description]
+- Steps:
+  - [Step 1]
+  - [Step 2]
+  - [Step 3]
+  - [Step 4]
+
 
 ## 🧩 Component Structure
 
@@ -307,15 +329,15 @@ The application uses a component-based architecture with the following key compo
 
 ## 🚀 Deployment
 
-The application is designed to be deployed using modern cloud infrastructure:
+The application is designed to be deployed using Vercel and Supabase:
 
-| Component                 | Deployment Solution               |
-| ------------------------- | --------------------------------- |
-| **Frontend and API**      | [Deployment platform description] |
-| **Database**              | [Database hosting solution]       |
-| **Authentication**        | [Auth service hosting]            |
-| **File Storage**          | [Storage solution]                |
-| **Environment Variables** | [Environment management]          |
+| Component                 | Deployment Solution         |
+| ------------------------- | -------------------------- |
+| **Frontend and API**      | Vercel                     |
+| **Database**              | Supabase (PostgreSQL)      |
+| **Authentication**        | Supabase Auth              |
+| **File Storage**          | Supabase Storage           |
+| **Environment Variables** | Vercel Environment Manager |
 
 ---
 
@@ -323,21 +345,27 @@ The application is designed to be deployed using modern cloud infrastructure:
 
 ### Choose a Jira ticket
 
-- In Jira, find a ticket to work on
-- Assign it to yourself and mark it as 'In Progress'
+- In Jira, find a ticket to work on.
+- Assign it to yourself and mark it as 'In Progress'.
+
+### Create a branch from JIRA
+
+- Use the JIRA interface to create a branch directly from the ticket. This will generate a branch name based on the ticket number and description.
+- Follow the prompts to select the repository and branch source (usually `master`).
+- Once the branch is created, copy the branch name.
 
 ### Local work
 
-- Make sure your local repo is up to date (make sure you have main checked out locally first):
+- Fetch the branch you created in Jira from the remote repository:
 
   ```bash
-  git pull origin main
+  git fetch origin [BRANCH-NAME]
   ```
 
-- Create a new branch locally. Make sure to only use the Jira ticket:
+- Check out the new branch:
 
   ```bash
-  git checkout -b [TICKET-NUMBER]
+  git checkout -b [BRANCH-NAME] origin/[BRANCH-NAME]
   ```
 
 - Make your changes and then stage them. Commits should be either feat, chore, or fix. Make sure the Jira ticket is at the end in parentheses:
@@ -368,16 +396,16 @@ The application is designed to be deployed using modern cloud infrastructure:
 
 - Under [GITHUB_REPO_URL/branches] you should find the branch you just pushed. Click on it.
 - Click "Compare & pull request".
-- Make sure base is set to main at the top.
+- Make sure base is set to master at the top.
 - Adjust the title as needed and add a description.
 - Add reviewers (2) by clicking the gear.
 - Click "Create pull request".
-- Once the PR is approved, the assignee (you) should complete the pull request by merging to main and delete the branch.
+- Once the PR is approved, the assignee (you) should complete the pull request by merging to master and delete the branch.
 - Go back to Jira and change ticket status to done.
 
-## 🎨 Design System
 
-<!-- Replace with your project's design system -->
+
+## 🎨 Design System
 
 In order to use the in-line color schema within any front-end component, under `className`, use one of the following color configuration names:
 
@@ -396,29 +424,3 @@ These can be applied to background colors, text colors, and border colors using 
 ```jsx
 <div className='bg-primary-[color] p-4'>This div has a primary [color] background.</div>
 ```
-
-### API Route Differences
-
-<!-- Add specific API route explanations if needed -->
-
-`/api/[route1]/route.js`
-
-This [brief description of what the route does].
-It's triggered when [trigger description].
-
-Steps:
-
-- [Step 1]
-- [Step 2]
-- [Step 3]
-- [Final outcome]
-
-`/api/[route2]/route.js`
-Purpose: [Brief description]
-Triggered by: [Trigger description]
-
-Steps:
-
-- [Step 1]
-- [Step 2]
-- [Final outcome]
