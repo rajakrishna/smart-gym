@@ -35,72 +35,71 @@ An app that serves as a center for membership management, class scheduling, orde
 
 ## Team Contributors To The Project
 
-<div style="width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
-    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px; border-radius: 50%;">
-      <a href="https://www.linkedin.com/in/joeaguado">
+<table style="width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
+  <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
+    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px; border-radius: 50%;">
+      <a href="www.linkedin.com/in/joeaguado">
         <img src="https://github.com/user-attachments/assets/ed822669-8b90-4d8e-bd15-82513aaffe3e" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%; "alt="Joe Aguado Profile Picture" /><br />
         <sub><b>Joe Aguado</b></sub>
       </a>
-    </div>
-    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </td>
+    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/gojoego/">
         <img src="https://media.licdn.com/dms/image/v2/C5603AQGAtMQlfyBafw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1525922045693?e=1755734400&v=beta&t=CtFk8lDe7GgoOU3NSKkp_GsZGqcD9J3nsRiacSldjb4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Joe Gallego Profile Picture" /><br />
         <sub><b>Joe Gallego</b></sub>
       </a>
-    </div>
-    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </td>
+    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://linkedin.com/in/noahwhlim">
         <img src="https://avatars.githubusercontent.com/u/91938285?v=4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Noah Lim Profile Picture" /><br />
         <sub><b>Noah Lim</b></sub>
       </a>
-    </div>
-    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </td>
+    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/devmonika/">
         <img src="https://avatars.githubusercontent.com/u/85965486?v=4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Monika Profile Picture" /><br />
         <sub><b>Monika Garg</b></sub>
       </a>
-    </div>
-    </div>
-   <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
-    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </td>
+    </tr>
+   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
+    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/dannyrivasdev/">
         <img src="https://github.com/user-attachments/assets/53cebcf7-2e3e-46f3-9346-94ec5a27ad19" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" 
         alt="Danny Rivas Profile Picture" /><br />
         <sub><b>Danny Rivas</b></sub>
       </a>
-    </div>
-    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </td>
+    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/developerdiego/">
         <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_200_200/B56ZYiPX.lHoAY-/0/1744331178327?e=1753473600&v=beta&t=R18fxZsGd_s84v-PEXi0cmmZfHT4jjmqBBGMsrW6Gj8" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
         <sub><b>Diego Espino</b></sub>
       </a>
-    </div>
-    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </td>
+    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/sunnith-ch/">
         <img src="https://media.licdn.com/dms/image/v2/D4E35AQFNoT9iC9_h1A/profile-framedphoto-shrink_400_400/B4EZfSaDO2HwAc-/0/1751581734372?e=1752937200&v=beta&t=4YOJlnlGTsUdbsUa0NqXLf6h5HlfmBE9uKYJRGckBSM" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Sunnith Profile Picture" /><br />
         <sub><b>Sunnith CH</b></sub>
       </a>
-    </div>
-    </div>  
-   <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
-    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </td>
+    </tr>  
+   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
+    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/rajakrishna/">
         <img src="https://media.licdn.com/dms/image/v2/D5603AQFDLs3Zm3m01A/profile-displayphoto-shrink_200_200/B56Zd56YWwGoAc-/0/1750097037071?e=1755734400&v=beta&t=BMpj0zVVOMehE_fiukehMx2GkxnrZvAtZ9UsDSjUPDo" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Raja Krishna Profile Picture" /><br />
         <sub><b>Raja Krishna</b></sub>
         <br /><sub>(Tech Lead)</sub>
       </a>
-    </div>
-    <div align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+    </td>
+    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/belle-duran-127760204/">
         <img src="https://media.licdn.com/dms/image/v2/C4E03AQG61KH5tTPj3A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1617765154387?e=1755734400&v=beta&t=OfW7wIAZ5cQ9h1LIupO-L7sxVB25wqBw8nJYGaKgCs4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Belle Duran Profile Picture" /><br />
         <sub><b>Belle Duran</b></sub>
         <br /><sub>(Tech Lead)</sub>
       </a>
-    </div>
-  </div>
-</div>
-
+    </td>
+  </tr>
+</table>
 # 💪 Smart Gym Documentation
 
 ## 📑 Table of Contents
