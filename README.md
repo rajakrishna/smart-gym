@@ -101,19 +101,19 @@ An app that serves as a center for membership management, class scheduling, orde
 
 ## 📑 Table of Contents
 
-1. [📌 Introduction](#introduction)
-2. [🏗️ Architecture Overview](#architecture-overview)
-3. [🛠️ Technology Stack](#technology-stack)
-4. [💾 Database Schema](#database-schema)
-5. [🔐 Authentication Flow](#authentication-flow)
-6. [✨ Key Features](#key-features)
-7. [🔌 API Structure](#api-structure)
-8. [🧩 Component Structure](#component-structure)
-9. [🔄 Data Flow](#data-flow)
-10. [🚀 Deployment](#deployment)
+1. [📌 Introduction](#-introduction)
+2. [🏗️ Architecture Overview](#-architecture-overview)
+3. [🛠️ Technology Stack](#-technology-stack)
+4. [💾 Database Schema](#-database-schema)
+5. [🔐 Authentication Flow](#-authentication-flow)
+6. [✨ Key Features](#-key-features)
+7. [🔌 API Details](#-api-details)
+8. [🧩 Component Structure](#-component-structure)
+9. [🔄 Data Flow](#-data-flow)
+10. [🚀 Deployment](#-deployment)
 11. [📝 Commitlint Configuration](#-commitlint-configuration)
-12. [💻 Jira/Git Workflow](#Jira)
-13. [🎨 Design System](#design-system)
+12. [💻 Jira/Git Workflow](#-jiragit-workflow)
+13. [🎨 Design System](#-design-system)
 
 ---
 
@@ -229,11 +229,11 @@ The application uses [Authentication Service] for authentication. The authentica
 
 ---
 
-## 🔌 API's
+## 🔌 API Details
 
 The application uses Next.js API Routes organized by feature:
 
-### API's Overview
+### API Overview
 
 <!-- Example:
 | `/api/[notifications]` | Manage  notifications |
