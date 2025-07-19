@@ -114,6 +114,7 @@ An app that serves as a center for membership management, class scheduling, orde
 11. [📝 Commitlint Configuration](#-commitlint-configuration)
 12. [💻 Jira/Git Workflow](#-jiragit-workflow)
 13. [🎨 Design System](#-design-system)
+14. [📝 Code Organization & Best Practices](#-code-organization--best-practices)
 
 ---
 
@@ -411,7 +412,7 @@ refactor: simplify user profile component (PROJ-303)
   ```
 
 - Make your changes and then stage them. All commit messages must follow the project commitlint rules (see [Commitlint Configuration](#-commitlint-configuration) section above):
-  - Start with one of the allowed commit types: `feat`, `fix`, `chore`, `docs`, `style`, `refactor`, `revert`, `build`, or `ci`
+  - Start with one of the allowed commit types: `feat`, `fix`, `chore`, `docs`, `style`, `refactor`, `revert`, `build` or `ci`
   - Keep the header under 120 characters
   - The Jira ticket number should be at the end in parentheses
 
@@ -456,7 +457,7 @@ In order to use the in-line color schema within any front-end component, under `
 - `neutral-[color]`
 - `[additional-color-names]`
 
-These can be applied to background colors, text colors, and border colors using [CSS framework]'s utility classes.
+These can be applied to background colors, text colors and border colors using [CSS framework]'s utility classes.
 
 ### Example Usage
 
@@ -465,3 +466,23 @@ These can be applied to background colors, text colors, and border colors using 
 ```jsx
 <div className='bg-primary-[color] p-4'>This div has a primary [color] background.</div>
 ```
+
+## 📝 Code Organization & Best Practices
+
+| Directory / File      | Description                                                               |
+| --------------------- | ------------------------------------------------------------------------- |
+| `app/`                | Main application directory containing pages, API routes and entry points. |
+| `app/api/`            | API route handlers (e.g., REST endpoints for client-server comms).        |
+| `components/`         | Reusable React components and UI building blocks.                         |
+| `constants/`          | Constants.                                                                |
+| `constants/labels.ts` | All hardcoded strings, labels and configuration values.                   |
+| `constants/icons.ts`  | Icon imports and icon component references.                               |
+| `context/`            | React createContext, useContext hooks.                                    |
+| `hooks/`              | Custom React hooks.                                                       |
+| `types/`              | TypeScript type definitions and interfaces.                               |
+| `types/shared.ts`     | Shared types/interfaces used across client and server.                    |
+| `utils/`              | Utility functions.                                                        |
+| `public/`             | Static assets (images, fonts, etc.) served directly by the app.           |
+| `README.md`           | Project documentation and guidelines.                                     |
+
+> **Tip:** Keep files and directories focused and organized according to their purpose for maintainability.
