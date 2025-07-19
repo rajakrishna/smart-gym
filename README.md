@@ -1,14 +1,10 @@
 ![smart-gym-logo](https://github.com/rajakrishna/smart-gym/blob/master/public/smart-gym-logo.png)
 
-
-
 # Smart Gym
 
 Coordinating and organizing operations for a gym to make life easier for staff and members.
 
 An app that serves as a center for membership management, class scheduling, ordering from the cafe and analytics for membership growth and usage.
-
-
 
 # Technologies Used
 
@@ -115,8 +111,9 @@ An app that serves as a center for membership management, class scheduling, orde
 8. [🧩 Component Structure](#component-structure)
 9. [🔄 Data Flow](#data-flow)
 10. [🚀 Deployment](#deployment)
-11. [💻 Jira/Git Workflow](#Jira)
-12. [🎨 Design System](#design-system)
+11. [📝 Commitlint Configuration](#-commitlint-configuration)
+12. [💻 Jira/Git Workflow](#Jira)
+13. [🎨 Design System](#design-system)
 
 ---
 
@@ -146,32 +143,32 @@ The application follows a [architectural pattern] where [describe the flow betwe
 
 ### 🖥️ Frontend
 
-| Technology         | Version/Description         |
-| ------------------ | -------------------------- |
-| **Framework**      | Next.js 15                 |
-| **UI Library**     | shadcn/ui                  |
-| **Icons**          | Lucide, Radix Icons        |
-| **Styling**        | Tailwind CSS v4            |
+| Technology     | Version/Description |
+| -------------- | ------------------- |
+| **Framework**  | Next.js 15          |
+| **UI Library** | shadcn/ui           |
+| **Icons**      | Lucide, Radix Icons |
+| **Styling**    | Tailwind CSS v4     |
 
 ### ⚙️ Backend
 
-| Technology               | Version/Description         |
-| ------------------------ | --------------------------- |
-| **API Framework**        | Next.js API Routes          |
-| **Database ORM**         | Supabase                    |
-| **Database**             | Supabase                    |
-| **Authentication**       | Supabase Auth               |
-| **Payment Processing**   | Stripe                      |
+| Technology             | Version/Description |
+| ---------------------- | ------------------- |
+| **API Framework**      | Next.js API Routes  |
+| **Database ORM**       | Supabase            |
+| **Database**           | Supabase            |
+| **Authentication**     | Supabase Auth       |
+| **Payment Processing** | Stripe              |
 
 ### 🧰 Development Tools
 
-| Tool           | Purpose                                 |
-| -------------- | --------------------------------------- |
-| **TypeScript** | Type checking and static analysis        |
-| **Prettier**   | Code formatting and style consistency   |
-| **ESLint**     | Code linting and enforcing best practices|
-| **Husky**      | Git hooks for pre-commit checks         |
-| **Commitlint** | Enforces commit message conventions     |
+| Tool           | Purpose                                   |
+| -------------- | ----------------------------------------- |
+| **TypeScript** | Type checking and static analysis         |
+| **Prettier**   | Code formatting and style consistency     |
+| **ESLint**     | Code linting and enforcing best practices |
+| **Husky**      | Git hooks for pre-commit checks           |
+| **Commitlint** | Enforces commit message conventions       |
 
 ---
 
@@ -238,9 +235,10 @@ The application uses Next.js API Routes organized by feature:
 
 ### API's Overview
 
-<!-- Example: 
+<!-- Example:
 | `/api/[notifications]` | Manage  notifications |
 -->
+
 | API Endpoint       | Purpose               |
 | ------------------ | --------------------- |
 | `/api/[endpoint1]` | [Purpose description] |
@@ -253,7 +251,7 @@ The application uses Next.js API Routes organized by feature:
 
 ### API Endpoints
 
-<!-- Example: 
+<!-- Example:
 - API Endpoint: `/api/notifications	`
 - Purpose: Manage notifications
 - Triggered by: Admin user
@@ -263,6 +261,7 @@ The application uses Next.js API Routes organized by feature:
   - Admin user clicks on "Manage Notifications" button
   - Admin user is redirected to notifications page
 -->
+
 - API Endpoint: `/api/[endpoint1]`
 - Purpose: [Purpose description]
 - Triggered by: [Triggered by description]
@@ -271,7 +270,6 @@ The application uses Next.js API Routes organized by feature:
   - [Step 2]
   - [Step 3]
   - [Step 4]
-
 
 ## 🧩 Component Structure
 
@@ -331,7 +329,7 @@ The application uses a component-based architecture with the following key compo
 
 The application is designed to be deployed using Vercel and Supabase:
 
-| Component                 | Deployment Solution         |
+| Component                 | Deployment Solution        |
 | ------------------------- | -------------------------- |
 | **Frontend and API**      | Vercel                     |
 | **Database**              | Supabase (PostgreSQL)      |
@@ -339,7 +337,51 @@ The application is designed to be deployed using Vercel and Supabase:
 | **File Storage**          | Supabase Storage           |
 | **Environment Variables** | Vercel Environment Manager |
 
----
+## 📝 Commitlint Configuration
+
+This project uses [commitlint](https://commitlint.js.org/) to enforce consistent commit message conventions. The configuration extends the conventional commit standards with custom rules.
+
+### Configuration File
+
+The commitlint configuration is defined in `.commitlintrc.json`:
+
+```json
+{
+  "extends": ["@commitlint/config-conventional"],
+  "rules": {
+    "type-enum": [2, "always", ["feat", "fix", "chore", "docs", "style", "refactor", "revert", "build", "ci"]],
+    "header-max-length": [2, "always", 120],
+    "body-max-line-length": [2, "always", 200],
+    "footer-max-line-length": [2, "always", 200],
+    "subject-case": [0, "never", "sentence-case"]
+  }
+}
+```
+
+### Allowed Commit Types
+
+| Type       | Description                                                   |
+| ---------- | ------------------------------------------------------------- |
+| `feat`     | New feature                                                   |
+| `fix`      | Bug fix                                                       |
+| `chore`    | Changes to build process or auxiliary tools                   |
+| `docs`     | Documentation only changes                                    |
+| `style`    | Changes that do not affect the meaning of code                |
+| `refactor` | A code change that neither fixes a bug nor adds a feature     |
+| `revert`   | Reverts a previous commit                                     |
+| `build`    | Changes that affect the build system or external dependencies |
+| `ci`       | Changes to CI configuration files and scripts                 |
+
+### Example Commit Messages
+
+```bash
+feat: add user authentication system (PROJ-123)
+fix: resolve navigation menu display issue (PROJ-456)
+docs: update API documentation (PROJ-789)
+chore: update dependencies to latest versions (PROJ-101)
+style: format code according to prettier rules (PROJ-202)
+refactor: simplify user profile component (PROJ-303)
+```
 
 ## 💻 Jira/Git Workflow
 
@@ -368,22 +410,23 @@ The application is designed to be deployed using Vercel and Supabase:
   git checkout -b [BRANCH-NAME] origin/[BRANCH-NAME]
   ```
 
-- Make your changes and then stage them. Commits should be either feat, chore, or fix. Make sure the Jira ticket is at the end in parentheses:
+- Make your changes and then stage them. All commit messages must follow the project commitlint rules (see [Commitlint Configuration](#-commitlint-configuration) section above):
+  - Start with one of the allowed commit types: `feat`, `fix`, `chore`, `docs`, `style`, `refactor`, `revert`, `build`, or `ci`
+  - Keep the header under 120 characters
+  - The Jira ticket number should be at the end in parentheses
+
+  Example commit commands:
 
   ```bash
-  git commit -m 'feat: [description] ([TICKET-NUMBER])'
+  git commit -m "feat: add new button to dashboard (PROJ-123)"
   ```
 
-  or...
-
   ```bash
-  git commit -m "chore: [description] ([TICKET-NUMBER])"
+  git commit -m "fix: resolve user fetch bug (PROJ-123)"
   ```
 
-  or...
-
   ```bash
-  git commit -m "fix: [description] ([TICKET-NUMBER])"
+  git commit -m "chore: update dependencies (PROJ-123)"
   ```
 
 ### Push to GitHub and make a pull request
@@ -402,8 +445,6 @@ The application is designed to be deployed using Vercel and Supabase:
 - Click "Create pull request".
 - Once the PR is approved, the assignee (you) should complete the pull request by merging to master and delete the branch.
 - Go back to Jira and change ticket status to done.
-
-
 
 ## 🎨 Design System
 
