@@ -58,7 +58,7 @@ pnpm-lock.yaml
 *.js.map
 
 # Documentation that might have specific formatting
-*.md
+
 
 # Configuration files that might have specific formatting requirements
 *.config.js
