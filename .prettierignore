@@ -64,5 +64,7 @@ pnpm-lock.yaml
 *.config.js
 *.config.ts
 next.config.ts
-postcss.config.mjs
-eslint.config.mjs 
+*.mjs
+next-env.d.ts
+
+.prettierrc
