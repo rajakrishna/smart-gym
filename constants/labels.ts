@@ -1,4 +1,16 @@
 const LABELS = {
+  // App branding
+  app: {
+    name: 'Smart Gym',
+  },
+  
+  // Navigation
+  nav: {
+    auth: {
+      login: 'Login',
+    },
+  },
+
   pages: {
     example: {
       title: 'Example',
