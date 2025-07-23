@@ -24,6 +24,18 @@ const LABELS = {
     href3: '#demo',
   },
 
+  marquee: {
+    value1: "400+",
+    label1: "Nationwide Gyms",
+    value2: "20K",
+    label2: "Gym Members",
+    value3: "Ai",
+    label3: "Driven-Experience",
+    value4: "$40B",
+    label4: "Payments Processed"
+  },
+
+
   pages: {
     example: {
       title: 'Example',

@@ -5,7 +5,16 @@ import LABELS from '@/constants/labels';
 import { CirclePlay } from 'lucide-react';
 
 const { header, subHeader1, span, subHeader2, button1, button2, button3, href1, href2, href3 } = LABELS.hero;
+
+const { value1, value2, value3, value4, label1, label2, label3, label4 } = LABELS.marquee;
 const Hero = () => {
+  const MarqueeItem = ({ value, label }: { value: string; label: string }) => (
+    <div className='flex flex-col items-center min-w-[12rem]'>
+      <span className='text-3xl md:text-4xl font-bold drop-shadow-marquee'>{value}</span>
+      <p className='text-sm md:text-xl text-black drop-shadow-marquee'>{label}</p>
+    </div>
+  );
+
   return (
     <section
       className='relative h-screen w-full bg-cover bg-center text-muted'
@@ -41,6 +50,25 @@ const Hero = () => {
                 {button3}
               </a>
             </Button>
+          </div>
+        </div>
+
+        <div className='absolute bottom-30 w-full h-[4rem] md:h-[5rem] z-10 overflow-hidden bg-primary md:py-2'>
+          <div className='animate-marquee marquee-track text-black text-2xl gap-20'>
+            <MarqueeItem value={value1} label={label1} />
+            <MarqueeItem value={value2} label={label2} />
+            <MarqueeItem value={value3} label={label3} />
+            <MarqueeItem value={value4} label={label4} />
+
+            <MarqueeItem value={value1} label={label1} />
+            <MarqueeItem value={value2} label={label2} />
+            <MarqueeItem value={value3} label={label3} />
+            <MarqueeItem value={value4} label={label4} />
+
+            <MarqueeItem value={value1} label={label1} />
+            <MarqueeItem value={value2} label={label2} />
+            <MarqueeItem value={value3} label={label3} />
+            <MarqueeItem value={value4} label={label4} />
           </div>
         </div>
       </div>
