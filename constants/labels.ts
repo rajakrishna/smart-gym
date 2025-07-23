@@ -11,6 +11,14 @@ const LABELS = {
     },
   },
 
+hero:{
+  header: 'Maximimize Your Fitness',
+  subHeader1: 'A Revolutionary',
+  span: 'AI',
+  subHeader2: 'Fitness App'
+
+},
+
   pages: {
     example: {
       title: 'Example',
