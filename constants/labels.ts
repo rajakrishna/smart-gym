@@ -3,7 +3,7 @@ const LABELS = {
   app: {
     name: 'Smart Gym',
   },
-  
+
   // Navigation
   nav: {
     auth: {
@@ -11,13 +11,18 @@ const LABELS = {
     },
   },
 
-hero:{
-  header: 'Maximimize Your Fitness',
-  subHeader1: 'A Revolutionary',
-  span: 'AI',
-  subHeader2: 'Fitness App'
-
-},
+  hero: {
+    header: 'Maximimize Your Fitness',
+    subHeader1: 'A Revolutionary',
+    span: 'AI',
+    subHeader2: 'Fitness App',
+    button1: 'Contact',
+    href1: '#contact',
+    button2: 'Login',
+    href2: '#login',
+    button3: 'Watch Demo',
+    href3: '#demo',
+  },
 
   pages: {
     example: {
