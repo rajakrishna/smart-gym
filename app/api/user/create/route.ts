@@ -20,12 +20,12 @@ export async function POST(request: Request) {
     phone,
     user_image,
     membership_plan,
-    stripe_customer_id
+    stripe_customer_id,
   } = body;
 
   // validation
-  if (!role_name || role_name.trim() === '') {
-    return NextResponse.json({ error: 'Missing role_name' }, { status: 400 });
+  if (!role_name || !['Member', 'Admin'].includes(role_name.trim())) {
+    return NextResponse.json({ error: 'Issue with role_name' }, { status: 400 });
   }
   if (!full_name || full_name.trim() === '') {
     return NextResponse.json({ error: 'Missing full_name' }, { status: 400 });
@@ -48,8 +48,8 @@ export async function POST(request: Request) {
   if (!state || state.trim() === '') {
     return NextResponse.json({ error: 'Missing state' }, { status: 400 });
   }
-  if (!zip_code || zip_code.trim() === '') {
-    return NextResponse.json({ error: 'Missing zip_code' }, { status: 400 });
+  if (!zip_code || !/^\d{5}$/.test(zip_code.trim())) {
+    return NextResponse.json({ error: 'Invalid zip_code: must be exactly 5 digits' }, { status: 400 });
   }
   if (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
     return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
@@ -65,9 +65,9 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: 'Invalid user_image URL' }, { status: 400 });
   }
-  if (!membership_plan || membership_plan.trim() === '') {
-    return NextResponse.json({ error: 'Missing membership_plan' }, { status: 400 });
-  }
+if (!membership_plan || !['Basic', 'Standard', 'Premium'].includes(membership_plan.trim())) {
+    return NextResponse.json({ error: 'Invalid membership_plan: must be Basic, Standard, or Premium' }, { status: 400 });
+}
   if (!stripe_customer_id || stripe_customer_id.trim() === '') {
     return NextResponse.json({ error: 'Missing stripe_customer_id' }, { status: 400 });
   }
