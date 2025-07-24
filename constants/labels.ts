@@ -3,7 +3,7 @@ const LABELS = {
   app: {
     name: 'Smart Gym',
   },
-  
+
   // Navigation
   nav: {
     auth: {
@@ -24,6 +24,17 @@ const LABELS = {
     cafe: 'Cafe',
     messages: 'Messages',
     profile: 'Profile',
+  },
+  // Admin navigation
+  admin: {
+    navigation: {
+      dashboard: 'Dashboard',
+      messages: 'Messages',
+      analytics: 'Analytics',
+      classSchedules: 'Class Schedules',
+      members: 'Members',
+      cafe: 'Cafe',
+    },
   },
   metadata: {
     app: {
