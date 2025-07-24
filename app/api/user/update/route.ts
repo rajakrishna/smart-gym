@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
 import { createClient } from '@/utils/supabase/server';
+import { validateUserData, ValidationMessage } from '@/lib/userInfoValidation';
 
 export async function PATCH(request: Request) {
   const supabase = await createClient();
@@ -16,6 +17,11 @@ export async function PATCH(request: Request) {
   const { user_id } = body;
   if (!user_id) {
     return NextResponse.json({ error: 'Missing user_id to identify user' }, { status: 400 });
+  }
+
+  const validationErrors: ValidationMessage[] = validateUserData(body);
+  if (validationErrors.length > 0) {
+    return NextResponse.json({ error: validationErrors[0].message }, { status: 400 });
   }
 
   // allowed fields for updating
@@ -43,9 +49,8 @@ export async function PATCH(request: Request) {
   for (const field of allowedFields) {
     if (field in body) {
       updates[field] = body[field];
-    }
-    else {
-        return NextResponse.json({ error: 'Invalid field provided' }, { status: 400 });
+    } else {
+      return NextResponse.json({ error: field + " is not a valid field" }, { status: 400 });
     }
   }
 
