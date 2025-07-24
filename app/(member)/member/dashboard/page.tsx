@@ -1,8 +1,11 @@
 import React from 'react'
+import MemberWelcome from '@/components/layouts/member/member-welcome-banner'
 
 const page = () => {
     return (
-        <div>page</div>
+        <div>
+        <MemberWelcome />
+        </div>
     )
 }
 
