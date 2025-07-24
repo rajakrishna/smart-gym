@@ -44,6 +44,9 @@ export async function PATCH(request: Request) {
     if (field in body) {
       updates[field] = body[field];
     }
+    else {
+        return NextResponse.json({ error: 'Invalid field provided' }, { status: 400 });
+    }
   }
 
   if (Object.keys(updates).length === 0) {
