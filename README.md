@@ -242,7 +242,7 @@ The application uses Next.js API Routes organized by feature:
 
 | API Endpoint       | Purpose               |
 | ------------------ | --------------------- |
-| `/api/[endpoint1]` | [Purpose description] |
+| `/api/messages`    | get all messages      |
 | `/api/[endpoint2]` | [Purpose description] |
 | `/api/[endpoint3]` | [Purpose description] |
 | `/api/[endpoint4]` | [Purpose description] |
