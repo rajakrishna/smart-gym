@@ -3,13 +3,38 @@ const LABELS = {
   app: {
     name: 'Smart Gym',
   },
-  
+
   // Navigation
   nav: {
     auth: {
       login: 'Login',
     },
   },
+
+  hero: {
+    header: 'Maximimize Your Fitness',
+    subHeader1: 'A Revolutionary',
+    span: 'AI',
+    subHeader2: 'Fitness App',
+    button1: 'Contact',
+    href1: '#contact',
+    button2: 'Login',
+    href2: '#login',
+    button3: 'Watch Demo',
+    href3: '#demo',
+  },
+
+  marquee: {
+    value1: "400+",
+    label1: "Nationwide Gyms",
+    value2: "20K",
+    label2: "Gym Members",
+    value3: "Ai",
+    label3: "Driven-Experience",
+    value4: "$40B",
+    label4: "Payments Processed"
+  },
+
 
   pages: {
     example: {
@@ -24,6 +49,17 @@ const LABELS = {
     cafe: 'Cafe',
     messages: 'Messages',
     profile: 'Profile',
+  },
+  // Admin navigation
+  admin: {
+    navigation: {
+      dashboard: 'Dashboard',
+      messages: 'Messages',
+      analytics: 'Analytics',
+      classSchedules: 'Class Schedules',
+      members: 'Members',
+      cafe: 'Cafe',
+    },
   },
   metadata: {
     app: {
