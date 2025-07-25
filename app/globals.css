@@ -122,3 +122,43 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-[1252px] px-16 max-xl:px-10 max-lg:px-6 max-sm:px-4;
+  }
+
+  .h1 {
+    @apply text-xl font-semibold leading-[52px];
+  }
+
+
+}
+
+
+/* --- Custom Marquee Animation --- */
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 70s linear infinite;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: 200%;
+    white-space:nowrap
+  }
+   .drop-shadow-marquee {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+

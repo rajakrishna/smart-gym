@@ -1,4 +1,21 @@
-import { LayoutDashboard, LogIn, Dumbbell, Home, Calendar, Coffee, MessageSquare, User } from 'lucide-react';
+import {
+  BarChart3,
+  Bell,
+  Calendar,
+  Coffee,
+  Dumbbell,
+  Home,
+  LayoutDashboard,
+  LogIn,
+  LogOut,
+  MessageSquare,
+  MoreVertical,
+  Plus,
+  Search,
+  User,
+  UserCircle,
+  Users,
+} from 'lucide-react';
 
 const ICONS = {
   // Layout icons
@@ -9,9 +26,33 @@ const ICONS = {
   messageSquare: MessageSquare,
   user: User,
   login: LogIn,
-  
-  // Content icons
+
+  // Gym Logo icons
   dumbbell: Dumbbell,
+
+  // Admin icons
+  admin: {
+    dashboard: LayoutDashboard,
+    messages: MessageSquare,
+    analytics: BarChart3,
+    classSchedules: Calendar,
+    members: Users,
+    cafe: Coffee,
+    branding: Dumbbell,
+  },
+
+  adminMembersPage: {
+    search: Search,
+    addMember: Plus,
+  },
+
+  // Admin User menu icons
+  userMenu: {
+    moreVertical: MoreVertical,
+    userCircle: UserCircle,
+    notifications: Bell,
+    logout: LogOut,
+  },
 } as const;
 
 export default ICONS;
