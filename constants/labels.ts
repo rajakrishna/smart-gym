@@ -38,7 +38,8 @@ const LABELS = {
   memberDash:{
     firstName: "John",
     imageURL: "/assets/p1.png",
-    greeting: "Hello there,"
+    greeting: "Hello there,",
+    profileHref:"/member/profile"
   },
 
 
