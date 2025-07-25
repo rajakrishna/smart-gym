@@ -123,6 +123,19 @@
   }
 }
 
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-[1252px] px-16 max-xl:px-10 max-lg:px-6 max-sm:px-4;
+  }
+
+  .h1 {
+    @apply text-xl font-semibold leading-[52px];
+  }
+
+
+}
+
+
 /* --- Custom Marquee Animation --- */
 @layer utilities {
   @keyframes marquee {
@@ -148,3 +161,4 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
 }
+
