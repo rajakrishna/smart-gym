@@ -16,59 +16,52 @@ const Hero = () => {
   );
 
   return (
-    <section
-      className='relative h-screen w-full bg-cover bg-center text-muted'
+<section
+      className='relative w-full min-h-screen bg-cover bg-center text-muted'
       style={{ backgroundImage: `url('/assets/hero.png')` }}
     >
+      {/* Dark overlay */}
       <div className='absolute inset-0 bg-black/10 z-0' />
 
-      <div className='relative z-10 h-full flex flex-col'>
-        <div className='flex-1' />
-        <div className='flex-1 flex flex-col items-center text-center mx-auto'>
-          <h1 className='text-[28px] md:text-[58px] font-bold mb-0 md:-mb-2'>{header}</h1>
-          <p className='text-md md:text-3xl uppercase font-bold tracking-wide md:tracking-widest'>
-            {subHeader1} <span className='text-primary'>{span} </span>
-            {subHeader2}
-          </p>
-          <div className='flex gap-8 pt-4'>
-            <Button
-              asChild
-              variant='outline'
-              className='w-[8rem] border-primary border-2 bg-transparent hover:border-white hover:cursor-pointer'
-            >
-              <a href={href1}>{button1}</a>
-            </Button>
-            <Button asChild className='w-[8rem] text-black hover:cursor-pointer'>
-              <a href={href2}>{button2}</a>
-            </Button>
-          </div>
+      {/* Content container */}
+      <div className='relative z-10 flex flex-col items-center text-center px-4 pb-10 pt-[50vh]'>
+        
+        <h1 className='text-[28px] md:text-[58px] font-bold mb-0 md:-mb-2'>{header}</h1>
+        <p className='text-md md:text-3xl uppercase font-bold tracking-wide md:tracking-widest'>
+          {subHeader1} <span className='text-primary'>{span}</span> {subHeader2}
+        </p>
 
-          <div className='pt-4'>
-            <Button asChild className='bg-transparent text-xl hover:cursor-pointer hover:bg-transparent'>
-              <a href={href3}>
-                <CirclePlay className='w-10 h-10' />
-                {button3}
-              </a>
-            </Button>
-          </div>
+        <div className='flex gap-8 pt-4'>
+          <Button
+            asChild
+            variant='outline'
+            className='w-[8rem] border-primary border-2 bg-transparent hover:border-white hover:cursor-pointer'
+          >
+            <a href={href1}>{button1}</a>
+          </Button>
+          <Button asChild className='w-[8rem] text-black hover:cursor-pointer'>
+            <a href={href2}>{button2}</a>
+          </Button>
         </div>
 
-        <div className='absolute bottom-30 w-full h-[4rem] md:h-[5rem] z-10 overflow-hidden bg-primary md:py-2'>
-          <div className='animate-marquee marquee-track text-black text-2xl gap-20'>
-            <MarqueeItem value={value1} label={label1} />
-            <MarqueeItem value={value2} label={label2} />
-            <MarqueeItem value={value3} label={label3} />
-            <MarqueeItem value={value4} label={label4} />
+        <div className='pt-4'>
+          <Button asChild className='bg-transparent text-xl hover:cursor-pointer hover:bg-transparent'>
+            <a href={href3}>
+              <CirclePlay className='w-10 h-10' />
+              {button3}
+            </a>
+          </Button>
+        </div>
 
-            <MarqueeItem value={value1} label={label1} />
-            <MarqueeItem value={value2} label={label2} />
-            <MarqueeItem value={value3} label={label3} />
-            <MarqueeItem value={value4} label={label4} />
-
-            <MarqueeItem value={value1} label={label1} />
-            <MarqueeItem value={value2} label={label2} />
-            <MarqueeItem value={value3} label={label3} />
-            <MarqueeItem value={value4} label={label4} />
+        {/* Marquee */}
+        <div className='w-screen mt-8 overflow-hidden bg-primary py-4'>
+          <div className='animate-marquee marquee-track text-black text-2xl flex gap-20 whitespace-nowrap'>
+            {[...Array(3)].flatMap(() => [
+              <MarqueeItem key={`1-${Math.random()}`} value={value1} label={label1} />,
+              <MarqueeItem key={`2-${Math.random()}`} value={value2} label={label2} />,
+              <MarqueeItem key={`3-${Math.random()}`} value={value3} label={label3} />,
+              <MarqueeItem key={`4-${Math.random()}`} value={value4} label={label4} />,
+            ])}
           </div>
         </div>
       </div>
