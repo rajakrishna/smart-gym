@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 
 import { createClient } from '@/utils/supabase/server';
 
-export async function GET(request: Request, { params }: { params: { userId: string } }) {
-  const { userId } = params;
+export async function GET(request: Request, { params }: { params: Promise<{ userId: string }>}) {
+  const { userId } = await params;
 
   const supabase = await createClient();
 
@@ -15,5 +15,4 @@ export async function GET(request: Request, { params }: { params: { userId: stri
 
   // console.log(user)
   return NextResponse.json(user);
-
 }
