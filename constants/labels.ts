@@ -1,7 +1,7 @@
 const LABELS = {
   // App branding
   app: {
-    name: 'Smart Gym',
+    name: 'FITMAX',
   },
 
   // Navigation
@@ -34,14 +34,6 @@ const LABELS = {
     value4: '$40B',
     label4: 'Payments Processed',
   },
-
-  memberDash:{
-    firstName: "John",
-    imageURL: "/assets/p1.png",
-    greeting: "Hello there,",
-    profileHref:"/member/profile"
-  },
-
 
   pages: {
     example: {
