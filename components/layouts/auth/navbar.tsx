@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import ICONS from '@/constants/icons';
 import LABELS from '@/constants/labels';
 
 export function AuthNavbar() {
