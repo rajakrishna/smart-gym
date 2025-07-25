@@ -1,6 +1,6 @@
 import { cookies } from "next/headers"
 
-import "@/app/(admin)/theme.css"
+import "@/app/admin/theme.css"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/layouts/admin/app-sidebar"
 import { SiteHeader } from "@/components/layouts/admin/site-header"
