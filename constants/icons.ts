@@ -10,6 +10,8 @@ import {
   LogOut,
   MessageSquare,
   MoreVertical,
+  Plus,
+  Search,
   User,
   UserCircle,
   Users,
@@ -37,6 +39,11 @@ const ICONS = {
     members: Users,
     cafe: Coffee,
     branding: Dumbbell,
+  },
+
+  adminMembersPage: {
+    search: Search,
+    addMember: Plus,
   },
 
   // Admin User menu icons
