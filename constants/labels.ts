@@ -25,14 +25,14 @@ const LABELS = {
   },
 
   marquee: {
-    value1: "400+",
-    label1: "Nationwide Gyms",
-    value2: "20K",
-    label2: "Gym Members",
-    value3: "Ai",
-    label3: "Driven-Experience",
-    value4: "$40B",
-    label4: "Payments Processed"
+    value1: '400+',
+    label1: 'Nationwide Gyms',
+    value2: '20K',
+    label2: 'Gym Members',
+    value3: 'Ai',
+    label3: 'Driven-Experience',
+    value4: '$40B',
+    label4: 'Payments Processed',
   },
 
   memberDash:{
@@ -48,6 +48,26 @@ const LABELS = {
       title: 'Example',
       description: 'This is an example page',
       link: '/example',
+    },
+    admin_members: {
+      columns: {
+        accessorKeys: {
+          memberName: 'memberName',
+          memberEmail: 'memberEmail',
+          memberPhone: 'memberPhone',
+          memberCheckedInStatus: 'memberCheckedInStatus',
+        },
+        header: {
+          memberName: 'Member Name',
+          memberEmail: 'Member Email',
+          memberPhone: 'Member Phone',
+          memberCheckedInStatus: 'Member Checked In Status',
+        },
+      },
+      buttons: {
+        addMember: 'Add Member',
+        searchMembers: 'Search Members',
+      },
     },
   },
   navigation: {
