@@ -35,6 +35,12 @@ const LABELS = {
     label4: "Payments Processed"
   },
 
+  memberDash:{
+    firstName: "John",
+    imageURL: "/assets/p1.png",
+    greeting: "Hello there,"
+  },
+
 
   pages: {
     example: {
