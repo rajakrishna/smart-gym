@@ -18,10 +18,12 @@ export type Messages = {
 }
 
 const messageTypeBadge = (messageType: string) => {
-    if (messageType === "Email") {
+    if (messageType === "email") {
         return <Badge variant="outline" className="bg-blue-500 text-white"><span className="font-medium">{messageType}</span></Badge>
-    } else if (messageType === "SMS") {
+    } else if (messageType === "sms") {
         return <Badge variant="outline" className="bg-green-500 text-white"><span className="font-medium">{messageType}</span></Badge>
+    } else if (messageType === "push") {
+        return <Badge variant="outline" className="bg-yellow-500 text-white"><span className="font-medium">{messageType}</span></Badge>
     } else {
         return <Badge variant="outline" className="bg-gray-500 text-white"><span className="font-medium">{messageType}</span></Badge>
     }
