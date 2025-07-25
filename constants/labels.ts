@@ -1,7 +1,7 @@
 const LABELS = {
   // App branding
   app: {
-    name: 'Smart Gym',
+    name: 'FITMAX',
   },
 
   // Navigation
