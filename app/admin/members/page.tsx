@@ -1,11 +1,11 @@
 // page.tsx (server component) is where we'll fetch data and render our table.
 import React from 'react'
-import { DataTable } from '../../../../components/ui/data-table'
 import { columns } from './columns'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
+import { DataTable } from '@/components/ui/data-table'
 
 async function getData() {
     // Mock data for demonstration - in a real app, this would fetch from your database
