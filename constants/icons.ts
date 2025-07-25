@@ -2,8 +2,10 @@ import {
   BarChart3,
   Bell,
   Calendar,
+  Clock,
   Coffee,
   Dumbbell,
+  Filter,
   Home,
   LayoutDashboard,
   LogIn,
@@ -12,9 +14,13 @@ import {
   MoreVertical,
   Plus,
   Search,
+  Tag,
+  Trash2,
   User,
   UserCircle,
   Users,
+  X,
+  XCircle,
 } from 'lucide-react';
 
 const ICONS = {
@@ -52,6 +58,19 @@ const ICONS = {
     userCircle: UserCircle,
     notifications: Bell,
     logout: LogOut,
+  },
+
+  // Class Schedules icons
+  classSchedules: {
+    add: Plus,
+    cancel: X,
+    delete: Trash2,
+    time: Clock,
+    coach: User,
+    type: Tag,
+    calendar: Calendar,
+    filter: Filter,
+    cancelClass: XCircle,
   },
 } as const;
 
