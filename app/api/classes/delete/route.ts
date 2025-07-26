@@ -12,12 +12,12 @@ export async function DELETE(req: NextRequest) {
     }
 
     const { error } = await supabase
-      .from('Classes')
-      .delete()
-      .eq('class_id', class_id);
+        .from('Classes')
+        .delete()
+        .eq('class_id', class_id);
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+        return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
     return NextResponse.json({ message: 'Class deleted successfully' });
