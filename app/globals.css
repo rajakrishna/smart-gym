@@ -132,7 +132,10 @@ html {
   }
 
   .h1 {
-    @apply text-xl font-semibold leading-[52px];
+    @apply text-xl font-semibold leading-[36px];
+  }
+  .h2 {
+    @apply text-xl font-semibold leading-[22px];
   }
 
 
