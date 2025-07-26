@@ -1,32 +1,34 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
 
-export async function DELETE(
-    request: Request,
-    { params }: { params: {message_id: string}}
-) {
-    const supabase = await createClient(); 
-    const messageId = params.message_id;
+export async function DELETE(request: NextRequest) {
+  const supabase = await createClient();
 
-    if (!messageId) {
-        return NextResponse.json(
-            { status: "error", message: "missing message_id" }, 
-            { status: 400 }
-        );
-    }    
+  // https://nextjs.org/docs/messages/sync-dynamic-apis
+  // https://developer.mozilla.org/en-US/docs/Web/API/URL/URL 
+  const url = new URL(request.url);
+  const segments = url.pathname.split("/");
+  const message_id = segments[segments.length - 1];
 
-    const { data, error } = await supabase
-        .from('messages')
-        .delete()
-        .eq("message_id", messageId)
-        .select();
-        
-    if (error) {
-        return NextResponse.json(
-            {status: 'error', message: error.message }, 
-            { status: 500 }
-        );
-    }
+  if (!message_id) {
+    return NextResponse.json(
+      { status: "error", message: "Missing message_id" },
+      { status: 400 }
+    );
+  }
 
-    return NextResponse.json({ status: 'ok', messages: data });
+  const { data, error } = await supabase
+    .from("messages")
+    .delete()
+    .eq("message_id", message_id)
+    .select();
+
+  if (error) {
+    return NextResponse.json(
+      { status: "error", message: error.message },
+      { status: 500 }
+    );
+  }
+
+  return NextResponse.json({ status: "ok", message: data[0] });
 }
