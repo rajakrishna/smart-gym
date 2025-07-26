@@ -240,13 +240,13 @@ The application uses Next.js API Routes organized by feature:
 | `/api/[notifications]` | Manage  notifications |
 -->
 
-| API Endpoint       | Purpose               |
-| ------------------ | --------------------- |
+| API Endpoint           | Purpose               |
+| ---------------------- | --------------------- |
 | `/api/messages/getAll` | get all messages      |
-| `/api/[endpoint2]` | [Purpose description] |
-| `/api/[endpoint3]` | [Purpose description] |
-| `/api/[endpoint4]` | [Purpose description] |
-| `/api/[endpoint5]` | [Purpose description] |
+| `/api/[endpoint2]`     | [Purpose description] |
+| `/api/[endpoint3]`     | [Purpose description] |
+| `/api/[endpoint4]`     | [Purpose description] |
+| `/api/[endpoint5]`     | [Purpose description] |
 
 ---
 
@@ -278,15 +278,16 @@ The application uses a component-based architecture with the following key compo
 
 ### 📏 Layout Components
 
-- `[Component]`: [Description]
-- `[Component]`: [Description]
-- `[Component]`: [Description]
+- `Admin Sidebar`: Sidebar for the admin dashboard with links to the different pages
+- `Pre Auth Navbar`: Navbar for the pre-auth landing page with links to different spots on the landing page and a login button
+- `Post Auth Navbar`: Navbar for the post-auth dashboard with links to the user's barcode, profile, and notification.
+- `Mobile Bottom Navbar`: Bottom navbar for the mobile app with links to the user's barcode, profile, and notification.
 
 ### 📄 Page Components
 
 - `[Component]`: [Description]
-- `[Component]`: [Description]
-- `[Component]`: [Description]
+- `Admin Members Page`: Page for the admin to view all members and their information + sign up new members
+- `Admin Messages Page`: Page for the admin to view all messages from the users + initiate a new message to the user
 
 ### ⚙️ Feature Components
 

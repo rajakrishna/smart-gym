@@ -7,7 +7,7 @@ import ICONS from '@/constants/icons'
 import { DataTable } from '@/components/ui/data-table'
 
 async function getData() {
-    // Mock data for demonstration - in a real app, this would fetch from your database
+    // TODO: Fetch data from the database
     return [
         {
             id: "1",
