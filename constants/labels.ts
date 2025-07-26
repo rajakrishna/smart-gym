@@ -12,7 +12,7 @@ const LABELS = {
   },
 
   hero: {
-    header: 'Maximimize Your Fitness',
+    header: 'Maximize Your Fitness',
     subHeader1: 'A Revolutionary',
     span: 'AI',
     subHeader2: 'Fitness App',
@@ -68,6 +68,25 @@ const LABELS = {
         searchMembers: 'Search Members',
       },
     },
+    admin_messages: {
+      columns: {
+        accessorKeys: {
+          from: 'from',
+          messageType: 'messageType',
+          message: 'message',
+          createdAt: 'createdAt',
+        },
+        header: {
+          from: 'From',
+          messageType: 'Message Type',
+          message: 'Message',
+          createdAt: 'Created At',
+        },
+      },
+      buttons: {
+        createMessage: 'Create Message',
+      },
+    },
   },
   navigation: {
     home: 'Home',
@@ -93,6 +112,7 @@ const LABELS = {
       description: 'Description',
     },
     member: {
+      avatarFallback: 'CN',
       title: 'Title',
       description: 'Description',
     },
