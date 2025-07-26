@@ -10,7 +10,7 @@ export async function PATCH(req: Request) {
         return NextResponse.json({ error: 'Missing class_id in request body' }, { status: 400 });
     }
 
-    const { data: classes, error } = await supabase
+    const { error } = await supabase
         .from('Classes')
         .update(updateFields)
         .eq('class_id', class_id);
@@ -19,7 +19,7 @@ export async function PATCH(req: Request) {
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ message: 'Class updated', classes });
+    return NextResponse.json({ message: 'Class updated'});
 }
 
 
