@@ -248,6 +248,7 @@ The application uses Next.js API Routes organized by feature:
 | `/api/classes/create`   | create a class                  |
 | `/api/classes/update`   | update a class                  |
 | `/api/classes/delete`   | delete a class                  |
+| `/api/coaches/getAll`   | get all coaches                 |
 | `/api/[endpoint4]`      | [Purpose description]           |
 | `/api/[endpoint5]`      | [Purpose description]           |
 
