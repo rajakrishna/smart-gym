@@ -240,13 +240,15 @@ The application uses Next.js API Routes organized by feature:
 | `/api/[notifications]` | Manage  notifications |
 -->
 
-| API Endpoint       | Purpose               |
-| ------------------ | --------------------- |
-| `/api/messages/getAll` | get all messages      |
-| `/api/classes` | get classses |
-| `/api/[endpoint3]` | [Purpose description] |
-| `/api/[endpoint4]` | [Purpose description] |
-| `/api/[endpoint5]` | [Purpose description] |
+| API Endpoint            | Purpose                         |
+| ------------------------| --------------------------------|
+| `/api/messages/getAll`  | get all msgs                    |
+| `/api/messages/getById` | gets msgs by user ID            |
+| `/api/messages/create`  | creates msg associated w user ID|
+| `/api/messages/delete`  | deletes msg associated w msg ID |
+| `/api/classes`          | get classses                    |
+| `/api/[endpoint4]`      | [Purpose description]           |
+| `/api/[endpoint5]`      | [Purpose description]           |
 
 ---
 
