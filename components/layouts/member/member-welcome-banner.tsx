@@ -1,12 +1,17 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BellDot, ScanBarcode } from 'lucide-react'
 import LABELS from '@/constants/labels'
+import { useUser } from '@/context/user-context'
 
 const {firstName, imageURL, greeting, profileHref} = LABELS.memberDash
 
 const MemberWelcome = () => {
+  const user = useUser()
+  console.log('UserContext:', user)
+  if (!user) return null
   return (
           <div className="px-5">
             <div className="flex flex-row items-center justify-between mt-5">
@@ -25,7 +30,7 @@ const MemberWelcome = () => {
                     {greeting}
                   </p>
                   <p className="text-lg tracking-widest">
-                    {firstName}
+                    {user.first_name}
                   </p>
                 </div>
               </div>
