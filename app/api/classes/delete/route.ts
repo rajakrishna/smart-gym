@@ -11,14 +11,15 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: "Missing class_id" }, { status: 400 });
     }
 
-    const { error } = await supabase
+    const { data: classes, error } = await supabase
         .from('Classes')
         .delete()
-        .eq('class_id', class_id);
+        .eq('class_id', class_id)
+        .select();
 
     if (error) {
         return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
-    return NextResponse.json({ message: 'Class deleted successfully' });
+    return NextResponse.json({ message: "Class deleted successfully", data:classes[0] });
 }
