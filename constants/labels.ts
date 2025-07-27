@@ -41,6 +41,12 @@ const LABELS = {
     greeting: "Hello there,",
     profileHref:"/member/profile"
   },
+
+    cafeMenu:{
+      header: "Cafe Menu",
+      calories: "Calories:"
+    }
+  ,
   
   pages: {
     example: {
@@ -66,6 +72,25 @@ const LABELS = {
       buttons: {
         addMember: 'Add Member',
         searchMembers: 'Search Members',
+      },
+    },
+    admin_messages: {
+      columns: {
+        accessorKeys: {
+          from: 'from',
+          messageType: 'messageType',
+          message: 'message',
+          createdAt: 'createdAt',
+        },
+        header: {
+          from: 'From',
+          messageType: 'Message Type',
+          message: 'Message',
+          createdAt: 'Created At',
+        },
+      },
+      buttons: {
+        createMessage: 'Create Message',
       },
     },
   },
@@ -179,6 +204,7 @@ const LABELS = {
       description: 'Description',
     },
     member: {
+      avatarFallback: 'CN',
       title: 'Title',
       description: 'Description',
     },
