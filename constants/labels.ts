@@ -41,6 +41,12 @@ const LABELS = {
     greeting: "Hello there,",
     profileHref:"/member/profile"
   },
+
+    cafeMenu:{
+      header: "Cafe Menu",
+      calories: "Calories:"
+    }
+  ,
   
   pages: {
     example: {
