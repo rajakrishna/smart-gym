@@ -48,7 +48,7 @@ export default function ClassSchedulesPage() {
               <div className="border rounded-xl p-4 space-y-4">
                 <h2 className="font-semibold text-lg">Edit Class</h2>
                 <Separator />
-                <EditClassForm />
+                <EditClassForm classId={''} />
               </div>
             </CardContent>
           </Card>
