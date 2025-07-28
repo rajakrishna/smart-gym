@@ -11,6 +11,19 @@ const LABELS = {
     },
   },
 
+  auth: {
+    loginForm: {
+      title: 'Login to your account',
+      description: 'Enter your email below to login to your account',
+      emailLabel: 'Email address',
+      emailPlaceholder: 'm@example.com',
+      passwordLabel: 'Password',
+      forgotPassword: 'Forgot your password?',
+      submitButton: 'Login',
+      submitLabel: 'Submit Login Form',
+    },
+  },
+
   hero: {
     header: 'Maximize Your Fitness',
     subHeader1: 'A Revolutionary',
@@ -35,19 +48,17 @@ const LABELS = {
     label4: 'Payments Processed',
   },
 
-    memberDash:{
-    firstName: "John",
-    imageURL: "/assets/p1.png",
-    greeting: "Hello there,",
-    profileHref:"/member/profile"
+  memberDash: {
+    firstName: 'John',
+    imageURL: '/assets/p1.png',
+    greeting: 'Hello there,',
+    profileHref: '/member/profile',
   },
 
-    cafeMenu:{
-      header: "Cafe Menu",
-      calories: "Calories:"
-    }
-  ,
-  
+  cafeMenu: {
+    header: 'Cafe Menu',
+    calories: 'Calories:',
+  },
   pages: {
     example: {
       title: 'Example',
