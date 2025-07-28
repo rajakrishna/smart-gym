@@ -59,6 +59,81 @@ const LABELS = {
     header: 'Cafe Menu',
     calories: 'Calories:',
   },
+
+  // Modals
+  modals: {
+    sendMessage: {
+      title: 'Send Message',
+      description: 'Send a message to a gym member via their preferred communication method.',
+      labels: {
+        recipient: 'Recipient',
+        subject: 'Subject',
+        messageType: 'Message Type',
+        deliveryMethod: 'Delivery Method',
+        messageBody: 'Message Body',
+        selected: 'Selected:',
+        characters: 'characters',
+      },
+      placeholders: {
+        loadingUsers: 'Loading users...',
+        selectRecipient: 'Select a recipient',
+        enterSubject: 'Enter message subject',
+        selectMessageType: 'Select message type',
+        selectDeliveryMethod: 'Select delivery method',
+        enterMessage: 'Enter your message...',
+      },
+      buttons: {
+        cancel: 'Cancel',
+        sendMessage: 'Send Message',
+        sending: 'Sending...',
+      },
+      messageTypes: {
+        classReminder: {
+          value: 'class reminder',
+          label: 'Class Reminder',
+        },
+        classCancellation: {
+          value: 'class cancellation',
+          label: 'Class Cancellation',
+        },
+        general: {
+          value: 'general',
+          label: 'General',
+        },
+        administrative: {
+          value: 'administrative',
+          label: 'Administrative',
+        },
+        invoice: {
+          value: 'invoice',
+          label: 'Invoice',
+        },
+      },
+      deliveryMethods: {
+        email: {
+          value: 'email',
+          label: 'Email',
+        },
+        sms: {
+          value: 'sms',
+          label: 'SMS',
+        },
+        push: {
+          value: 'push',
+          label: 'Push Notification',
+        },
+      },
+      toasts: {
+        missingFields: 'Please fill in all required fields',
+        success: 'Message sent successfully!',
+        loadUsersError: 'Failed to load users',
+        loadUsersErrorGeneric: 'Error loading users',
+        sendError: 'Failed to send message',
+        sendErrorGeneric: 'Error sending message',
+      },
+    },
+  },
+
   pages: {
     example: {
       title: 'Example',
@@ -102,6 +177,39 @@ const LABELS = {
       },
       buttons: {
         createMessage: 'Create Message',
+      },
+    },
+    admin_member_detail: {
+      headers: {
+        memberDetails: 'Member Details',
+        checkInHistory: 'Check-In History',
+        classesTaken: 'Classes Taken',
+        pastInvoices: 'Past Invoices',
+      },
+      labels: {
+        membershipType: 'Membership Type',
+        age: 'Age',
+        email: 'Email',
+        phone: 'Phone',
+        memberSince: 'Member Since',
+        status: 'Status',
+        instructor: 'Instructor',
+        checkedIn: 'Checked In',
+        checkedOut: 'Checked Out',
+      },
+      buttons: {
+        edit: 'Edit',
+        delete: 'Delete',
+      },
+      statuses: {
+        completed: 'completed',
+        upcoming: 'upcoming',
+        cancelled: 'cancelled',
+        paid: 'paid',
+        pending: 'pending',
+        overdue: 'overdue',
+        active: 'Active',
+        inactive: 'Inactive',
       },
     },
   },

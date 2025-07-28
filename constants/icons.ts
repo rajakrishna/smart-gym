@@ -2,16 +2,26 @@ import {
   BarChart3,
   Bell,
   Calendar,
+  Clock,
   Coffee,
+  CreditCard,
+  DollarSign,
   Dumbbell,
+  Edit,
   Home,
   LayoutDashboard,
+  Loader2,
   LogIn,
   LogOut,
+  Mail,
   MessageSquare,
   MoreVertical,
+  Phone,
   Plus,
   Search,
+  Send,
+  Sheet,
+  Trash2,
   User,
   UserCircle,
   Users,
@@ -46,12 +56,35 @@ const ICONS = {
     addMember: Plus,
   },
 
+  adminMemberDetail: {
+    edit: Edit,
+    delete: Trash2,
+    clock: Clock,
+    dollarSign: DollarSign,
+    creditCard: CreditCard,
+    sheet: Sheet,
+  },
+
   // Admin User menu icons
   userMenu: {
     moreVertical: MoreVertical,
     userCircle: UserCircle,
     notifications: Bell,
     logout: LogOut,
+  },
+
+  // Modal icons
+  modals: {
+    sendMessage: {
+      send: Send,
+      users: Users,
+      loader: Loader2,
+      deliveryMethods: {
+        email: Mail,
+        sms: MessageSquare,
+        push: Phone,
+      },
+    },
   },
 } as const;
 
