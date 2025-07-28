@@ -65,6 +65,25 @@ export function UpdateClassForm({ classId }: UpdateClassFormProps) {
     }
   };
 
+  const handleDelete = async () => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this class?');
+
+    if (!confirmDelete || !classId) return;
+
+    const res = await fetch(`/api/classes/${classId}`, {
+      method: 'DELETE',
+    });
+
+    const result = await res.json();
+
+    if (res.ok) {
+      alert('Class deleted successfully');
+    } else {
+      alert(`Failed to delete class: ${result.error || 'Unknown error'}`);
+    }
+  };
+
+
   if (!classData) return <div>Loading...</div>;
 
   return (
@@ -170,6 +189,10 @@ export function UpdateClassForm({ classId }: UpdateClassFormProps) {
           <Button type="submit" className="w-full mt-4">
             Submit Class Update
           </Button>
+          <Button type="button" variant="destructive" className="w-full" onClick={handleDelete}>
+            Delete Class
+          </Button>
+
         </form>
       </CardContent>
     </Card>

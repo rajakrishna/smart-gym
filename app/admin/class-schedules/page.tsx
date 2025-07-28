@@ -11,7 +11,7 @@ import { GetAllCoaches } from '@/components/ui/get-all-coaches';
 import { CreateClassForm } from '@/components/ui/create-class-form';
 
 export default function ClassSchedulesPage() {
-  const [activeTab, setActiveTab] = useState('coaches');
+  const [activeTab, setActiveTab] = useState('classes');
   const [selectedClassId, setSelectedClassId] = useState<string | null>(null);
 
   return (
@@ -19,19 +19,10 @@ export default function ClassSchedulesPage() {
       <h1 className="text-3xl font-bold">Class Schedules</h1>
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
         <TabsList>
-          <TabsTrigger value="coaches">View Coaches</TabsTrigger>
           <TabsTrigger value="classes">Class Scheduler</TabsTrigger>
+          <TabsTrigger value="coaches">View Coaches</TabsTrigger>
           <TabsTrigger value="bookings">View Class Bookings</TabsTrigger>
         </TabsList>
-
-        <TabsContent value="coaches">
-          <Card>
-            <CardHeader className="text-xl font-semibold">All Coaches</CardHeader>
-            <CardContent>
-              <GetAllCoaches />
-            </CardContent>
-          </Card>
-        </TabsContent>
 
         <TabsContent value="classes">
           <Card>
@@ -53,11 +44,25 @@ export default function ClassSchedulesPage() {
                 <h2 className="font-semibold text-lg">Update Class</h2>
                 <Separator />
                 {selectedClassId ? (
-                  <UpdateClassForm classId={selectedClassId} />
+                  <UpdateClassForm
+                    classId={selectedClassId}
+                    // onClassDeleted={() => {
+                    //   setSelectedClassId(null); // reset selection
+                    // }} 
+                  />
                 ) : (
                   <p>Select a class to update.</p>
                 )}
               </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="coaches">
+          <Card>
+            <CardHeader className="text-xl font-semibold">All Coaches</CardHeader>
+            <CardContent>
+              <GetAllCoaches />
             </CardContent>
           </Card>
         </TabsContent>

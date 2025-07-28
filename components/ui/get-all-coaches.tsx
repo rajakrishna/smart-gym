@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-// import { Separator } from "@/components/ui/separator";
 
 interface CoachItem {
   coach_id: string;
@@ -18,7 +17,7 @@ export function GetAllCoaches() {
   useEffect(() => {
     const fetchCoaches = async () => {
       try {
-        const res = await fetch("/api/coaches/getAll"); // Adjust this to match your API route
+        const res = await fetch("/api/coaches/getAll"); 
         const data = await res.json();
         setCoaches(data);
       } catch (err) {
