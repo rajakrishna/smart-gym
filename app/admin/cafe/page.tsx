@@ -3,7 +3,8 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { DataTable } from '@/components/ui/data-table'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Plus } from 'lucide-react'
+import ICONS from '@/constants/icons'
+import LABELS from '@/constants/labels'
 import Image from 'next/image'
 import React from 'react'
 import { columns } from './columns'
@@ -120,21 +121,21 @@ const ProductCard = ({ product }: { product: Product }) => {
                     <div className='w-1/2 flex flex-col gap-2 pr-4'>
                         <div className='text-sm text-gray-500'>{product.name}</div>
                         <div className='text-sm text-gray-500'>{product.type}</div>
-                        <div className='text-sm text-gray-500'>Price: ${product.price.toFixed(2)}</div>
+                        <div className='text-sm text-gray-500'>{LABELS.pages.admin_cafe.productCard.price}: ${product.price.toFixed(2)}</div>
                     </div>
                 </div>
             </CardHeader>
             <CardContent>
                 <div className='w-full flex flex-col gap-2'>
-                    <div className='text-sm text-gray-500'>Description</div>
+                    <div className='text-sm text-gray-500'>{LABELS.pages.admin_cafe.productCard.description}</div>
                     <div className='text-sm text-gray-500'>{product.description}</div>
                 </div>
             </CardContent>
             <CardFooter>
                 <div className="flex flex-col gap-2 border border-gray-200 rounded-md p-2 w-full">
-                    <div className='text-sm text-gray-500'>Sales: {product.sales}</div>
+                    <div className='text-sm text-gray-500'>{LABELS.pages.admin_cafe.productCard.sales}: {product.sales}</div>
                     <Separator />
-                    <div className='text-sm text-gray-500'>Remaining Stock: {product.remaining_stock}</div>
+                    <div className='text-sm text-gray-500'>{LABELS.pages.admin_cafe.productCard.remainingStock}: {product.remaining_stock}</div>
                 </div>
             </CardFooter>
         </Card>
@@ -142,16 +143,20 @@ const ProductCard = ({ product }: { product: Product }) => {
 }
 
 const page = () => {
+    const AddProductIcon = ICONS.adminCafePage.addProduct
+
     return (
         <div className="container mx-auto py-10 px-4">
             {/* Tabs to switch between items in cafe and transaction / order history */}
             <Tabs defaultValue="cafe" className="w-full">
                 <div className="flex justify-between items-center">
                     <TabsList>
-                        <TabsTrigger value="cafe">Cafe</TabsTrigger>
-                        <TabsTrigger value="transactions">Transactions</TabsTrigger>
+                        <TabsTrigger value="cafe">{LABELS.pages.admin_cafe.tabs.cafe}</TabsTrigger>
+                        <TabsTrigger value="transactions">{LABELS.pages.admin_cafe.tabs.transactions}</TabsTrigger>
                     </TabsList>
-                    <Button className="bg-green-500 hover:bg-green-600 flex items-center gap-2">Add Product <Plus className='w-4 h-4' /></Button>
+                    <Button className="bg-green-500 hover:bg-green-600 flex items-center gap-2">
+                        {LABELS.pages.admin_cafe.buttons.addProduct} <AddProductIcon className='w-4 h-4' />
+                    </Button>
                 </div>
                 <TabsContent value="cafe">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -46,6 +46,10 @@ const ICONS = {
     addMember: Plus,
   },
 
+  adminCafePage: {
+    addProduct: Plus,
+  },
+
   // Admin User menu icons
   userMenu: {
     moreVertical: MoreVertical,
