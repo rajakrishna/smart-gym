@@ -240,15 +240,15 @@ The application uses Next.js API Routes organized by feature:
 | `/api/[notifications]` | Manage  notifications |
 -->
 
-| API Endpoint            | Purpose                         |
-| ------------------------| --------------------------------|
-| `/api/messages/getAll`  | get all msgs                    |
-| `/api/messages/getById` | gets msgs by user ID            |
-| `/api/messages/create`  | creates msg associated w user ID|
-| `/api/messages/delete`  | deletes msg associated w msg ID |
-| `/api/classes`          | get classses                    |
-| `/api/[endpoint4]`      | [Purpose description]           |
-| `/api/[endpoint5]`      | [Purpose description]           |
+| API Endpoint            | Purpose                          |
+| ----------------------- | -------------------------------- |
+| `/api/messages/getAll`  | get all msgs                     |
+| `/api/messages/getById` | gets msgs by user ID             |
+| `/api/messages/create`  | creates msg associated w user ID |
+| `/api/messages/delete`  | deletes msg associated w msg ID  |
+| `/api/classes`          | get classses                     |
+| `/api/[endpoint4]`      | [Purpose description]            |
+| `/api/[endpoint5]`      | [Purpose description]            |
 
 ---
 
@@ -290,6 +290,7 @@ The application uses a component-based architecture with the following key compo
 - `[Component]`: [Description]
 - `Admin Members Page`: Page for the admin to view all members and their information + sign up new members
 - `Admin Messages Page`: Page for the admin to view all messages from the users + initiate a new message to the user
+- `Admin Cafe Page`: Page for the admin to view all products in the cafe + add new products + view all transactions
 
 ### ⚙️ Feature Components
 
