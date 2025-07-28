@@ -6,7 +6,12 @@ export async function GET() {
 
     const { data: classes, error } = await supabase
         .from('Classes')
-        .select(`*`)
+        .select(`
+        *,
+        Coaches (
+            full_name
+        )
+        `)
         .order('scheduled_on', { ascending: true });
 
     if (error) {

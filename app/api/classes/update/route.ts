@@ -4,6 +4,7 @@ import { createClient } from '@/utils/supabase/server';
 export async function PATCH(req: Request) {
     const supabase = await createClient();
     const body = await req.json();
+    console.log("Received PATCH body:", body);
     const { class_id, ...updateFields } = body;
 
     if (!class_id) {

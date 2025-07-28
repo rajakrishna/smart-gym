@@ -5,12 +5,14 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
-import { EditClassForm } from '@/components/ui/edit-class-form';
+import { UpdateClassForm } from '@/components/ui/update-class-form';
 import { GetAllClasses } from '@/components/ui/get-all-classes';
 import { GetAllCoaches } from '@/components/ui/get-all-coaches';
+import { CreateClassForm } from '@/components/ui/create-class-form';
 
 export default function ClassSchedulesPage() {
   const [activeTab, setActiveTab] = useState('coaches');
+  const [selectedClassId, setSelectedClassId] = useState<string | null>(null);
 
   return (
     <div className="p-6 space-y-6">
@@ -26,7 +28,6 @@ export default function ClassSchedulesPage() {
           <Card>
             <CardHeader className="text-xl font-semibold">All Coaches</CardHeader>
             <CardContent>
-              {/* TODO: Replace with coach list component */}
               <GetAllCoaches />
             </CardContent>
           </Card>
@@ -40,15 +41,22 @@ export default function ClassSchedulesPage() {
               <div className="border rounded-xl p-4 space-y-2">
                 <h2 className="font-semibold text-lg">All Classes</h2>
                 <Separator />
-                {/* TODO: Replace with dynamic class list */}
-                <GetAllClasses />
+                <GetAllClasses onSelectClass={setSelectedClassId} />
               </div>
 
               {/* Right: Class form */}
-              <div className="border rounded-xl p-4 space-y-4">
-                <h2 className="font-semibold text-lg">Edit Class</h2>
+              <div className="border rounded-xl p-4 space-y-2">
+                <h2 className="font-semibold text-lg">Create Class</h2>
                 <Separator />
-                <EditClassForm classId={''} />
+                <CreateClassForm />
+                <Separator />
+                <h2 className="font-semibold text-lg">Update Class</h2>
+                <Separator />
+                {selectedClassId ? (
+                  <UpdateClassForm classId={selectedClassId} />
+                ) : (
+                  <p>Select a class to update.</p>
+                )}
               </div>
             </CardContent>
           </Card>

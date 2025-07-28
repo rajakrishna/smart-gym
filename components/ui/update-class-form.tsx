@@ -23,7 +23,11 @@ interface ClassData {
   coaches_id: string;
 }
 
-export function EditClassForm({ classId }: { classId: string }) {
+type UpdateClassFormProps = {
+  classId?: string;
+};
+
+export function UpdateClassForm({ classId }: UpdateClassFormProps) {
   const [classData, setClassData] = useState<ClassData | null>(null);
   const [coaches, setCoaches] = useState<Coach[]>([]);
 
@@ -45,6 +49,7 @@ export function EditClassForm({ classId }: { classId: string }) {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    console.log("Submitting to PATCH with:", classData);
     e.preventDefault();
 
     const res = await fetch(`/api/classes/update`, {
