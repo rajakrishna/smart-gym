@@ -15,5 +15,5 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
-    return NextResponse.json(classes, { status: 201 });
+    return NextResponse.json({message: "Class created successfully", data:classes[0]});
 }
