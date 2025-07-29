@@ -80,6 +80,10 @@ const LABELS = {
           memberCheckedInStatus: 'Member Checked In Status',
         },
       },
+      badges: {
+        checkedIn: 'Checked In',
+        checkedOut: 'Checked Out',
+      },
       buttons: {
         addMember: 'Add Member',
         searchMembers: 'Search Members',
