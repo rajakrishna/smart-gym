@@ -8,6 +8,7 @@ import {
   DollarSign,
   Dumbbell,
   Edit,
+  EditIcon,
   Home,
   LayoutDashboard,
   Loader2,
@@ -63,6 +64,11 @@ const ICONS = {
     dollarSign: DollarSign,
     creditCard: CreditCard,
     sheet: Sheet,
+  },
+
+  adminCafePage: {
+    addProduct: Plus,
+    editProduct: EditIcon,
   },
 
   // Admin User menu icons
