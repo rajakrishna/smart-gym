@@ -12,7 +12,7 @@ export async function DELETE(req: NextRequest) {
     }
 
     const { data: classes, error } = await supabase
-        .from('Classes')
+        .from('classes')
         .delete()
         .eq('class_id', class_id)
         .select();

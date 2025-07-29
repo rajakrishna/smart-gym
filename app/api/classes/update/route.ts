@@ -11,7 +11,7 @@ export async function PATCH(req: Request) {
     }
 
     const { error } = await supabase
-        .from('Classes')
+        .from('classes')
         .update(updateFields)
         .eq('class_id', class_id);
 

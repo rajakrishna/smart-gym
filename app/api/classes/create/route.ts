@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
 
     const { data: classes, error } = await supabase
-        .from('Classes')
+        .from('classes')
         .insert([body])
         .select();
 

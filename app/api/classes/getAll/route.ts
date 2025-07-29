@@ -5,7 +5,7 @@ export async function GET() {
     const supabase = await createClient();
 
     const { data: classes, error } = await supabase
-        .from('Classes')
+        .from('classes')
         .select(`*`)
         .order('scheduled_on', { ascending: true });
 

@@ -6,7 +6,7 @@ export async function GET(req: Request, { params }: { params:Promise<{ classId: 
     const { classId } = await params;
 
     const { data: classes, error } = await supabase
-        .from('Classes')
+        .from('classes')
         .select('*')
         .eq('class_id', classId)
         .single(); 
