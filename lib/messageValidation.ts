@@ -51,7 +51,7 @@ export const fieldValidators = {
 
   type: (type: string): boolean => {
     if (!type) return false;
-    const class_types = ['class reminder', 'class cancellation', 'general', 'administrative', 'invoice'];
-    return class_types.includes(type.trim());
+    const message_type = ['class reminder', 'class cancellation', 'general', 'administrative', 'invoice'];
+    return message_type.includes(type.trim());
   },
 };
