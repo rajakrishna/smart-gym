@@ -8,6 +8,7 @@ import LABELS from '@/constants/labels'
 import Image from 'next/image'
 import React from 'react'
 import { columns } from './columns'
+import { EditIcon } from 'lucide-react'
 
 interface Product {
     id: number
@@ -123,6 +124,10 @@ const ProductCard = ({ product }: { product: Product }) => {
                         <div className='text-sm text-gray-500'>{product.type}</div>
                         <div className='text-sm text-gray-500'>{LABELS.pages.admin_cafe.productCard.price}: ${product.price.toFixed(2)}</div>
                     </div>
+                    {/* Edit */}
+                    <Button className='flex items-center gap-2' variant='outline' size='icon'>
+                        <EditIcon className='w-4 h-4' />
+                    </Button>
                 </div>
             </CardHeader>
             <CardContent>
@@ -144,7 +149,6 @@ const ProductCard = ({ product }: { product: Product }) => {
 
 const page = () => {
     const AddProductIcon = ICONS.adminCafePage.addProduct
-
     return (
         <div className="container mx-auto py-10 px-4">
             {/* Tabs to switch between items in cafe and transaction / order history */}

@@ -4,6 +4,7 @@ import {
   Calendar,
   Coffee,
   Dumbbell,
+  EditIcon,
   Home,
   LayoutDashboard,
   LogIn,
@@ -48,6 +49,7 @@ const ICONS = {
 
   adminCafePage: {
     addProduct: Plus,
+    editProduct: EditIcon,
   },
 
   // Admin User menu icons

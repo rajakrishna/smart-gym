@@ -117,6 +117,7 @@ const LABELS = {
         description: 'Description',
         sales: 'Sales',
         remainingStock: 'Remaining Stock',
+        edit: 'Edit',
       },
       columns: {
         accessorKeys: {
