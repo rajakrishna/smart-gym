@@ -8,7 +8,7 @@ export async function GET() {
         .from('classes')
         .select(`
         *,
-        Coaches (
+        coaches (
             full_name
         )
         `)
