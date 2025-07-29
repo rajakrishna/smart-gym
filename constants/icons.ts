@@ -2,17 +2,26 @@ import {
   BarChart3,
   Bell,
   Calendar,
+  Clock,
   Coffee,
+  CreditCard,
+  DollarSign,
   Dumbbell,
-  EditIcon,
+  Edit,
   Home,
   LayoutDashboard,
+  Loader2,
   LogIn,
   LogOut,
+  Mail,
   MessageSquare,
   MoreVertical,
+  Phone,
   Plus,
   Search,
+  Send,
+  Sheet,
+  Trash2,
   User,
   UserCircle,
   Users,
@@ -49,7 +58,7 @@ const ICONS = {
 
   adminCafePage: {
     addProduct: Plus,
-    editProduct: EditIcon,
+    editProduct: Edit,
   },
 
   // Admin User menu icons
@@ -58,6 +67,20 @@ const ICONS = {
     userCircle: UserCircle,
     notifications: Bell,
     logout: LogOut,
+  },
+
+  // Modal icons
+  modals: {
+    sendMessage: {
+      send: Send,
+      users: Users,
+      loader: Loader2,
+      deliveryMethods: {
+        email: Mail,
+        sms: MessageSquare,
+        push: Phone,
+      },
+    },
   },
 } as const;
 
