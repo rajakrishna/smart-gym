@@ -246,7 +246,12 @@ The application uses Next.js API Routes organized by feature:
 | `/api/messages/getById` | gets msgs by user ID             |
 | `/api/messages/create`  | creates msg associated w user ID |
 | `/api/messages/delete`  | deletes msg associated w msg ID  |
-| `/api/classes`          | get classses                     |
+| `/api/classes/getAll`   | get all classses                 |
+| `/api/classes/[classId]`| get single classses              |
+| `/api/classes/create`   | create a class                   |
+| `/api/classes/update`   | update a class                   |
+| `/api/classes/delete`   | delete a class                   |
+| `/api/coaches/getAll`   | get all coaches                  |
 | `/api/[endpoint4]`      | [Purpose description]            |
 | `/api/[endpoint5]`      | [Purpose description]            |
 
