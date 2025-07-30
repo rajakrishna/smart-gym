@@ -1,47 +1,45 @@
 import { Dialog, DialogHeader, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import React from 'react'
+import { ApiResponse, EnrolledClassMember } from '@/types/shared'
+import React, { useEffect, useState } from 'react'
 
 interface ViewUsersModalProps {
     isOpen: boolean
     onClose: () => void
     classTitle: string
     onViewUsers: () => void
+    classId: number
 }
 
-const mockUsers = [
-    {
-        id: 1,
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-    },
-    {
-        id: 2,
-        name: 'Jane Doe',
-        email: 'jane.doe@example.com',
-    },
-    {
-        id: 3,
-        name: 'Jim Doe',
-        email: 'jim.doe@example.com',
-    },
-    {
-        id: 4,
-        name: 'Jill Doe',
-        email: 'jill.doe@example.com',
-    },
-    {
-        id: 5,
-        name: 'Jack Doe',
-        email: 'jack.doe@example.com',
-    },
-    {
-        id: 6,
-        name: 'Jill Doe',
-        email: 'jill.doe@example.com',
-    },
-]
+const ViewUsersModal: React.FC<ViewUsersModalProps> = ({ isOpen, onClose, classTitle, classId }) => {
 
-const ViewUsersModal: React.FC<ViewUsersModalProps> = ({ isOpen, onClose, classTitle }) => {
+    const [enrolledClassMembers, setEnrolledClassMembers] = useState<EnrolledClassMember[]>([]);
+
+    useEffect(() => {
+        const fetchEnrolledClassMembers = async () => {
+            try {
+                const response = await fetch(`/api/example/getEnrolledClassMembers?classId=${classId}`);
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch enrolled class members');
+                }
+
+                const data: ApiResponse<EnrolledClassMember[]> = await response.json();
+
+                console.log('data', data);
+
+                if (data.success) {
+                    setEnrolledClassMembers(data.data);
+                } else {
+                    throw new Error(data.error || 'Failed to fetch enrolled class members');
+                }
+
+            } catch (error) {
+                console.error('Error fetching enrolled class members:', error);
+            }
+        }
+        fetchEnrolledClassMembers();
+    }, [classId]);
+
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
             <DialogContent>
@@ -53,7 +51,7 @@ const ViewUsersModal: React.FC<ViewUsersModalProps> = ({ isOpen, onClose, classT
                 </DialogDescription>
                 <div className="max-h-96 overflow-y-auto">
                     <div className="flex flex-col gap-4 pr-2">
-                        {mockUsers.map((user) => (
+                        {enrolledClassMembers.map((user) => (
                             <div key={user.id} className="flex items-center justify-between p-3 border rounded-lg">
                                 <div className="flex flex-col gap-1">
                                     <h3 className="font-medium text-gray-900">{user.name}</h3>

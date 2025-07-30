@@ -87,3 +87,9 @@ export interface Message {
   body: string;
   sent_at: string;
 }
+
+export interface EnrolledClassMember {
+  id: string;
+  name: string;
+  email: string;
+}
