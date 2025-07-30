@@ -131,6 +131,14 @@ const LABELS = {
         sendError: 'Failed to send message',
         sendErrorGeneric: 'Error sending message',
       },
+      colors: {
+        deliveryMethods: {
+          email: 'bg-blue-500',
+          sms: 'bg-green-500',
+          push: 'bg-yellow-500',
+          default: 'bg-gray-500',
+        },
+      },
     },
   },
 

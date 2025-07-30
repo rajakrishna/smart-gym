@@ -22,6 +22,21 @@ export interface Message {
   delivery_method: string;
 }
 
+export interface User {
+  user_id: string;
+  full_name: string;
+  email: string;
+}
+
+export interface MessageFormData {
+  user_id: string;
+  type: string;
+  title: string;
+  body: string;
+  category: string;
+  delivery_method: string;
+}
+
 // TODO: Add the actual constants from the actual database
 // Start of Member Related Interfaces
 export interface Member {
