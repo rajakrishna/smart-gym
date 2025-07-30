@@ -240,20 +240,25 @@ The application uses Next.js API Routes organized by feature:
 | `/api/[notifications]` | Manage  notifications |
 -->
 
-| API Endpoint            | Purpose                          |
-| ----------------------- | -------------------------------- |
-| `/api/messages/getAll`  | get all msgs                     |
-| `/api/messages/getById` | gets msgs by user ID             |
-| `/api/messages/create`  | creates msg associated w user ID |
-| `/api/messages/delete`  | deletes msg associated w msg ID  |
-| `/api/classes/getAll`   | get all classses                 |
-| `/api/classes/[classId]`| get a single class               |
-| `/api/classes/create`   | create a class                   |
-| `/api/classes/update`   | update a class                   |
-| `/api/classes/delete`   | delete a class                   |
-| `/api/coaches/getAll`   | get all coaches                  |
-| `/api/[endpoint4]`      | [Purpose description]            |
-| `/api/[endpoint5]`      | [Purpose description]            |
+| API Endpoint             | Purpose                          |
+| ------------------------ | -------------------------------- |
+| `/api/messages/getAll`   | get all msgs                     |
+| `/api/messages/getById`  | gets msgs by user ID             |
+| `/api/messages/create`   | creates msg associated w user ID |
+| `/api/messages/delete`   | deletes msg associated w msg ID  |
+| `/api/classes/getAll`    | get all classses                 |
+| `/api/classes/[classId]` | get a single class               |
+| `/api/classes/create`    | create a class                   |
+| `/api/classes/update`    | update a class                   |
+| `/api/classes/delete`    | delete a class                   |
+| `/api/coaches/getAll`    | get all coaches                  |
+| `/api/cafe/getAll`       | get all cafe items               |
+| `/api/cafe/[productId]`  | get a single cafe item           |
+| `/api/cafe/create`       | create a cafe item               |
+| `/api/cafe/update`       | update a cafe item               |
+| `/api/cafe/delete`       | delete a cafe item               |
+| `/api/[endpoint4]`       | [Purpose description]            |
+| `/api/[endpoint5]`       | [Purpose description]            |
 
 ---
 
