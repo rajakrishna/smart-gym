@@ -242,11 +242,11 @@ The application uses Next.js API Routes organized by feature:
 
 | API Endpoint                   | Purpose                          |
 | ------------------------------ | -------------------------------- |
-| `/api/classes/getAll`          | get classses                     |
+| `/api/classes/getAll`          | get classes                      |
 | `/api/classes/create`          | creates class                    |
 | `/api/classes/update`          | updates class                    |
 | `/api/classes/delete`          | deletes class                    |
-| `/api/classes/getById`         | gets classes by class ID         |
+| `/api/classes/[classId]`       | get a single class               |
 | `/api/coaches/getAll`          | get all coaches                  |
 | `/api/messages/create`         | creates msg associated w user ID |
 | `/api/messages/delete`         | deletes msg associated w msg ID  |
