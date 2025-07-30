@@ -61,6 +61,15 @@ const ICONS = {
     messageDetail: Mail,
   },
 
+  adminMemberDetail: {
+    edit: Edit,
+    delete: Trash2,
+    clock: Clock,
+    dollarSign: DollarSign,
+    creditCard: CreditCard,
+    sheet: Sheet,
+  },
+
   adminCafePage: {
     addProduct: Plus,
     editProduct: Edit,
