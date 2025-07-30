@@ -69,6 +69,7 @@ async function getData(): Promise<Member[]> {
         return mappedMembers
 
     } catch (error) {
+        console.error('Error fetching members:', error)
         return mockMembersData
     }
 }
