@@ -54,11 +54,20 @@ const ICONS = {
   adminMembersPage: {
     search: Search,
     addMember: Plus,
+    editMember: Edit,
   },
 
   adminMessagesPage: {
     createMessage: Plus,
     messageDetail: Mail,
+  },
+  adminMemberDetail: {
+    edit: Edit,
+    delete: Trash2,
+    clock: Clock,
+    dollarSign: DollarSign,
+    creditCard: CreditCard,
+    sheet: Sheet,
   },
 
   adminCafePage: {
