@@ -2,7 +2,6 @@ import React from 'react'
 
 async function getData(id: string) {
     try {
-        console.log('Attempting to fetch message from API with ID:', id)
 
         const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
         const response = await fetch(`${baseUrl}/api/messages/getByMessageId?message_id=${id}`, {
@@ -11,28 +10,22 @@ async function getData(id: string) {
         })
 
         if (!response.ok) {
-            console.error('API response not ok:', response.status, response.statusText)
             throw new Error(`API request failed with status ${response.status}`)
         }
 
         const data = await response.json()
-        console.log('Successfully fetched message response:', data)
 
         if (data.status === 'error') {
-            console.error('API returned error status:', data.message)
             throw new Error(data.message)
         }
 
         if (!data.messages || !data.messages[0]) {
-            console.error('No message found with ID:', id)
             throw new Error('Message not found')
         }
 
-        console.log('Successfully fetched message:', data.messages[0])
         return data.messages[0]
     } catch (error) {
-        console.error('Error fetching message from API:', error)
-        throw new Error('Failed to fetch message')
+        throw new Error('Failed to fetch message', { cause: error })
     }
 }
 

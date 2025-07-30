@@ -10,7 +10,6 @@ import { Message } from '@/types/shared'
 
 async function getData() {
     try {
-        console.log('Attempting to fetch messages from API...')
 
         const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
         const response = await fetch(`${baseUrl}/api/messages/getAll`, {
@@ -19,12 +18,10 @@ async function getData() {
         })
 
         if (!response.ok) {
-            console.error('API response not ok:', response.status, response.statusText)
             throw new Error(`API request failed with status ${response.status}`)
         }
 
         const data = await response.json()
-        console.log('Successfully fetched messages response:', data)
 
         if (data.status === 'ok' && data.messages) {
             const mappedMessages = data.messages.map((message: Message) => ({
@@ -35,15 +32,12 @@ async function getData() {
                 createdAt: new Date(message.sent_at).toLocaleDateString()
             }))
 
-            console.log('Successfully mapped', mappedMessages.length, 'messages')
             return mappedMessages
         }
 
-        console.log('No messages found or invalid response format')
         return []
     } catch (error) {
-        console.error('Error fetching messages from API:', error)
-        console.log('Returning empty array due to error')
+        console.error('Error fetching messages:', error)
         return []
     }
 }

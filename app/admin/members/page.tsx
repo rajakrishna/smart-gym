@@ -50,7 +50,6 @@ const mockMembersData: Member[] = [
 
 async function getData(): Promise<Member[]> {
     try {
-        console.log('Attempting to fetch members from API...')
 
         const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
         const response = await fetch(`${baseUrl}/api/user/getAll`, {
@@ -59,15 +58,12 @@ async function getData(): Promise<Member[]> {
         })
 
         if (!response.ok) {
-            console.error('API response not ok:', response.status, response.statusText)
             throw new Error(`API request failed with status ${response.status}`)
         }
 
         const users: User[] = await response.json()
-        console.log('Successfully fetched users:', users?.length || 0)
 
         if (!users || !Array.isArray(users) || users.length === 0) {
-            console.log('No users found, using mock data as fallback')
             return mockMembersData
         }
 
@@ -80,12 +76,10 @@ async function getData(): Promise<Member[]> {
             memberCheckedInStatus: Math.random() > 0.5
         }))
 
-        console.log('Successfully mapped', mappedMembers.length, 'members')
         return mappedMembers
 
     } catch (error) {
-        console.error('Error fetching members from API:', error)
-        console.log('Falling back to mock data due to error')
+        console.error('Error fetching members:', error)
         return mockMembersData
     }
 }
