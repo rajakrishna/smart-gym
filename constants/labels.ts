@@ -54,6 +54,9 @@ const LABELS = {
     greeting: 'Hello there,',
     profileHref: '/member/profile',
   },
+memberClasses:{
+  coach:'Coach'
+},
 
   cafeMenu: {
     header: 'Cafe Menu',
