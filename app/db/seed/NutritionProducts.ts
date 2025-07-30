@@ -1,0 +1,22 @@
+import { db } from '../db';
+import { nutritionProducts } from '../schema';
+import { faker } from '@faker-js/faker';
+
+export async function seedNutritionProducts() {
+  const records = Array.from({ length: 5 }).map(() => ({
+    productId: faker.string.uuid(), 
+    name: faker.commerce.productName(),
+    productImage: faker.image.url(),
+    productDescription: faker.commerce.productDescription(),
+    price: faker.commerce.price({ min: 5, max: 50, dec: 2 }), 
+    quantity: faker.number.int({ min: 10, max: 100 }),
+    minQuantity: 5,
+    category: faker.commerce.department(),
+    numberSold: faker.number.int({ min: 0, max: 100 }),
+    restock: faker.datatype.boolean(),
+    isActive: true,
+  }));
+
+  await db.insert(nutritionProducts).values(records);
+  return records;
+}
