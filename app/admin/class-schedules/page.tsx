@@ -14,7 +14,7 @@ import { COACHES, CLASS_TYPES } from '@/constants/classSchedules'
 import { groupCoachesByType } from '@/lib/classScheduleUtils'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
-import ViewUsersModal from '@/components/class-schedules/modals/ViewUsersModal'
+import { ViewUsersModal } from '@/components/class-schedules/modals'
 
 const MONTH_NAMES = [
     LABELS.classSchedules.page.months.january,

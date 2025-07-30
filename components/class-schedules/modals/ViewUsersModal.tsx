@@ -24,6 +24,21 @@ const mockUsers = [
         name: 'Jim Doe',
         email: 'jim.doe@example.com',
     },
+    {
+        id: 4,
+        name: 'Jill Doe',
+        email: 'jill.doe@example.com',
+    },
+    {
+        id: 5,
+        name: 'Jack Doe',
+        email: 'jack.doe@example.com',
+    },
+    {
+        id: 6,
+        name: 'Jill Doe',
+        email: 'jill.doe@example.com',
+    },
 ]
 
 const ViewUsersModal: React.FC<ViewUsersModalProps> = ({ isOpen, onClose, classTitle }) => {
@@ -36,15 +51,17 @@ const ViewUsersModal: React.FC<ViewUsersModalProps> = ({ isOpen, onClose, classT
                 <DialogDescription>
                     {classTitle}
                 </DialogDescription>
-                <div className="flex flex-col gap-4">
-                    {mockUsers.map((user) => (
-                        <div key={user.id} className="flex items-center justify-between p-3 border rounded-lg">
-                            <div className="flex flex-col gap-1">
-                                <h3 className="font-medium text-gray-900">{user.name}</h3>
-                                <p className="text-sm text-muted-foreground">{user.email}</p>
+                <div className="max-h-96 overflow-y-auto">
+                    <div className="flex flex-col gap-4 pr-2">
+                        {mockUsers.map((user) => (
+                            <div key={user.id} className="flex items-center justify-between p-3 border rounded-lg">
+                                <div className="flex flex-col gap-1">
+                                    <h3 className="font-medium text-gray-900">{user.name}</h3>
+                                    <p className="text-sm text-muted-foreground">{user.email}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </DialogContent>
         </Dialog >
