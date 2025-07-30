@@ -12,9 +12,11 @@ import {
     unique
 } from 'drizzle-orm/pg-core';
 
-// Enums
+// enums
 export const messageType = pgEnum('message_type', ['class reminder', 'class cancellation']);
 export const bookingStatus = pgEnum('booking_status', ['confirmed', 'cancelled', 'waitlisted']);
+export const productCategory = pgEnum('product_category', ['drink', 'protein_bar', 'snack', 'cafe']);
+export const classCategory = pgEnum('class_category', ['yoga', 'hiit', 'cycling', 'aquatic', 'boxing']);
 
 // Users table
 export const users = pgTable(
@@ -52,7 +54,7 @@ export const nutritionProducts = pgTable(
         price: numeric('price'),
         quantity: integer('quantity'),
         minQuantity: integer('min_quantity'),
-        category: text('category'),
+        category: productCategory('category'),
         numberSold: integer('number_sold'),
         restock: boolean('restock'),
         isActive: boolean('is_active')
@@ -85,6 +87,7 @@ export const classes = pgTable(
         coachId: uuid('coach_id'),
         className: text('class_name'),
         scheduledOn: timestamp('scheduled_on'),
+        category: classCategory('category'),
         startTime: timestamp('start_time'),
         endTime: timestamp('end_time'),
         capacity: integer('capacity'),
@@ -119,7 +122,7 @@ export const messages = pgTable(
 export const nutritionOrders = pgTable(
     'nutrition_orders',
     {
-        orderId: uuid('id').defaultRandom(),
+        id: uuid('id').defaultRandom(),
         userId: uuid('user_id'),
         status: text('status'),
         total: numeric('total'),
@@ -127,7 +130,7 @@ export const nutritionOrders = pgTable(
         specialNotes: text('special_notes')
     },
     (table) => [
-        primaryKey({ columns: [table.orderId] }),
+        primaryKey({ columns: [table.id] }),
         foreignKey({ columns: [table.userId], foreignColumns: [users.userId] })
     ]
 );
@@ -143,7 +146,7 @@ export const nutritionOrderItems = pgTable(
     },
     (table) => [
         primaryKey({ columns: [table.itemId] }),
-        foreignKey({ columns: [table.orderId], foreignColumns: [nutritionOrders.orderId] }),
+        foreignKey({ columns: [table.orderId], foreignColumns: [nutritionOrders.id] }),
         foreignKey({ columns: [table.productId], foreignColumns: [nutritionProducts.productId] })
     ]
 );

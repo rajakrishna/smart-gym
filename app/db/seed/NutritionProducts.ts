@@ -2,6 +2,13 @@ import { db } from '../db';
 import { nutritionProducts } from '../schema';
 import { faker } from '@faker-js/faker';
 
+const product_categories: ('drink' | 'protein_bar' | 'snack' | 'cafe')[] = [
+  'drink',
+  'protein_bar',
+  'snack',
+  'cafe',
+];
+
 export async function seedNutritionProducts() {
   const records = Array.from({ length: 5 }).map(() => ({
     productId: faker.string.uuid(), 
@@ -11,7 +18,7 @@ export async function seedNutritionProducts() {
     price: faker.commerce.price({ min: 5, max: 50, dec: 2 }), 
     quantity: faker.number.int({ min: 10, max: 100 }),
     minQuantity: 5,
-    category: faker.commerce.department(),
+    category: faker.helpers.arrayElement(product_categories),
     numberSold: faker.number.int({ min: 0, max: 100 }),
     restock: faker.datatype.boolean(),
     isActive: true,
