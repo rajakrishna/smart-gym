@@ -6,6 +6,7 @@ import {
   Coffee,
   Dumbbell,
   EditIcon,
+  Filter,
   Home,
   LayoutDashboard,
   LogIn,
@@ -76,6 +77,7 @@ const ICONS = {
     calendar: Calendar,
     filter: Filter,
     cancelClass: XCircle,
+    users: Users,
   },
 } as const;
 

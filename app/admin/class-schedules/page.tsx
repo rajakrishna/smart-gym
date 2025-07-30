@@ -14,6 +14,7 @@ import { COACHES, CLASS_TYPES } from '@/constants/classSchedules'
 import { groupCoachesByType } from '@/lib/classScheduleUtils'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
+import ViewUsersModal from '@/components/class-schedules/modals/ViewUsersModal'
 
 const MONTH_NAMES = [
     LABELS.classSchedules.page.months.january,
@@ -48,6 +49,7 @@ const ClassSchedulesPage = () => {
         handleAddClass,
         handleDeleteClass,
         handleCancelClass,
+        handleViewUsers,
     } = useClassSchedules()
 
     const activeTab = MONTH_NAMES[state.currentMonth.getMonth()]
@@ -166,6 +168,7 @@ const ClassSchedulesPage = () => {
                                                 classItem={cls}
                                                 onCancel={(classId, classTitle) => openActionDialog('cancel', classId, classTitle)}
                                                 onDelete={(classId, classTitle) => openActionDialog('delete', classId, classTitle)}
+                                                onViewUsers={(classId, classTitle) => openActionDialog('viewUsers', classId, classTitle)}
                                             />
                                         ))
                                     ) : (
@@ -208,6 +211,13 @@ const ClassSchedulesPage = () => {
                     onClose={() => closeDialog('cancelClass')}
                     classTitle={dialogs.cancelClass.classTitle}
                     onCancel={handleCancelClass}
+                />
+
+                <ViewUsersModal
+                    isOpen={dialogs.viewUsers.isOpen}
+                    onClose={() => closeDialog('viewUsers')}
+                    classTitle={dialogs.viewUsers.classTitle}
+                    onViewUsers={handleViewUsers}
                 />
             </div>
         </SidebarProvider>

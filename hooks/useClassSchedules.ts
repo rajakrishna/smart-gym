@@ -24,6 +24,7 @@ export const useClassSchedules = () => {
     addClass: false,
     deleteClass: { isOpen: false, classId: null, classTitle: '' },
     cancelClass: { isOpen: false, classId: null, classTitle: '' },
+    viewUsers: { isOpen: false, classId: null, classTitle: '' },
   });
 
   const [classForm, setClassForm] = useState<ClassFormData>({
@@ -141,13 +142,16 @@ export const useClassSchedules = () => {
     [resetClassForm]
   );
 
-  const openActionDialog = useCallback((action: 'delete' | 'cancel', classId: number, classTitle: string) => {
-    const dialogKey = action === 'delete' ? 'deleteClass' : 'cancelClass';
-    setDialogs(prev => ({
-      ...prev,
-      [dialogKey]: { isOpen: true, classId, classTitle },
-    }));
-  }, []);
+  const openActionDialog = useCallback(
+    (action: 'delete' | 'cancel' | 'viewUsers', classId: number, classTitle: string) => {
+      const dialogKey = action === 'delete' ? 'deleteClass' : action === 'cancel' ? 'cancelClass' : 'viewUsers';
+      setDialogs(prev => ({
+        ...prev,
+        [dialogKey]: { isOpen: true, classId, classTitle },
+      }));
+    },
+    []
+  );
 
   // Data getters
   const getClassesForDate = useCallback(() => {
@@ -173,6 +177,11 @@ export const useClassSchedules = () => {
     closeDialog('cancelClass');
   }, [dialogs.cancelClass.classId, closeDialog]);
 
+  const handleViewUsers = useCallback(() => {
+    console.log('Viewing users:', dialogs.viewUsers.classId);
+    closeDialog('viewUsers');
+  }, [dialogs.viewUsers.classId, closeDialog]);
+
   return {
     // State
     state,
@@ -193,5 +202,6 @@ export const useClassSchedules = () => {
     handleAddClass,
     handleDeleteClass,
     handleCancelClass,
+    handleViewUsers,
   };
 };

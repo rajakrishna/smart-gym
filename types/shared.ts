@@ -57,6 +57,7 @@ export interface DialogState {
   addClass: boolean;
   deleteClass: { isOpen: boolean; classId: number | null; classTitle: string };
   cancelClass: { isOpen: boolean; classId: number | null; classTitle: string };
+  viewUsers: { isOpen: boolean; classId: number | null; classTitle: string };
 }
 
 // Colors for the different types of classes for buttons and badges

@@ -10,11 +10,12 @@ import ICONS from '@/constants/icons'
 
 interface ClassCardProps {
     classItem: ClassScheduleItem
+    onViewUsers: (classId: number, classTitle: string) => void
     onCancel: (classId: number, classTitle: string) => void
     onDelete: (classId: number, classTitle: string) => void
 }
 
-const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onDelete }) => {
+const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onDelete, onViewUsers }) => {
     // Used to color code things based off of the class type
     const colors = getClassColors(classItem.type)
 
@@ -45,6 +46,15 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onDelete }) 
                         onClick={() => onDelete(classItem.id, classItem.title)}
                     >
                         <ICONS.classSchedules.delete className="w-3 h-3" />
+                    </Button>
+                    {/* Button with icon of a user and when clicked it opens a modal that shows all the users that are signed up for the class */}
+                    <Button
+                        size="sm"
+                        variant="ghost"
+                        className="h-6 w-6 p-0 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+                        onClick={() => onViewUsers(classItem.id, classItem.title)}
+                    >
+                        <ICONS.classSchedules.users className="w-3 h-3" />
                     </Button>
                 </div>
             </div>
