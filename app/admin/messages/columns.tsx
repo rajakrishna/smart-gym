@@ -20,6 +20,8 @@ export type Messages = {
 const messageTypeBadge = (messageType: string) => {
     const normalizedType = messageType.toLowerCase()
 
+    // TODO: Map this stuff
+
     if (normalizedType === "email") {
         return <Badge variant="outline" className="bg-blue-500 text-white"><span className="font-medium">{messageType}</span></Badge>
     } else if (normalizedType === "sms") {
