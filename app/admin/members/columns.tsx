@@ -19,9 +19,9 @@ export type Member = {
 
 const checkedInStatusBadge = (checkedInStatus: boolean) => {
     return checkedInStatus ? (
-        <Badge variant="outline" className="bg-green-500 text-white"><span className="font-medium">Checked In</span></Badge>
+        <Badge variant="outline" className="bg-green-500 text-white"><span className="font-medium">{LABELS.pages.admin_members.badges.checkedIn}</span></Badge>
     ) : (
-        <Badge variant="outline" className="bg-red-500 text-white"><span className="font-medium">Checked Out</span></Badge>
+        <Badge variant="outline" className="bg-red-500 text-white"><span className="font-medium">{LABELS.pages.admin_members.badges.checkedOut}</span></Badge>
     )
 }
 

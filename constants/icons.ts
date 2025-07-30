@@ -5,7 +5,7 @@ import {
   Clock,
   Coffee,
   Dumbbell,
-  Filter,
+  EditIcon,
   Home,
   LayoutDashboard,
   LogIn,
@@ -50,6 +50,11 @@ const ICONS = {
   adminMembersPage: {
     search: Search,
     addMember: Plus,
+  },
+
+  adminCafePage: {
+    addProduct: Plus,
+    editProduct: EditIcon,
   },
 
   // Admin User menu icons
