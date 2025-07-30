@@ -52,34 +52,20 @@ An app that serves as a center for membership management, class scheduling, orde
       </a>
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="https://www.linkedin.com/in/devmonika/">
-        <img src="https://avatars.githubusercontent.com/u/85965486?v=4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Monika Profile Picture" /><br />
-        <sub><b>Monika Garg</b></sub>
-      </a>
-    </td>
-    </tr>
-   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/dannyrivasdev/">
         <img src="https://github.com/user-attachments/assets/53cebcf7-2e3e-46f3-9346-94ec5a27ad19" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" 
         alt="Danny Rivas Profile Picture" /><br />
         <sub><b>Danny Rivas</b></sub>
       </a>
     </td>
+    </tr>
+   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/developerdiego/">
-        <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_200_200/B56ZYiPX.lHoAY-/0/1744331178327?e=1753473600&v=beta&t=R18fxZsGd_s84v-PEXi0cmmZfHT4jjmqBBGMsrW6Gj8" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
+        <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_800_800/B56ZYiPX.lHoAg-/0/1744331178327?e=1754514000&v=beta&t=z5WYYml_5szjwihEfjwdIW3rrPXncMSDf5xy15eth0Q" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
         <sub><b>Diego Espino</b></sub>
       </a>
     </td>
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="https://www.linkedin.com/in/sunnith-ch/">
-        <img src="https://media.licdn.com/dms/image/v2/D4E35AQFNoT9iC9_h1A/profile-framedphoto-shrink_400_400/B4EZfSaDO2HwAc-/0/1751581734372?e=1752937200&v=beta&t=4YOJlnlGTsUdbsUa0NqXLf6h5HlfmBE9uKYJRGckBSM" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Sunnith Profile Picture" /><br />
-        <sub><b>Sunnith CH</b></sub>
-      </a>
-    </td>
-    </tr>  
-   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/rajakrishna/">
         <img src="https://media.licdn.com/dms/image/v2/D5603AQFDLs3Zm3m01A/profile-displayphoto-shrink_200_200/B56Zd56YWwGoAc-/0/1750097037071?e=1755734400&v=beta&t=BMpj0zVVOMehE_fiukehMx2GkxnrZvAtZ9UsDSjUPDo" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Raja Krishna Profile Picture" /><br />
