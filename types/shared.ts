@@ -11,6 +11,7 @@ export interface ApiResponse<T> {
 }
 
 export interface Message {
+  title: string;
   message_id: string;
   user_id: string;
   full_name: string;
