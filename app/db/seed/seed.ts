@@ -13,13 +13,12 @@ import { seedCheckIns } from '../seed/CheckIns';
 import { seedMetrics } from '../seed/Metrics';
 
 async function resetSchema() {
-  console.log('Resetting database schema...');
   await db.execute(sql`DROP SCHEMA public CASCADE; CREATE SCHEMA public;`);
   await db.execute(sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
 }
 
 async function seedDatabase() {
-  await resetSchema(); // 🧼 Clean wipe
+  await resetSchema(); 
 
   const users = await seedUser();
   await seedMessages(users);
@@ -37,14 +36,11 @@ async function seedDatabase() {
 }
 
 async function main() {
-  console.log('SMART_GYM_DB:', process.env.SMART_GYM_DB);
   try {
-    console.log('Starting database seed...');
     await seedDatabase();
-    console.log('Seeding complete');
     process.exit(0);
-  } catch (err) {
-    console.error('Seeding failed:', err);
+  } catch (error) {
+    console.error(error)
     process.exit(1);
   }
 }
