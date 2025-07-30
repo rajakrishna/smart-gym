@@ -185,13 +185,13 @@ const SendMessageModal: React.FC<SendMessageModalProps> = ({ children }) => {
                                     <SelectItem key={user.user_id} value={user.user_id}>
                                         <div className="flex items-center gap-3">
                                             <Avatar className="h-6 w-6">
-                                                <AvatarImage src={`https://ui-avatars.com/api/?name=${user.full_name}`} />
+                                                <AvatarImage src={`https://ui-avatars.com/api/?name=${user.first_name + ' ' + user.last_name}`} />
                                                 <AvatarFallback className="text-xs">
-                                                    {getInitialsForAvatars(user.full_name)}
+                                                    {getInitialsForAvatars(user.first_name + ' ' + user.last_name)}
                                                 </AvatarFallback>
                                             </Avatar>
                                             <div>
-                                                <div className="font-medium">{user.full_name}</div>
+                                                <div className="font-medium">{user.first_name + ' ' + user.last_name}</div>
                                                 <div className="text-sm text-muted-foreground">{user.email}</div>
                                             </div>
                                         </div>
@@ -205,13 +205,13 @@ const SendMessageModal: React.FC<SendMessageModalProps> = ({ children }) => {
                             <div className="p-3 bg-muted rounded-lg">
                                 <div className="flex items-center gap-3">
                                     <Avatar>
-                                        <AvatarImage src={`https://ui-avatars.com/api/?name=${selectedUser.full_name}`} />
+                                        <AvatarImage src={`https://ui-avatars.com/api/?name=${selectedUser.first_name + ' ' + selectedUser.last_name}`} />
                                         <AvatarFallback>
-                                            {getInitialsForAvatars(selectedUser.full_name)}
+                                            {getInitialsForAvatars(selectedUser.first_name + ' ' + selectedUser.last_name)}
                                         </AvatarFallback>
                                     </Avatar>
                                     <div>
-                                        <div className="font-medium">{selectedUser.full_name}</div>
+                                        <div className="font-medium">{selectedUser.first_name + ' ' + selectedUser.last_name}</div>
                                         <div className="text-sm text-muted-foreground">{selectedUser.email}</div>
                                     </div>
                                 </div>
