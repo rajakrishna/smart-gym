@@ -1,5 +1,6 @@
 import { sql } from 'drizzle-orm';
 import { db } from '../db';
+import { createDatabase } from '../createTables';
 
 import { seedUser } from '../seed/User';
 import { seedCoaches } from '../seed/Coaches';
@@ -19,6 +20,8 @@ async function resetSchema() {
 
 async function seedDatabase() {
   await resetSchema(); 
+
+  await createDatabase();
 
   const users = await seedUser();
   await seedMessages(users);
