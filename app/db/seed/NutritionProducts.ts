@@ -24,6 +24,14 @@ export async function seedNutritionProducts() {
     isActive: true,
   }));
 
-  await db.insert(nutritionProducts).values(records);
-  return records;
+  const insertedProducts = await db
+    .insert(nutritionProducts)
+    .values(records)
+    .returning({ productId : nutritionProducts.productId});
+  
+    const safeProducts = insertedProducts.filter(
+      (p): p is { productId: string } => p.productId !== null
+    );
+  
+    return safeProducts;
 }

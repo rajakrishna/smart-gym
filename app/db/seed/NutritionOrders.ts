@@ -11,7 +11,7 @@ export async function seedNutritionOrders(users: { userId: string }[]) {
   const records = Array.from({ length: 8 }).map(() => {
     const user = faker.helpers.arrayElement(users);
     return {
-      orderId: faker.string.uuid(),
+      id: faker.string.uuid(),
       userId: user.userId,
       status: 'completed',
       total: faker.commerce.price({ min: 15, max: 120, dec: 2 }), // returns string
@@ -20,6 +20,15 @@ export async function seedNutritionOrders(users: { userId: string }[]) {
     };
   });
 
-  await db.insert(nutritionOrders).values(records);
-  return records;
+  const insertedOrders = await db
+    .insert(nutritionOrders)
+    .values(records)
+    .returning({ id: nutritionOrders.id})
+  
+  const safeOrders = insertedOrders.filter(
+    (order): order is { id: string } => order.id !== null
+  );
+  
+  return safeOrders;
+
 }

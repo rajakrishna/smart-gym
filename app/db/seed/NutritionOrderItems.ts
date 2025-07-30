@@ -3,9 +3,10 @@ import { nutritionOrderItems } from '../schema';
 import { faker } from '@faker-js/faker';
 
 export async function seedNutritionOrderItems(
-  orders: { orderId: string }[],
+  orders: { id: string }[],
   products: { productId: string }[]
 ) {
+  
   if (orders.length === 0 || products.length === 0) {
     return;
   }
@@ -14,8 +15,8 @@ export async function seedNutritionOrderItems(
     const order = faker.helpers.arrayElement(orders);
     const product = faker.helpers.arrayElement(products);
     return {
-      itemId: faker.string.uuid(), // Required UUID
-      orderId: order.orderId,
+      itemId: faker.string.uuid(),
+      orderId: order.id,
       productId: product.productId,
       quantity: faker.number.int({ min: 1, max: 5 }),
     };
