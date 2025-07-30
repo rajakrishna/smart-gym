@@ -18,6 +18,11 @@ type ClassCardProps = {
 };
 
 const ClassCard: React.FC<ClassCardProps> = ({ classInfo, index }) => {
+  function formatCategory(category: string) {
+  if (!category) return '';
+  if (category.toLowerCase() === 'hiit') return 'HIIT';
+  return category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+}
   return (
     <div key={index} className='relative h-[220px] min-w-[160px] rounded-2xl overflow-hidden'>
       {/* Background image */}
@@ -28,7 +33,7 @@ const ClassCard: React.FC<ClassCardProps> = ({ classInfo, index }) => {
 
       {/* Text content */}
       <div className='absolute bottom-2 left-2 z-10 text-sm leading-snug text-muted'>
-        <h3 className='font-bold  text-xl'>{classInfo.category}</h3>
+        <h3 className='font-bold  text-xl'>{formatCategory(classInfo.category)}</h3>
         <p className='text-sm'>{coach} {classInfo.coach}</p>
         <p className='text-sm'>{classInfo.time}</p>
       </div>

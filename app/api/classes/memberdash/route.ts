@@ -4,6 +4,7 @@ import { createClient } from '@/utils/supabase/server';
 
 export async function GET() {
   const supabase = await createClient();
+  const allowedCategories = ['yoga', 'cycling', 'boxing', 'aquatic', 'hiit'];
 
   try {
     const { data, error } = await supabase
@@ -26,7 +27,8 @@ export async function GET() {
                 )
       `
       )
-      .order('scheduled_on', { ascending: true });
+      .in('category', allowedCategories)
+      .order('start_time', { ascending: true });
 
     if (error) {
       console.error('DB Error:', error.message);
@@ -34,33 +36,32 @@ export async function GET() {
     }
 
     const categoryImageMap: Record<string, string> = {
-      Yoga: '/assets/gc1.png',
-      Cycling: '/assets/gc2.png',
-      Boxing: '/assets/gc3.png',
-      Swimming: '/assets/gc4.png',
-      HIIT: '/assets/gc5.png',
+      yoga: '/assets/gc1.png',
+      cycling: '/assets/gc2.png',
+      boxing: '/assets/gc3.png',
+      aquatic: '/assets/gc4.png',
+      hiit: '/assets/gc5.png',
     };
 
-    const timeMap: Record<string, string> = {
-      Yoga: '7:00 AM',
-      HIIT: '8:00 AM',
-      Boxing: '9:00 AM',
-      Cycling: '6:30 AM',
-      Aquatic: '10:00 AM',
-      Fitness: '11:00 AM',
-      Flexibility: '12:00 PM',
-    };
     const transformed = data.map(c => {
       const coach = Array.isArray(c.coach) ? c.coach[0] : c.coach;
-      const start = c.start_time ? new Date(c.start_time) : null;
+      function formatTime(timeString: string) {
+        const date = new Date(`1970-01-01T${timeString}Z`);
+        return date.toLocaleTimeString('en-US', {
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true,
+          timeZone: 'UTC',
+        });
+      }
 
       return {
         class_id: c.class_id,
         category: c.category,
         coach_name: coach ? `${coach.first_name}` : 'Coach TBD',
-        time: timeMap[c.category] || 'TBD',
+        time: formatTime(c.start_time),
         capacity: c.capacity,
-        src: categoryImageMap[c.category] || '/images/gc3.png',
+        src: categoryImageMap[c.category] || '/assets/gc3.png',
       };
     });
 
