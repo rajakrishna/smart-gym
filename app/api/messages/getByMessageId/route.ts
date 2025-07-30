@@ -4,6 +4,8 @@ import { createClient } from '@/utils/supabase/server';
 
 export async function GET(request: Request) {
   try {
+    console.log('Getting message by message_id');
+
     const supabase = await createClient();
 
     const { searchParams } = new URL(request.url);
@@ -20,9 +22,27 @@ export async function GET(request: Request) {
       .order('sent_at', { ascending: false });
 
     if (error) {
-      return NextResponse.json({ status: 'error', message: error.message }, { status: 500 });
+      console.log('Supabase error details:', {
+        status: 500,
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code,
+      });
+
+      return NextResponse.json(
+        {
+          status: 'error',
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+          code: error.code,
+        },
+        { status: 500 }
+      );
     }
 
+    console.log('Successfully got message by message_id');
     console.log('message:', data[0]);
 
     return NextResponse.json({ status: 'ok', messages: data });
