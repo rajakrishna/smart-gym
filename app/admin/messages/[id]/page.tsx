@@ -1,6 +1,7 @@
 import React from 'react'
+import { Message } from '@/types/shared'
 
-async function getData(id: string) {
+async function getData(id: string): Promise<Message> {
     try {
 
         const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
@@ -31,7 +32,9 @@ async function getData(id: string) {
 
 const MessageDetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     const { id } = await params
+
     const message = await getData(id)
+
 
     return (
         <div className="min-h-screen bg-gray-50">

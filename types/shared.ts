@@ -24,8 +24,19 @@ export interface Message {
 
 export interface User {
   user_id: string;
-  full_name: string;
+  role_name: string;
+  first_name: string;
+  last_name: string;
+  date_of_birth: string;
+  address: string;
+  city: string;
+  state: string;
+  zip_code: string;
   email: string;
+  phone: string;
+  user_image: string;
+  membership_plan: string;
+  created_at: string;
 }
 
 export interface MessageFormData {

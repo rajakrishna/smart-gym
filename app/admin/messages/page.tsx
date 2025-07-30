@@ -52,7 +52,7 @@ const Page = async () => {
             </div>
             <SendMessageModal>
                 <Button className="mt-4 bg-green-500 hover:bg-green-600" >
-                    <ICONS.adminMembersPage.addMember />
+                    <ICONS.adminMessagesPage.createMessage />
                     {LABELS.pages.admin_messages.buttons.createMessage}
                 </Button>
             </SendMessageModal>

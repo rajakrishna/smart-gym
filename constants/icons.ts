@@ -56,6 +56,11 @@ const ICONS = {
     addMember: Plus,
   },
 
+  adminMessagesPage: {
+    createMessage: Plus,
+    messageDetail: Mail,
+  },
+
   adminCafePage: {
     addProduct: Plus,
     editProduct: Edit,

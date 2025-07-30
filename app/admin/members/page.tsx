@@ -6,19 +6,7 @@ import { Input } from '@/components/ui/input'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
 import { DataTable } from '@/components/ui/data-table'
-
-// User interface for API response
-interface User {
-    user_id?: string | number
-    id?: string | number
-    full_name?: string
-    name?: string
-    first_name?: string
-    last_name?: string
-    email?: string
-    phone?: string
-    user_image?: string
-}
+import { User } from '@/types/shared'
 
 // Mock data as fallback
 const mockMembersData: Member[] = [
@@ -68,8 +56,8 @@ async function getData(): Promise<Member[]> {
         }
 
         const mappedMembers: Member[] = users.map((user: User) => ({
-            id: user.user_id?.toString() || user.id?.toString() || Math.random().toString(),
-            memberName: user.name || `${user.first_name || ''} ${user.last_name || ''}`.trim() || 'Unknown User',
+            id: user.user_id?.toString() || Math.random().toString(),
+            memberName: `${user.first_name || ''} ${user.last_name || ''}`.trim() || 'Unknown User',
             memberEmail: user.email || 'no-email@example.com',
             memberPhone: user.phone || 'No phone',
             memberImage: user.user_image || 'No image',
