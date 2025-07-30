@@ -36,7 +36,7 @@ async function getData(id: string) {
     }
 }
 
-const MessageDetailPage = async ({ params }: { params: { id: string } }) => {
+const MessageDetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     const { id } = await params
     const message = await getData(id)
 
