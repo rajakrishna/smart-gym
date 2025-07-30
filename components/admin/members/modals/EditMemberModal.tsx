@@ -1,12 +1,9 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import LABELS from '@/constants/labels'
 import React from 'react'
 
-// TODO: Finish the edit member modal
-// TODO: Add the placeholders, should be the current values of the member
-// TODO: Add the form and the submit button
-// TODO: Add the API call to update the member
 
 const EditMemberModal = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -16,31 +13,39 @@ const EditMemberModal = ({ children }: { children: React.ReactNode }) => {
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>Edit Member</DialogTitle>
-                    <DialogDescription>Edit the member&apos;s details</DialogDescription>
+                    <DialogTitle>{LABELS.modals.editMember.title}</DialogTitle>
+                    <DialogDescription>{LABELS.modals.editMember.description}</DialogDescription>
                     <div className="flex flex-col gap-4">
                         {/* Membership Type */}
                         <Select>
                             <SelectTrigger>
-                                <SelectValue placeholder="Select Membership Type" />
+                                <SelectValue placeholder={LABELS.modals.editMember.placeholders.selectMembershipType} />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="basic">Basic</SelectItem>
-                                <SelectItem value="premium">Premium</SelectItem>
+                                <SelectItem value={LABELS.modals.editMember.membershipTypes.basic.value}>
+                                    {LABELS.modals.editMember.membershipTypes.basic.label}
+                                </SelectItem>
+                                <SelectItem value={LABELS.modals.editMember.membershipTypes.premium.value}>
+                                    {LABELS.modals.editMember.membershipTypes.premium.label}
+                                </SelectItem>
                             </SelectContent>
                         </Select>
-                        <Input type="text" placeholder="First Name" />
-                        <Input type="text" placeholder="Last Name" />
-                        <Input type="email" placeholder="Email" />
-                        <Input type="tel" placeholder="Phone" />
+                        <Input type="text" placeholder={LABELS.modals.editMember.placeholders.enterFirstName} />
+                        <Input type="text" placeholder={LABELS.modals.editMember.placeholders.enterLastName} />
+                        <Input type="email" placeholder={LABELS.modals.editMember.placeholders.enterEmail} />
+                        <Input type="tel" placeholder={LABELS.modals.editMember.placeholders.enterPhone} />
                         {/* Membership Status */}
                         <Select>
                             <SelectTrigger>
-                                <SelectValue placeholder="Select Membership Status" />
+                                <SelectValue placeholder={LABELS.modals.editMember.placeholders.selectMembershipStatus} />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="active">Active</SelectItem>
-                                <SelectItem value="inactive">Inactive</SelectItem>
+                                <SelectItem value={LABELS.modals.editMember.membershipStatuses.active.value}>
+                                    {LABELS.modals.editMember.membershipStatuses.active.label}
+                                </SelectItem>
+                                <SelectItem value={LABELS.modals.editMember.membershipStatuses.inactive.value}>
+                                    {LABELS.modals.editMember.membershipStatuses.inactive.label}
+                                </SelectItem>
                             </SelectContent>
                         </Select>
                     </div>

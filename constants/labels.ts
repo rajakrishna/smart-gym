@@ -132,6 +132,51 @@ const LABELS = {
         sendErrorGeneric: 'Error sending message',
       },
     },
+    editMember: {
+      title: 'Edit Member',
+      description: "Edit the member's details",
+      labels: {
+        membershipType: 'Membership Type',
+        firstName: 'First Name',
+        lastName: 'Last Name',
+        email: 'Email',
+        phone: 'Phone',
+        membershipStatus: 'Membership Status',
+      },
+      placeholders: {
+        selectMembershipType: 'Select Membership Type',
+        enterFirstName: 'First Name',
+        enterLastName: 'Last Name',
+        enterEmail: 'Email',
+        enterPhone: 'Phone',
+        selectMembershipStatus: 'Select Membership Status',
+      },
+      membershipTypes: {
+        basic: {
+          value: 'basic',
+          label: 'Basic',
+        },
+        premium: {
+          value: 'premium',
+          label: 'Premium',
+        },
+      },
+      membershipStatuses: {
+        active: {
+          value: 'active',
+          label: 'Active',
+        },
+        inactive: {
+          value: 'inactive',
+          label: 'Inactive',
+        },
+      },
+      buttons: {
+        cancel: 'Cancel',
+        saveChanges: 'Save Changes',
+        saving: 'Saving...',
+      },
+    },
   },
 
   pages: {
