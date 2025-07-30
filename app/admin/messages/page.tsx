@@ -5,53 +5,47 @@ import { Button } from '@/components/ui/button'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
 import { DataTable } from '@/components/ui/data-table'
+import SendMessageModal from '@/components/admin/messages/modals/SendMessageModal'
+import { Message } from '@/types/shared'
 
 async function getData() {
-    // TODO: Fetch data from the database
-    return [
-        {
-            id: "1",
-            from: "John Smith",
-            messageType: "Email",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "2",
-            from: "Sarah Johnson",
-            messageType: "SMS",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "3",
-            from: "Mike Wilson",
-            messageType: "Email",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "4",
-            from: "Emily Davis",
-            messageType: "SMS",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "5",
-            from: "David Brown",
-            messageType: "Email",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "6",
-            from: "David Brown",
-            messageType: "SMS",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
+    try {
+        console.log('Attempting to fetch messages from API...')
+
+        const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+        const response = await fetch(`${baseUrl}/api/messages/getAll`, {
+            method: 'GET',
+            cache: 'no-store'
+        })
+
+        if (!response.ok) {
+            console.error('API response not ok:', response.status, response.statusText)
+            throw new Error(`API request failed with status ${response.status}`)
         }
-    ]
+
+        const data = await response.json()
+        console.log('Successfully fetched messages response:', data)
+
+        if (data.status === 'ok' && data.messages) {
+            const mappedMessages = data.messages.map((message: Message) => ({
+                id: message.message_id,
+                from: message.email,
+                messageType: message.delivery_method,
+                message: message.title,
+                createdAt: new Date(message.sent_at).toLocaleDateString()
+            }))
+
+            console.log('Successfully mapped', mappedMessages.length, 'messages')
+            return mappedMessages
+        }
+
+        console.log('No messages found or invalid response format')
+        return []
+    } catch (error) {
+        console.error('Error fetching messages from API:', error)
+        console.log('Returning empty array due to error')
+        return []
+    }
 }
 
 const Page = async () => {
@@ -62,10 +56,12 @@ const Page = async () => {
             <div className="mt-4">
                 <DataTable columns={columns} data={data} />
             </div>
-            <Button className="mt-4 bg-green-500 hover:bg-green-600" >
-                <ICONS.adminMembersPage.addMember />
-                {LABELS.pages.admin_messages.buttons.createMessage}
-            </Button>
+            <SendMessageModal>
+                <Button className="mt-4 bg-green-500 hover:bg-green-600" >
+                    <ICONS.adminMembersPage.addMember />
+                    {LABELS.pages.admin_messages.buttons.createMessage}
+                </Button>
+            </SendMessageModal>
         </div >
     )
 }
