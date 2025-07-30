@@ -246,7 +246,7 @@ The application uses Next.js API Routes organized by feature:
 | `/api/messages/getById`  | gets msgs by user ID             |
 | `/api/messages/create`   | creates msg associated w user ID |
 | `/api/messages/delete`   | deletes msg associated w msg ID  |
-| `/api/classes/getAll`    | get all classses                 |
+| `/api/classes/getAll`    | get all classes                  |
 | `/api/classes/[classId]` | get a single class               |
 | `/api/classes/create`    | create a class                   |
 | `/api/classes/update`    | update a class                   |
@@ -283,6 +283,83 @@ The application uses Next.js API Routes organized by feature:
   - [Step 2]
   - [Step 3]
   - [Step 4]
+
+- API Endpoint: `/api/messages/getAll`
+- Purpose: Get all messages
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to messages page
+  - System fetches all messages from database
+
+- API Endpoint: `/api/messages/getById`
+- Purpose: Get messages relating to a specific user by user ID
+- Triggered by: Admin user
+- Steps:
+  - Admin user selects a specific message
+  - System queries database for messages associated with user ID
+  - User-specific messages are returned and displayed in the admin UI
+
+- API Endpoint: `/api/messages/create`
+- Purpose: Create message associated with user ID
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to messages page
+  - Admin user hits create new message button
+  - Admin user fills out the form
+  - System creates message record in database
+  - Message is associated with specified user ID
+
+- API Endpoint: `/api/cafe/getAll`
+- Purpose: Get all cafe items
+- Triggered by: User/Admin
+- Steps:
+  - User/Admin accesses cafe page
+  - System fetches all product records from database
+  - Cafe items are displayed with prices and availability + other data (e.g. description, image, etc.)
+
+- API Endpoint: `/api/cafe/[productId]`
+- Purpose: Get a single cafe item
+- Triggered by: User/Admin
+- Steps:
+  - User/Admin selects specific product
+  - System queries database using product ID
+  - Individual product details are returned and displayed
+
+- API Endpoint: `/api/cafe/create`
+- Purpose: Create a cafe item
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to cafe page
+  - Admin user navigates to product creation form
+  - Admin user fills in product details and pricing + other data (e.g. description, image, etc.)
+  - Admin user hits create new product button
+  - System validates and saves new product to database
+  - Product becomes available for purchase in the cafe
+
+- API Endpoint: `/api/cafe/update`
+- Purpose: Update a cafe item
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to cafe page
+  - Admin user selects product to modify
+  - Admin user updates product information
+  - System validates changes and updates database record
+  - Updated product information is reflected in cafe
+
+- API Endpoint: `/api/cafe/delete`
+- Purpose: Delete a cafe item
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to cafe page
+  - Admin user selects product to remove
+  - System confirms deletion request
+  - Product record is removed from database
+  - Product is no longer available for purchase
 
 ## 🧩 Component Structure
 
