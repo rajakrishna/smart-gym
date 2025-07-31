@@ -3,21 +3,21 @@ import { db } from './db';
 
 export async function createDatabase() {
   // Enums
-  await db.execute(sql`
-    CREATE TYPE message_type AS ENUM ('class cancellation', 'class reminder');
-  `);
+//   await db.execute(sql`
+//     CREATE TYPE message_type AS ENUM ('class cancellation', 'class reminder');
+//   `);
 
-  await db.execute(sql`
-    CREATE TYPE booking_status AS ENUM ('confirmed', 'cancelled', 'waitlisted');
-  `);
+//   await db.execute(sql`
+//     CREATE TYPE booking_status AS ENUM ('confirmed', 'cancelled', 'waitlisted');
+//   `);
 
-  await db.execute(sql`
-    CREATE TYPE class_category AS ENUM ('yoga', 'hiit', 'cycling', 'aquatic', 'boxing');
-  `);
+//   await db.execute(sql`
+//     CREATE TYPE class_category AS ENUM ('yoga', 'hiit', 'cycling', 'aquatic', 'boxing');
+//   `);
 
-  await db.execute(sql`
-    CREATE TYPE product_category AS ENUM ('drink', 'protein_bar', 'snack', 'cafe');
-  `);
+//   await db.execute(sql`
+//     CREATE TYPE product_category AS ENUM ('drink', 'protein_bar', 'snack', 'cafe');
+//   `);
 
   // Users table
   await db.execute(sql`
