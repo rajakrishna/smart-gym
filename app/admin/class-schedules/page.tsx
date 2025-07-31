@@ -218,6 +218,7 @@ const ClassSchedulesPage = () => {
                     onClose={() => closeDialog('viewUsers')}
                     classTitle={dialogs.viewUsers.classTitle}
                     onViewUsers={handleViewUsers}
+                    classId={dialogs.viewUsers.classId}
                 />
             </div>
         </SidebarProvider>
