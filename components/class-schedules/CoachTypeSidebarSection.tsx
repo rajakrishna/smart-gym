@@ -3,8 +3,9 @@
 import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import type { Coach } from '@/types/shared'
-import { getClassColors, getInitials } from '@/lib/classScheduleUtils'
+import { getClassColors } from '@/lib/classScheduleUtils'
 import ICONS from '@/constants/icons'
+import { getInitialsForAvatars } from '@/lib/utils'
 
 interface CoachItemProps {
     coach: Coach
@@ -30,7 +31,7 @@ const CoachItem: React.FC<CoachItemProps> = ({ coach, isSelected, isFiltering, o
             {/* TODO: Get the real image from the database / url*/}
             <AvatarImage src={`https://ui-avatars.com/api/?name=${coach.name}`} />
             <AvatarFallback className="bg-primary/10 text-primary font-medium text-xs">
-                {getInitials(coach.name)}
+                {getInitialsForAvatars(coach.name)}
             </AvatarFallback>
         </Avatar>
         <div className="flex-1 flex items-center gap-2">

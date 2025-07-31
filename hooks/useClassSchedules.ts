@@ -3,29 +3,24 @@
 import { useCallback, useState } from 'react';
 
 import { CLASS_SCHEDULE } from '@/constants/classSchedules';
-import type { ClassFormData, DialogState } from '@/types/shared';
+import type { ClassFormData } from '@/types/shared';
+
+import { useCoachFilters } from './useCoachFilters';
+import { useDialogState } from './useDialogState';
 
 interface UseClassSchedulesState {
   currentMonth: Date;
   selectedDate: Date | undefined;
-  selectedCoach: string | null;
-  filterCoach: string | null;
 }
 
 export const useClassSchedules = () => {
   const [state, setState] = useState<UseClassSchedulesState>({
     currentMonth: new Date(2025, 5, 9),
     selectedDate: new Date(2025, 5, 9),
-    selectedCoach: null,
-    filterCoach: null,
   });
 
-  const [dialogs, setDialogs] = useState<DialogState>({
-    addClass: false,
-    deleteClass: { isOpen: false, classId: null, classTitle: '' },
-    cancelClass: { isOpen: false, classId: null, classTitle: '' },
-    viewUsers: { isOpen: false, classId: null, classTitle: '' },
-  });
+  const { dialogs, openDialog, closeDialog, openActionDialog } = useDialogState();
+  const { selectedCoach, filterCoach, toggleCoachSelection, toggleCoachFilter } = useCoachFilters();
 
   const [classForm, setClassForm] = useState<ClassFormData>({
     title: '',
@@ -44,12 +39,12 @@ export const useClassSchedules = () => {
   const resetClassForm = useCallback(() => {
     setClassForm({
       title: '',
-      coach: state.selectedCoach || '',
+      coach: selectedCoach || '',
       time: '',
       duration: 60,
       type: '',
     });
-  }, [state.selectedCoach]);
+  }, [selectedCoach]);
 
   // Navigation handlers
   const handleMonthChange = useCallback(
@@ -98,93 +93,49 @@ export const useClassSchedules = () => {
     updateState({ selectedDate: today, currentMonth: today });
   }, [updateState]);
 
-  // Coach selection handlers
-  const toggleCoachSelection = useCallback(
-    (coach: string) => {
-      const isCurrentlySelected = state.selectedCoach === coach;
-      updateState({
-        selectedCoach: isCurrentlySelected ? null : coach,
-        filterCoach: isCurrentlySelected ? null : coach,
-      });
-    },
-    [state.selectedCoach, updateState]
-  );
-
-  const toggleCoachFilter = useCallback(() => {
-    updateState({
-      filterCoach: state.filterCoach ? null : state.selectedCoach,
-    });
-  }, [state.filterCoach, state.selectedCoach, updateState]);
-
-  // Dialog handlers
-  const openDialog = useCallback(
-    (dialogType: 'addClass') => {
-      if (dialogType === 'addClass') {
-        resetClassForm();
-        setDialogs(prev => ({ ...prev, addClass: true }));
-      }
-    },
-    [resetClassForm]
-  );
-
-  const closeDialog = useCallback(
-    (dialogType: keyof DialogState) => {
-      if (dialogType === 'addClass') {
-        setDialogs(prev => ({ ...prev, addClass: false }));
-        resetClassForm();
-      } else {
-        setDialogs(prev => ({
-          ...prev,
-          [dialogType]: { isOpen: false, classId: null, classTitle: '' },
-        }));
-      }
-    },
-    [resetClassForm]
-  );
-
-  const openActionDialog = useCallback(
-    (action: 'delete' | 'cancel' | 'viewUsers', classId: number, classTitle: string) => {
-      const dialogKey = action === 'delete' ? 'deleteClass' : action === 'cancel' ? 'cancelClass' : 'viewUsers';
-      setDialogs(prev => ({
-        ...prev,
-        [dialogKey]: { isOpen: true, classId, classTitle },
-      }));
-    },
-    []
-  );
-
   // Data getters
   const getClassesForDate = useCallback(() => {
     if (!state.selectedDate) return [];
     const dayOfWeek = state.selectedDate.getDay();
     const dayClasses = CLASS_SCHEDULE.filter(cls => cls.day === dayOfWeek);
-    return state.filterCoach ? dayClasses.filter(cls => cls.coach === state.filterCoach) : dayClasses;
-  }, [state.selectedDate, state.filterCoach]);
+    return filterCoach ? dayClasses.filter(cls => cls.coach === filterCoach) : dayClasses;
+  }, [state.selectedDate, filterCoach]);
+
+  // Enhanced dialog handler
+  const openDialogWithReset = useCallback(
+    (dialogType: 'addClass') => {
+      if (dialogType === 'addClass') {
+        resetClassForm();
+      }
+      openDialog(dialogType);
+    },
+    [resetClassForm, openDialog]
+  );
 
   // Action handlers (placeholders for now)
   const handleAddClass = useCallback(() => {
-    console.log('Adding class:', classForm);
+    // TODO: Implement actual class creation logic
     closeDialog('addClass');
-  }, [classForm, closeDialog]);
+  }, [closeDialog]);
 
   const handleDeleteClass = useCallback(() => {
-    console.log('Deleting class:', dialogs.deleteClass.classId);
+    // TODO: Implement actual class deletion logic
     closeDialog('deleteClass');
-  }, [dialogs.deleteClass.classId, closeDialog]);
+  }, [closeDialog]);
 
   const handleCancelClass = useCallback(() => {
-    console.log('Canceling class:', dialogs.cancelClass.classId);
+    // TODO: Implement actual class cancellation logic
     closeDialog('cancelClass');
-  }, [dialogs.cancelClass.classId, closeDialog]);
+  }, [closeDialog]);
 
   const handleViewUsers = useCallback(() => {
-    console.log('Viewing users:', dialogs.viewUsers.classId);
+    // TODO: Implement actual view users logic
     closeDialog('viewUsers');
-  }, [dialogs.viewUsers.classId, closeDialog]);
+  }, [closeDialog]);
 
   return {
     // State
-    state,
+    state: { ...state, selectedCoach, filterCoach },
     dialogs,
     classForm,
     setClassForm,
@@ -196,7 +147,7 @@ export const useClassSchedules = () => {
     goToToday,
     toggleCoachSelection,
     toggleCoachFilter,
-    openDialog,
+    openDialog: openDialogWithReset,
     closeDialog,
     openActionDialog,
     handleAddClass,
