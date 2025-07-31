@@ -227,13 +227,13 @@ const LABELS = {
         accessorKeys: {
           from: 'from',
           messageType: 'messageType',
-          message: 'message',
+          subject: 'subject',
           createdAt: 'createdAt',
         },
         header: {
           from: 'From',
           messageType: 'Message Type',
-          message: 'Message',
+          subject: 'Subject',
           createdAt: 'Created At',
         },
       },

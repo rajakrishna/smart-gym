@@ -18,7 +18,6 @@ export interface Message {
   title: string;
   body: string;
   sent_at: string;
-  category: string;
   delivery_method: string;
 }
 
@@ -44,7 +43,6 @@ export interface MessageFormData {
   type: string;
   title: string;
   body: string;
-  category: string;
   delivery_method: string;
 }
 

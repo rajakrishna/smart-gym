@@ -28,7 +28,7 @@ async function getData() {
                 id: message.message_id,
                 from: message.email,
                 messageType: message.delivery_method,
-                message: message.title,
+                subject: message.title,
                 createdAt: new Date(message.sent_at).toLocaleDateString()
             }))
 
