@@ -45,13 +45,12 @@ export async function GET() {
 
     const transformed = data.map(c => {
       const coach = Array.isArray(c.coach) ? c.coach[0] : c.coach;
-      function formatTime(timeString: string) {
-        const date = new Date(`1970-01-01T${timeString}Z`);
+      function formatISOTime(dateTimeString: string) {
+        const date = new Date(dateTimeString);
         return date.toLocaleTimeString('en-US', {
           hour: 'numeric',
           minute: '2-digit',
           hour12: true,
-          timeZone: 'UTC',
         });
       }
 
@@ -59,7 +58,7 @@ export async function GET() {
         class_id: c.class_id,
         category: c.category,
         coach_name: coach ? `${coach.first_name}` : 'Coach TBD',
-        time: formatTime(c.start_time),
+        time: formatISOTime(c.start_time),
         capacity: c.capacity,
         src: categoryImageMap[c.category] || '/assets/gc3.png',
       };
@@ -70,7 +69,7 @@ export async function GET() {
       data: transformed,
     });
   } catch (err) {
-    console.error('GET /api/classes/with-coach error:', err);
+    console.error('GET /api/classes/memberdash error:', err);
     return NextResponse.json({ success: false, data: [], error: 'Internal server error' }, { status: 500 });
   }
 }
