@@ -3,13 +3,11 @@ import {
   Bell,
   Calendar,
   Clock,
-  Clock,
   Coffee,
   CreditCard,
   DollarSign,
   Dumbbell,
   Edit,
-  EditIcon,
   Filter,
   Home,
   LayoutDashboard,
@@ -62,6 +60,11 @@ const ICONS = {
     addMember: Plus,
   },
 
+  adminMessagesPage: {
+    createMessage: Plus,
+    messageDetail: Mail,
+  },
+
   adminMemberDetail: {
     edit: Edit,
     delete: Trash2,
@@ -73,7 +76,7 @@ const ICONS = {
 
   adminCafePage: {
     addProduct: Plus,
-    editProduct: EditIcon,
+    editProduct: Edit,
   },
 
   // Admin User menu icons

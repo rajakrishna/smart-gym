@@ -2,7 +2,7 @@
 "use client"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
+// import { Badge } from "@/components/ui/badge"
 import LABELS from "@/constants/labels"
 import { getInitialsForAvatars } from "@/lib/utils"
 import { ColumnDef } from "@tanstack/react-table"
@@ -14,16 +14,17 @@ export type Member = {
     memberName: string
     memberEmail: string
     memberPhone: string
+    memberImage: string
     memberCheckedInStatus: boolean
 }
 
-const checkedInStatusBadge = (checkedInStatus: boolean) => {
-    return checkedInStatus ? (
-        <Badge variant="outline" className="bg-green-500 text-white"><span className="font-medium">{LABELS.pages.admin_members.badges.checkedIn}</span></Badge>
-    ) : (
-        <Badge variant="outline" className="bg-red-500 text-white"><span className="font-medium">{LABELS.pages.admin_members.badges.checkedOut}</span></Badge>
-    )
-}
+// const checkedInStatusBadge = (checkedInStatus: boolean) => {
+//     return checkedInStatus ? (
+//         <Badge variant="outline" className="bg-green-500 text-white"><span className="font-medium">{LABELS.pages.admin_members.badges.checkedIn}</span></Badge>
+//     ) : (
+//         <Badge variant="outline" className="bg-red-500 text-white"><span className="font-medium">{LABELS.pages.admin_members.badges.checkedOut}</span></Badge>
+//     )
+// }
 
 export const columns: ColumnDef<Member>[] = [
     {
@@ -31,9 +32,12 @@ export const columns: ColumnDef<Member>[] = [
         header: LABELS.pages.admin_members.columns.header.memberName,
         cell: ({ row }) => {
             const name = row.getValue("memberName") as string
+            const memberImage = row.original.memberImage
             return (<div className="flex items-center gap-3">
                 <Avatar>
-                    <AvatarImage src={`https://ui-avatars.com/api/?name=${name}`} />
+                    <AvatarImage
+                        src={memberImage && memberImage !== 'No image' ? memberImage : `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}`}
+                    />
                     <AvatarFallback className="bg-primary/10 text-primary font-medium">
                         {getInitialsForAvatars(name)}
                     </AvatarFallback>
@@ -51,12 +55,12 @@ export const columns: ColumnDef<Member>[] = [
         accessorKey: LABELS.pages.admin_members.columns.accessorKeys.memberPhone,
         header: LABELS.pages.admin_members.columns.header.memberPhone,
     },
-    {
-        accessorKey: LABELS.pages.admin_members.columns.accessorKeys.memberCheckedInStatus,
-        header: LABELS.pages.admin_members.columns.header.memberCheckedInStatus,
-        cell: ({ row }) => {
-            const checkedInStatus = row.getValue("memberCheckedInStatus") as boolean
-            return checkedInStatusBadge(checkedInStatus)
-        }
-    }
+    // {
+    //     accessorKey: LABELS.pages.admin_members.columns.accessorKeys.memberCheckedInStatus,
+    //     header: LABELS.pages.admin_members.columns.header.memberCheckedInStatus,
+    //     cell: ({ row }) => {
+    //         const checkedInStatus = row.getValue("memberCheckedInStatus") as boolean
+    //         return checkedInStatusBadge(checkedInStatus)
+    //     }
+    // }
 ]

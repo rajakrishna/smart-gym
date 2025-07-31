@@ -80,26 +80,58 @@ export interface ClassScheduleItem {
 export interface Message {
   message_id: string;
   user_id: string;
-  full_name: string;
-  email: string;
-  delivery_method: string;
   type: string;
+  email: string;
+  title: string;
   body: string;
   sent_at: string;
+  category: string;
+  delivery_method: string;
+}
+
+export interface User {
+  user_id: string;
+  role_name: string;
+  first_name: string;
+  last_name: string;
+  date_of_birth: string;
+  address: string;
+  city: string;
+  state: string;
+  zip_code: string;
+  email: string;
+  phone: string;
+  user_image: string;
+  membership_plan: string;
+  created_at: string;
+}
+
+export interface MessageFormData {
+  user_id: string;
+  type: string;
+  title: string;
+  body: string;
+  category: string;
+  delivery_method: string;
 }
 
 // TODO: Add the actual constants from the actual database
 // Start of Member Related Interfaces
 export interface Member {
-  id: number;
-  name: string;
+  user_id: string;
+  role_name: string;
+  first_name: string;
+  last_name: string;
+  date_of_birth: string;
+  address: string;
+  city: string;
+  state: string;
+  zip_code: string;
   email: string;
   phone: string;
-  age: number;
-  membershipType: string;
-  memberSince: string;
-  memberShipStatus: string;
-  image: string;
+  user_image: string;
+  membership_plan: string;
+  created_at: string;
 }
 
 export interface CheckInHistory {
