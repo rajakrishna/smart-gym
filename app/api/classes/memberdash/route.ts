@@ -16,8 +16,7 @@ export async function GET() {
         class_name,
         category,
         scheduled_on,
-        start_time,
-        end_time,
+        time,
         capacity,
         created_at,
         coach:coaches (
@@ -28,7 +27,7 @@ export async function GET() {
       `
       )
       .in('category', allowedCategories)
-      .order('start_time', { ascending: true });
+      .order('time', { ascending: true });
 
     if (error) {
       console.error('DB Error:', error.message);
@@ -58,7 +57,7 @@ export async function GET() {
         class_id: c.class_id,
         category: c.category,
         coach_name: coach ? `${coach.first_name}` : 'Coach TBD',
-        time: formatISOTime(c.start_time),
+        time: formatISOTime(c.time),
         capacity: c.capacity,
         src: categoryImageMap[c.category] || '/assets/gc3.png',
       };
