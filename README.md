@@ -226,29 +226,31 @@ The application uses Next.js API Routes organized by feature:
 | `/api/[notifications]` | Manage  notifications |
 -->
 
-| API Endpoint                   | Purpose                          |
-| ------------------------------ | -------------------------------- |
-| `/api/cafe/getAll`             | get all cafe items               |
-| `/api/cafe/[productId]`        | get a single cafe item           |
-| `/api/cafe/create`             | create a cafe item               |
-| `/api/cafe/update`             | update a cafe item               |
-| `/api/cafe/delete`             | delete a cafe item               |
-| `/api/classes/getAll`          | get classes                      |
-| `/api/classes/create`          | creates class                    |
-| `/api/classes/update`          | updates class                    |
-| `/api/classes/delete`          | deletes class                    |
-| `/api/classes/[classId]`       | get a single class               |
-| `/api/coaches/getAll`          | get all coaches                  |
-| `/api/messages/create`         | creates msg associated w user ID |
-| `/api/messages/delete`         | deletes msg associated w msg ID  |
-| `/api/messages/getAll`         | get all msgs                     |
-| `/api/messages/getByMessageId` | gets msg by msg ID               |
-| `/api/messages/getByUserId`    | gets msgs by user ID             |
-| `/api/users/[userId]`          | gets user by user ID             |
-| `/api/users/create`            | creates user                     |
-| `/api/users/getAll`            | get all users                    |
-| `/api/users/update`            | updates user                     |
-| `/api/[endpoint5]`             | [Purpose description]            |
+| API Endpoint                        | Purpose                               |
+| ----------------------------------- | ------------------------------------- |
+| `/api/cafe/getAll`                  | get all cafe items                    |
+| `/api/cafe/[productId]`             | get a single cafe item                |
+| `/api/cafe/create`                  | create a cafe item                    |
+| `/api/cafe/update`                  | update a cafe item                    |
+| `/api/cafe/delete`                  | delete a cafe item                    |
+| `/api/classes/getAll`               | get classes                           |
+| `/api/classes/create`               | creates class                         |
+| `/api/classes/update`               | updates class                         |
+| `/api/classes/delete`               | deletes class                         |
+| `/api/classes/[classId]`            | get a single class                    |
+| `/api/classes/enrolled/[classId]`   | get all members enrolled in a class   |
+| `/api/classes/waitlisted/[classId]` | get all members waitlisted in a class |
+| `/api/coaches/getAll`               | get all coaches                       |
+| `/api/messages/create`              | creates msg associated w user ID      |
+| `/api/messages/delete`              | deletes msg associated w msg ID       |
+| `/api/messages/getAll`              | get all msgs                          |
+| `/api/messages/getByMessageId`      | gets msg by msg ID                    |
+| `/api/messages/getByUserId`         | gets msgs by user ID                  |
+| `/api/users/[userId]`               | gets user by user ID                  |
+| `/api/users/create`                 | creates user                          |
+| `/api/users/getAll`                 | get all users                         |
+| `/api/users/update`                 | updates user                          |
+| `/api/[endpoint5]`                  | [Purpose description]                 |
 
 ---
 
