@@ -59,3 +59,18 @@ export interface Invoice {
   description: string;
   status: 'paid' | 'pending' | 'overdue';
 }
+
+// Start of Product Related Interfaces
+export interface Product {
+  product_id: string;
+  name: string;
+  product_description: string;
+  price: number;
+  quantity: number;
+  min_quantity: number;
+  number_sold: number;
+  category: string;
+  product_image: string;
+  is_active: boolean;
+  restock: boolean;
+}

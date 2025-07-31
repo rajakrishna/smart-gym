@@ -1,4 +1,4 @@
-import { CheckInHistory, ClassTaken, Invoice, Member } from '@/types/shared';
+import { CheckInHistory, ClassTaken, Invoice, Member, Product } from '@/types/shared';
 
 // Mock data for Member Detail Page - In a real app, this would come from an API
 export const mockMember: Member = {
@@ -117,5 +117,60 @@ export const mockMembers: Member[] = [
     memberSince: '2023-03-20',
     memberShipStatus: 'Inactive',
     image: '',
+  },
+];
+
+export const mockProducts: Product[] = [
+  {
+    product_id: '1',
+    name: 'Espresso',
+    price: 4.5,
+    product_image: 'https://via.placeholder.com/150',
+    product_description: 'Strong coffee shot',
+    category: 'drinks' as const,
+    quantity: 10,
+    min_quantity: 1,
+    number_sold: 0,
+    is_active: true,
+    restock: false,
+  },
+  {
+    product_id: '2',
+    name: 'Latte',
+    price: 5.25,
+    product_image: 'https://via.placeholder.com/150',
+    product_description: 'Creamy milk coffee',
+    category: 'drinks' as const,
+    quantity: 10,
+    min_quantity: 1,
+    number_sold: 0,
+    is_active: true,
+    restock: false,
+  },
+  {
+    product_id: '3',
+    name: 'Croissant',
+    price: 3.75,
+    product_image: 'https://via.placeholder.com/150',
+    product_description: 'Buttery pastry',
+    category: 'foods' as const,
+    quantity: 10,
+    min_quantity: 1,
+    number_sold: 0,
+    is_active: true,
+    restock: false,
+  },
+  {
+    product_id: '4',
+    name: 'Sandwich',
+    price: 8.5,
+    product_image: 'https://via.placeholder.com/150',
+    product_description: 'Fresh deli sandwich',
+    category: 'foods' as const,
+    quantity: 10,
+    min_quantity: 1,
+    number_sold: 0,
+    is_active: true,
+    restock: false,
   },
 ];
