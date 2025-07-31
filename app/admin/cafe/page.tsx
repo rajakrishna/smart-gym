@@ -11,6 +11,8 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { columns } from './columns'
 import { EditIcon } from 'lucide-react'
+import EditCafeProductModal from '@/components/admin/cafe/modals/EditCafeProductModal'
+import CreateCafeProductModal from '@/components/admin/cafe/modals/CreateCafeProductModal'
 import { mockProducts } from '@/constants/mockData'
 import { Product } from '@/types/shared'
 
@@ -55,9 +57,11 @@ const ProductCard = ({ product }: { product: Product }) => {
                         <div className='text-sm text-gray-500'>{LABELS.pages.admin_cafe.productCard.price}: ${product.price.toFixed(2)}</div>
                     </div>
                     {/* Edit */}
-                    <Button className='flex items-center gap-2' variant='outline' size='icon'>
-                        <EditIcon className='w-4 h-4' />
-                    </Button>
+                    <EditCafeProductModal product={product}>
+                        <Button className='flex items-center gap-2' variant='outline' size='icon'>
+                            <EditIcon className='w-4 h-4' />
+                        </Button>
+                    </EditCafeProductModal>
                 </div>
             </CardHeader>
             <CardContent>
@@ -86,7 +90,7 @@ const Page = () => {
     const fetchProducts = async () => {
         try {
             setLoading(true)
-            const response = await fetch('/api/cafe/getAll/items')
+            const response = await fetch('/api/cafe/items/getAll')
 
             if (!response.ok) {
                 throw new Error('Failed to fetch products')
@@ -121,9 +125,11 @@ const Page = () => {
                         <TabsTrigger value="cafe">{LABELS.pages.admin_cafe.tabs.cafe}</TabsTrigger>
                         <TabsTrigger value="transactions">{LABELS.pages.admin_cafe.tabs.transactions}</TabsTrigger>
                     </TabsList>
-                    <Button className="bg-green-500 hover:bg-green-600 flex items-center gap-2">
-                        {LABELS.pages.admin_cafe.buttons.addProduct} <AddProductIcon className='w-4 h-4' />
-                    </Button>
+                    <CreateCafeProductModal>
+                        <Button className="bg-green-500 hover:bg-green-600 flex items-center gap-2">
+                            {LABELS.pages.admin_cafe.buttons.addProduct} <AddProductIcon className='w-4 h-4' />
+                        </Button>
+                    </CreateCafeProductModal>
                 </div>
                 <TabsContent value="cafe">
                     {loading ? (
@@ -132,7 +138,6 @@ const Page = () => {
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {/* Map Product Cards */}
                             {products.map((product: Product) => (
                                 <ProductCard key={product.product_id} product={product} />
                             ))}

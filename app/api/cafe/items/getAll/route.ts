@@ -6,7 +6,7 @@ export async function GET() {
   try {
     const supabase = await createClient();
 
-    const { data: products, error } = await supabase.from('nutrition_products').select('*');
+    const { data: products, error } = await supabase.from('nutrition_products').select('*').eq('is_active', true);
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
