@@ -9,13 +9,12 @@ export const CLASS_TYPE_COLORS: Record<ClassType, ClassTypeColors> = {
   },
   Cardio: { badge: 'border-red-300 text-red-700 bg-red-50', indicator: 'after:bg-red-400', dot: 'bg-red-400' },
   Strength: { badge: 'border-blue-300 text-blue-700 bg-blue-50', indicator: 'after:bg-blue-400', dot: 'bg-blue-400' },
-  Pilates: {
+  Cycling: {
     badge: 'border-green-300 text-green-700 bg-green-50',
     indicator: 'after:bg-green-400',
     dot: 'bg-green-400',
   },
-  Swimming: { badge: 'border-cyan-300 text-cyan-700 bg-cyan-50', indicator: 'after:bg-cyan-400', dot: 'bg-cyan-400' },
-  Dance: { badge: 'border-pink-300 text-pink-700 bg-pink-50', indicator: 'after:bg-pink-400', dot: 'bg-pink-400' },
+  Aquatic: { badge: 'border-cyan-300 text-cyan-700 bg-cyan-50', indicator: 'after:bg-cyan-400', dot: 'bg-cyan-400' },
   Boxing: {
     badge: 'border-orange-300 text-orange-700 bg-orange-50',
     indicator: 'after:bg-orange-400',
@@ -29,31 +28,25 @@ export const DEFAULT_COLORS: ClassTypeColors = {
   dot: 'bg-gray-400',
 };
 
-export const CLASS_TYPES: readonly ClassType[] = [
-  'Yoga',
-  'Cardio',
-  'Strength',
-  'Pilates',
-  'Swimming',
-  'Dance',
-  'Boxing',
-];
+export const CLASS_TYPES: readonly ClassType[] = ['Yoga', 'Cardio', 'Strength', 'Cycling', 'Aquatic', 'Boxing'];
 
 export const COACHES: readonly Coach[] = [
   { name: 'Sarah Johnson', type: 'Yoga' },
   { name: 'Mike Chen', type: 'Cardio' },
   { name: 'Emily Rodriguez', type: 'Strength' },
-  { name: 'Lisa Park', type: 'Pilates' },
+  { name: 'James Wilson', type: 'Cycling' },
+  { name: 'Lisa Park', type: 'Aquatic' },
   { name: 'Tom Anderson', type: 'Boxing' },
 ];
 
 export const CLASS_SCHEDULE: readonly ClassScheduleItem[] = [
   { id: 1, title: 'Morning Yoga', coach: 'Sarah Johnson', day: 1, time: '07:30', duration: 60, type: 'Yoga' },
   { id: 2, title: 'HIIT Training', coach: 'Mike Chen', day: 1, time: '18:00', duration: 60, type: 'Cardio' },
-  { id: 3, title: 'Pilates Core', coach: 'Lisa Park', day: 2, time: '09:00', duration: 60, type: 'Pilates' },
-  { id: 4, title: 'Boxing Fundamentals', coach: 'Tom Anderson', day: 2, time: '19:30', duration: 60, type: 'Boxing' },
+  { id: 3, title: 'Cycling', coach: 'James Wilson', day: 2, time: '09:00', duration: 60, type: 'Cycling' },
+  { id: 4, title: 'Aquatic Core', coach: 'Lisa Park', day: 2, time: '19:30', duration: 60, type: 'Aquatic' },
+  { id: 5, title: 'Boxing Fundamentals', coach: 'Tom Anderson', day: 2, time: '19:30', duration: 60, type: 'Boxing' },
   {
-    id: 5,
+    id: 6,
     title: 'Strength Training',
     coach: 'Emily Rodriguez',
     day: 3,
