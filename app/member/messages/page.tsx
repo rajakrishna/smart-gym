@@ -9,6 +9,7 @@ async function getData() {
             id: "1",
             from: "John Smith",
             messageType: "Email",
+            subject: "Hello, how are you?",
             message: "Hello, how are you?",
             createdAt: "2021-01-01"
         },
@@ -16,6 +17,7 @@ async function getData() {
             id: "2",
             from: "Sarah Johnson",
             messageType: "SMS",
+            subject: "Hello, how are you?",
             message: "Hello, how are you?",
             createdAt: "2021-01-01"
         },
@@ -23,6 +25,7 @@ async function getData() {
             id: "3",
             from: "Mike Wilson",
             messageType: "Email",
+            subject: "Hello, how are you?",
             message: "Hello, how are you?",
             createdAt: "2021-01-01"
         },
@@ -30,6 +33,7 @@ async function getData() {
             id: "4",
             from: "Emily Davis",
             messageType: "SMS",
+            subject: "Hello, how are you?",
             message: "Hello, how are you?",
             createdAt: "2021-01-01"
         },
@@ -37,6 +41,7 @@ async function getData() {
             id: "5",
             from: "David Brown",
             messageType: "Email",
+            subject: "Hello, how are you?",
             message: "Hello, how are you?",
             createdAt: "2021-01-01"
         },
@@ -44,6 +49,7 @@ async function getData() {
             id: "6",
             from: "David Brown",
             messageType: "SMS",
+            subject: "Hello, how are you?",
             message: "Hello, how are you?",
             createdAt: "2021-01-01"
         }

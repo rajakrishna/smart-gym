@@ -17,7 +17,8 @@ const mockMessage: Message = {
     zip: '12345',
     country: 'USA',
     delivery_method: 'email',
-    type: 'test'
+    type: 'test',
+    category: 'test'
 }
 
 // async function getData(id: string): Promise<Message> {
