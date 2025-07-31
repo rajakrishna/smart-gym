@@ -7,8 +7,15 @@ const mockMessage: Message = {
     body: 'This is a test message',
     sent_at: "2021-01-01",
     user_id: '1',
-    full_name: 'John Doe',
+    first_name: 'John',
+    last_name: 'Doe',
     email: 'john.doe@example.com',
+    phone: '1234567890',
+    address: '123 Main St, Anytown, USA',
+    city: 'Anytown',
+    state: 'CA',
+    zip: '12345',
+    country: 'USA',
     delivery_method: 'email',
     type: 'test'
 }
