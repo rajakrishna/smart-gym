@@ -13,11 +13,20 @@ export interface ApiResponse<T> {
 export interface Message {
   message_id: string;
   user_id: string;
-  type: string;
+  first_name: string;
+  last_name: string;
   email: string;
+  phone: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
   title: string;
   body: string;
   sent_at: string;
+  type: string;
+  category: string;
   delivery_method: string;
 }
 
