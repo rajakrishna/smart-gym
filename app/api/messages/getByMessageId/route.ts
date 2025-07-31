@@ -2,16 +2,28 @@ import { NextResponse } from 'next/server';
 
 import { createClient } from '@/utils/supabase/server';
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    console.log('Getting message by message_id');
+
     const supabase = await createClient();
 
-    console.log('Attempting to fetch messages from database...');
+    const { searchParams } = new URL(request.url);
+    const messageId = searchParams.get('message_id');
 
-    const { data, error } = await supabase.from('messages').select('*').order('sent_at', { ascending: false });
+    if (!messageId) {
+      return NextResponse.json({ status: 'error', message: 'missing message_id' }, { status: 400 });
+    }
+
+    const { data, error } = await supabase
+      .from('messages')
+      .select('*')
+      .eq('message_id', messageId)
+      .order('sent_at', { ascending: false });
 
     if (error) {
-      console.error('Supabase error details:', {
+      console.log('Supabase error details:', {
+        status: 500,
         message: error.message,
         details: error.details,
         hint: error.hint,
@@ -30,11 +42,12 @@ export async function GET() {
       );
     }
 
-    console.log('Successfully fetched messages:', data?.length || 0, 'records');
+    console.log('Successfully got message by message_id');
+    console.log('message:', data[0]);
 
     return NextResponse.json({ status: 'ok', messages: data });
   } catch (error) {
-    console.error('Unexpected error in getAll messages:', error);
+    console.error('Unexpected error in message creation:', error);
     return NextResponse.json(
       {
         status: 'error',
