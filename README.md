@@ -226,25 +226,29 @@ The application uses Next.js API Routes organized by feature:
 | `/api/[notifications]` | Manage  notifications |
 -->
 
-| API Endpoint             | Purpose                          |
-| ------------------------ | -------------------------------- |
-| `/api/messages/getAll`   | get all msgs                     |
-| `/api/messages/getById`  | gets msgs by user ID             |
-| `/api/messages/create`   | creates msg associated w user ID |
-| `/api/messages/delete`   | deletes msg associated w msg ID  |
-| `/api/classes/getAll`    | get all classes                  |
-| `/api/classes/[classId]` | get a single class               |
-| `/api/classes/create`    | create a class                   |
-| `/api/classes/update`    | update a class                   |
-| `/api/classes/delete`    | delete a class                   |
-| `/api/coaches/getAll`    | get all coaches                  |
-| `/api/cafe/getAll`       | get all cafe items               |
-| `/api/cafe/[productId]`  | get a single cafe item           |
-| `/api/cafe/create`       | create a cafe item               |
-| `/api/cafe/update`       | update a cafe item               |
-| `/api/cafe/delete`       | delete a cafe item               |
-| `/api/[endpoint4]`       | [Purpose description]            |
-| `/api/[endpoint5]`       | [Purpose description]            |
+| API Endpoint                   | Purpose                          |
+| ------------------------------ | -------------------------------- |
+| `/api/cafe/getAll`             | get all cafe items               |
+| `/api/cafe/[productId]`        | get a single cafe item           |
+| `/api/cafe/create`             | create a cafe item               |
+| `/api/cafe/update`             | update a cafe item               |
+| `/api/cafe/delete`             | delete a cafe item               |
+| `/api/classes/getAll`          | get classes                      |
+| `/api/classes/create`          | creates class                    |
+| `/api/classes/update`          | updates class                    |
+| `/api/classes/delete`          | deletes class                    |
+| `/api/classes/[classId]`       | get a single class               |
+| `/api/coaches/getAll`          | get all coaches                  |
+| `/api/messages/create`         | creates msg associated w user ID |
+| `/api/messages/delete`         | deletes msg associated w msg ID  |
+| `/api/messages/getAll`         | get all msgs                     |
+| `/api/messages/getByMessageId` | gets msg by msg ID               |
+| `/api/messages/getByUserId`    | gets msgs by user ID             |
+| `/api/users/[userId]`          | gets user by user ID             |
+| `/api/users/create`            | creates user                     |
+| `/api/users/getAll`            | get all users                    |
+| `/api/users/update`            | updates user                     |
+| `/api/[endpoint5]`             | [Purpose description]            |
 
 ---
 
@@ -362,14 +366,16 @@ The application uses a component-based architecture with the following key compo
 
 - `[Component]`: [Description]
 - `Admin Members Page`: Page for the admin to view all members and their information + sign up new members
+- `Admin View Member Page`: Page for the admin to view a specific member and their information
 - `Admin Messages Page`: Page for the admin to view all messages from the users + initiate a new message to the user
+- `Admin View Message Page`: Page for the admin to view a specific message and its details
 - `Admin Cafe Page`: Page for the admin to view all products in the cafe + add new products + view all transactions
 
 ### ⚙️ Feature Components
 
-- `[Component]`: [Description]
-- `[Component]`: [Description]
-- `[Component]`: [Description]
+- `Send Admin Message Modal`: Modal for the admin to send a message to a user
+- `Update Cafe Product Modal`: Modal for the admin to update a product in the cafe
+- `Create Cafe Product Modal`: Modal for the admin to create a new product in the cafe
 
 ### 🎨 UI Components
 
