@@ -174,3 +174,12 @@ export const mockProducts: Product[] = [
     restock: false,
   },
 ];
+
+export const mockProduct = {
+  id: 1,
+  name: 'Espresso',
+  price: 4.5,
+  image: 'https://via.placeholder.com/400x300',
+  description: 'Strong coffee shot with rich flavor and aromatic notes. Perfect for energy boost.',
+  nutritionalInfo: 'Calories: 5 | Caffeine: 63mg | Fat: 0g | Carbs: 1g',
+};
