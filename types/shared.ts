@@ -25,7 +25,7 @@ export interface Coach {
 }
 
 // TODO: Add more class types if needed here
-export type ClassType = 'Yoga' | 'Cardio' | 'Strength' | 'Cycling' | 'Aquatic' | 'Boxing';
+export type ClassType = 'Yoga' | 'HIIT' | 'Cycling' | 'Aquatic' | 'Boxing';
 
 export interface Class {
   id: string;

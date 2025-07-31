@@ -7,8 +7,7 @@ export const CLASS_TYPE_COLORS: Record<ClassType, ClassTypeColors> = {
     indicator: 'after:bg-purple-400',
     dot: 'bg-purple-400',
   },
-  Cardio: { badge: 'border-red-300 text-red-700 bg-red-50', indicator: 'after:bg-red-400', dot: 'bg-red-400' },
-  Strength: { badge: 'border-blue-300 text-blue-700 bg-blue-50', indicator: 'after:bg-blue-400', dot: 'bg-blue-400' },
+  HIIT: { badge: 'border-red-300 text-red-700 bg-red-50', indicator: 'after:bg-red-400', dot: 'bg-red-400' },
   Cycling: {
     badge: 'border-green-300 text-green-700 bg-green-50',
     indicator: 'after:bg-green-400',
@@ -28,12 +27,11 @@ export const DEFAULT_COLORS: ClassTypeColors = {
   dot: 'bg-gray-400',
 };
 
-export const CLASS_TYPES: readonly ClassType[] = ['Yoga', 'Cardio', 'Strength', 'Cycling', 'Aquatic', 'Boxing'];
+export const CLASS_TYPES: readonly ClassType[] = ['Yoga', 'HIIT', 'Cycling', 'Aquatic', 'Boxing'];
 
 export const COACHES: readonly Coach[] = [
   { name: 'Sarah Johnson', type: 'Yoga' },
-  { name: 'Mike Chen', type: 'Cardio' },
-  { name: 'Emily Rodriguez', type: 'Strength' },
+  { name: 'Mike Chen', type: 'HIIT' },
   { name: 'James Wilson', type: 'Cycling' },
   { name: 'Lisa Park', type: 'Aquatic' },
   { name: 'Tom Anderson', type: 'Boxing' },
@@ -41,17 +39,8 @@ export const COACHES: readonly Coach[] = [
 
 export const CLASS_SCHEDULE: readonly ClassScheduleItem[] = [
   { id: 1, title: 'Morning Yoga', coach: 'Sarah Johnson', day: 1, time: '07:30', duration: 60, type: 'Yoga' },
-  { id: 2, title: 'HIIT Training', coach: 'Mike Chen', day: 1, time: '18:00', duration: 60, type: 'Cardio' },
+  { id: 2, title: 'HIIT Training', coach: 'Mike Chen', day: 1, time: '18:00', duration: 60, type: 'HIIT' },
   { id: 3, title: 'Cycling', coach: 'James Wilson', day: 2, time: '09:00', duration: 60, type: 'Cycling' },
   { id: 4, title: 'Aquatic Core', coach: 'Lisa Park', day: 2, time: '19:30', duration: 60, type: 'Aquatic' },
   { id: 5, title: 'Boxing Fundamentals', coach: 'Tom Anderson', day: 2, time: '19:30', duration: 60, type: 'Boxing' },
-  {
-    id: 6,
-    title: 'Strength Training',
-    coach: 'Emily Rodriguez',
-    day: 3,
-    time: '06:00',
-    duration: 60,
-    type: 'Strength',
-  },
 ];
