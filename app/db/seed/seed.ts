@@ -1,6 +1,6 @@
 import { sql } from 'drizzle-orm';
 import { db } from '../db';
-import { createDatabase } from '../createTables';
+// import { createDatabase } from '../createTables';
 
 import { seedUser } from '../seed/User';
 import { seedCoaches } from '../seed/Coaches';
@@ -60,9 +60,9 @@ async function seedDatabase() {
   await resetTables();
   console.log("TABLES RESET");
 
-  console.log("CREATING DATABASE...");
-  await createDatabase();
-  console.log("DATABASE CREATED");
+  // console.log("CREATING DATABASE...");
+  // await createDatabase();
+  // console.log("DATABASE CREATED");
 
   console.log("SEEDING USERS...");
   const users = await seedUser();
