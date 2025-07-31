@@ -11,7 +11,7 @@ import { seedNutritionProducts } from '../seed/NutritionProducts';
 import { seedNutritionOrders } from '../seed/NutritionOrders';
 import { seedNutritionOrderItems } from '../seed/NutritionOrderItems';
 import { seedCheckIns } from '../seed/CheckIns';
-import { seedMetrics } from '../seed/Metrics';
+// import { seedMetrics } from '../seed/Metrics';
 
 export async function resetTables() {
   try {
