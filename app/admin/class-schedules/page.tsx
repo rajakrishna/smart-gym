@@ -6,7 +6,7 @@ import { Calendar } from '@/components/ui/calendar'
 import { Card, CardContent } from '@/components/ui/card'
 import { SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarProvider } from '@/components/ui/sidebar'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { AddClassModal, DeleteClassModal, CancelClassModal } from '@/components/class-schedules/modals'
+import { AddClassModal, ConfirmationModal } from '@/components/class-schedules/modals'
 import CoachTypeSection from '@/components/class-schedules/CoachTypeSidebarSection'
 import ClassCard from '@/components/class-schedules/ClassCard'
 import { useClassSchedules } from '@/hooks/useClassSchedules'
@@ -54,8 +54,6 @@ const ClassSchedulesPage = () => {
 
     const activeTab = MONTH_NAMES[state.currentMonth.getMonth()]
     const coachGroups = groupCoachesByType()
-
-    console.log(state.selectedDate)
 
     return (
         <SidebarProvider>
@@ -199,18 +197,30 @@ const ClassSchedulesPage = () => {
                     classTypes={CLASS_TYPES}
                 />
 
-                <DeleteClassModal
+                <ConfirmationModal
                     isOpen={dialogs.deleteClass.isOpen}
                     onClose={() => closeDialog('deleteClass')}
                     classTitle={dialogs.deleteClass.classTitle}
-                    onDelete={handleDeleteClass}
+                    onConfirm={handleDeleteClass}
+                    title={LABELS.classSchedules.modals.deleteClass.title}
+                    description={LABELS.classSchedules.modals.deleteClass.description}
+                    details={LABELS.classSchedules.modals.deleteClass.details}
+                    confirmButtonText={LABELS.classSchedules.modals.deleteClass.buttons.delete}
+                    cancelButtonText={LABELS.classSchedules.modals.deleteClass.buttons.cancel}
+                    icon={ICONS.classSchedules.delete}
                 />
 
-                <CancelClassModal
+                <ConfirmationModal
                     isOpen={dialogs.cancelClass.isOpen}
                     onClose={() => closeDialog('cancelClass')}
                     classTitle={dialogs.cancelClass.classTitle}
-                    onCancel={handleCancelClass}
+                    onConfirm={handleCancelClass}
+                    title={LABELS.classSchedules.modals.cancelClass.title}
+                    description={LABELS.classSchedules.modals.cancelClass.description}
+                    details={LABELS.classSchedules.modals.cancelClass.details}
+                    confirmButtonText={LABELS.classSchedules.modals.cancelClass.buttons.cancel}
+                    cancelButtonText={LABELS.classSchedules.modals.cancelClass.buttons.keep}
+                    icon={ICONS.classSchedules.cancel}
                 />
 
                 <ViewUsersModal

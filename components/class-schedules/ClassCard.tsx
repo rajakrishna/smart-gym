@@ -10,9 +10,9 @@ import ICONS from '@/constants/icons'
 
 interface ClassCardProps {
     classItem: ClassScheduleItem
-    onViewUsers: (classId: number, classTitle: string) => void
-    onCancel: (classId: number, classTitle: string) => void
-    onDelete: (classId: number, classTitle: string) => void
+    onViewUsers: (classId: string, classTitle: string) => void
+    onCancel: (classId: string, classTitle: string) => void
+    onDelete: (classId: string, classTitle: string) => void
 }
 
 const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onDelete, onViewUsers }) => {
@@ -35,7 +35,7 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onDelete, on
                         size="sm"
                         variant="ghost"
                         className="h-6 w-6 p-0 text-yellow-600 hover:text-yellow-700 hover:bg-yellow-50"
-                        onClick={() => onCancel(classItem.id, classItem.title)}
+                        onClick={() => onCancel(classItem.id.toString(), classItem.title)}
                     >
                         <ICONS.classSchedules.cancelClass className="w-3 h-3" />
                     </Button>
@@ -43,7 +43,7 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onDelete, on
                         size="sm"
                         variant="ghost"
                         className="h-6 w-6 p-0 text-red-600 hover:text-red-700 hover:bg-red-50"
-                        onClick={() => onDelete(classItem.id, classItem.title)}
+                        onClick={() => onDelete(classItem.id.toString(), classItem.title)}
                     >
                         <ICONS.classSchedules.delete className="w-3 h-3" />
                     </Button>
@@ -52,7 +52,7 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onDelete, on
                         size="sm"
                         variant="ghost"
                         className="h-6 w-6 p-0 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
-                        onClick={() => onViewUsers(classItem.id, classItem.title)}
+                        onClick={() => onViewUsers(classItem.id.toString(), classItem.title)}
                     >
                         <ICONS.classSchedules.users className="w-3 h-3" />
                     </Button>

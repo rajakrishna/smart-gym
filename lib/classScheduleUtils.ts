@@ -24,12 +24,3 @@ export const formatTime = (time: string, duration: number) => {
   const options = { hour: 'numeric', minute: '2-digit', hour12: true } as const;
   return `${start.toLocaleTimeString('en-US', options)} - ${end.toLocaleTimeString('en-US', options)}`;
 };
-
-// TODO: Delete later because we already have this in another PR that is pending.
-export const getInitials = (name: string) =>
-  name
-    .split(' ')
-    .map(w => w[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
