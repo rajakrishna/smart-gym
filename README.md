@@ -52,34 +52,20 @@ An app that serves as a center for membership management, class scheduling, orde
       </a>
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="https://www.linkedin.com/in/devmonika/">
-        <img src="https://avatars.githubusercontent.com/u/85965486?v=4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Monika Profile Picture" /><br />
-        <sub><b>Monika Garg</b></sub>
-      </a>
-    </td>
-    </tr>
-   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/dannyrivasdev/">
         <img src="https://github.com/user-attachments/assets/53cebcf7-2e3e-46f3-9346-94ec5a27ad19" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" 
         alt="Danny Rivas Profile Picture" /><br />
         <sub><b>Danny Rivas</b></sub>
       </a>
     </td>
+    </tr>
+   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/developerdiego/">
-        <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_200_200/B56ZYiPX.lHoAY-/0/1744331178327?e=1753473600&v=beta&t=R18fxZsGd_s84v-PEXi0cmmZfHT4jjmqBBGMsrW6Gj8" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
+        <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_800_800/B56ZYiPX.lHoAg-/0/1744331178327?e=1754514000&v=beta&t=z5WYYml_5szjwihEfjwdIW3rrPXncMSDf5xy15eth0Q" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
         <sub><b>Diego Espino</b></sub>
       </a>
     </td>
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="https://www.linkedin.com/in/sunnith-ch/">
-        <img src="https://media.licdn.com/dms/image/v2/D4E35AQFNoT9iC9_h1A/profile-framedphoto-shrink_400_400/B4EZfSaDO2HwAc-/0/1751581734372?e=1752937200&v=beta&t=4YOJlnlGTsUdbsUa0NqXLf6h5HlfmBE9uKYJRGckBSM" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Sunnith Profile Picture" /><br />
-        <sub><b>Sunnith CH</b></sub>
-      </a>
-    </td>
-    </tr>  
-   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/rajakrishna/">
         <img src="https://media.licdn.com/dms/image/v2/D5603AQFDLs3Zm3m01A/profile-displayphoto-shrink_200_200/B56Zd56YWwGoAc-/0/1750097037071?e=1755734400&v=beta&t=BMpj0zVVOMehE_fiukehMx2GkxnrZvAtZ9UsDSjUPDo" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Raja Krishna Profile Picture" /><br />
@@ -242,6 +228,11 @@ The application uses Next.js API Routes organized by feature:
 
 | API Endpoint                   | Purpose                          |
 | ------------------------------ | -------------------------------- |
+| `/api/cafe/getAll`             | get all cafe items               |
+| `/api/cafe/[productId]`        | get a single cafe item           |
+| `/api/cafe/create`             | create a cafe item               |
+| `/api/cafe/update`             | update a cafe item               |
+| `/api/cafe/delete`             | delete a cafe item               |
 | `/api/classes/getAll`          | get classes                      |
 | `/api/classes/create`          | creates class                    |
 | `/api/classes/update`          | updates class                    |
@@ -282,6 +273,83 @@ The application uses Next.js API Routes organized by feature:
   - [Step 2]
   - [Step 3]
   - [Step 4]
+
+- API Endpoint: `/api/messages/getAll`
+- Purpose: Get all messages
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to messages page
+  - System fetches all messages from database
+
+- API Endpoint: `/api/messages/getById`
+- Purpose: Get messages relating to a specific user by user ID
+- Triggered by: Admin user
+- Steps:
+  - Admin user selects a specific message
+  - System queries database for messages associated with user ID
+  - User-specific messages are returned and displayed in the admin UI
+
+- API Endpoint: `/api/messages/create`
+- Purpose: Create message associated with user ID
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to messages page
+  - Admin user hits create new message button
+  - Admin user fills out the form
+  - System creates message record in database
+  - Message is associated with specified user ID
+
+- API Endpoint: `/api/cafe/getAll`
+- Purpose: Get all cafe items
+- Triggered by: User/Admin
+- Steps:
+  - User/Admin accesses cafe page
+  - System fetches all product records from database
+  - Cafe items are displayed with prices and availability + other data (e.g. description, image, etc.)
+
+- API Endpoint: `/api/cafe/[productId]`
+- Purpose: Get a single cafe item
+- Triggered by: User/Admin
+- Steps:
+  - User/Admin selects specific product
+  - System queries database using product ID
+  - Individual product details are returned and displayed
+
+- API Endpoint: `/api/cafe/create`
+- Purpose: Create a cafe item
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to cafe page
+  - Admin user navigates to product creation form
+  - Admin user fills in product details and pricing + other data (e.g. description, image, etc.)
+  - Admin user hits create new product button
+  - System validates and saves new product to database
+  - Product becomes available for purchase in the cafe
+
+- API Endpoint: `/api/cafe/update`
+- Purpose: Update a cafe item
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to cafe page
+  - Admin user selects product to modify
+  - Admin user updates product information
+  - System validates changes and updates database record
+  - Updated product information is reflected in cafe
+
+- API Endpoint: `/api/cafe/delete`
+- Purpose: Delete a cafe item
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to cafe page
+  - Admin user selects product to remove
+  - System confirms deletion request
+  - Product record is removed from database
+  - Product is no longer available for purchase
 
 ## 🧩 Component Structure
 
