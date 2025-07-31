@@ -13,19 +13,34 @@ import { seedNutritionOrderItems } from '../seed/NutritionOrderItems';
 import { seedCheckIns } from '../seed/CheckIns';
 import { seedMetrics } from '../seed/Metrics';
 
-async function resetSchema() {
-  await db.execute(sql`DROP SCHEMA public CASCADE; CREATE SCHEMA public;`);
-  await db.execute(sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
+async function resetTables(){
+  await db.execute(sql`
+    DROP TABLE IF EXISTS 
+      class_bookings, 
+      classes, 
+      check_ins,
+      messages,
+      metrics,
+      nutrition_order_items, 
+      nutrition_orders,
+      nutrition_products,
+      "user"
+    CASCADE
+    `);
 }
 
 async function seedDatabase() {
-  await resetSchema(); 
+  await resetTables();
+  console.log("TABLES RESET"); 
 
   await createDatabase();
+  console.log("DATABASE CREATED")
 
   const users = await seedUser();
   await seedMessages(users);
+  console.log("MESSAGE TABLE SEEDED")
   await seedCheckIns(users);
+  console.log("CHECK INS SEEDED")
 
   const coaches = await seedCoaches();
   const classes = await seedClasses(coaches);

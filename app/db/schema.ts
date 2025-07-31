@@ -54,6 +54,7 @@ export const nutritionProducts = pgTable(
         price: numeric('price'),
         quantity: integer('quantity'),
         minQuantity: integer('min_quantity'),
+        sku: text('sku'),
         category: productCategory('category'),
         numberSold: integer('number_sold'),
         restock: boolean('restock'),

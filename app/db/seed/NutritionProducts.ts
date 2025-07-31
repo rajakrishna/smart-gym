@@ -18,6 +18,7 @@ export async function seedNutritionProducts() {
     price: faker.commerce.price({ min: 5, max: 50, dec: 2 }), 
     quantity: faker.number.int({ min: 10, max: 100 }),
     minQuantity: 5,
+    sku: faker.string.alphanumeric(10).toUpperCase(),
     category: faker.helpers.arrayElement(product_categories),
     numberSold: faker.number.int({ min: 0, max: 100 }),
     restock: faker.datatype.boolean(),

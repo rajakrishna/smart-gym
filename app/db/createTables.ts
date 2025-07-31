@@ -54,6 +54,7 @@ export async function createDatabase() {
       price NUMERIC,
       quantity INTEGER,
       min_quantity INTEGER,
+      SKU TEXT,
       category product_category,
       number_sold INTEGER,
       restock BOOLEAN,
