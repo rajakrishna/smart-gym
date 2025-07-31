@@ -41,23 +41,23 @@ const MemberDetailsCard = ({ member }: MemberDetailsCardProps) => {
             <CardContent className="p-6 pt-0">
                 <div className="flex flex-col items-center gap-4">
                     <Avatar className="w-24 h-24">
-                        <AvatarImage src={member.image} alt={member.name} />
+                        <AvatarImage src={member.user_image} alt={member.first_name} />
                         <AvatarFallback className="text-xl">{LABELS.metadata.member.avatarFallback}</AvatarFallback>
                     </Avatar>
-                    <h2 className="text-xl font-semibold text-center">{member.name}</h2>
+                    <h2 className="text-xl font-semibold text-center">{member.first_name} {member.last_name}</h2>
 
                     <div className="w-full space-y-3 mt-4">
 
                         {/* Membership Type */}
                         <div className="flex items-center gap-2">
                             <ICONS.adminMemberDetail.creditCard className="w-4 h-4 text-gray-500" />
-                            <p><span className="font-medium">{LABELS.pages.admin_member_detail.labels.membershipType}:</span> {member.membershipType}</p>
+                            <p><span className="font-medium">{LABELS.pages.admin_member_detail.labels.membershipType}:</span> {member.membership_plan}</p>
                         </div>
 
                         {/* Age */}
                         <div className="flex items-center gap-2">
                             <ICONS.user className="w-4 h-4 text-gray-500" />
-                            <p><span className="font-medium">{LABELS.pages.admin_member_detail.labels.age}:</span> {member.age}</p>
+                            <p><span className="font-medium">{LABELS.pages.admin_member_detail.labels.age}:</span> {member.date_of_birth}</p>
                         </div>
 
                         {/* Email */}
@@ -75,7 +75,7 @@ const MemberDetailsCard = ({ member }: MemberDetailsCardProps) => {
                         {/* Member Since */}
                         <div className="flex items-center gap-2">
                             <ICONS.calendar className="w-4 h-4 text-gray-500" />
-                            <p><span className="font-medium">{LABELS.pages.admin_member_detail.labels.memberSince}:</span> {member.memberSince}</p>
+                            <p><span className="font-medium">{LABELS.pages.admin_member_detail.labels.memberSince}:</span> {member.created_at}</p>
                         </div>
 
                         {/* Status */}
@@ -84,8 +84,8 @@ const MemberDetailsCard = ({ member }: MemberDetailsCardProps) => {
                             <p>
                                 <span className="font-medium">
                                     {LABELS.pages.admin_member_detail.labels.status}:</span>
-                                <Badge variant={member.memberShipStatus === LABELS.pages.admin_member_detail.statuses.active ? 'default' : 'destructive'} className={`ml-2 ${member.memberShipStatus === LABELS.pages.admin_member_detail.statuses.active ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600'}`}>
-                                    {member.memberShipStatus}
+                                <Badge variant={"Active" === LABELS.pages.admin_member_detail.statuses.active ? 'default' : 'destructive'} className={`ml-2 ${"Active" === LABELS.pages.admin_member_detail.statuses.active ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600'}`}>
+                                    Active
                                 </Badge>
                             </p>
                         </div>

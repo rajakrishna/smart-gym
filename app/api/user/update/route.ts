@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-import { createClient } from '@/utils/supabase/server';
 import { validateUserData, ValidationMessage } from '@/lib/userInfoValidation';
+import { createClient } from '@/utils/supabase/server';
 
 export async function PATCH(request: Request) {
   const supabase = await createClient();
@@ -50,7 +50,7 @@ export async function PATCH(request: Request) {
     if (field in body) {
       updates[field] = body[field];
     } else {
-      return NextResponse.json({ error: field + " is not a valid field" }, { status: 400 });
+      return NextResponse.json({ error: field + ' is not a valid field' }, { status: 400 });
     }
   }
 
@@ -58,7 +58,7 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: 'No valid fields provided for update' }, { status: 400 });
   }
 
-  const { data, error } = await supabase.from('User').update(updates).eq('user_id', user_id).select();
+  const { data, error } = await supabase.from('user').update(updates).eq('user_id', user_id).select();
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

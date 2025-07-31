@@ -2,15 +2,20 @@ import { CheckInHistory, ClassTaken, Invoice, Member, Product } from '@/types/sh
 
 // Mock data for Member Detail Page - In a real app, this would come from an API
 export const mockMember: Member = {
-  id: 1,
-  name: 'John Doe',
+  user_id: '1',
+  first_name: 'John',
+  last_name: 'Doe',
   email: 'john.doe@example.com',
   phone: '1234567890',
-  age: 25,
-  membershipType: 'Basic',
-  memberSince: '2021-01-01',
-  memberShipStatus: 'Active',
-  image: '',
+  membership_plan: 'Basic',
+  created_at: '2021-01-01',
+  user_image: '',
+  role_name: 'member',
+  date_of_birth: '1990-01-01',
+  address: '123 Main St',
+  city: 'Anytown',
+  state: 'CA',
+  zip_code: '12345',
 };
 
 export const mockCheckInHistory: CheckInHistory[] = [
@@ -90,33 +95,6 @@ export const mockPastInvoices: Invoice[] = [
     amount: 25.0,
     description: 'Personal Training Session',
     status: 'paid',
-  },
-];
-
-// Additional mock data that could be useful for other admin pages
-export const mockMembers: Member[] = [
-  mockMember,
-  {
-    id: 2,
-    name: 'Jane Smith',
-    email: 'jane.smith@example.com',
-    phone: '0987654321',
-    age: 28,
-    membershipType: 'Premium',
-    memberSince: '2020-05-15',
-    memberShipStatus: 'Active',
-    image: '',
-  },
-  {
-    id: 3,
-    name: 'Mike Johnson',
-    email: 'mike.johnson@example.com',
-    phone: '5555555555',
-    age: 35,
-    membershipType: 'Basic',
-    memberSince: '2023-03-20',
-    memberShipStatus: 'Inactive',
-    image: '',
   },
 ];
 
