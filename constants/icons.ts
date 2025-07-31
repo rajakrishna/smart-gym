@@ -3,18 +3,27 @@ import {
   Bell,
   Calendar,
   Clock,
+  Clock,
   Coffee,
+  CreditCard,
+  DollarSign,
   Dumbbell,
+  Edit,
   EditIcon,
   Filter,
   Home,
   LayoutDashboard,
+  Loader2,
   LogIn,
   LogOut,
+  Mail,
   MessageSquare,
   MoreVertical,
+  Phone,
   Plus,
   Search,
+  Send,
+  Sheet,
   Tag,
   Trash2,
   User,
@@ -53,6 +62,15 @@ const ICONS = {
     addMember: Plus,
   },
 
+  adminMemberDetail: {
+    edit: Edit,
+    delete: Trash2,
+    clock: Clock,
+    dollarSign: DollarSign,
+    creditCard: CreditCard,
+    sheet: Sheet,
+  },
+
   adminCafePage: {
     addProduct: Plus,
     editProduct: EditIcon,
@@ -78,6 +96,19 @@ const ICONS = {
     filter: Filter,
     cancelClass: XCircle,
     users: Users,
+  },
+  // Modal icons
+  modals: {
+    sendMessage: {
+      send: Send,
+      users: Users,
+      loader: Loader2,
+      deliveryMethods: {
+        email: Mail,
+        sms: MessageSquare,
+        push: Phone,
+      },
+    },
   },
 } as const;
 
