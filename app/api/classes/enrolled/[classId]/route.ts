@@ -6,7 +6,13 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   const { classId } = await params;
 
   if (!classId) {
-    return NextResponse.json({ error: 'Class ID is required' }, { status: 400 });
+    return NextResponse.json(
+      {
+        success: false,
+        error: 'Class ID is required',
+      },
+      { status: 400 }
+    );
   }
 
   const supabase = await createClient();
@@ -21,7 +27,13 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
     if (error) {
       console.error('Error fetching members:', error);
-      return NextResponse.json({ error: 'Failed to fetch members' }, { status: 500 });
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Failed to fetch members',
+        },
+        { status: 500 }
+      );
     }
 
     const userPromises = members.map(async booking => {
@@ -48,9 +60,24 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
     const users = await Promise.all(userPromises);
 
-    return NextResponse.json(users);
+    const enrolledMembers = Array.from(users.values()).map(user => ({
+      id: user!.user_id,
+      name: `${user!.user_details.first_name} ${user!.user_details.last_name}`,
+      email: user!.user_details.email,
+    }));
+
+    return NextResponse.json({
+      success: true,
+      data: enrolledMembers,
+    });
   } catch (error) {
     console.error('Error in GET request:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      {
+        success: false,
+        error: 'Internal server error',
+      },
+      { status: 500 }
+    );
   }
 }
