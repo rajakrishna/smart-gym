@@ -3,8 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ICONS from '@/constants/icons'
 import LABELS from '@/constants/labels'
-import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+// import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import ReactBarcode from './ReactBarcode'
 
 const { firstName, imageURL, greeting, profileHref } = LABELS.memberDash
@@ -27,11 +27,6 @@ const BarCodeModal = ({ children }: { children: React.ReactNode }) => {
         <DialogContent>
           <ReactBarcode />
         </DialogContent>
-        <DialogFooter>
-          <Button>
-            {LABELS.modals.barCodeModal.scanButton}
-          </Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   )
