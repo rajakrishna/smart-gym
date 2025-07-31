@@ -1,6 +1,7 @@
 import {
   BarChart3,
   Bell,
+  BellDot,
   Calendar,
   Clock,
   Coffee,
@@ -19,6 +20,7 @@ import {
   MoreVertical,
   Phone,
   Plus,
+  ScanBarcode,
   Search,
   Send,
   Sheet,
@@ -37,7 +39,6 @@ const ICONS = {
   messageSquare: MessageSquare,
   user: User,
   login: LogIn,
-
   // Gym Logo icons
   dumbbell: Dumbbell,
 
@@ -77,6 +78,12 @@ const ICONS = {
     userCircle: UserCircle,
     notifications: Bell,
     logout: LogOut,
+  },
+
+  // Member dashboard icons
+  member: {
+    bellDot: BellDot,
+    scanBarcode: ScanBarcode,
   },
 
   // Modal icons

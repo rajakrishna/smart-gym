@@ -177,6 +177,11 @@ const LABELS = {
         saving: 'Saving...',
       },
     },
+    barCodeModal: {
+      title: 'Scan Barcode',
+      description: 'Scan the barcode to check in or out of the gym',
+      scanButton: 'Scan',
+    },
   },
 
   pages: {
