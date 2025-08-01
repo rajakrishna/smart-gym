@@ -17,10 +17,8 @@ type MemberProfileItem = {
 const memberProfileKeys = [
   'memberDetails',
   'paymentMethod',
-  'notifications',
   'checkinHistory',
   'classHistory',
-  'inviteFriends',
 ] as const
 
 const memberProfileItems: MemberProfileItem[] = memberProfileKeys.map((key) => ({
