@@ -12,24 +12,24 @@ export interface ApiResponse<T> {
 
 // Class Scheduling Types
 export interface ClassFormData {
-  title: string,
-  class_name: string,
-  coach_id: string,
-  category: string,
-  type: string,
-  time: string,
-  duration: number,
-  capacity: number
+  title: string;
+  class_name: string;
+  coach_id: string;
+  category: string;
+  type: string;
+  time: string;
+  duration: number;
+  capacity: number;
 }
 
 export interface Coach {
   coach_id: string;
   first_name: string;
   last_name: string;
-  type: string;
   profile_picture?: string;
+  created_at?: string;
+  coach_type: string;
 }
-
 
 // TODO: Add more class types if needed here
 export type ClassType = 'Yoga' | 'HIIT' | 'Cycling' | 'Aquatic' | 'Boxing';
@@ -54,12 +54,11 @@ export interface ClassData {
   category: string;
   scheduled_on: string; // 'YYYY-MM-DD'
   day: number;
-  time: string;   // 'HH:mm:ss'
+  time: string; // 'HH:mm:ss'
   duration: number;
   capacity: number;
   created_at: string;
 }
-
 
 export type ClassStatus = 'scheduled' | 'cancelled' | 'completed' | 'in-progress';
 
