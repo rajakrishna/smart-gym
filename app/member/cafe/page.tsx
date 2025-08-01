@@ -1,5 +1,7 @@
 'use client';
 
+// TODO: Add shopping cart and purchase functionality
+
 import React, { useEffect, useState } from 'react'
 import { Tabs, TabsTrigger, TabsList, TabsContent } from '@/components/ui/tabs'
 import { Loader2 } from 'lucide-react'
