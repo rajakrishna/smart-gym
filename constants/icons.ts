@@ -9,6 +9,7 @@ import {
   DollarSign,
   Dumbbell,
   Edit,
+  Filter,
   Home,
   LayoutDashboard,
   Loader2,
@@ -24,10 +25,15 @@ import {
   Search,
   Send,
   Sheet,
+  ToolCase,
+  Tag,
   Trash2,
   User,
   UserCircle,
   Users,
+  X,
+  XCircle,
+  ShieldCheck, 
 } from 'lucide-react';
 
 const ICONS = {
@@ -41,7 +47,17 @@ const ICONS = {
   login: LogIn,
   // Gym Logo icons
   dumbbell: Dumbbell,
+  construction: ToolCase,
 
+  memberProfile: {
+    memberDetails: User,
+    paymentMethod: CreditCard,
+    notifications: Bell,
+    checkinHistory: ShieldCheck,
+    classHistory: Calendar,
+    inviteFriends: Users, 
+    userIcon: UserCircle
+  },
   // Admin icons
   admin: {
     dashboard: LayoutDashboard,
@@ -97,6 +113,19 @@ const ICONS = {
     reset: RotateCcw,
   },
 
+  // Class Schedules icons
+  classSchedules: {
+    add: Plus,
+    cancel: X,
+    delete: Trash2,
+    time: Clock,
+    coach: User,
+    type: Tag,
+    calendar: Calendar,
+    filter: Filter,
+    cancelClass: XCircle,
+    users: Users,
+  },
   // Modal icons
   modals: {
     sendMessage: {
