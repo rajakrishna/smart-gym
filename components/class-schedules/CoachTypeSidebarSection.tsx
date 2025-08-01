@@ -12,7 +12,7 @@ interface CoachItemProps {
 }
 
 interface CoachTypeSectionProps {
-  // coaches: Coach[]
+  coaches: Coach[]
   classType: string
 }
 

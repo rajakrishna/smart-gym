@@ -201,6 +201,7 @@ export const useClassSchedules = () => {
     setClassForm,
     fetchClasses,
     filteredClasses,
+    coaches,
 
     // Handlers
     handleDateSelect,

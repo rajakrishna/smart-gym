@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import { Card, CardContent } from '@/components/ui/card'
@@ -13,7 +13,7 @@ import ClassCard from '@/components/class-schedules/ClassCard'
 import { useClassSchedules } from '@/hooks/useClassSchedules'
 import { COACHES, CLASS_TYPES } from '@/constants/classSchedules'
 // import { groupCoachesByType } from '@/lib/classScheduleUtils'
-// import type { Coach } from '@/types/shared'
+import type { Coach } from '@/types/shared'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
 
@@ -57,7 +57,7 @@ const ClassSchedulesPage = () => {
     } = useClassSchedules()
 
     const activeTab = MONTH_NAMES[currentMonth.getMonth()]
-    // const [coaches, setCoaches] = useState<Coach[]>([])
+    const [coaches, setCoaches] = useState<Coach[]>([])
     const coachGroups = COACHES.reduce((groups, coach) => {
         if (!groups[coach.type]) groups[coach.type] = [];
         groups[coach.type].push(coach);
@@ -91,7 +91,7 @@ const ClassSchedulesPage = () => {
                                                 <CoachTypeSection
                                                     key={classType}
                                                     classType={classType}
-                                                    // coaches={coaches}
+                                                    coaches={coaches}
                                                     // selectedCoach={selectedCoach}
                                                     // filterCoach={filterCoach}
                                                     // onCoachSelect={toggleCoachSelection}
