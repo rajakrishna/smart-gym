@@ -97,3 +97,40 @@ export const mockPastInvoices: Invoice[] = [
     status: 'paid',
   },
 ];
+
+// Additional mock data that could be useful for other admin pages
+export const mockMembers: Member[] = [
+  mockMember,
+  {
+    user_id: '2',
+    first_name: 'Jane',
+    last_name: 'Smith',
+    email: 'jane.smith@example.com',
+    phone: '0987654321',
+    membership_plan: 'Premium',
+    role_name: 'member',
+    created_at: '2020-05-15',
+    user_image: '',
+    date_of_birth: '1990-01-01',
+    address: '123 Main St',
+    city: 'Anytown',
+    state: 'CA',
+    zip_code: '12345',
+  },
+  {
+    user_id: '3',
+    first_name: 'Mike',
+    last_name: 'Johnson',
+    email: 'mike.johnson@example.com',
+    phone: '5555555555',
+    role_name: 'member',
+    membership_plan: 'Basic',
+    created_at: '2023-03-20',
+    user_image: '',
+    date_of_birth: '1990-01-01',
+    address: '123 Main St',
+    city: 'Anytown',
+    state: 'CA',
+    zip_code: '12345',
+  },
+];

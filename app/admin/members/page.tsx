@@ -88,10 +88,10 @@ const page = async () => {
             <div className="mt-4">
                 <DataTable columns={columns} data={data} />
             </div>
-            <Button className="mt-4 bg-green-500 hover:bg-green-600" >
+            {/* <Button className="mt-4 bg-green-500 hover:bg-green-600" >
                 <ICONS.adminMembersPage.addMember />
                 {LABELS.pages.admin_members.buttons.addMember}
-            </Button>
+            </Button> */}
         </div >
     )
 }

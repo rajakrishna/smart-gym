@@ -305,11 +305,27 @@ const LABELS = {
       },
     },
   },
+
+  // AI Chat labels
+  aiChat: {
+    title: 'Fitness Assistant',
+    subtitle: 'Your personal trainer & nutrition guide',
+    placeholder: 'Ask about workouts, nutrition, or fitness advice...',
+    errorMessage: "Sorry, I'm having trouble connecting right now. Please try again later.",
+    promptsHeading: 'Try asking:',
+    screenReaderLabels: {
+      sendMessage: 'Send message',
+      resetChat: 'Reset chat',
+    },
+    resetTooltip: 'Reset chat',
+  },
+
   navigation: {
     home: 'Home',
     classes: 'Classes',
     cafe: 'Cafe',
     messages: 'Messages',
+    aiCoach: 'AI Coach',
     profile: 'Profile',
   },
   // Admin navigation
