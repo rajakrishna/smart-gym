@@ -1,3 +1,8 @@
+'use client';
+
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,6 +13,14 @@ import { cn } from '@/lib/utils';
 export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) {
   const { title, description, emailLabel, emailPlaceholder, passwordLabel, forgotPassword, submitButton } =
     LABELS.auth.loginForm;
+
+  const router = useRouter();
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    router.push('/member/dashboard');
+  }
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card>
@@ -16,7 +29,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
           <CardDescription>{description}</CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className='flex flex-col gap-6'>
               <div className='grid gap-3'>
                 <Label htmlFor='email'>{emailLabel}</Label>
@@ -33,7 +46,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
               </div>
               <div className='flex flex-col gap-3'>
                 <Button type='submit' className='w-full'>
-                  {submitButton}
+                  <Link href='/member/dashboard'>{submitButton}</Link>
                 </Button>
               </div>
             </div>

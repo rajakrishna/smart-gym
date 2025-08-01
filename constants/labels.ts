@@ -7,7 +7,7 @@ const LABELS = {
   // Navigation
   nav: {
     auth: {
-      login: 'Login',
+      login: 'Admin',
     },
   },
 
@@ -31,7 +31,7 @@ const LABELS = {
     subHeader2: 'Fitness App',
     button1: 'Contact',
     href1: '#contact',
-    button2: 'Login',
+    button2: 'Member Login',
     href2: '#login',
     button3: 'Watch Demo',
     href3: '#demo',
@@ -341,12 +341,12 @@ const LABELS = {
   },
   metadata: {
     app: {
-      title: 'Title',
+      title: 'Fitmax',
       description: 'Description',
     },
     member: {
       avatarFallback: 'CN',
-      title: 'Title',
+      title: 'Fitmax',
       description: 'Description',
     },
   },
