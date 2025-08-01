@@ -191,8 +191,29 @@ export interface Invoice {
   status: 'paid' | 'pending' | 'overdue';
 }
 
+// Cafe/Nutrition Products Interface
+export interface Product {
+  product_id: string;
+  name: string;
+  product_image: string;
+  product_description: string;
+  price: number;
+  quantity: number;
+  min_quantity: number;
+  category: 'cafe' | 'drink' | 'snack' | 'protein_bar';
+  number_sold: number;
+  restock: boolean;
+  is_active: boolean;
+  sku: string;
+}
+
 export interface EnrolledClassMember {
   id: string;
   name: string;
   email: string;
+}
+
+export interface MemberProfileItem {
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
 }
