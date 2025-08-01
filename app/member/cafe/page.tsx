@@ -1,8 +1,11 @@
+import UnderConstruction from '@/components/layouts/shared/UnderConstruction'
 import React from 'react'
 
 const page = () => {
     return (
-        <div>page</div>
+        <div>
+            <UnderConstruction />
+        </div>
     )
 }
 

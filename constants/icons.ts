@@ -25,6 +25,7 @@ import {
   Search,
   Send,
   Sheet,
+  ToolCase,
   Tag,
   Trash2,
   User,
@@ -45,6 +46,7 @@ const ICONS = {
   login: LogIn,
   // Gym Logo icons
   dumbbell: Dumbbell,
+  construction: ToolCase,
 
   // Admin icons
   admin: {
