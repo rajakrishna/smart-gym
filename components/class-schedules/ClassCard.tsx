@@ -18,16 +18,16 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onViewUsers 
     // Used to color code things based off of the class type
     const colors = getClassColors(classItem.category);
 
-    // const coachFullName = classItem.coaches?.first_name && classItem.coaches?.last_name
-    //     ? `${classItem.coaches.first_name} ${classItem.coaches.last_name}`
-    //     : 'Unknown';
+    const coachFullName = classItem.coaches?.first_name && classItem.coaches?.last_name
+        ? `${classItem.coaches.first_name} ${classItem.coaches.last_name}`
+        : 'Unassigned';
 
     return (
         <div className={`bg-muted relative rounded-md p-3 pl-6 text-sm border hover:shadow-md transition-shadow after:absolute after:inset-y-2 after:left-2 after:w-1 after:rounded-full ${colors.indicator}`}>
             <div className="font-medium">{classItem.class_name}</div>
             <div className="text-muted-foreground text-xs">{formatTime(classItem.time)}</div>
             <div className="text-muted-foreground text-xs mt-1">
-                {LABELS.classSchedules.page.classes.coachLabel} {classItem.coach_id}
+                {LABELS.classSchedules.page.classes.coachLabel} {coachFullName}
             </div>
             <div className="mt-2 flex items-center justify-between">
                 <Badge variant="outline" className={`text-xs ${colors.badge}`}>
