@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   try {
     const { input } = await req.json();
 
-    const modelType = process.env.NEXT_PUBLIC_GEMINI_MODEL_TYPE;
+    const modelType = process.env.NEXT_PUBLIC_GEMINI_MODEL_TYPE || 'gemini-2.5-flash-lite';
 
     console.log('modelType', modelType);
 
