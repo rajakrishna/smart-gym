@@ -26,9 +26,9 @@ export interface Coach {
   coach_id: string;
   first_name: string;
   last_name: string;
-  coach_type: string;
   profile_picture?: string;
   created_at?: string;
+  coach_type: string;
 }
 
 // TODO: Add more class types if needed here
