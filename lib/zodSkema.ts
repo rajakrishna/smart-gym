@@ -9,7 +9,6 @@ export const createClassSchema = z.object({
     message: "Invalid scheduled date"
   }),
   time: z.string().min(1, "Start time is required"),
-  // end_time: z.string().min(1, "End time is required"),
   coach_id: z.uuid("Invalid coach ID")
 });
 
