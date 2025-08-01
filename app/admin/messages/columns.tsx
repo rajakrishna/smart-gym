@@ -13,7 +13,7 @@ export type Messages = {
     id: string
     from: string
     messageType: string
-    message: string
+    subject: string
     createdAt: string
 }
 
@@ -60,8 +60,8 @@ export const columns: ColumnDef<Messages>[] = [
         }
     },
     {
-        accessorKey: LABELS.pages.admin_messages.columns.accessorKeys.message,
-        header: LABELS.pages.admin_messages.columns.header.message,
+        accessorKey: LABELS.pages.admin_messages.columns.accessorKeys.subject,
+        header: LABELS.pages.admin_messages.columns.header.subject,
     },
     {
         accessorKey: LABELS.pages.admin_messages.columns.accessorKeys.createdAt,
