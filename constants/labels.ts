@@ -198,6 +198,20 @@ const LABELS = {
       description: 'This is an example page',
       link: '/example',
     },
+    member_profile: {
+      header: 'profile',
+      name: 'member name',
+      menu: {
+        memberDetails:'member details',
+        paymentMethod:'payment method',
+        notifications:'notifications',
+        checkinHistory:'check-in history',
+        classHistory:'fitness class history',
+        inviteFriends:'invite friends',
+        userIcon:'user icon',
+        logout:''
+      }
+    },
     admin_members: {
       columns: {
         accessorKeys: {

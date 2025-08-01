@@ -250,7 +250,7 @@ The application uses Next.js API Routes organized by feature:
 | `/api/users/create`                 | creates user                          |
 | `/api/users/getAll`                 | get all users                         |
 | `/api/users/update`                 | updates user                          |
-| `/api/[endpoint5]`                  | [Purpose description]                 |
+| `/api/checkins`                     | gets all checkins by user i           |
 
 ---
 
