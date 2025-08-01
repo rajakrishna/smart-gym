@@ -55,6 +55,7 @@ export interface ClassData {
   scheduled_on: string; // 'YYYY-MM-DD'
   day: number;
   time: string;   // 'HH:mm:ss'
+  duration: number;
   capacity: number;
   created_at: string;
 }

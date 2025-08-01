@@ -73,6 +73,9 @@ const EditClassModal: React.FC<EditClassModalProps> = ({
         coach_id: cls.coach_id,
         class_name: cls.class_name,
         category: cls.category,
+        title: cls.class_name,
+        type: cls.category,
+        duration: cls.duration,
         time: cls.time,
         capacity: cls.capacity,
       });
@@ -100,6 +103,9 @@ const EditClassModal: React.FC<EditClassModalProps> = ({
         coach_id: '',
         class_name: '',
         category: '',
+        title: '',
+        type: '',
+        duration: 60,
         time: '',
         capacity: 0,
       })
