@@ -90,10 +90,10 @@ const ClassSchedulesPage = () => {
                                                 <CoachTypeSection
                                                     key={classType}
                                                     classType={classType}
-                                                    // coaches={coaches}
-                                                    // selectedCoach={selectedCoach}
-                                                    // filterCoach={filterCoach}
-                                                    // onCoachSelect={toggleCoachSelection}
+                                                // coaches={coaches}
+                                                // selectedCoach={selectedCoach}
+                                                // filterCoach={filterCoach}
+                                                // onCoachSelect={toggleCoachSelection}
                                                 />
                                             ))}
                                         </SidebarGroupContent>
@@ -136,11 +136,12 @@ const ClassSchedulesPage = () => {
                                             })}
                                         </h3>
                                     </div>
+                                    <div className="flex items-center gap-2">
                                         <Button
                                             size="sm"
                                             className="flex items-center gap-2"
                                             onClick={() => openAddDialog()}
-                                            >
+                                        >
                                             <ICONS.classSchedules.calendar className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.allClasses}
                                         </Button>
@@ -150,19 +151,20 @@ const ClassSchedulesPage = () => {
                                             className="flex items-center gap-2"
                                             disabled={!selectedDate}
                                             onClick={() => openAddDialog()}
-                                            >
+                                        >
                                             <ICONS.classSchedules.edit className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.editClass}
                                         </Button>
-                                    <Button
-                                        size="sm"
-                                        className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
-                                        disabled={!selectedDate}
-                                        onClick={openAddDialog}
-                                    >
-                                        <ICONS.classSchedules.add className="w-4 h-4" />
-                                        {LABELS.classSchedules.page.classes.addClass}
-                                    </Button>
+                                        <Button
+                                            size="sm"
+                                            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
+                                            disabled={!selectedDate}
+                                            onClick={openAddDialog}
+                                        >
+                                            <ICONS.classSchedules.add className="w-4 h-4" />
+                                            {LABELS.classSchedules.page.classes.addClass}
+                                        </Button>
+                                    </div>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
