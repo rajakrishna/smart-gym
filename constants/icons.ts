@@ -33,6 +33,7 @@ import {
   Users,
   X,
   XCircle,
+  ShieldCheck, 
 } from 'lucide-react';
 
 const ICONS = {
