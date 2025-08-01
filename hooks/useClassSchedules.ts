@@ -1,24 +1,20 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 import { CLASS_SCHEDULE } from '@/constants/classSchedules';
-import type { ClassFormData } from '@/types/shared';
-
-import { useDialogState } from './useDialogState';
-
-interface UseClassSchedulesState {
-  currentMonth: Date;
-  selectedDate: Date | undefined;
-}
+import type { ClassFormData, DialogState } from '@/types/shared';
 
 export const useClassSchedules = () => {
-  const [state, setState] = useState<UseClassSchedulesState>({
-    currentMonth: new Date(2025, 5, 9),
-    selectedDate: new Date(2025, 5, 9),
-  });
+  const [currentMonth, setCurrentMonth] = useState(new Date(2025, 5, 9));
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date(2025, 5, 9));
 
-  const { dialogs, openDialog, closeDialog, openActionDialog } = useDialogState();
+  // Dialog state management for the modals
+  const [dialogs, setDialogs] = useState<DialogState>({
+    addClass: false,
+    classAction: { isOpen: false, classId: null, classTitle: '' },
+    viewUsers: { isOpen: false, classId: null, classTitle: '' },
+  });
 
   const [classForm, setClassForm] = useState<ClassFormData>({
     title: '',
@@ -28,118 +24,113 @@ export const useClassSchedules = () => {
     type: '',
   });
 
-  // State updaters
-  const updateState = useCallback(
-    (updates: Partial<UseClassSchedulesState>) => setState(prev => ({ ...prev, ...updates })),
-    []
-  );
-
-  const resetClassForm = useCallback(() => {
-    setClassForm({
-      title: '',
-      coach: '',
-      time: '',
-      duration: 60,
-      type: '',
-    });
-  }, []);
-
-  // Navigation handlers
-  const handleMonthChange = useCallback(
-    (monthName: string) => {
-      const monthNames = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-      ];
-      const monthIndex = monthNames.findIndex(month => month === monthName);
-      if (monthIndex !== -1) {
-        const newMonth = new Date(state.currentMonth.getFullYear(), monthIndex, 1);
-        updateState({ currentMonth: newMonth });
+  const handleDateSelect = (date: Date | undefined) => {
+    if (date) {
+      setSelectedDate(date);
+      if (date.getMonth() !== currentMonth.getMonth() || date.getFullYear() !== currentMonth.getFullYear()) {
+        setCurrentMonth(date);
       }
-    },
-    [state.currentMonth, updateState]
-  );
+    }
+  };
 
-  const handleDateSelect = useCallback(
-    (date: Date | undefined) => {
-      if (date) {
-        const updates: Partial<UseClassSchedulesState> = { selectedDate: date };
-        if (
-          date.getMonth() !== state.currentMonth.getMonth() ||
-          date.getFullYear() !== state.currentMonth.getFullYear()
-        ) {
-          updates.currentMonth = date;
-        }
-        updateState(updates);
-      }
-    },
-    [state.currentMonth, updateState]
-  );
-
-  const goToToday = useCallback(() => {
+  const goToToday = () => {
     const today = new Date();
-    updateState({ selectedDate: today, currentMonth: today });
-  }, [updateState]);
+    setSelectedDate(today);
+    setCurrentMonth(today);
+  };
 
-  // Data getters
-  const getClassesForDate = useCallback(() => {
-    if (!state.selectedDate) return [];
-    const dayOfWeek = state.selectedDate.getDay();
-    return CLASS_SCHEDULE.filter(cls => cls.day === dayOfWeek);
-  }, [state.selectedDate]);
+  const filteredClasses = selectedDate ? CLASS_SCHEDULE.filter(cls => cls.day === selectedDate.getDay()) : [];
 
-  // Enhanced dialog handler
-  const openDialogWithReset = useCallback(() => {
-    resetClassForm();
-    openDialog();
-  }, [resetClassForm, openDialog]);
+  const handleMonthChange = (monthName: string) => {
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    const monthIndex = monthNames.findIndex(month => month === monthName);
+    if (monthIndex !== -1) {
+      const newMonth = new Date(currentMonth.getFullYear(), monthIndex, 1);
+      setCurrentMonth(newMonth);
+    }
+  };
 
-  // Action handlers (placeholders for now)
-  const handleAddClass = useCallback(() => {
+  const openAddDialog = () => {
+    setClassForm({ title: '', coach: '', time: '', duration: 60, type: '' });
+    setDialogs(prev => ({ ...prev, addClass: true }));
+  };
+
+  const openClassActionDialog = (classId: string, classTitle: string) => {
+    setDialogs(prev => ({
+      ...prev,
+      classAction: { isOpen: true, classId, classTitle },
+    }));
+  };
+
+  const openViewUsersDialog = (classId: string, classTitle: string) => {
+    setDialogs(prev => ({
+      ...prev,
+      viewUsers: { isOpen: true, classId, classTitle },
+    }));
+  };
+
+  const closeDialog = (dialogType: keyof DialogState) => {
+    if (dialogType === 'addClass') {
+      setDialogs(prev => ({ ...prev, addClass: false }));
+    } else {
+      setDialogs(prev => ({
+        ...prev,
+        [dialogType]: { isOpen: false, classId: null, classTitle: '' },
+      }));
+    }
+  };
+
+  // TODO: Action handlers to use with APIs in the modals (Talk to Danny about using these vs on the modal components)
+  const handleAddClass = () => {
     // TODO: Implement actual class creation logic
     closeDialog('addClass');
-  }, [closeDialog]);
+  };
 
-  const handleDeleteClass = useCallback(() => {
+  const handleDeleteClass = () => {
     // TODO: Implement actual class deletion logic
-    closeDialog('deleteClass');
-  }, [closeDialog]);
+    closeDialog('classAction');
+  };
 
-  const handleCancelClass = useCallback(() => {
+  const handleCancelClass = () => {
     // TODO: Implement actual class cancellation logic
-    closeDialog('cancelClass');
-  }, [closeDialog]);
+    closeDialog('classAction');
+  };
 
-  const handleViewUsers = useCallback(() => {
+  const handleViewUsers = () => {
     // TODO: Implement actual view users logic
     closeDialog('viewUsers');
-  }, [closeDialog]);
+  };
 
   return {
     // State
-    state,
+    currentMonth,
+    selectedDate,
     dialogs,
     classForm,
     setClassForm,
-    filteredClasses: getClassesForDate(),
+    filteredClasses,
 
     // Handlers
-    handleMonthChange,
     handleDateSelect,
+    handleMonthChange,
     goToToday,
-    openDialog: openDialogWithReset,
+    openAddDialog,
+    openClassActionDialog,
+    openViewUsersDialog,
     closeDialog,
-    openActionDialog,
     handleAddClass,
     handleDeleteClass,
     handleCancelClass,

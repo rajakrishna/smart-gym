@@ -12,6 +12,7 @@ interface ViewUsersModalProps {
 
 const ViewUsersModal: React.FC<ViewUsersModalProps> = ({ isOpen, onClose, classTitle, classId }) => {
 
+    // TODO: Remove this once we have a way to get the classId from the URL
     if (classId === null) {
         classId = "15b53d71-afc8-4a32-9935-abeaef8071b3";
     }
@@ -35,8 +36,8 @@ const ViewUsersModal: React.FC<ViewUsersModalProps> = ({ isOpen, onClose, classT
                     throw new Error(data.error || 'Failed to fetch enrolled class members');
                 }
 
-            } catch {
-                // Error fetching enrolled class members - could add user-facing error handling here
+            } catch (error) {
+                console.error('Error fetching enrolled class members:', error);
             }
         }
 

@@ -6,7 +6,8 @@ import { Calendar } from '@/components/ui/calendar'
 import { Card, CardContent } from '@/components/ui/card'
 import { SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarProvider } from '@/components/ui/sidebar'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { AddClassModal, ConfirmationModal } from '@/components/class-schedules/modals'
+
+import { AddClassModal, ClassActionModal } from '@/components/class-schedules/modals'
 import CoachTypeSection from '@/components/class-schedules/CoachTypeSidebarSection'
 import ClassCard from '@/components/class-schedules/ClassCard'
 import { useClassSchedules } from '@/hooks/useClassSchedules'
@@ -31,26 +32,29 @@ const MONTH_NAMES = [
     LABELS.classSchedules.page.months.december,
 ] as const
 
+
 const ClassSchedulesPage = () => {
     const {
-        state,
+        currentMonth,
+        selectedDate,
         dialogs,
         classForm,
         setClassForm,
         filteredClasses,
-        handleMonthChange,
         handleDateSelect,
+        handleMonthChange,
         goToToday,
-        openDialog,
+        openAddDialog,
+        openClassActionDialog,
+        openViewUsersDialog,
         closeDialog,
-        openActionDialog,
         handleAddClass,
         handleDeleteClass,
         handleCancelClass,
         handleViewUsers,
     } = useClassSchedules()
 
-    const activeTab = MONTH_NAMES[state.currentMonth.getMonth()]
+    const activeTab = MONTH_NAMES[currentMonth.getMonth()]
     const coachGroups = COACHES.reduce((groups, coach) => {
         if (!groups[coach.type]) groups[coach.type] = [];
         groups[coach.type].push(coach);
@@ -98,9 +102,9 @@ const ClassSchedulesPage = () => {
                                     <CardContent className="px-4">
                                         <Calendar
                                             mode="single"
-                                            selected={state.selectedDate}
+                                            selected={selectedDate}
                                             onSelect={handleDateSelect}
-                                            month={state.currentMonth}
+                                            month={currentMonth}
                                             onMonthChange={(month) => handleDateSelect(month)}
                                             className="bg-transparent p-0 [--cell-size:--spacing(12)] md:[--cell-size:--spacing(14)]"
                                             buttonVariant="ghost"
@@ -121,7 +125,7 @@ const ClassSchedulesPage = () => {
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-4">
                                         <h3 className="text-lg font-semibold">
-                                            {LABELS.classSchedules.page.classes.title} {state.selectedDate?.toLocaleDateString("en-US", {
+                                            {LABELS.classSchedules.page.classes.title} {selectedDate?.toLocaleDateString("en-US", {
                                                 weekday: "long", day: "numeric", month: "long", year: "numeric"
                                             })}
                                         </h3>
@@ -129,8 +133,8 @@ const ClassSchedulesPage = () => {
                                     <Button
                                         size="sm"
                                         className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
-                                        disabled={!state.selectedDate}
-                                        onClick={openDialog}
+                                        disabled={!selectedDate}
+                                        onClick={openAddDialog}
                                     >
                                         <ICONS.classSchedules.add className="w-4 h-4" />
                                         {LABELS.classSchedules.page.classes.addClass}
@@ -143,9 +147,8 @@ const ClassSchedulesPage = () => {
                                             <ClassCard
                                                 key={index}
                                                 classItem={cls}
-                                                onCancel={(classId, classTitle) => openActionDialog('cancel', classId, classTitle)}
-                                                onDelete={(classId, classTitle) => openActionDialog('delete', classId, classTitle)}
-                                                onViewUsers={(classId, classTitle) => openActionDialog('viewUsers', classId, classTitle)}
+                                                onCancel={(classId, classTitle) => openClassActionDialog(classId, classTitle)}
+                                                onViewUsers={(classId, classTitle) => openViewUsersDialog(classId, classTitle)}
                                             />
                                         ))
                                     ) : (
@@ -163,7 +166,7 @@ const ClassSchedulesPage = () => {
                 <AddClassModal
                     isOpen={dialogs.addClass}
                     onClose={() => closeDialog('addClass')}
-                    selectedDate={state.selectedDate}
+                    selectedDate={selectedDate}
                     classForm={classForm}
                     setClassForm={setClassForm}
                     onAddClass={handleAddClass}
@@ -171,30 +174,12 @@ const ClassSchedulesPage = () => {
                     classTypes={CLASS_TYPES}
                 />
 
-                <ConfirmationModal
-                    isOpen={dialogs.deleteClass.isOpen}
-                    onClose={() => closeDialog('deleteClass')}
-                    classTitle={dialogs.deleteClass.classTitle}
-                    onConfirm={handleDeleteClass}
-                    title={LABELS.classSchedules.modals.deleteClass.title}
-                    description={LABELS.classSchedules.modals.deleteClass.description}
-                    details={LABELS.classSchedules.modals.deleteClass.details}
-                    confirmButtonText={LABELS.classSchedules.modals.deleteClass.buttons.delete}
-                    cancelButtonText={LABELS.classSchedules.modals.deleteClass.buttons.cancel}
-                    icon={ICONS.classSchedules.delete}
-                />
-
-                <ConfirmationModal
-                    isOpen={dialogs.cancelClass.isOpen}
-                    onClose={() => closeDialog('cancelClass')}
-                    classTitle={dialogs.cancelClass.classTitle}
-                    onConfirm={handleCancelClass}
-                    title={LABELS.classSchedules.modals.cancelClass.title}
-                    description={LABELS.classSchedules.modals.cancelClass.description}
-                    details={LABELS.classSchedules.modals.cancelClass.details}
-                    confirmButtonText={LABELS.classSchedules.modals.cancelClass.buttons.cancel}
-                    cancelButtonText={LABELS.classSchedules.modals.cancelClass.buttons.keep}
-                    icon={ICONS.classSchedules.cancel}
+                <ClassActionModal
+                    isOpen={dialogs.classAction.isOpen}
+                    onClose={() => closeDialog('classAction')}
+                    classTitle={dialogs.classAction.classTitle}
+                    onCancel={handleCancelClass}
+                    onDelete={handleDeleteClass}
                 />
 
                 <ViewUsersModal

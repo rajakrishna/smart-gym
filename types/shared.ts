@@ -55,8 +55,7 @@ export type RecurrencePattern = 'daily' | 'weekly' | 'monthly' | 'none';
 // Dialog (Modals)Types
 export interface DialogState {
   addClass: boolean;
-  deleteClass: { isOpen: boolean; classId: string | null; classTitle: string };
-  cancelClass: { isOpen: boolean; classId: string | null; classTitle: string };
+  classAction: { isOpen: boolean; classId: string | null; classTitle: string };
   viewUsers: { isOpen: boolean; classId: string | null; classTitle: string };
 }
 
