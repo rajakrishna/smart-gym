@@ -139,7 +139,7 @@ const ClassSchedulesPage = () => {
                                         <Button
                                             size="sm"
                                             className="flex items-center gap-2"
-                                            onClick={() => openDialog()}
+                                            onClick={() => openAddDialog()}
                                             >
                                             <ICONS.classSchedules.calendar className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.allClasses}
@@ -149,7 +149,7 @@ const ClassSchedulesPage = () => {
                                             variant="secondary"
                                             className="flex items-center gap-2"
                                             disabled={!selectedDate}
-                                            onClick={() => openEditDialog()}
+                                            onClick={() => openAddDialog()}
                                             >
                                             <ICONS.classSchedules.edit className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.editClass}
