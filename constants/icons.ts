@@ -20,6 +20,7 @@ import {
   MoreVertical,
   Phone,
   Plus,
+  RotateCcw,
   ScanBarcode,
   Search,
   Send,
@@ -59,13 +60,13 @@ const ICONS = {
   adminMembersPage: {
     search: Search,
     addMember: Plus,
+    editMember: Edit,
   },
 
   adminMessagesPage: {
     createMessage: Plus,
     messageDetail: Mail,
   },
-
   adminMemberDetail: {
     edit: Edit,
     delete: Trash2,
@@ -92,6 +93,12 @@ const ICONS = {
   member: {
     bellDot: BellDot,
     scanBarcode: ScanBarcode,
+  },
+
+  // AI Chat icons
+  aiChat: {
+    send: Send,
+    reset: RotateCcw,
   },
 
   // Class Schedules icons
