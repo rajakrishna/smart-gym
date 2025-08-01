@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState }, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import { Card, CardContent } from '@/components/ui/card'
@@ -11,8 +11,7 @@ import { AllClassesModal, EditClassModal, AddClassModal, ClassActionModal, ViewU
 import CoachTypeSection from '@/components/class-schedules/CoachTypeSidebarSection'
 import ClassCard from '@/components/class-schedules/ClassCard'
 import { useClassSchedules } from '@/hooks/useClassSchedules'
-import { COACHES, CLASS_TYPES } from '@/constants/classSchedules'
-// import { groupCoachesByType } from '@/lib/classScheduleUtils'
+import { CLASS_TYPES } from '@/constants/classSchedules'
 import type { Coach } from '@/types/shared'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
@@ -58,11 +57,33 @@ const ClassSchedulesPage = () => {
 
     const activeTab = MONTH_NAMES[currentMonth.getMonth()]
     const [coaches, setCoaches] = useState<Coach[]>([])
-    const coachGroups = COACHES.reduce((groups, coach) => {
-        if (!groups[coach.type]) groups[coach.type] = [];
-        groups[coach.type].push(coach);
-        return groups;
-    }, {} as Record<string, typeof COACHES[0][]>)
+
+    // Fetch coaches from API
+    useEffect(() => {
+        const fetchCoaches = async () => {
+            try {
+                const res = await fetch('/api/coaches/getAll')
+                const data = await res.json()
+
+                if (Array.isArray(data)) {
+                    setCoaches(data)
+                } else {
+                    console.error('Unexpected response for coaches:', data)
+                }
+            } catch (err) {
+                console.error('Error fetching coaches:', err)
+            }
+        }
+
+        fetchCoaches()
+    }, [])
+
+    // Helper function to filter coaches by type (case-insensitive)
+    const getCoachesByType = (classType: string): Coach[] => {
+        return coaches.filter(coach =>
+            coach.coach_type?.toLowerCase() === classType.toLowerCase()
+        )
+    }
 
     return (
         <SidebarProvider>
@@ -139,7 +160,7 @@ const ClassSchedulesPage = () => {
                                             size="sm"
                                             className="flex items-center gap-2"
                                             onClick={() => openDialog('allClasses')}
-                                            >
+                                        >
                                             <ICONS.classSchedules.calendar className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.allClasses}
                                         </Button>
@@ -149,7 +170,7 @@ const ClassSchedulesPage = () => {
                                             className="flex items-center gap-2"
                                             disabled={!selectedDate}
                                             onClick={() => openDialog('editClass')}
-                                            >
+                                        >
                                             <ICONS.classSchedules.edit className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.editClass}
                                         </Button>
