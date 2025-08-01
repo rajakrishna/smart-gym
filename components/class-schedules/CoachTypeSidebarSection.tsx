@@ -44,7 +44,7 @@ const CoachTypeSection: React.FC<CoachTypeSectionProps> = ({
                 <span className="text-sm font-medium text-gray-600">{classType}</span>
             </div>
 
-            {/* Coaches in this type */}
+            {/* Coaches in specific type */}
             <div className="space-y-1 pl-4">
                 {coaches.map(coach => (
                     <CoachItem

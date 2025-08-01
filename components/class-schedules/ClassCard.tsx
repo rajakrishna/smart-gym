@@ -30,6 +30,7 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onViewUsers 
                     {classItem.type}
                 </Badge>
                 <div className="flex gap-1">
+                    {/* Cancel / Delete Class Icon */}
                     <Button
                         size="sm"
                         variant="ghost"
@@ -38,7 +39,8 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onViewUsers 
                     >
                         <ICONS.classSchedules.cancelClass className="w-3 h-3" />
                     </Button>
-                    {/* Button with icon of a user and when clicked it opens a modal that shows all the users that are signed up for the class */}
+
+                    {/* View Users Icon */}
                     <Button
                         size="sm"
                         variant="ghost"
