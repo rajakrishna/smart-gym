@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState }, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import { Card, CardContent } from '@/components/ui/card'
@@ -13,7 +13,7 @@ import ClassCard from '@/components/class-schedules/ClassCard'
 import { useClassSchedules } from '@/hooks/useClassSchedules'
 import { COACHES, CLASS_TYPES } from '@/constants/classSchedules'
 // import { groupCoachesByType } from '@/lib/classScheduleUtils'
-import type { Coach } from '@/types/shared'
+// import type { Coach } from '@/types/shared'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
 
@@ -57,7 +57,7 @@ const ClassSchedulesPage = () => {
     } = useClassSchedules()
 
     const activeTab = MONTH_NAMES[currentMonth.getMonth()]
-    const [coaches, setCoaches] = useState<Coach[]>([])
+    // const [coaches, setCoaches] = useState<Coach[]>([])
     const coachGroups = COACHES.reduce((groups, coach) => {
         if (!groups[coach.type]) groups[coach.type] = [];
         groups[coach.type].push(coach);
@@ -87,11 +87,11 @@ const ClassSchedulesPage = () => {
                                             {LABELS.classSchedules.page.sidebar.coaches}
                                         </SidebarGroupLabel>
                                         <SidebarGroupContent className='space-y-4 overflow-y-auto flex-1 pr-2'>
-                                            {Object.entries(coachGroups).map(([classType]) => (
+                                            {CLASS_TYPES.map((classType) => (
                                                 <CoachTypeSection
                                                     key={classType}
                                                     classType={classType}
-                                                    coaches={coaches}
+                                                    // coaches={coaches}
                                                     // selectedCoach={selectedCoach}
                                                     // filterCoach={filterCoach}
                                                     // onCoachSelect={toggleCoachSelection}
@@ -137,10 +137,11 @@ const ClassSchedulesPage = () => {
                                             })}
                                         </h3>
                                     </div>
+                                    <div className="flex items-center gap-2">
                                         <Button
                                             size="sm"
                                             className="flex items-center gap-2"
-                                            onClick={() => openDialog('allClasses')}
+                                            onClick={() => openAddDialog()}
                                             >
                                             <ICONS.classSchedules.calendar className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.allClasses}
@@ -150,20 +151,21 @@ const ClassSchedulesPage = () => {
                                             variant="secondary"
                                             className="flex items-center gap-2"
                                             disabled={!selectedDate}
-                                            onClick={() => openDialog('editClass')}
+                                            onClick={() => openAddDialog()}
                                             >
                                             <ICONS.classSchedules.edit className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.editClass}
                                         </Button>
-                                    <Button
-                                        size="sm"
-                                        className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
-                                        disabled={!selectedDate}
-                                        onClick={openAddDialog}
-                                    >
-                                        <ICONS.classSchedules.add className="w-4 h-4" />
-                                        {LABELS.classSchedules.page.classes.addClass}
-                                    </Button>
+                                        <Button
+                                            size="sm"
+                                            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
+                                            disabled={!selectedDate}
+                                            onClick={openAddDialog}
+                                        >
+                                            <ICONS.classSchedules.add className="w-4 h-4" />
+                                            {LABELS.classSchedules.page.classes.addClass}
+                                        </Button>
+                                    </div>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
