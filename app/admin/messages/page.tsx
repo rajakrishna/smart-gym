@@ -47,15 +47,17 @@ const Page = async () => {
 
     return (
         <div className="container mx-auto py-10 px-4">
+            <div className="flex justify-end">
+                <SendMessageModal>
+                    <Button className="mt-4 bg-green-500 hover:bg-green-600" >
+                        <ICONS.adminMessagesPage.createMessage />
+                        {LABELS.pages.admin_messages.buttons.createMessage}
+                    </Button>
+                </SendMessageModal>
+            </div>
             <div className="mt-4">
                 <DataTable columns={columns} data={data} />
             </div>
-            <SendMessageModal>
-                <Button className="mt-4 bg-green-500 hover:bg-green-600" >
-                    <ICONS.adminMessagesPage.createMessage />
-                    {LABELS.pages.admin_messages.buttons.createMessage}
-                </Button>
-            </SendMessageModal>
         </div >
     )
 }

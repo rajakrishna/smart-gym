@@ -11,8 +11,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { columns } from './columns'
 import { EditIcon } from 'lucide-react'
-import EditCafeProductModal from '@/components/admin/cafe/modals/EditCafeProductModal'
-import CreateCafeProductModal from '@/components/admin/cafe/modals/CreateCafeProductModal'
+import CafeProductModal from '@/components/admin/cafe/modals/CafeProductModal'
 import { mockProducts } from '@/constants/mockData'
 import { Product } from '@/types/shared'
 
@@ -57,11 +56,11 @@ const ProductCard = ({ product }: { product: Product }) => {
                         <div className='text-sm text-gray-500'>{LABELS.pages.admin_cafe.productCard.price}: ${product.price.toFixed(2)}</div>
                     </div>
                     {/* Edit */}
-                    <EditCafeProductModal product={product}>
+                    <CafeProductModal mode="edit" product={product}>
                         <Button className='flex items-center gap-2' variant='outline' size='icon'>
                             <EditIcon className='w-4 h-4' />
                         </Button>
-                    </EditCafeProductModal>
+                    </CafeProductModal>
                 </div>
             </CardHeader>
             <CardContent>
@@ -125,11 +124,11 @@ const Page = () => {
                         <TabsTrigger value="cafe">{LABELS.pages.admin_cafe.tabs.cafe}</TabsTrigger>
                         <TabsTrigger value="transactions">{LABELS.pages.admin_cafe.tabs.transactions}</TabsTrigger>
                     </TabsList>
-                    <CreateCafeProductModal>
+                    <CafeProductModal mode="create">
                         <Button className="bg-green-500 hover:bg-green-600 flex items-center gap-2">
                             {LABELS.pages.admin_cafe.buttons.addProduct} <AddProductIcon className='w-4 h-4' />
                         </Button>
-                    </CreateCafeProductModal>
+                    </CafeProductModal>
                 </div>
                 <TabsContent value="cafe">
                     {loading ? (
