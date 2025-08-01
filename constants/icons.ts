@@ -28,6 +28,7 @@ import {
   User,
   UserCircle,
   Users,
+  Smartphone,
 } from 'lucide-react';
 
 const ICONS = {
@@ -41,7 +42,8 @@ const ICONS = {
   login: LogIn,
   // Gym Logo icons
   dumbbell: Dumbbell,
-
+  loader: Loader2,
+  phone: Smartphone,
   // Admin icons
   admin: {
     dashboard: LayoutDashboard,

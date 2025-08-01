@@ -47,7 +47,10 @@ const LABELS = {
     value4: '$40B',
     label4: 'Payments Processed',
   },
-
+  mobileView: {
+    banner: 'Please use a mobile device to view this page',
+    sub: 'This experience is designed for mobile devices only.'
+  },
   memberDash: {
     firstName: 'John',
     imageURL: '/assets/p1.png',
