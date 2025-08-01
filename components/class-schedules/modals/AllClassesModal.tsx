@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import LABELS from '@/constants/labels'
+// import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Badge } from '@/components/ui/badge'
@@ -84,7 +84,7 @@ const AllClassesModal: React.FC<AllClassesModalProps> = ({ isOpen, onClose }) =>
             All Scheduled Classes
           </DialogTitle>
           <DialogDescription>
-            Here's a full list of all scheduled classes in the system.
+            Here&apos;s a full list of all scheduled classes in the system.
           </DialogDescription>
         </DialogHeader>
 

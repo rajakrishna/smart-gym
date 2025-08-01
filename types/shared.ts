@@ -97,6 +97,7 @@ export interface ClassScheduleItem {
   scheduled_on: string;
   day: number;
   time: string;
+  duration: number;
   capacity: number;
   created_at: string;
 }

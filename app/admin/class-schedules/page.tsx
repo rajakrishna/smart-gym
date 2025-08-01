@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import { Card, CardContent } from '@/components/ui/card'
@@ -13,7 +13,7 @@ import ClassCard from '@/components/class-schedules/ClassCard'
 import { useClassSchedules } from '@/hooks/useClassSchedules'
 import { COACHES, CLASS_TYPES } from '@/constants/classSchedules'
 // import { groupCoachesByType } from '@/lib/classScheduleUtils'
-import type { Coach } from '@/types/shared'
+// import type { Coach } from '@/types/shared'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
 
@@ -49,14 +49,14 @@ const ClassSchedulesPage = () => {
         openClassActionDialog,
         openViewUsersDialog,
         closeDialog,
-        handleAddClass,
+        // handleAddClass,
         handleDeleteClass,
         handleCancelClass,
         handleViewUsers,
     } = useClassSchedules()
 
     const activeTab = MONTH_NAMES[currentMonth.getMonth()]
-    const [coaches, setCoaches] = useState<Coach[]>([])
+    // const [coaches, setCoaches] = useState<Coach[]>([])
     const coachGroups = COACHES.reduce((groups, coach) => {
         if (!groups[coach.type]) groups[coach.type] = [];
         groups[coach.type].push(coach);
@@ -86,7 +86,7 @@ const ClassSchedulesPage = () => {
                                             {LABELS.classSchedules.page.sidebar.coaches}
                                         </SidebarGroupLabel>
                                         <SidebarGroupContent className='space-y-4 overflow-y-auto flex-1 pr-2'>
-                                            {Object.entries(coachGroups).map(([classType, coaches]) => (
+                                            {Object.entries(coachGroups).map(([classType]) => (
                                                 <CoachTypeSection
                                                     key={classType}
                                                     classType={classType}

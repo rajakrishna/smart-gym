@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import type { Coach } from '@/types/shared'
 import { getClassColors } from '@/lib/classScheduleUtils'
 import { getInitialsForAvatars } from '@/lib/utils'
-import ICONS from '@/constants/icons'
+// import ICONS from '@/constants/icons'
 
 interface CoachItemProps {
   coach: Coach
@@ -17,14 +17,14 @@ interface CoachTypeSectionProps {
 }
 
 
-const getCoachItemClass = (isSelected: boolean, isFiltering: boolean) =>
-  `coach-item p-3 flex gap-3 items-center rounded-md border cursor-pointer transition-all duration-200 ${
-    isFiltering
-      ? 'border-blue-500 bg-blue-100 ring-2 ring-blue-200'
-      : isSelected
-      ? 'border-blue-300 bg-blue-50'
-      : 'border-gray-200 hover:bg-blue-50 hover:border-blue-300'
-  }`
+// const getCoachItemClass = (isSelected: boolean, isFiltering: boolean) =>
+//   `coach-item p-3 flex gap-3 items-center rounded-md border cursor-pointer transition-all duration-200 ${
+//     isFiltering
+//       ? 'border-blue-500 bg-blue-100 ring-2 ring-blue-200'
+//       : isSelected
+//       ? 'border-blue-300 bg-blue-50'
+//       : 'border-gray-200 hover:bg-blue-50 hover:border-blue-300'
+//   }`
 
 const CoachItem: React.FC<CoachItemProps> = ({ coach }) => {
   const fullName = `${coach.first_name ?? 'Unknown'} ${coach.last_name ?? ''}`.trim()
@@ -50,7 +50,7 @@ const CoachItem: React.FC<CoachItemProps> = ({ coach }) => {
 //     coaches: Coach[]
 // }
 
-let cachedCoaches: Coach[] | null = null
+// let cachedCoaches: Coach[] | null = null
 
 const CoachTypeSection: React.FC<CoachTypeSectionProps> = ({
   // selectedCoach,
@@ -91,7 +91,7 @@ const CoachTypeSection: React.FC<CoachTypeSectionProps> = ({
             {/* Coaches in this type */}
             <div className="space-y-1 pl-4">
                 {coaches.map(coach => {
-                  const fullName = `${coach.first_name ?? 'Unknown'} ${coach.last_name ?? ''}`.trim()
+                  // const fullName = `${coach.first_name ?? 'Unknown'} ${coach.last_name ?? ''}`.trim()
                   return (
                     <CoachItem
                         key={coach.coach_id ?? `${coach.first_name ?? ''}-${coach.last_name ?? ''}`}
