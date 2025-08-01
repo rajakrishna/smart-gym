@@ -174,9 +174,11 @@ export interface Product {
   quantity: number;
   min_quantity: number;
   number_sold: number;
-  category: string;
+  category: 'cafe' | 'drink' | 'snack' | 'protein_bar';
   product_image: string;
   sku: string;
+  restock: boolean;
+  is_active: boolean;
 }
 
 export interface EnrolledClassMember {
