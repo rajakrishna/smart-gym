@@ -63,8 +63,10 @@ const MemberWelcome = () => {
             <ICONS.member.scanBarcode />
             {/* </Button> */}
           </BarCodeModal>
-          {/* <Button size="lg"> */}
-          <ICONS.member.bellDot />
+          <Link href={'/member/messages'}>
+            {/* <Button size="lg"> */}
+            <ICONS.member.bellDot />
+          </Link>
           {/* </Button> */}
         </div>
       </div>

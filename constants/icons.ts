@@ -19,6 +19,7 @@ import {
   MoreVertical,
   Phone,
   Plus,
+  RotateCcw,
   ScanBarcode,
   Search,
   Send,
@@ -88,6 +89,12 @@ const ICONS = {
   member: {
     bellDot: BellDot,
     scanBarcode: ScanBarcode,
+  },
+
+  // AI Chat icons
+  aiChat: {
+    send: Send,
+    reset: RotateCcw,
   },
 
   // Modal icons

@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 
 import './globals.css';
 import LABELS from '@/constants/labels';
-import FloatingAIChat from '@/components/layouts/shared/FloatingAIChat';
+
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,7 +29,6 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        <FloatingAIChat />
       </body>
     </html>
   );
