@@ -1,6 +1,7 @@
 import {
   BarChart3,
   Bell,
+  BellDot,
   Calendar,
   Clock,
   Coffee,
@@ -8,7 +9,6 @@ import {
   DollarSign,
   Dumbbell,
   Edit,
-  EditIcon,
   Home,
   LayoutDashboard,
   Loader2,
@@ -19,6 +19,8 @@ import {
   MoreVertical,
   Phone,
   Plus,
+  RotateCcw,
+  ScanBarcode,
   Search,
   Send,
   Sheet,
@@ -37,7 +39,6 @@ const ICONS = {
   messageSquare: MessageSquare,
   user: User,
   login: LogIn,
-
   // Gym Logo icons
   dumbbell: Dumbbell,
 
@@ -55,8 +56,13 @@ const ICONS = {
   adminMembersPage: {
     search: Search,
     addMember: Plus,
+    editMember: Edit,
   },
 
+  adminMessagesPage: {
+    createMessage: Plus,
+    messageDetail: Mail,
+  },
   adminMemberDetail: {
     edit: Edit,
     delete: Trash2,
@@ -68,7 +74,7 @@ const ICONS = {
 
   adminCafePage: {
     addProduct: Plus,
-    editProduct: EditIcon,
+    editProduct: Edit,
   },
 
   // Admin User menu icons
@@ -77,6 +83,18 @@ const ICONS = {
     userCircle: UserCircle,
     notifications: Bell,
     logout: LogOut,
+  },
+
+  // Member dashboard icons
+  member: {
+    bellDot: BellDot,
+    scanBarcode: ScanBarcode,
+  },
+
+  // AI Chat icons
+  aiChat: {
+    send: Send,
+    reset: RotateCcw,
   },
 
   // Modal icons

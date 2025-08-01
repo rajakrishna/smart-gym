@@ -131,6 +131,14 @@ const LABELS = {
         sendError: 'Failed to send message',
         sendErrorGeneric: 'Error sending message',
       },
+      colors: {
+        deliveryMethods: {
+          email: 'bg-blue-500',
+          sms: 'bg-green-500',
+          push: 'bg-yellow-500',
+          default: 'bg-gray-500',
+        },
+      },
     },
     editMember: {
       title: 'Edit Member',
@@ -177,6 +185,11 @@ const LABELS = {
         saving: 'Saving...',
       },
     },
+    barCodeModal: {
+      title: 'Scan Barcode',
+      description: 'Scan the barcode to check in or out of the gym',
+      scanButton: 'Scan',
+    },
   },
 
   pages: {
@@ -214,13 +227,13 @@ const LABELS = {
         accessorKeys: {
           from: 'from',
           messageType: 'messageType',
-          message: 'message',
+          subject: 'subject',
           createdAt: 'createdAt',
         },
         header: {
           from: 'From',
           messageType: 'Message Type',
-          message: 'Message',
+          subject: 'Subject',
           createdAt: 'Created At',
         },
       },
@@ -292,11 +305,27 @@ const LABELS = {
       },
     },
   },
+
+  // AI Chat labels
+  aiChat: {
+    title: 'Fitness Assistant',
+    subtitle: 'Your personal trainer & nutrition guide',
+    placeholder: 'Ask about workouts, nutrition, or fitness advice...',
+    errorMessage: "Sorry, I'm having trouble connecting right now. Please try again later.",
+    promptsHeading: 'Try asking:',
+    screenReaderLabels: {
+      sendMessage: 'Send message',
+      resetChat: 'Reset chat',
+    },
+    resetTooltip: 'Reset chat',
+  },
+
   navigation: {
     home: 'Home',
     classes: 'Classes',
     cafe: 'Cafe',
     messages: 'Messages',
+    aiCoach: 'AI Coach',
     profile: 'Profile',
   },
   // Admin navigation
