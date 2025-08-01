@@ -42,7 +42,6 @@ const SendMessageModal: React.FC<SendMessageModalProps> = ({ children }) => {
         type: '',
         title: '',
         body: '',
-        category: 'Empty Category',
         delivery_method: ''
     })
 
@@ -124,7 +123,6 @@ const SendMessageModal: React.FC<SendMessageModalProps> = ({ children }) => {
                 type: '',
                 title: '',
                 body: '',
-                category: 'Empty Category',
                 delivery_method: ''
             })
         } catch (error) {
