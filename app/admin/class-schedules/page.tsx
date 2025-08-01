@@ -7,15 +7,15 @@ import { Card, CardContent } from '@/components/ui/card'
 import { SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarProvider } from '@/components/ui/sidebar'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import { AddClassModal, ClassActionModal } from '@/components/class-schedules/modals'
+import { AllClassesModal, EditClassModal, AddClassModal, ClassActionModal, ViewUsersModal } from '@/components/class-schedules/modals'
 import CoachTypeSection from '@/components/class-schedules/CoachTypeSidebarSection'
 import ClassCard from '@/components/class-schedules/ClassCard'
 import { useClassSchedules } from '@/hooks/useClassSchedules'
 import { COACHES, CLASS_TYPES } from '@/constants/classSchedules'
-
+// import { groupCoachesByType } from '@/lib/classScheduleUtils'
+// import type { Coach } from '@/types/shared'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
-import { ViewUsersModal } from '@/components/class-schedules/modals'
 
 const MONTH_NAMES = [
     LABELS.classSchedules.page.months.january,
@@ -41,6 +41,7 @@ const ClassSchedulesPage = () => {
         classForm,
         setClassForm,
         filteredClasses,
+        fetchClasses,
         handleDateSelect,
         handleMonthChange,
         goToToday,
@@ -48,13 +49,14 @@ const ClassSchedulesPage = () => {
         openClassActionDialog,
         openViewUsersDialog,
         closeDialog,
-        handleAddClass,
+        // handleAddClass,
         handleDeleteClass,
         handleCancelClass,
         handleViewUsers,
     } = useClassSchedules()
 
     const activeTab = MONTH_NAMES[currentMonth.getMonth()]
+    // const [coaches, setCoaches] = useState<Coach[]>([])
     const coachGroups = COACHES.reduce((groups, coach) => {
         if (!groups[coach.type]) groups[coach.type] = [];
         groups[coach.type].push(coach);
@@ -84,17 +86,21 @@ const ClassSchedulesPage = () => {
                                             {LABELS.classSchedules.page.sidebar.coaches}
                                         </SidebarGroupLabel>
                                         <SidebarGroupContent className='space-y-4 overflow-y-auto flex-1 pr-2'>
-                                            {Object.entries(coachGroups).map(([classType, coaches]) => (
+                                            {Object.entries(coachGroups).map(([classType]) => (
                                                 <CoachTypeSection
                                                     key={classType}
                                                     classType={classType}
-                                                    coaches={coaches}
+                                                    // coaches={coaches}
+                                                    // selectedCoach={selectedCoach}
+                                                    // filterCoach={filterCoach}
+                                                    // onCoachSelect={toggleCoachSelection}
                                                 />
                                             ))}
                                         </SidebarGroupContent>
                                     </SidebarGroup>
                                 </SidebarContent>
                             </div>
+
 
                             {/* Calendar */}
                             <div className='flex-1 flex flex-col justify-center items-center'>
@@ -130,6 +136,24 @@ const ClassSchedulesPage = () => {
                                             })}
                                         </h3>
                                     </div>
+                                        <Button
+                                            size="sm"
+                                            className="flex items-center gap-2"
+                                            onClick={() => openAddDialog()}
+                                            >
+                                            <ICONS.classSchedules.calendar className="w-4 h-4" />
+                                            {LABELS.classSchedules.page.classes.allClasses}
+                                        </Button>
+                                        <Button
+                                            size="sm"
+                                            variant="secondary"
+                                            className="flex items-center gap-2"
+                                            disabled={!selectedDate}
+                                            onClick={() => openAddDialog()}
+                                            >
+                                            <ICONS.classSchedules.edit className="w-4 h-4" />
+                                            {LABELS.classSchedules.page.classes.editClass}
+                                        </Button>
                                     <Button
                                         size="sm"
                                         className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
@@ -163,14 +187,28 @@ const ClassSchedulesPage = () => {
                 </div>
 
                 {/* Modals */}
+                <AllClassesModal
+                    isOpen={dialogs.allClasses}
+                    onClose={() => closeDialog('allClasses')}
+                />
+
+                <EditClassModal
+                    isOpen={dialogs.editClass}
+                    onClose={() => closeDialog('editClass')}
+                    selectedDate={selectedDate}
+                    classForm={classForm}
+                    setClassForm={setClassForm}
+                    availableClasses={filteredClasses}
+                    classTypes={CLASS_TYPES}
+                    fetchClasses={fetchClasses}
+                />
+
                 <AddClassModal
                     isOpen={dialogs.addClass}
                     onClose={() => closeDialog('addClass')}
                     selectedDate={selectedDate}
                     classForm={classForm}
                     setClassForm={setClassForm}
-                    onAddClass={handleAddClass}
-                    coaches={COACHES}
                     classTypes={CLASS_TYPES}
                 />
 
