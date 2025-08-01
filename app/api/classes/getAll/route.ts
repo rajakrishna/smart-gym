@@ -8,7 +8,13 @@ export async function GET(req: NextRequest) {
 
     let query = supabase
         .from('classes')
-        .select('*')
+        .select(`
+            *,
+            coaches (
+            first_name,
+            last_name
+            )
+        `)
         .order('scheduled_on', { ascending: true });
 
     if (date) {

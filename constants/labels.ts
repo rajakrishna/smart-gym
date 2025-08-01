@@ -429,7 +429,13 @@ const LABELS = {
       },
       classes: {
         title: 'Classes for',
+        editClass: 'Edit Class',
         addClass: 'Add Class',
+        allClasses: 'View All Classes',
+        filterByCoach: 'Filter by Coach',
+        showAllClasses: 'Show All Classes',
+        selectedLabel: 'Selected:',
+        filteredLabel: 'Filtered by:',
         noClasses: 'No classes scheduled for this date',
         coachLabel: 'Coach:',
       },

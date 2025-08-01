@@ -125,6 +125,7 @@ const ICONS = {
     filter: Filter,
     cancelClass: XCircle,
     users: Users,
+    edit: Edit,
   },
   // Modal icons
   modals: {

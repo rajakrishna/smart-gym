@@ -13,15 +13,22 @@ export interface ApiResponse<T> {
 // Class Scheduling Types
 export interface ClassFormData {
   title: string;
-  coach: string;
+  class_name: string;
+  coach_id: string;
+  category: string;
+  type: string;
   time: string;
   duration: number;
-  type: string;
+  capacity: number;
 }
 
 export interface Coach {
-  name: string;
-  type: string;
+  coach_id: string;
+  first_name: string;
+  last_name: string;
+  profile_picture?: string;
+  created_at?: string;
+  coach_type: string;
 }
 
 // TODO: Add more class types if needed here
@@ -40,6 +47,19 @@ export interface Class {
   currentCapacity?: number;
 }
 
+export interface ClassData {
+  class_id: string;
+  coach_id: string;
+  class_name: string;
+  category: string;
+  scheduled_on: string; // 'YYYY-MM-DD'
+  day: number;
+  time: string; // 'HH:mm:ss'
+  duration: number;
+  capacity: number;
+  created_at: string;
+}
+
 export type ClassStatus = 'scheduled' | 'cancelled' | 'completed' | 'in-progress';
 
 export interface ClassSchedule {
@@ -55,6 +75,8 @@ export type RecurrencePattern = 'daily' | 'weekly' | 'monthly' | 'none';
 // Dialog (Modals)Types
 export interface DialogState {
   addClass: boolean;
+  editClass: boolean;
+  allClasses: false;
   classAction: { isOpen: boolean; classId: string | null; classTitle: string };
   viewUsers: { isOpen: boolean; classId: string | null; classTitle: string };
 }
@@ -67,13 +89,16 @@ export interface ClassTypeColors {
 }
 
 export interface ClassScheduleItem {
-  id: number;
-  title: string;
-  coach: string;
+  class_id: string;
+  coach_id: string;
+  class_name: string;
+  category: string;
+  scheduled_on: string;
   day: number;
   time: string;
   duration: number;
-  type: ClassType;
+  capacity: number;
+  created_at: string;
 }
 
 export interface Message {
