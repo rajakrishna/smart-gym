@@ -13,7 +13,7 @@ import ClassCard from '@/components/class-schedules/ClassCard'
 import { useClassSchedules } from '@/hooks/useClassSchedules'
 import { COACHES, CLASS_TYPES } from '@/constants/classSchedules'
 // import { groupCoachesByType } from '@/lib/classScheduleUtils'
-// import type { Coach } from '@/types/shared'
+import type { Coach } from '@/types/shared'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
 
@@ -57,7 +57,7 @@ const ClassSchedulesPage = () => {
     } = useClassSchedules()
 
     const activeTab = MONTH_NAMES[currentMonth.getMonth()]
-    // const [coaches, setCoaches] = useState<Coach[]>([])
+    const [coaches, setCoaches] = useState<Coach[]>([])
     const coachGroups = COACHES.reduce((groups, coach) => {
         if (!groups[coach.type]) groups[coach.type] = [];
         groups[coach.type].push(coach);
@@ -91,10 +91,7 @@ const ClassSchedulesPage = () => {
                                                 <CoachTypeSection
                                                     key={classType}
                                                     classType={classType}
-                                                    // coaches={coaches}
-                                                    // selectedCoach={selectedCoach}
-                                                    // filterCoach={filterCoach}
-                                                    // onCoachSelect={toggleCoachSelection}
+                                                    coaches={getCoachesByType(classType)}
                                                 />
                                             ))}
                                         </SidebarGroupContent>
@@ -141,7 +138,7 @@ const ClassSchedulesPage = () => {
                                         <Button
                                             size="sm"
                                             className="flex items-center gap-2"
-                                            onClick={() => openAddDialog()}
+                                            onClick={() => openDialog('allClasses')}
                                             >
                                             <ICONS.classSchedules.calendar className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.allClasses}
@@ -151,7 +148,7 @@ const ClassSchedulesPage = () => {
                                             variant="secondary"
                                             className="flex items-center gap-2"
                                             disabled={!selectedDate}
-                                            onClick={() => openAddDialog()}
+                                            onClick={() => openDialog('editClass')}
                                             >
                                             <ICONS.classSchedules.edit className="w-4 h-4" />
                                             {LABELS.classSchedules.page.classes.editClass}
