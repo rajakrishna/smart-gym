@@ -49,7 +49,9 @@ async function getData(): Promise<Member[]> {
             throw new Error(`API request failed with status ${response.status}`)
         }
 
-        const users: User[] = await response.json()
+        const responseData = await response.json()
+
+        const users: User[] = responseData.users || responseData
 
         if (!users || !Array.isArray(users) || users.length === 0) {
             return mockMembersData

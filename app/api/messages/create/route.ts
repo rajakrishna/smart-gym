@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
     console.log('Request body:', message_body);
 
-    const { user_id, type, title, body, category, delivery_method } = message_body;
+    const { user_id, type, title, body, delivery_method } = message_body;
 
     const validationErrors: ValidationMessage[] = validateMessageData(message_body);
 
@@ -47,7 +47,6 @@ export async function POST(request: Request) {
           title,
           body,
           sent_at: new Date().toISOString(),
-          category,
           delivery_method,
         },
       ])

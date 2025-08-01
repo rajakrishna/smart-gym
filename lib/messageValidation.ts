@@ -3,7 +3,6 @@ export interface MessageValidationData {
   type?: string;
   title?: string;
   body?: string;
-  category?: string;
   delivery_method?: string;
 }
 
@@ -29,10 +28,6 @@ export function validateMessageData(data: MessageValidationData): ValidationMess
 
   if (!data.body || data.body.trim() === '') {
     errors.push({ field: 'body', message: 'Missing body' });
-  }
-
-  if (!data.category || data.category.trim() === '') {
-    errors.push({ field: 'category', message: 'Missing category' });
   }
 
   if (!data.delivery_method || data.delivery_method.trim() === '') {
