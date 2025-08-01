@@ -12,7 +12,7 @@ export const useDialogState = () => {
     viewUsers: { isOpen: false, classId: null, classTitle: '' },
   });
 
-  const openDialog = useCallback((dialogType: 'addClass') => {
+  const openDialog = useCallback(() => {
     setDialogs(prev => ({ ...prev, addClass: true }));
   }, []);
 

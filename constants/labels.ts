@@ -353,14 +353,7 @@ const LABELS = {
       classes: {
         title: 'Classes for',
         addClass: 'Add Class',
-        filterByCoach: 'Filter by Coach',
-        showAllClasses: 'Show All Classes',
-        selectedLabel: 'Selected:',
-        filteredLabel: 'Filtered by:',
         noClasses: 'No classes scheduled for this date',
-        noClassesFiltered: 'No classes found for',
-        noClassesFilteredSubtext: 'on this date',
-        showAllHint: 'Click "Show All Classes" to see all scheduled classes',
         coachLabel: 'Coach:',
       },
       months: {
@@ -390,14 +383,6 @@ const LABELS = {
           type: 'Class Type',
           typePlaceholder: 'Select class type',
           time: 'Start Time',
-          duration: 'Duration (minutes)',
-        },
-        durations: {
-          30: '30 minutes',
-          45: '45 minutes',
-          60: '60 minutes',
-          90: '90 minutes',
-          120: '120 minutes',
         },
         buttons: {
           cancel: 'Cancel',

@@ -5,7 +5,6 @@ import { useCallback, useState } from 'react';
 import { CLASS_SCHEDULE } from '@/constants/classSchedules';
 import type { ClassFormData } from '@/types/shared';
 
-import { useCoachFilters } from './useCoachFilters';
 import { useDialogState } from './useDialogState';
 
 interface UseClassSchedulesState {
@@ -20,7 +19,6 @@ export const useClassSchedules = () => {
   });
 
   const { dialogs, openDialog, closeDialog, openActionDialog } = useDialogState();
-  const { selectedCoach, filterCoach, toggleCoachSelection, toggleCoachFilter } = useCoachFilters();
 
   const [classForm, setClassForm] = useState<ClassFormData>({
     title: '',
@@ -39,12 +37,12 @@ export const useClassSchedules = () => {
   const resetClassForm = useCallback(() => {
     setClassForm({
       title: '',
-      coach: selectedCoach || '',
+      coach: '',
       time: '',
       duration: 60,
       type: '',
     });
-  }, [selectedCoach]);
+  }, []);
 
   // Navigation handlers
   const handleMonthChange = useCallback(
@@ -97,20 +95,14 @@ export const useClassSchedules = () => {
   const getClassesForDate = useCallback(() => {
     if (!state.selectedDate) return [];
     const dayOfWeek = state.selectedDate.getDay();
-    const dayClasses = CLASS_SCHEDULE.filter(cls => cls.day === dayOfWeek);
-    return filterCoach ? dayClasses.filter(cls => cls.coach === filterCoach) : dayClasses;
-  }, [state.selectedDate, filterCoach]);
+    return CLASS_SCHEDULE.filter(cls => cls.day === dayOfWeek);
+  }, [state.selectedDate]);
 
   // Enhanced dialog handler
-  const openDialogWithReset = useCallback(
-    (dialogType: 'addClass') => {
-      if (dialogType === 'addClass') {
-        resetClassForm();
-      }
-      openDialog(dialogType);
-    },
-    [resetClassForm, openDialog]
-  );
+  const openDialogWithReset = useCallback(() => {
+    resetClassForm();
+    openDialog();
+  }, [resetClassForm, openDialog]);
 
   // Action handlers (placeholders for now)
   const handleAddClass = useCallback(() => {
@@ -135,7 +127,7 @@ export const useClassSchedules = () => {
 
   return {
     // State
-    state: { ...state, selectedCoach, filterCoach },
+    state,
     dialogs,
     classForm,
     setClassForm,
@@ -145,8 +137,6 @@ export const useClassSchedules = () => {
     handleMonthChange,
     handleDateSelect,
     goToToday,
-    toggleCoachSelection,
-    toggleCoachFilter,
     openDialog: openDialogWithReset,
     closeDialog,
     openActionDialog,

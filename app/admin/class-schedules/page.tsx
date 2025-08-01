@@ -11,7 +11,7 @@ import CoachTypeSection from '@/components/class-schedules/CoachTypeSidebarSecti
 import ClassCard from '@/components/class-schedules/ClassCard'
 import { useClassSchedules } from '@/hooks/useClassSchedules'
 import { COACHES, CLASS_TYPES } from '@/constants/classSchedules'
-import { groupCoachesByType } from '@/lib/classScheduleUtils'
+
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
 import { ViewUsersModal } from '@/components/class-schedules/modals'
@@ -41,8 +41,6 @@ const ClassSchedulesPage = () => {
         handleMonthChange,
         handleDateSelect,
         goToToday,
-        toggleCoachSelection,
-        toggleCoachFilter,
         openDialog,
         closeDialog,
         openActionDialog,
@@ -53,7 +51,11 @@ const ClassSchedulesPage = () => {
     } = useClassSchedules()
 
     const activeTab = MONTH_NAMES[state.currentMonth.getMonth()]
-    const coachGroups = groupCoachesByType()
+    const coachGroups = COACHES.reduce((groups, coach) => {
+        if (!groups[coach.type]) groups[coach.type] = [];
+        groups[coach.type].push(coach);
+        return groups;
+    }, {} as Record<string, typeof COACHES[0][]>)
 
     return (
         <SidebarProvider>
@@ -83,9 +85,6 @@ const ClassSchedulesPage = () => {
                                                     key={classType}
                                                     classType={classType}
                                                     coaches={coaches}
-                                                    selectedCoach={state.selectedCoach}
-                                                    filterCoach={state.filterCoach}
-                                                    onCoachSelect={toggleCoachSelection}
                                                 />
                                             ))}
                                         </SidebarGroupContent>
@@ -126,36 +125,16 @@ const ClassSchedulesPage = () => {
                                                 weekday: "long", day: "numeric", month: "long", year: "numeric"
                                             })}
                                         </h3>
-                                        {state.selectedCoach && (
-                                            <span className={`text-sm px-2 py-1 rounded ${state.filterCoach
-                                                ? 'bg-blue-100 text-blue-700 border border-blue-200'
-                                                : 'bg-gray-100 text-gray-600 border border-gray-200'
-                                                }`}>
-                                                {state.filterCoach ? LABELS.classSchedules.page.classes.filteredLabel : LABELS.classSchedules.page.classes.selectedLabel} {state.selectedCoach}
-                                            </span>
-                                        )}
                                     </div>
-                                    <div className="flex gap-2">
-                                        <Button
-                                            variant={state.filterCoach ? "default" : "outline"}
-                                            size="sm"
-                                            onClick={toggleCoachFilter}
-                                            className="flex items-center gap-2"
-                                            disabled={!state.selectedCoach}
-                                        >
-                                            <ICONS.classSchedules.filter className="w-4 h-4" />
-                                            {state.filterCoach ? LABELS.classSchedules.page.classes.showAllClasses : LABELS.classSchedules.page.classes.filterByCoach}
-                                        </Button>
-                                        <Button
-                                            size="sm"
-                                            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
-                                            disabled={!state.selectedDate}
-                                            onClick={() => openDialog('addClass')}
-                                        >
-                                            <ICONS.classSchedules.add className="w-4 h-4" />
-                                            {LABELS.classSchedules.page.classes.addClass}
-                                        </Button>
-                                    </div>
+                                    <Button
+                                        size="sm"
+                                        className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
+                                        disabled={!state.selectedDate}
+                                        onClick={openDialog}
+                                    >
+                                        <ICONS.classSchedules.add className="w-4 h-4" />
+                                        {LABELS.classSchedules.page.classes.addClass}
+                                    </Button>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
@@ -171,12 +150,7 @@ const ClassSchedulesPage = () => {
                                         ))
                                     ) : (
                                         <div className="col-span-full text-center text-muted-foreground py-8">
-                                            {state.filterCoach ? (
-                                                <div className="space-y-2">
-                                                    <div>{LABELS.classSchedules.page.classes.noClassesFiltered} <span className="font-medium text-blue-600">{state.filterCoach}</span> {LABELS.classSchedules.page.classes.noClassesFilteredSubtext}</div>
-                                                    <div className="text-xs">{LABELS.classSchedules.page.classes.showAllHint}</div>
-                                                </div>
-                                            ) : LABELS.classSchedules.page.classes.noClasses}
+                                            {LABELS.classSchedules.page.classes.noClasses}
                                         </div>
                                     )}
                                 </div>

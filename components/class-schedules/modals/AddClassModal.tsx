@@ -103,44 +103,18 @@ const AddClassModal: React.FC<AddClassModalProps> = ({
                         </Select>
                     </div>
 
-                    {/* Time and Duration Select */}
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="grid gap-2">
-                            <Label htmlFor={LABELS.classSchedules.modals.addClass.fields.time} className="flex items-center gap-2">
-                                <ICONS.classSchedules.time className="h-4 w-4" />
-                                {LABELS.classSchedules.modals.addClass.fields.time}
-                            </Label>
-                            <Input
-                                id={LABELS.classSchedules.modals.addClass.fields.time}
-                                type="time"
-                                value={classForm.time}
-                                onChange={(e) => setClassForm(prev => ({ ...prev, time: e.target.value }))}
-                            />
-                        </div>
-
-                        {/* Duration Select */}
-                        {/* TODO: Maybe make all classes 1 hour by default? */}
-                        <div className="grid gap-2">
-                            <Label htmlFor={LABELS.classSchedules.modals.addClass.fields.duration} className="flex items-center gap-2">
-                                <ICONS.classSchedules.time className="h-4 w-4" />
-                                {LABELS.classSchedules.modals.addClass.fields.duration}
-                            </Label>
-                            <Select
-                                value={classForm.duration.toString()}
-                                onValueChange={(value) => setClassForm(prev => ({ ...prev, duration: parseInt(value) }))}
-                            >
-                                <SelectTrigger>
-                                    <SelectValue />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="30">{LABELS.classSchedules.modals.addClass.durations[30]}</SelectItem>
-                                    <SelectItem value="45">{LABELS.classSchedules.modals.addClass.durations[45]}</SelectItem>
-                                    <SelectItem value="60">{LABELS.classSchedules.modals.addClass.durations[60]}</SelectItem>
-                                    <SelectItem value="90">{LABELS.classSchedules.modals.addClass.durations[90]}</SelectItem>
-                                    <SelectItem value="120">{LABELS.classSchedules.modals.addClass.durations[120]}</SelectItem>
-                                </SelectContent>
-                            </Select>
-                        </div>
+                    {/* Time Input */}
+                    <div className="grid gap-2">
+                        <Label htmlFor={LABELS.classSchedules.modals.addClass.fields.time} className="flex items-center gap-2">
+                            <ICONS.classSchedules.time className="h-4 w-4" />
+                            {LABELS.classSchedules.modals.addClass.fields.time}
+                        </Label>
+                        <Input
+                            id={LABELS.classSchedules.modals.addClass.fields.time}
+                            type="time"
+                            value={classForm.time}
+                            onChange={(e) => setClassForm(prev => ({ ...prev, time: e.target.value }))}
+                        />
                     </div>
                 </div>
 
