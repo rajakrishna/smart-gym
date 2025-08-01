@@ -201,6 +201,20 @@ const LABELS = {
       description: 'This is an example page',
       link: '/example',
     },
+    member_profile: {
+      header: 'profile',
+      name: 'member name',
+      menu: {
+        memberDetails:'member details',
+        paymentMethod:'payment method',
+        notifications:'notifications',
+        checkinHistory:'check-in history',
+        classHistory:'fitness class history',
+        inviteFriends:'invite friends',
+        userIcon:'user icon',
+        logout:''
+      }
+    },
     admin_members: {
       columns: {
         accessorKeys: {
@@ -285,6 +299,69 @@ const LABELS = {
       buttons: {
         addProduct: 'Add Product',
       },
+      modal: {
+        create: {
+          title: 'Create New Product',
+          description: 'Add a new product to your cafe inventory',
+          submitButton: 'CREATE',
+        },
+        edit: {
+          title: 'Edit Product',
+          description: 'Edit the product details',
+          submitButton: 'UPDATE',
+        },
+        labels: {
+          productName: 'Product Name',
+          description: 'Description',
+          category: 'Category',
+          imageUrl: 'Image URL',
+          sku: 'SKU',
+          stockQuantity: 'Stock Quantity',
+          minQuantity: 'Minimum Quantity',
+          regularPrice: 'Regular Price',
+          needsRestock: 'Needs Restock',
+        },
+        placeholders: {
+          productName: 'Enter product name',
+          description: 'Enter product description',
+          imageUrl: 'Enter image URL',
+          sku: 'e.g., SKU-390128',
+          stockQuantity: 'e.g., 100',
+          minQuantity: 'e.g., 5',
+          regularPrice: 'e.g., 15.99',
+          selectCategory: 'Select a category',
+        },
+        categories: [
+          { value: 'cafe', label: 'Cafe' },
+          { value: 'drink', label: 'Drink' },
+          { value: 'snack', label: 'Snack' },
+          { value: 'protein_bar', label: 'Protein Bar' },
+        ],
+        buttons: {
+          cancel: 'CANCEL',
+          deactivate: 'DEACTIVATE',
+        },
+        validation: {
+          failed: 'Validation failed',
+          checkFields: 'Please check all required fields and fix any errors',
+        },
+        toasts: {
+          creating: 'Creating new product...',
+          updating: 'Updating product...',
+          deactivating: 'Deactivating product...',
+          createSuccess: 'Product created successfully!',
+          updateSuccess: 'Product updated successfully!',
+          deactivateSuccess: 'Product deactivated successfully!',
+          createFailed: 'Creation failed',
+          updateFailed: 'Update failed',
+          deactivateFailed: 'Deactivation failed',
+          addedToInventory: 'has been added to your inventory',
+          updated: 'has been updated',
+          removedFromInventory: 'has been removed from active inventory',
+          referencedInOrders: 'Product referenced in orders',
+          cannotDelete: 'Cannot delete this product as it has been ordered. The product has been deactivated instead.',
+        },
+      },
       productCard: {
         price: 'Price',
         description: 'Description',
@@ -355,7 +432,13 @@ const LABELS = {
       },
       classes: {
         title: 'Classes for',
+        editClass: 'Edit Class',
         addClass: 'Add Class',
+        allClasses: 'View All Classes',
+        filterByCoach: 'Filter by Coach',
+        showAllClasses: 'Show All Classes',
+        selectedLabel: 'Selected:',
+        filteredLabel: 'Filtered by:',
         noClasses: 'No classes scheduled for this date',
         coachLabel: 'Coach:',
       },

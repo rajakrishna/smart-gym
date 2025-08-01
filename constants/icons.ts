@@ -25,6 +25,7 @@ import {
   Search,
   Send,
   Sheet,
+  ToolCase,
   Tag,
   Trash2,
   User,
@@ -33,6 +34,7 @@ import {
   X,
   XCircle,
   Smartphone,
+  ShieldCheck, 
 } from 'lucide-react';
 
 const ICONS = {
@@ -46,8 +48,7 @@ const ICONS = {
   login: LogIn,
   // Gym Logo icons
   dumbbell: Dumbbell,
-  loader: Loader2,
-  phone: Smartphone,
+
   // Admin icons
   admin: {
     dashboard: LayoutDashboard,
@@ -115,6 +116,7 @@ const ICONS = {
     filter: Filter,
     cancelClass: XCircle,
     users: Users,
+    edit: Edit,
   },
   // Modal icons
   modals: {
