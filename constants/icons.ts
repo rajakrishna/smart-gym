@@ -28,6 +28,7 @@ import {
   User,
   UserCircle,
   Users,
+  ShieldCheck
 } from 'lucide-react';
 
 const ICONS = {
@@ -42,6 +43,15 @@ const ICONS = {
   // Gym Logo icons
   dumbbell: Dumbbell,
 
+  memberProfile: {
+    memberDetails: User,
+    paymentMethod: CreditCard,
+    notifications: Bell,
+    checkinHistory: ShieldCheck,
+    classHistory: Calendar,
+    inviteFriends: Users, 
+    userIcon: UserCircle
+  },
   // Admin icons
   admin: {
     dashboard: LayoutDashboard,
