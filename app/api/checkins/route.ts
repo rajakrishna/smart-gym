@@ -24,7 +24,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ status: 'error', message: error.message }, { status: 500 });
     }
 
-    console.log(userId, ' checkin data: ', data);
+    console.log(`check-ins for user_id ${userId} :`, data);
     return NextResponse.json({ status: 'ok', messages: data });
   } catch (error) {
     console.error('Unexpected server error:', error);
