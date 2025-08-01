@@ -32,6 +32,9 @@ const initialClassForm: ClassFormData = {
   coach_id: '',
   category: '',
   time: '',
+  title: '',
+  type: '',
+  duration: 0,
   capacity: 0,
 };
 
