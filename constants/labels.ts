@@ -339,6 +339,77 @@ const LABELS = {
       cafe: 'Cafe',
     },
   },
+
+  // Class Schedules
+  classSchedules: {
+    page: {
+      title: 'Class Schedules',
+      sidebar: {
+        coaches: 'Coaches',
+      },
+      calendar: {
+        goToToday: 'Go to today',
+      },
+      classes: {
+        title: 'Classes for',
+        addClass: 'Add Class',
+        noClasses: 'No classes scheduled for this date',
+        coachLabel: 'Coach:',
+      },
+      months: {
+        january: 'January',
+        february: 'February',
+        march: 'March',
+        april: 'April',
+        may: 'May',
+        june: 'June',
+        july: 'July',
+        august: 'August',
+        september: 'September',
+        october: 'October',
+        november: 'November',
+        december: 'December',
+      },
+    },
+    modals: {
+      addClass: {
+        title: 'Add New Class',
+        description: 'Create a new class for',
+        fields: {
+          title: 'Class Title',
+          titlePlaceholder: 'e.g., Morning Yoga',
+          coach: 'Coach',
+          coachPlaceholder: 'Select a coach',
+          type: 'Class Type',
+          typePlaceholder: 'Select class type',
+          time: 'Start Time',
+        },
+        buttons: {
+          cancel: 'Cancel',
+          add: 'Add Class',
+        },
+      },
+      cancelClass: {
+        title: 'Cancel Class',
+        description: 'Are you sure you want to cancel',
+        details:
+          'This will cancel the class for this specific date but keep it in the recurring schedule. Members will be notified of the cancellation.',
+        buttons: {
+          keep: 'Keep Class',
+          cancel: 'Cancel Class',
+        },
+      },
+      deleteClass: {
+        title: 'Delete Class',
+        description: 'Are you sure you want to permanently delete',
+        details: 'This action cannot be undone and will remove the class from the schedule permanently.',
+        buttons: {
+          cancel: 'Cancel',
+          delete: 'Delete Class',
+        },
+      },
+    },
+  },
   metadata: {
     app: {
       title: 'Title',

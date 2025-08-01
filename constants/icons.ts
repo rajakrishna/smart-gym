@@ -9,6 +9,7 @@ import {
   DollarSign,
   Dumbbell,
   Edit,
+  Filter,
   Home,
   LayoutDashboard,
   Loader2,
@@ -24,10 +25,13 @@ import {
   Search,
   Send,
   Sheet,
+  Tag,
   Trash2,
   User,
   UserCircle,
   Users,
+  X,
+  XCircle,
 } from 'lucide-react';
 
 const ICONS = {
@@ -97,6 +101,19 @@ const ICONS = {
     reset: RotateCcw,
   },
 
+  // Class Schedules icons
+  classSchedules: {
+    add: Plus,
+    cancel: X,
+    delete: Trash2,
+    time: Clock,
+    coach: User,
+    type: Tag,
+    calendar: Calendar,
+    filter: Filter,
+    cancelClass: XCircle,
+    users: Users,
+  },
   // Modal icons
   modals: {
     sendMessage: {
