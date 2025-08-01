@@ -1,5 +1,5 @@
 // Most of this is pretty much mock data for the class schedules page
-import type { ClassScheduleItem, ClassType, ClassTypeColors, Coach } from '@/types/shared';
+import type { ClassScheduleItem, ClassType, ClassTypeColors, Coach} from '@/types/shared';
 
 export const CLASS_TYPE_COLORS: Record<ClassType, ClassTypeColors> = {
   Yoga: {
@@ -27,7 +27,13 @@ export const DEFAULT_COLORS: ClassTypeColors = {
   dot: 'bg-gray-400',
 };
 
-export const CLASS_TYPES: readonly ClassType[] = ['Yoga', 'HIIT', 'Cycling', 'Aquatic', 'Boxing'];
+export const CLASS_TYPES: readonly ClassType[] = [
+  'Yoga',
+  'Cycling',
+  'Boxing',
+  'Aquatic',
+  'HIIT',
+];
 
 export const COACHES: readonly Coach[] = [
   { name: 'Sarah Johnson', type: 'Yoga' },

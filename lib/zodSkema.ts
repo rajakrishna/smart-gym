@@ -8,8 +8,8 @@ export const createClassSchema = z.object({
   scheduled_on: z.string().refine(date => !isNaN(Date.parse(date)), {
     message: "Invalid scheduled date"
   }),
-  start_time: z.string().min(1, "Start time is required"),
-  end_time: z.string().min(1, "End time is required"),
+  time: z.string().min(1, "Start time is required"),
+  // end_time: z.string().min(1, "End time is required"),
   coach_id: z.uuid("Invalid coach ID")
 });
 
