@@ -1,6 +1,7 @@
 import {
   BarChart3,
   Bell,
+  BellDot,
   Calendar,
   Clock,
   Coffee,
@@ -8,6 +9,7 @@ import {
   DollarSign,
   Dumbbell,
   Edit,
+  Filter,
   Home,
   LayoutDashboard,
   Loader2,
@@ -18,13 +20,19 @@ import {
   MoreVertical,
   Phone,
   Plus,
+  RotateCcw,
+  ScanBarcode,
   Search,
   Send,
   Sheet,
+  ToolCase,
+  Tag,
   Trash2,
   User,
   UserCircle,
   Users,
+  X,
+  XCircle,
 } from 'lucide-react';
 
 const ICONS = {
@@ -36,9 +44,9 @@ const ICONS = {
   messageSquare: MessageSquare,
   user: User,
   login: LogIn,
-
   // Gym Logo icons
   dumbbell: Dumbbell,
+  construction: ToolCase,
 
   // Admin icons
   admin: {
@@ -54,13 +62,13 @@ const ICONS = {
   adminMembersPage: {
     search: Search,
     addMember: Plus,
+    editMember: Edit,
   },
 
   adminMessagesPage: {
     createMessage: Plus,
     messageDetail: Mail,
   },
-
   adminMemberDetail: {
     edit: Edit,
     delete: Trash2,
@@ -83,6 +91,31 @@ const ICONS = {
     logout: LogOut,
   },
 
+  // Member dashboard icons
+  member: {
+    bellDot: BellDot,
+    scanBarcode: ScanBarcode,
+  },
+
+  // AI Chat icons
+  aiChat: {
+    send: Send,
+    reset: RotateCcw,
+  },
+
+  // Class Schedules icons
+  classSchedules: {
+    add: Plus,
+    cancel: X,
+    delete: Trash2,
+    time: Clock,
+    coach: User,
+    type: Tag,
+    calendar: Calendar,
+    filter: Filter,
+    cancelClass: XCircle,
+    users: Users,
+  },
   // Modal icons
   modals: {
     sendMessage: {

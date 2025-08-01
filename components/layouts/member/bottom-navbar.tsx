@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import ICONS from '@/constants/icons';
 import LABELS from '@/constants/labels';
+import FloatingAIChat from '@/components/layouts/member/FloatingAIChat';
 
 export function BottomNavbar() {
     const pathname = usePathname();
@@ -26,7 +27,7 @@ export function BottomNavbar() {
         },
         {
             icon: ICONS.messageSquare,
-            label: LABELS.navigation.messages,
+            label: LABELS.navigation.aiCoach,
             href: '/member/messages',
         },
         {
@@ -43,6 +44,28 @@ export function BottomNavbar() {
                     {navItems.map((item) => {
                         const Icon = item.icon;
                         const isActive = pathname === item.href;
+
+                        // AI Chat button
+                        if (item.href === '/member/messages') {
+                            return (
+                                <FloatingAIChat key={item.label}>
+                                    <button
+                                        className={`flex flex-col items-center space-y-1 py-2 px-2 min-w-0 flex-1 rounded-md transition-colors hover:bg-gray-100 ${isActive
+                                            ? 'text-red-600'
+                                            : 'text-gray-600 hover:text-gray-900'
+                                            }`}
+                                    >
+                                        <Icon className={`h-5 w-5 ${isActive ? 'text-red-600' : ''}`} />
+                                        <span className={`text-xs font-medium ${isActive ? 'text-red-600' : ''
+                                            }`}>
+                                            {item.label}
+                                        </span>
+                                    </button>
+                                </FloatingAIChat>
+                            );
+                        }
+
+                        // Regular navigation items
                         return (
                             <Link
                                 key={item.label}
