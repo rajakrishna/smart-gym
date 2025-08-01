@@ -170,3 +170,8 @@ export interface EnrolledClassMember {
   name: string;
   email: string;
 }
+
+export interface MemberProfileItem {
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
