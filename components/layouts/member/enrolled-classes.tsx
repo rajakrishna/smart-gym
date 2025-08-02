@@ -72,7 +72,7 @@ const data = await getData();
 const EnrolledClasses = () => {
   return (
     <div className="container mx-auto py-10 px-4">
-      <h1 className="text-2xl font-bold mb-4">Enrolled Classes</h1>
+      <h1 className="text-2xl font-bold mb-4">Waitlisted</h1>
       <div className="space-y-4">
         {data.map((item) => (
           <div
@@ -88,7 +88,7 @@ const EnrolledClasses = () => {
               <p className="text-sm text-gray-500">
                 Joined: {new Date(item.joined_at).toLocaleString()}
               </p>
-              <p className="text-sm text-green-600">
+              <p className="text-sm text-red-500">
                 Status: {item.booking_status}
               </p>
             </div>
