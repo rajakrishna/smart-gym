@@ -76,7 +76,7 @@ const AddClassModal: React.FC<AddClassModalProps> = ({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ...classForm,
-        scheduled_on: selectedDate.toISOString().split('T')[0],
+        scheduled_on: selectedDate,
       }),
     });
 

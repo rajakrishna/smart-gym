@@ -228,19 +228,21 @@ The application uses Next.js API Routes organized by feature:
 
 | API Endpoint                        | Purpose                               |
 | ----------------------------------- | ------------------------------------- |
+| `/api/cafe/create`                  | create a cafe item                    |
+| `/api/cafe/delete`                  | delete a cafe item                    |
+| `/api/cafe/edit`                    | edit a cafe item                      |
 | `/api/cafe/getAll`                  | get all cafe items                    |
 | `/api/cafe/[productId]`             | get a single cafe item                |
-| `/api/cafe/create`                  | create a cafe item                    |
-| `/api/cafe/update`                  | update a cafe item                    |
-| `/api/cafe/delete`                  | delete a cafe item                    |
-| `/api/classes/getAll`               | get classes                           |
-| `/api/classes/create`               | creates class                         |
-| `/api/classes/update`               | updates class                         |
-| `/api/classes/delete`               | deletes class                         |
+| `/api/cafe/items/topPurchases`      | get top 5 cafe purchases              |
 | `/api/classes/[classId]`            | get a single class                    |
+| `/api/classes/create`               | creates class                         |
+| `/api/classes/delete`               | deletes class                         |
 | `/api/classes/enrolled/[classId]`   | get all members enrolled in a class   |
+| `/api/classes/getAll`               | get classes                           |
+| `/api/classes/update`               | updates class                         |
 | `/api/classes/waitlisted/[classId]` | get all members waitlisted in a class |
 | `/api/coaches/getAll`               | get all coaches                       |
+| `/api/gemini/`                      | member AI assistant                   |
 | `/api/messages/create`              | creates msg associated w user ID      |
 | `/api/messages/delete`              | deletes msg associated w msg ID       |
 | `/api/messages/getAll`              | get all msgs                          |
@@ -353,6 +355,24 @@ The application uses Next.js API Routes organized by feature:
   - Product record is removed from database
   - Product is no longer available for purchase
 
+- API Endpoint: `/api/cafe/items/topPurchases`
+- Purpose: Get top 5 cafe purchases
+- Triggered by: Admin user
+- Steps:
+  - Admin user logs in
+  - Admin user navigates to dashboard page
+  - System fetches top 5 cafe purchases from database
+  - Top 5 cafe purchases are displayed in the dashboard
+
+- API Endpoint: `/api/gemini/`
+- Purpose: Member AI assistant
+- Triggered by: Member
+- Steps:
+  - Member logs in
+  - Member clicks on the AI assistant button in the navbar
+  - Modal opens with AI assistant
+  - Member interacts with AI assistant
+
 ## 🧩 Component Structure
 
 The application uses a component-based architecture with the following key components:
@@ -367,10 +387,14 @@ The application uses a component-based architecture with the following key compo
 ### 📄 Page Components
 
 - `[Component]`: [Description]
-- `Admin Members Page`: Page for the admin to view all members and their information + sign up new members
-- `Admin View Member Page`: Page for the admin to view a specific member and their information
+- `Admin Dashboard Page`: Page for the admin to view the dashboard with top 5 cafe purchases and other metrics
 - `Admin Messages Page`: Page for the admin to view all messages from the users + initiate a new message to the user
 - `Admin View Message Page`: Page for the admin to view a specific message and its details
+- `Admin View Class Page`: Page for the admin to view a specific class and its details
+- `Admin View Analytics Page`: Page for the admin to view the analytics of the gym
+- `Admin View Member Page`: Page for the admin to view a specific member and their information
+- `Admin Members Page`: Page for the admin to view all members and their information + sign up new members
+- `Admin View Member Page`: Page for the admin to view a specific member and their information
 - `Admin Cafe Page`: Page for the admin to view all products in the cafe + add new products + view all transactions
 
 ### ⚙️ Feature Components
@@ -378,6 +402,11 @@ The application uses a component-based architecture with the following key compo
 - `Send Admin Message Modal`: Modal for the admin to send a message to a user
 - `Update Cafe Product Modal`: Modal for the admin to update a product in the cafe
 - `Create Cafe Product Modal`: Modal for the admin to create a new product in the cafe
+- `Admin Class Calendar`: Calendar for the admin to view all classes and their details
+- `Admin Class Card`: Card for the admin to view a specific class and its details and holds cancel and view enrolled members buttons
+- `Create Class Modal`: Modal for the admin to create a new class
+- `Update Class Modal`: Modal for the admin to update a class
+- `Cancel and Update Class Modal`: Modal for the admin to cancel a class or update a class
 
 ### 🎨 UI Components
 
