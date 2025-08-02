@@ -32,7 +32,7 @@ const TopCafePurchases = () => {
     return (
         <div>
             <h1 className="text-2xl font-bold mb-4">Top Cafe Purchases</h1>
-            <div className="flex flex-row gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {topPurchases.map((purchase, index) => (
                     <Card key={index} className="w-full max-w-sm bg-white shadow-lg rounded-lg overflow-hidden relative border-2 border-gray-200">
                         <Badge
