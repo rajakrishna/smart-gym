@@ -1,10 +1,10 @@
-import UnderConstruction from '@/components/layouts/shared/UnderConstruction'
+import ClassesToday from '@/components/admin/dashboard/ClassesToday'
 import React from 'react'
 
 const page = () => {
     return (
-        <div>
-            <UnderConstruction />
+        <div className="container mx-auto py-10 px-4">
+            <ClassesToday />
         </div>
     )
 }
