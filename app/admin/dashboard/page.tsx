@@ -1,10 +1,10 @@
-import UnderConstruction from '@/components/layouts/shared/UnderConstruction'
+import TopPurchases from '@/components/admin/dashboard/TopCafePurchases'
 import React from 'react'
 
 const page = () => {
     return (
-        <div>
-            <UnderConstruction />
+        <div className="container mx-auto py-10 px-4">
+            <TopPurchases />
         </div>
     )
 }
