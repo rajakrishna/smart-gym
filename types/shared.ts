@@ -216,3 +216,13 @@ export interface MemberProfileItem {
   label: string;
   icon: React.ComponentType<{ className?: string }>;
 }
+
+export interface EnrolledClass{
+    class_id: string;
+    category: string;
+    scheduled_on: string;
+    start_time: string;
+    coach_name: string;
+    coach_id: string;
+    status: string;
+}

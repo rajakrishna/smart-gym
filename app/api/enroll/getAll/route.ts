@@ -33,15 +33,23 @@ const mockEnrolled: EnrolledClass[] = [
   },
 ];
 
-function isValidEnrollment(e: any): e is EnrolledClass {
+function isValidEnrollment(e: unknown): e is EnrolledClass {
+  if (
+    typeof e !== 'object' ||
+    e === null
+  ) {
+    return false;
+  }
+
+  const obj = e as Record<string, unknown>;
+
   return (
-    e &&
-    typeof e.class_id === 'string' &&
-    typeof e.category === 'string' &&
-    typeof e.scheduled_on === 'string' &&
-    typeof e.start_time === 'string' &&
-    typeof e.coach_name === 'string' &&
-    (e.status === 'enrolled' || e.status === 'waitlisted')
+    typeof obj.class_id === 'string' &&
+    typeof obj.category === 'string' &&
+    typeof obj.scheduled_on === 'string' &&
+    typeof obj.start_time === 'string' &&
+    typeof obj.coach_name === 'string' &&
+    (obj.status === 'enrolled' || obj.status === 'waitlisted')
   );
 }
 
