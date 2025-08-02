@@ -129,15 +129,21 @@ export const useClassSchedules = () => {
     }
   };
 
+  const openDialog = useCallback(
+    (dialogType: keyof DialogState) => {
+      if (dialogType === 'editClass' || dialogType === 'allClasses') {
+        resetClassForm();
+        setDialogs(prev => ({ ...prev, [dialogType]: true }));
+      }
+    },
+    [resetClassForm]
+  );
+
   const openAddDialog = () => {
     setClassForm({ title: '', class_name: '', coach_id: '', category: '', capacity: 0, time: '', duration: 60, type: '' });
     setDialogs(prev => ({ ...prev, addClass: true }));
   };
 
-  const openEditDialog = (classId: string, classTitle: string) => {
-    setClassForm({ title: '', class_name: '', coach_id: '', category: '', capacity: 0, time: '', duration: 60, type: '' });
-    setDialogs(prev => ({ ...prev, addClass: true }));
-  };
 
   const openClassActionDialog = (classId: string, classTitle: string) => {
     setDialogs(prev => ({
@@ -154,8 +160,8 @@ export const useClassSchedules = () => {
   };
 
   const closeDialog = (dialogType: keyof DialogState) => {
-    if (dialogType === 'addClass') {
-      setDialogs(prev => ({ ...prev, addClass: false }));
+    if (dialogType === 'addClass' || dialogType === 'editClass' || dialogType === 'allClasses') {
+      setDialogs(prev => ({ ...prev, [dialogType]: false }));
     } else {
       setDialogs(prev => ({
         ...prev,
@@ -163,6 +169,7 @@ export const useClassSchedules = () => {
       }));
     }
   };
+
 
   // TODO: Action handlers to use with APIs in the modals (Talk to Danny about using these vs on the modal components)
   const handleAddClass = () => {
@@ -194,11 +201,13 @@ export const useClassSchedules = () => {
     setClassForm,
     fetchClasses,
     filteredClasses,
+    coaches,
 
     // Handlers
     handleDateSelect,
     handleMonthChange,
     goToToday,
+    openDialog,
     openAddDialog,
     openClassActionDialog,
     openViewUsersDialog,
