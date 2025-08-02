@@ -1,4 +1,4 @@
-import DashboardPageStatCards from '@/components/admin/dashboard/DashboardPageStatCards'
+// import DashboardPageStatCards from '@/components/admin/dashboard/DashboardPageStatCards'
 import { ChartAreaInteractive } from '@/components/admin/dashboard/chart-area-interactive'
 import { SectionCards } from '@/components/admin/dashboard/section-cards'
 import React from 'react'
