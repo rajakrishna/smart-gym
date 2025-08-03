@@ -2,24 +2,69 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { createClient } from '@/utils/supabase/server';
 
+const mockClasses = [
+  {
+    class_id: 'dummy-1',
+    category: 'yoga',
+    coach: [{ first_name: 'Mock' }],
+    time: '07:00:00',
+    capacity: 10,
+  },
+  {
+    class_id: 'dummy-12',
+    category: 'Cycling',
+    coach: [{ first_name: 'Mock' }],
+    time: '08:30:00',
+    capacity: 15,
+  },
+  {
+    class_id: 'dummy-2',
+    category: 'Hiit',
+    coach: [{ first_name: 'Mock' }],
+    time: '09:00:00',
+    capacity: 15,
+  },
+  {
+    class_id: 'dummy-3',
+    category: 'aquatic',
+    coach: [{ first_name: 'Mock' }],
+    time: '10:30:00',
+    capacity: 15,
+  },
+  {
+    class_id: 'dummy-4',
+    category: 'boxing',
+    coach: [{ first_name: 'Mock' }],
+    time: '14:30:00',
+    capacity: 15,
+  },
+];
+const allowedCategories = [
+  'yoga',
+  'Yoga',
+  'cycling',
+  'Cycling',
+  'boxing',
+  'Boxing',
+  'aquatic',
+  'Aquatic',
+  'hiit',
+  'HIIT',
+  'Hitt',
+];
+const categoryImageMap: Record<string, string> = {
+  yoga: '/assets/gc1.png',
+  cycling: '/assets/gc2.png',
+  boxing: '/assets/gc3.png',
+  aquatic: '/assets/gc4.png',
+  hiit: '/assets/gc5.png',
+};
+
 export async function GET(req: NextRequest) {
   const supabase = await createClient();
   const { searchParams } = new URL(req.url);
-  const date = searchParams.get('date');
-  const allowedCategories = [
-    'yoga',
-    'Yoga',
-    'cycling',
-    'Cycling',
-    'boxing',
-    'Boxing',
-    'aquatic',
-    'Aquatic',
-    'hiit',
-    'HIIT',
-    'Hitt',
-  ];
-  console.log('Received date query param', date);
+  const date = searchParams.get('date') || new Date().toISOString().split('T')[0];
+  console.log('Received date query param:', date);
   try {
     let query = supabase
       .from('classes')
@@ -55,15 +100,9 @@ export async function GET(req: NextRequest) {
       throw error;
     }
 
-    const categoryImageMap: Record<string, string> = {
-      yoga: '/assets/gc1.png',
-      cycling: '/assets/gc2.png',
-      boxing: '/assets/gc3.png',
-      aquatic: '/assets/gc4.png',
-      hiit: '/assets/gc5.png',
-    };
+    const classesToTransform = data.length === 0 ? mockClasses : data;
 
-    const transformed = data.map(c => {
+    const transformed = classesToTransform.map(c => {
       const coach = Array.isArray(c.coach) ? c.coach[0] : c.coach;
       const categoryKey = c.category.toLowerCase();
       function formatTimeString(timeString: string): string {

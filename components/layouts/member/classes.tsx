@@ -1,16 +1,11 @@
 'use client'
 import React, {useEffect, useState} from 'react';
-
 import ClassCard from './classCard';
 import { ClassInfo } from './classCard';
 
-// const classData: ClassInfo[] = [
-//   { id:'1', src: '/assets/gc1.png', category: 'Yoga', coach: 'Jill', time: '7–8am' },
-//   { id:'2', src: '/assets/gc2.png', category: 'Cycling', coach: 'Mike', time: '9–10am' },
-//   { id:'3', src: '/assets/gc3.png', category: 'Boxing', coach: 'Sara', time: '4–5pm' },
-//   { id:'4', src: '/assets/gc5.png', category: 'HIIT', coach: 'Ben', time: '4–5pm' },
-//   { id:'5', src: '/assets/gc5.png', category: 'HIIT', coach: 'Amy', time: '5–6pm' },
-// ];
+const label = {
+  heading: 'Upcoming Classes Today'
+}
 
 const Classes: React.FC = () => {
   const [classes, setClasses] = useState<ClassInfo[]>([])
@@ -46,10 +41,32 @@ useEffect(() => {
   }, []);
   return (
     <section className=''>
-          <h1 className='h1 container'>Upcoming Classes Today</h1>
+          <h1 className='h1 container'>{label.heading}</h1>
           {loading ? (
-        <p className="text-center mt-10">Loading...</p>
-      ) : (
+  <div className="mx-auto max-w-[1440px] relative flex flex-col lg:mb-10 xl:mb-20">
+    <div className="hide-scrollbar flex h-[240px] w-full items-start justify-start gap-4 overflow-x-auto lg:h-[500px] xl:h-[640px] px-1">
+      {[...Array(4)].map((_, i) => (
+        <div
+          key={i}
+          className="relative h-[220px] min-w-[160px] rounded-2xl overflow-hidden2bg-gray-300 animate-pulse"
+        >
+          {/* Simulated image background */}
+          <div className="absolute inset-0 bg-gray-300 rounded-2xl" />
+
+          {/* Gradient overlay (static placeholder) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent rounded-2xl" />
+
+          {/* Simulated text content */}
+          <div className="absolute bottom-2 left-2 z-10 space-y-2 w-[90%]">
+            <div className="h-4 w-3/4 bg-gray-500 rounded" />
+            <div className="h-3 w-1/2 bg-gray-500 rounded" />
+            <div className="h-3 w-1/3 bg-gray-500 rounded" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+) : (
         <div className='mx-auto max-w-[1440px] relative flex flex-col lg:mb-10 xl:mb-20'>
           <div className='hide-scrollbar flex h-[240px] w-full items-start justify-start gap-4 overflow-x-auto lg:h-[500px] xl:h-[640px] px-1'>
             {classes.map((classItem, index) => (
