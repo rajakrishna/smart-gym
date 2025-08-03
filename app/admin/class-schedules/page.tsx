@@ -89,7 +89,7 @@ const ClassSchedulesPage = () => {
         <SidebarProvider>
             <div className='container mx-auto'>
                 {/* Month Tabs */}
-                <Tabs className='w-full flex justify-center items-center mb-4 mt-4' value={activeTab} onValueChange={handleMonthChange}>
+                <Tabs className='w-full justify-center items-center mb-4 mt-4 hidden md:flex' value={activeTab} onValueChange={handleMonthChange}>
                     <TabsList className='flex gap-2'>
                         {MONTH_NAMES.map(month => (
                             <TabsTrigger key={month} value={month}>{month}</TabsTrigger>
@@ -101,7 +101,7 @@ const ClassSchedulesPage = () => {
                     <div className='flex flex-col gap-6'>
                         <div className='flex gap-6'>
                             {/* Coaches Sidebar */}
-                            <div className='w-80 flex-shrink-0'>
+                            <div className='w-80 flex-shrink-0 hidden md:block'>
                                 <SidebarContent className="h-[500px]">
                                     <SidebarGroup className='p-4 h-full flex flex-col'>
                                         <SidebarGroupLabel className='text-lg font-semibold text-gray-900 mb-4 flex-shrink-0'>
@@ -155,7 +155,7 @@ const ClassSchedulesPage = () => {
                                             })}
                                         </h3>
                                     </div>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-2 flex-col md:flex-row">
                                         <Button
                                             size="sm"
                                             className="flex items-center gap-2"
