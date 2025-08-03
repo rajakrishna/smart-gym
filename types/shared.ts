@@ -99,6 +99,10 @@ export interface ClassScheduleItem {
   duration: number;
   capacity: number;
   created_at: string;
+  coaches?: {
+    first_name?: string;
+    last_name?: string;
+  };
 }
 
 export interface Message {
