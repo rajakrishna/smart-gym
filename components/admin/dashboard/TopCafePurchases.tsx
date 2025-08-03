@@ -2,6 +2,7 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import LABELS from '@/constants/labels';
 import { Product } from '@/types/shared';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
@@ -31,7 +32,7 @@ const TopCafePurchases = () => {
 
     return (
         <div>
-            <h1 className="text-2xl font-bold mb-4">Top Cafe Purchases</h1>
+            <h1 className="text-2xl font-bold mb-4">{LABELS.admin.dashboard.topCafePurchases.title}</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {topPurchases.map((purchase, index) => (
                     <Card key={index} className="w-full max-w-sm bg-white shadow-lg rounded-lg overflow-hidden relative border-2 border-gray-200">
@@ -58,7 +59,7 @@ const TopCafePurchases = () => {
                         </CardHeader>
                         {/* </Link> */}
                         <CardContent className="p-6 flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-600">Units Sold:</span>
+                            <span className="text-sm font-medium text-gray-600">{LABELS.admin.dashboard.topCafePurchases.unitsSold}</span>
                             <span className="text-lg font-semibold text-blue-600">{purchase.number_sold}</span>
                         </CardContent>
                     </Card>
