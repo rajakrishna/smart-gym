@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 import { createClient } from '@/utils/supabase/server';
 
@@ -51,6 +51,10 @@ const allowedCategories = [
   'hiit',
   'HIIT',
   'Hitt',
+  'cardio',
+  'Cardio',
+  'weights',
+  'Weights'
 ];
 const categoryImageMap: Record<string, string> = {
   yoga: '/assets/gc1.png',
@@ -60,10 +64,9 @@ const categoryImageMap: Record<string, string> = {
   hiit: '/assets/gc5.png',
 };
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const supabase = await createClient();
-  const { searchParams } = new URL(req.url);
-  const date = searchParams.get('date') || new Date().toISOString().split('T')[0];
+  const date =  new Date().toISOString().split('T')[0];
   console.log('Received date query param:', date);
   try {
     let query = supabase

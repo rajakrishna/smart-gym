@@ -19,10 +19,9 @@ useEffect(() => {
 
         if (json.success && Array.isArray(json.data)) {
 
-          const mapped: ClassInfo[] = json.data.map((item: any) => ({
-            id: item.class_id,
-            name: item.class_name,
-            coach: item.coach_name,
+          const mapped: ClassInfo[] = json.data.map((item: ClassInfo) => ({
+            id: item.id,
+            coach: item.coach,
             time: item.time,
             src: item.src,
             category: item.category,
