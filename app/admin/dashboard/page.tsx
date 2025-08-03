@@ -1,8 +1,16 @@
+// import DashboardPageStatCards from '@/components/admin/dashboard/DashboardPageStatCards'
+import { ChartAreaInteractive } from '@/components/admin/dashboard/chart-area-interactive'
+import { SectionCards } from '@/components/admin/dashboard/section-cards'
+import TopPurchases from '@/components/admin/dashboard/TopCafePurchases'
 import React from 'react'
 
 const page = () => {
     return (
-        <div>Dashboard Page</div>
+        <div className="container flex flex-col mx-auto py-10 px-4 gap-4">
+            <SectionCards />
+            <ChartAreaInteractive />
+            <TopPurchases />
+        </div>
     )
 }
 

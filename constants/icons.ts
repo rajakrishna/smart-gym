@@ -1,21 +1,39 @@
 import {
   BarChart3,
   Bell,
+  BellDot,
   Calendar,
+  Clock,
   Coffee,
+  CreditCard,
+  DollarSign,
   Dumbbell,
-  EditIcon,
+  Edit,
+  Filter,
   Home,
   LayoutDashboard,
+  Loader2,
   LogIn,
   LogOut,
+  Mail,
   MessageSquare,
   MoreVertical,
+  Phone,
   Plus,
+  RotateCcw,
+  ScanBarcode,
   Search,
+  Send,
+  Sheet,
+  ToolCase,
+  Tag,
+  Trash2,
   User,
   UserCircle,
   Users,
+  X,
+  XCircle,
+  ShieldCheck, 
 } from 'lucide-react';
 
 const ICONS = {
@@ -27,10 +45,19 @@ const ICONS = {
   messageSquare: MessageSquare,
   user: User,
   login: LogIn,
-
   // Gym Logo icons
   dumbbell: Dumbbell,
+  construction: ToolCase,
 
+  memberProfile: {
+    memberDetails: User,
+    paymentMethod: CreditCard,
+    notifications: Bell,
+    checkinHistory: ShieldCheck,
+    classHistory: Calendar,
+    inviteFriends: Users, 
+    userIcon: UserCircle
+  },
   // Admin icons
   admin: {
     dashboard: LayoutDashboard,
@@ -45,11 +72,25 @@ const ICONS = {
   adminMembersPage: {
     search: Search,
     addMember: Plus,
+    editMember: Edit,
+  },
+
+  adminMessagesPage: {
+    createMessage: Plus,
+    messageDetail: Mail,
+  },
+  adminMemberDetail: {
+    edit: Edit,
+    delete: Trash2,
+    clock: Clock,
+    dollarSign: DollarSign,
+    creditCard: CreditCard,
+    sheet: Sheet,
   },
 
   adminCafePage: {
     addProduct: Plus,
-    editProduct: EditIcon,
+    editProduct: Edit,
   },
 
   // Admin User menu icons
@@ -58,6 +99,46 @@ const ICONS = {
     userCircle: UserCircle,
     notifications: Bell,
     logout: LogOut,
+  },
+
+  // Member dashboard icons
+  member: {
+    bellDot: BellDot,
+    scanBarcode: ScanBarcode,
+  },
+
+  // AI Chat icons
+  aiChat: {
+    send: Send,
+    reset: RotateCcw,
+  },
+
+  // Class Schedules icons
+  classSchedules: {
+    add: Plus,
+    cancel: X,
+    delete: Trash2,
+    time: Clock,
+    coach: User,
+    type: Tag,
+    calendar: Calendar,
+    filter: Filter,
+    cancelClass: XCircle,
+    users: Users,
+    edit: Edit,
+  },
+  // Modal icons
+  modals: {
+    sendMessage: {
+      send: Send,
+      users: Users,
+      loader: Loader2,
+      deliveryMethods: {
+        email: Mail,
+        sms: MessageSquare,
+        push: Phone,
+      },
+    },
   },
 } as const;
 

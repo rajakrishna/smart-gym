@@ -4,6 +4,7 @@ import "@/app/admin/theme.css"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/layouts/admin/app-sidebar"
 import { SiteHeader } from "@/components/layouts/admin/site-header"
+import { Toaster } from "@/components/ui/sonner"
 
 export default async function DashboardLayout({
     children,
@@ -27,6 +28,7 @@ export default async function DashboardLayout({
                 <SiteHeader />
                 <div className="flex flex-1 flex-col">{children}</div>
             </SidebarInset>
+            <Toaster />
         </SidebarProvider>
     )
 }

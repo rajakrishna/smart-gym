@@ -5,7 +5,7 @@
 
 {/* <DataTable columns={columns} data={data} /> */ }
 
-
+import { usePathname, useRouter } from "next/navigation"
 import {
     ColumnDef,
     flexRender,
@@ -30,16 +30,32 @@ interface DataTableProps<TData, TValue> {
     data: TData[]
 }
 
+
+
 export function DataTable<TData, TValue>({
     columns,
     data,
+
 }: DataTableProps<TData, TValue>) {
+    const router = useRouter()
+
+    const pathname = usePathname()
+    const basePath = pathname
+
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
     })
+
+    const handleRowClick = (rowData: TData) => {
+        // Extract the id from the row data
+        const id = (rowData as { id: string }).id
+        if (id) {
+            router.push(`${basePath}/${id}`)
+        }
+    }
 
     return (
         <div className="overflow-hidden rounded-md border">
@@ -68,6 +84,8 @@ export function DataTable<TData, TValue>({
                             <TableRow
                                 key={row.id}
                                 data-state={row.getIsSelected() && "selected"}
+                                className="cursor-pointer hover:bg-muted/50"
+                                onClick={() => handleRowClick(row.original)}
                             >
                                 {row.getVisibleCells().map((cell) => (
                                     <TableCell key={cell.id}>
