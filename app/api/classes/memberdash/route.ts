@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 import { createClient } from '@/utils/supabase/server';
 
-const mockClasses = [
+const MOCK_CLASSES = [
   {
     class_id: 'dummy-1',
     category: 'yoga',
@@ -39,7 +39,7 @@ const mockClasses = [
     capacity: 15,
   },
 ];
-const allowedCategories = [
+const ALLOWED_CATEGORIES = [
   'yoga',
   'Yoga',
   'cycling',
@@ -51,12 +51,8 @@ const allowedCategories = [
   'hiit',
   'HIIT',
   'Hitt',
-  'cardio',
-  'Cardio',
-  'weights',
-  'Weights'
 ];
-const categoryImageMap: Record<string, string> = {
+const CATEGORY_IMAGE_MAP: Record<string, string> = {
   yoga: '/assets/gc1.png',
   cycling: '/assets/gc2.png',
   boxing: '/assets/gc3.png',
@@ -88,7 +84,7 @@ export async function GET() {
                 )
       `
       )
-      .in('category', allowedCategories);
+      .in('category', ALLOWED_CATEGORIES);
 
     if (date) {
       query = query.eq('scheduled_on', date);
@@ -103,7 +99,7 @@ export async function GET() {
       throw error;
     }
 
-    const classesToTransform = data.length === 0 ? mockClasses : data;
+    const classesToTransform = data.length === 0 ? MOCK_CLASSES : data;
 
     const transformed = classesToTransform.map(c => {
       const coach = Array.isArray(c.coach) ? c.coach[0] : c.coach;
@@ -129,7 +125,7 @@ export async function GET() {
         coach_name: coach ? `${coach.first_name}` : 'Coach TBD',
         time: formatTimeString(c.time),
         capacity: c.capacity,
-        src: categoryImageMap[categoryKey] || '/assets/gc3.png',
+        src: CATEGORY_IMAGE_MAP[categoryKey] || '/assets/gc3.png',
       };
     });
 

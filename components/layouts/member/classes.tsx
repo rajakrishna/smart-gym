@@ -21,7 +21,7 @@ useEffect(() => {
 
           const mapped: ClassInfo[] = json.data.map((item: ClassInfo) => ({
             id: item.id,
-            coach: item.coach,
+            coach_name: item.coach_name,
             time: item.time,
             src: item.src,
             category: item.category,
