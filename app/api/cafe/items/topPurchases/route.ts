@@ -12,7 +12,7 @@ export async function GET() {
       .select('*')
       .eq('is_active', true)
       .order('number_sold', { ascending: false })
-      .limit(5);
+      .limit(4);
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });

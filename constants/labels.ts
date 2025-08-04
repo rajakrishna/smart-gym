@@ -202,15 +202,15 @@ const LABELS = {
       header: 'profile',
       name: 'member name',
       menu: {
-        memberDetails:'member details',
-        paymentMethod:'payment method',
-        notifications:'notifications',
-        checkinHistory:'check-in history',
-        classHistory:'fitness class history',
-        inviteFriends:'invite friends',
-        userIcon:'user icon',
-        logout:''
-      }
+        memberDetails: 'member details',
+        paymentMethod: 'payment method',
+        notifications: 'notifications',
+        checkinHistory: 'check-in history',
+        classHistory: 'fitness class history',
+        inviteFriends: 'invite friends',
+        userIcon: 'user icon',
+        logout: '',
+      },
     },
     admin_members: {
       columns: {
@@ -414,6 +414,19 @@ const LABELS = {
       classSchedules: 'Class Schedules',
       members: 'Members',
       cafe: 'Cafe',
+    },
+    dashboard: {
+      classesToday: {
+        title: 'Classes Today',
+        capacity: 'Capacity:',
+        coach: 'Coach:',
+        scheduledAt: 'Scheduled at',
+        editButton: 'Edit',
+      },
+      topCafePurchases: {
+        title: 'Top Cafe Purchases',
+        unitsSold: 'Units Sold:',
+      },
     },
   },
 
