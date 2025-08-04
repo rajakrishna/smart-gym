@@ -7,7 +7,7 @@ const LABELS = {
   // Navigation
   nav: {
     auth: {
-      login: 'Login',
+      login: 'Admin',
     },
   },
 
@@ -31,7 +31,7 @@ const LABELS = {
     subHeader2: 'Fitness App',
     button1: 'Contact',
     href1: '#contact',
-    button2: 'Login',
+    button2: 'Member Login',
     href2: '#login',
     button3: 'Watch Demo',
     href3: '#demo',
@@ -47,12 +47,24 @@ const LABELS = {
     value4: '$40B',
     label4: 'Payments Processed',
   },
-
+  mobileView: {
+    banner: 'Please use a mobile device to view this page',
+    sub: 'This experience is designed for mobile devices only.'
+  },
   memberDash: {
     firstName: 'John',
     imageURL: '/assets/p1.png',
     greeting: 'Hello there,',
     profileHref: '/member/profile',
+    schedule: {
+      waitlistHead: 'Waitlisted Classes',
+      scheduleHead: 'Your Scheduled Classes',
+      noReturns: 'You have no classes scheduled',
+      status1: 'Waitlisted',
+      status2: 'Confirmed',
+      button: 'Cancel'
+
+    }
   },
 
   cafeMenu: {
@@ -508,12 +520,12 @@ const LABELS = {
   },
   metadata: {
     app: {
-      title: 'Title',
+      title: 'Fitmax',
       description: 'Description',
     },
     member: {
       avatarFallback: 'CN',
-      title: 'Title',
+      title: 'Fitmax',
       description: 'Description',
     },
   },

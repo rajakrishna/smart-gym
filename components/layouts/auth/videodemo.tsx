@@ -6,11 +6,12 @@ export default function DemoVideo() {
       <div className="w-full max-w-4xl aspect-video rounded-lg overflow-hidden shadow-lg">
         <iframe
           className="w-full h-full"
-          src="https://www.youtube.com/embed/RDgBnArxFLk" 
+          src="https://www.youtube.com/embed/S72cqz5Z4Us?rel=0"
           title="Demo Video"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
+        
       </div>
     </section>
   );
