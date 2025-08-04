@@ -410,7 +410,11 @@ The application uses a component-based architecture with the following key compo
 
 ### 🎨 UI Components
 
-- `[Component]`: [Description]
+- `ActiveGymHours`: pie chart with darkest/most active hour slices popping out 
+- `AnalyticsStatCard`: generic card component for statistics at top of admin analytics page
+- `TargetRevenueCard`: shows progress to goal revenue 
+- `MembershipGrowthCard`: bar graph showing growth or decline in gym memberships
+- `ClassAttendanceCard`: horizontal bar chart showing how many users attending each class    
 - `[Component]`: [Description]
 
 ---
