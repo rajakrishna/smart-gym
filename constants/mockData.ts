@@ -1,4 +1,4 @@
-import { CheckInHistory, ClassScheduleItem, ClassTaken, Invoice, Member, Product, EnrolledBooking, ClassStatus, ClassData } from '@/types/shared';
+import { CheckInHistory, ClassScheduleItem, ClassTaken, Invoice, Member, Product, EnrolledBooking} from '@/types/shared';
 
 // Mock data for Member Detail Page - In a real app, this would come from an API
 export const mockMember: Member = {
