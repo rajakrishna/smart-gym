@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   try {
     const { input } = await req.json();
 
-    const modelType = process.env.NEXT_PUBLIC_GEMINI_MODEL_TYPE || 'gemini-2.5-flash-lite';
+    const modelType = process.env.GEMINI_MODEL_TYPE || 'gemini-2.5-flash-lite';
 
     console.log('modelType', modelType);
 
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Model not found' }, { status: 500 });
     }
 
-    const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || 'failed');
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'failed');
     const model = genAI.getGenerativeModel({ model: modelType });
 
     const result = await model.generateContent({
