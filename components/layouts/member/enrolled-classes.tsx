@@ -27,23 +27,6 @@ async function getEnrolledClasses(memberId: string): Promise<EnrolledBooking[]> 
   }
 }
 
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-  });
-};
-
-const formatTime = (timeString: string) => {
-  const [hours, minutes] = timeString.split(':');
-  const date = new Date();
-  date.setHours(parseInt(hours));
-  date.setMinutes(parseInt(minutes));
-  return date.toLocaleTimeString('en-US', {
-    hour: '2-digit',
-  });
-};
-
 const EnrolledClasses = async ({ memberId }: { memberId: string }) => {
   const classes = await getEnrolledClasses(memberId);
   const waitlistedClasses = classes.filter(c => c.waitlisted);

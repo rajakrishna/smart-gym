@@ -9,7 +9,7 @@ import LABELS from '@/constants/labels';
 import { cn } from '@/lib/utils';
 
 export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) {
-  const { title, description, emailLabel, emailPlaceholder, passwordLabel, forgotPassword, submitButton } =
+  const { title, description, emailLabel, emailPlaceholder, passwordLabel, submitButton } =
     LABELS.auth.loginForm;
 
   const router = useRouter();
@@ -34,7 +34,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
                 <Input id='email' type='email' placeholder={emailPlaceholder} required />
               </div>
               <div className='grid gap-3'>
-                <Input id='password' type='password' required />
+                <Input id='password' type='password' required placeholder={passwordLabel}/>
               </div>
               <div className='flex flex-col gap-3'>
                 <Button type='submit' className='w-full'>
