@@ -28,6 +28,7 @@ import { Button } from "./button"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
+    dashboardPath?: string
 }
 
 
@@ -35,6 +36,7 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
     columns,
     data,
+    dashboardPath = ""
 
 }: DataTableProps<TData, TValue>) {
     const router = useRouter()
@@ -52,8 +54,13 @@ export function DataTable<TData, TValue>({
     const handleRowClick = (rowData: TData) => {
         // Extract the id from the row data
         const id = (rowData as { id: string }).id
-        if (id) {
-            router.push(`${basePath}/${id}`)
+
+        if (dashboardPath) {
+            router.push(`${dashboardPath}/${id}`)
+        } else {
+            if (id) {
+                router.push(`${basePath}/${id}`)
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-import { CheckInHistory, ClassTaken, Invoice, Member, Product, EnrolledBooking, ClassStatus, ClassData } from '@/types/shared';
+import { CheckInHistory, ClassScheduleItem, ClassTaken, Invoice, Member, Product, EnrolledBooking, ClassStatus, ClassData } from '@/types/shared';
 
 // Mock data for Member Detail Page - In a real app, this would come from an API
 export const mockMember: Member = {
@@ -185,6 +185,76 @@ export const mockProducts: Product[] = [
   },
 ];
 
+export const mockClasses: ClassScheduleItem[] = [
+  {
+    class_id: '1',
+    class_name: 'Morning Yoga',
+    time: '09:00:00',
+    category: 'yoga',
+    scheduled_on: '2025-01-01',
+    coach_id: 'coach1',
+    day: 1,
+    duration: 60,
+    capacity: 20,
+    created_at: '2025-01-01T09:00:00Z',
+    is_active: true,
+    coaches: {
+      first_name: 'John',
+      last_name: 'Doe',
+    },
+  },
+  {
+    class_id: '2',
+    class_name: 'HIIT Training',
+    time: '11:00:00',
+    category: 'hiit',
+    scheduled_on: '2025-01-01',
+    coach_id: 'coach2',
+    day: 1,
+    duration: 45,
+    capacity: 15,
+    created_at: '2025-01-01T11:00:00Z',
+    is_active: true,
+    coaches: {
+      first_name: 'Jane',
+      last_name: 'Smith',
+    },
+  },
+  {
+    class_id: '3',
+    class_name: 'Power Cycle',
+    time: '12:00:00',
+    category: 'cardio',
+    scheduled_on: '2025-01-01',
+    coach_id: 'coach3',
+    day: 1,
+    duration: 50,
+    capacity: 20,
+    created_at: '2025-01-01T12:00:00Z',
+    is_active: true,
+    coaches: {
+      first_name: 'Mike',
+      last_name: 'Johnson',
+    },
+  },
+  {
+    class_id: '4',
+    class_name: 'Aqua Fitness',
+    time: '10:00:00',
+    category: 'aquatic',
+    scheduled_on: '2025-01-01',
+    coach_id: 'coach4',
+    day: 1,
+    duration: 60,
+    capacity: 12,
+    created_at: '2025-01-01T10:00:00Z',
+    is_active: true,
+    coaches: {
+      first_name: 'Sarah',
+      last_name: 'Wilson',
+    },
+  },
+];
 export const mockEnrolledClasses: EnrolledBooking[] = [
   {
     class_id: 'mock-1',
