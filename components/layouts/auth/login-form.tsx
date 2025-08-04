@@ -1,6 +1,4 @@
 'use client';
-
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
@@ -36,17 +34,11 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
                 <Input id='email' type='email' placeholder={emailPlaceholder} required />
               </div>
               <div className='grid gap-3'>
-                <div className='flex items-center'>
-                  <Label htmlFor='password'>{passwordLabel}</Label>
-                  <a href='#' className='ml-auto inline-block text-sm underline-offset-4 hover:underline'>
-                    {forgotPassword}
-                  </a>
-                </div>
                 <Input id='password' type='password' required />
               </div>
               <div className='flex flex-col gap-3'>
                 <Button type='submit' className='w-full'>
-                  <Link href='/member/dashboard'>{submitButton}</Link>
+                  {submitButton}
                 </Button>
               </div>
             </div>

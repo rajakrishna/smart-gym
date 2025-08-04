@@ -230,3 +230,14 @@ export interface EnrolledClass{
     coach_id: string;
     status: string;
 }
+
+export interface EnrolledBooking {
+  class_id: string;
+  booking_status: ClassStatus;
+  waitlisted: boolean;
+  joined_at: string;
+  class_details: Pick<
+    ClassData,
+    'class_name' | 'category' | 'scheduled_on' | 'time'
+  >;
+}

@@ -1,4 +1,4 @@
-import { CheckInHistory, ClassTaken, Invoice, Member, Product } from '@/types/shared';
+import { CheckInHistory, ClassTaken, Invoice, Member, Product, EnrolledBooking, ClassStatus, ClassData } from '@/types/shared';
 
 // Mock data for Member Detail Page - In a real app, this would come from an API
 export const mockMember: Member = {
@@ -182,5 +182,32 @@ export const mockProducts: Product[] = [
     restock: false,
     is_active: true,
     sku: 'SKU-006',
+  },
+];
+
+export const mockEnrolledClasses: EnrolledBooking[] = [
+  {
+    class_id: 'mock-1',
+    booking_status: 'scheduled',
+    waitlisted: false,
+    joined_at: new Date().toISOString(),
+    class_details: {
+      class_name: 'Mock Yoga Class',
+      category: 'Yoga',
+      scheduled_on: '2025-08-01',
+      time: '14:00:00',
+    },
+  },
+  {
+    class_id: 'mock-2',
+    booking_status: 'scheduled',
+    waitlisted: false,
+    joined_at: new Date().toISOString(),
+    class_details: {
+      class_name: 'Mock Spin Class',
+      category: 'Cycling',
+      scheduled_on: '2025-08-02',
+      time: '10:00:00',
+    },
   },
 ];

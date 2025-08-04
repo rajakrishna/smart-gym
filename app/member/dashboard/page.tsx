@@ -2,7 +2,6 @@ import React from 'react';
 
 import CafeMenu from '@/components/layouts/member/cafe-menu';
 import Classes from '@/components/layouts/member/classes';
-import MemberSchedule from '@/components/layouts/member/dash-schedule';
 import EnrolledClasses from '@/components/layouts/member/enrolled-classes';
 
 const page = () => {
@@ -10,8 +9,7 @@ const page = () => {
     <div>
       <Classes />
       <CafeMenu />
-      <MemberSchedule />
-      <EnrolledClasses/>
+      <EnrolledClasses memberId='37d00ea7-e391-460f-957e-5a7d3917133d'/>
     </div>
   );
 };

@@ -56,6 +56,15 @@ const LABELS = {
     imageURL: '/assets/p1.png',
     greeting: 'Hello there,',
     profileHref: '/member/profile',
+    schedule: {
+      waitlistHead: 'Waitlisted Classes',
+      scheduleHead: 'Your Scheduled Classes',
+      noReturns: 'You have no classes scheduled',
+      status1: 'Waitlisted',
+      status2: 'Confirmed',
+      button: 'Cancel'
+
+    }
   },
 
   cafeMenu: {
