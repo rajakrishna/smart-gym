@@ -33,10 +33,11 @@ import {
   Users,
   X,
   XCircle,
-  Smartphone,
+  Activity,
+  UserPlus,
+  BarChart,
+  PieChart,
   ShieldCheck, 
-  Construction
-  
 } from 'lucide-react';
 
 const ICONS = {
@@ -82,7 +83,18 @@ const ICONS = {
     creditCard: CreditCard,
     sheet: Sheet,
   },
-
+  adminAnalyticsStats: {
+    totalMembers: Users,
+    revenue: DollarSign,
+    activeUsers: Activity, 
+    newUsers: UserPlus,
+  },
+  adminAnalyticsCharts: {
+    membershipGrowth: BarChart,
+    classAttendence: BarChart,
+    targetRevenue: PieChart, 
+    activeGymHours: Clock
+  },
   adminCafePage: {
     addProduct: Plus,
     editProduct: Edit,
