@@ -5,11 +5,10 @@ import Link from 'next/link'
 import ICONS from '@/constants/icons'
 import LABELS from '@/constants/labels'
 import { useUser } from '@/context/user-context'
-// import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import ReactBarcode from './ReactBarcode'
 
-const { firstName, imageURL, greeting, profileHref } = LABELS.memberDash
+const { imageURL, greeting, profileHref } = LABELS.memberDash
 
 const BarCodeModal = ({ children }: { children: React.ReactNode }) => {
   return (
