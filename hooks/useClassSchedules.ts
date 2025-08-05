@@ -161,6 +161,7 @@ export const useClassSchedules = () => {
 
   const closeDialog = (dialogType: keyof DialogState) => {
     if (dialogType === 'addClass' || dialogType === 'editClass' || dialogType === 'allClasses') {
+      fetchClasses();
       setDialogs(prev => ({ ...prev, [dialogType]: false }));
     } else {
       setDialogs(prev => ({
@@ -187,6 +188,7 @@ export const useClassSchedules = () => {
         return;
       }
 
+      await fetchClasses();
       closeDialog('classAction');
     } catch (err) {
       console.error('Error cancelling class:', err);
@@ -210,6 +212,7 @@ export const useClassSchedules = () => {
         return;
       }
 
+      await fetchClasses();
       closeDialog('classAction');
     } catch (err) {
       console.error('Error cancelling class:', err);

@@ -17,8 +17,6 @@ interface ClassCardProps {
 const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onViewUsers }) => {
     // Used to color code things based off of the class type
     const colors = getClassColors(classItem.category);
-    const [loadingId, setLoadingId] = useState<string | null>(null);
-    const [classes, setClasses] = useState<ClassScheduleItem[]>([])
 
     const coachFullName = classItem.coaches?.first_name && classItem.coaches?.last_name
         ? `${classItem.coaches.first_name} ${classItem.coaches.last_name}`
