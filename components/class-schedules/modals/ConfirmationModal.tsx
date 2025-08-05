@@ -10,15 +10,13 @@ interface ClassActionModalProps {
     onClose: () => void
     classTitle: string
     onCancel: () => void
-    onDelete: () => void
 }
 
 const ClassActionModal: React.FC<ClassActionModalProps> = ({
     isOpen,
     onClose,
     classTitle,
-    onCancel,
-    onDelete
+    onCancel
 }) => {
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -45,14 +43,14 @@ const ClassActionModal: React.FC<ClassActionModalProps> = ({
                         <ICONS.classSchedules.cancel className="h-4 w-4" />
                         Cancel Class
                     </Button>
-                    <Button
+                    {/* <Button
                         variant="destructive"
                         onClick={onDelete}
                         className="flex items-center gap-2"
                     >
                         <ICONS.classSchedules.delete className="h-4 w-4" />
                         Delete Class
-                    </Button>
+                    </Button> */}
                 </DialogFooter>
             </DialogContent>
         </Dialog>

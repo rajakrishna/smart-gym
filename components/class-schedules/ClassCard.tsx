@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import type { ClassScheduleItem } from '@/types/shared'
@@ -12,11 +12,14 @@ interface ClassCardProps {
     classItem: ClassScheduleItem
     onViewUsers: (classId: string, classTitle: string) => void
     onCancel: (classId: string, classTitle: string) => void
+    onDelete: (classId: string) => void
 }
 
 const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onViewUsers }) => {
     // Used to color code things based off of the class type
     const colors = getClassColors(classItem.category);
+    const [loadingId, setLoadingId] = useState<string | null>(null);
+    const [classes, setClasses] = useState<ClassScheduleItem[]>([])
 
     const coachFullName = classItem.coaches?.first_name && classItem.coaches?.last_name
         ? `${classItem.coaches.first_name} ${classItem.coaches.last_name}`
@@ -43,6 +46,14 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onViewUsers 
                     >
                         <ICONS.classSchedules.cancelClass className="w-3 h-3" />
                     </Button>
+                    {/* <Button
+                        size="sm"
+                        variant="ghost"
+                        className="h-6 w-6 p-0 text-yellow-600 hover:text-yellow-700 hover:bg-yellow-50"
+                        onClick={() => handleDeleteClass(classItem.class_id)}
+                        >
+                        <ICONS.classSchedules.cancelClass className="w-3 h-3" />
+                        </Button> */}
 
                     {/* View Users Icon */}
                     <Button

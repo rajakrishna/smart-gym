@@ -190,8 +190,9 @@ const ClassSchedulesPage = () => {
                                     {filteredClasses.length > 0 ? (
                                         filteredClasses.map((cls, index) => (
                                             <ClassCard
-                                                key={index}
+                                                key={cls.class_id}
                                                 classItem={cls}
+                                                onDelete={handleDeleteClass}
                                                 onCancel={(classId, classTitle) => openClassActionDialog(classId, classTitle)}
                                                 onViewUsers={(classId, classTitle) => openViewUsersDialog(classId, classTitle)}
                                             />
@@ -238,7 +239,6 @@ const ClassSchedulesPage = () => {
                     onClose={() => closeDialog('classAction')}
                     classTitle={dialogs.classAction.classTitle}
                     onCancel={handleCancelClass}
-                    onDelete={handleDeleteClass}
                 />
 
                 <ViewUsersModal

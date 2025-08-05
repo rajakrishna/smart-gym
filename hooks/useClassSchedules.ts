@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import type { ClassFormData, DialogState, ClassData, Coach } from '@/types/shared';
+import type { ClassFormData, DialogState, ClassData, Coach, ClassScheduleItem } from '@/types/shared';
 
 interface UseClassSchedulesState {
   currentMonth: Date;
@@ -177,10 +177,29 @@ export const useClassSchedules = () => {
     closeDialog('addClass');
   };
 
-  const handleDeleteClass = () => {
-    // TODO: Implement actual class deletion logic
-    closeDialog('classAction');
-  };
+  const [loadingId, setLoadingId] = useState<string | null>(null);
+  const [classes, setClasses] = useState<ClassScheduleItem[]>([])
+
+  const handleDeleteClass = async (class_id: string) => {
+        setLoadingId(class_id);
+        try {
+            const res = await fetch('/api/classes/delete', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ class_id })
+            });
+            if (res.ok) {
+            setClasses(prev => prev.filter(cls => cls.class_id !== class_id));
+            } else {
+            const err = await res.json();
+            console.error('Delete failed:', err.error);
+            }
+        } catch (err) {
+            console.error('Delete error:', err);
+        } finally {
+            setLoadingId(null);
+        }
+    };
 
   const handleCancelClass = () => {
     // TODO: Implement actual class cancellation logic
