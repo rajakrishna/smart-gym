@@ -213,11 +213,12 @@ const AddClassModal: React.FC<AddClassModalProps> = ({
             <Input
               id='capacity'
               type='number'
+              min="0"
               value={classForm.capacity}
               onChange={e =>
                 setClassForm(prev => ({
                   ...prev,
-                  capacity: parseInt(e.target.value || '0'),
+                  capacity: Math.max(0, parseInt(e.target.value || '0')),
                 }))
               }
               placeholder='Enter class capacity'

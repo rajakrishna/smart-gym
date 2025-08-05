@@ -7,7 +7,7 @@ const LABELS = {
   // Navigation
   nav: {
     auth: {
-      login: 'Login',
+      login: 'Admin',
     },
   },
 
@@ -31,7 +31,7 @@ const LABELS = {
     subHeader2: 'Fitness App',
     button1: 'Contact',
     href1: '#contact',
-    button2: 'Login',
+    button2: 'Member Login',
     href2: '#login',
     button3: 'Watch Demo',
     href3: '#demo',
@@ -47,12 +47,24 @@ const LABELS = {
     value4: '$40B',
     label4: 'Payments Processed',
   },
-
+  mobileView: {
+    banner: 'Please use a mobile device to view this page',
+    sub: 'This experience is designed for mobile devices only.'
+  },
   memberDash: {
     firstName: 'John',
     imageURL: '/assets/p1.png',
     greeting: 'Hello there,',
     profileHref: '/member/profile',
+    schedule: {
+      waitlistHead: 'Waitlisted Classes',
+      scheduleHead: 'Your Scheduled Classes',
+      noReturns: 'You have no classes scheduled',
+      status1: 'Waitlisted',
+      status2: 'Confirmed',
+      button: 'Cancel'
+
+    }
   },
 
   cafeMenu: {
@@ -202,15 +214,15 @@ const LABELS = {
       header: 'profile',
       name: 'member name',
       menu: {
-        memberDetails:'member details',
-        paymentMethod:'payment method',
-        notifications:'notifications',
-        checkinHistory:'check-in history',
-        classHistory:'fitness class history',
-        inviteFriends:'invite friends',
-        userIcon:'user icon',
-        logout:''
-      }
+        memberDetails: 'member details',
+        paymentMethod: 'payment method',
+        notifications: 'notifications',
+        checkinHistory: 'check-in history',
+        classHistory: 'fitness class history',
+        inviteFriends: 'invite friends',
+        userIcon: 'user icon',
+        logout: '',
+      },
     },
     admin_members: {
       columns: {
@@ -415,6 +427,19 @@ const LABELS = {
       members: 'Members',
       cafe: 'Cafe',
     },
+    dashboard: {
+      classesToday: {
+        title: 'Classes Today',
+        capacity: 'Capacity:',
+        coach: 'Coach:',
+        scheduledAt: 'Scheduled at',
+        editButton: 'Edit',
+      },
+      topCafePurchases: {
+        title: 'Top Cafe Purchases',
+        unitsSold: 'Units Sold:',
+      },
+    },
   },
 
   // Class Schedules
@@ -495,12 +520,12 @@ const LABELS = {
   },
   metadata: {
     app: {
-      title: 'Title',
+      title: 'Fitmax',
       description: 'Description',
     },
     member: {
       avatarFallback: 'CN',
-      title: 'Title',
+      title: 'Fitmax',
       description: 'Description',
     },
   },

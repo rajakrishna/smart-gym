@@ -16,7 +16,7 @@ export function AuthNavbar() {
             {/* Right hand side of navbar */}
             <Button asChild className='w-[100px] text-black' >
                 {/* TODO: Change this to scroll to the login section on the landing page */}
-                <Link href="/login">
+                <Link href="admin/dashboard">
                     {LABELS.nav.auth.login}
                 </Link>
             </Button>

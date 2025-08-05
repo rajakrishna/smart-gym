@@ -1,4 +1,12 @@
-import { CheckInHistory, ClassTaken, Invoice, Member, Product } from '@/types/shared';
+import {
+  CheckInHistory,
+  ClassScheduleItem,
+  ClassTaken,
+  EnrolledBooking,
+  Invoice,
+  Member,
+  Product,
+} from '@/types/shared';
 
 // Mock data for Member Detail Page - In a real app, this would come from an API
 export const mockMember: Member = {
@@ -193,3 +201,100 @@ export const mockProduct = {
   description: 'Strong coffee shot with rich flavor and aromatic notes. Perfect for energy boost.',
   nutritionalInfo: 'Calories: 5 | Caffeine: 63mg | Fat: 0g | Carbs: 1g',
 };
+
+export const mockClasses: ClassScheduleItem[] = [
+  {
+    class_id: '1',
+    class_name: 'Morning Yoga',
+    time: '09:00:00',
+    category: 'yoga',
+    scheduled_on: '2025-01-01',
+    coach_id: 'coach1',
+    day: 1,
+    duration: 60,
+    capacity: 20,
+    created_at: '2025-01-01T09:00:00Z',
+    is_active: true,
+    coaches: {
+      first_name: 'John',
+      last_name: 'Doe',
+    },
+  },
+  {
+    class_id: '2',
+    class_name: 'HIIT Training',
+    time: '11:00:00',
+    category: 'hiit',
+    scheduled_on: '2025-01-01',
+    coach_id: 'coach2',
+    day: 1,
+    duration: 45,
+    capacity: 15,
+    created_at: '2025-01-01T11:00:00Z',
+    is_active: true,
+    coaches: {
+      first_name: 'Jane',
+      last_name: 'Smith',
+    },
+  },
+  {
+    class_id: '3',
+    class_name: 'Power Cycle',
+    time: '12:00:00',
+    category: 'cardio',
+    scheduled_on: '2025-01-01',
+    coach_id: 'coach3',
+    day: 1,
+    duration: 50,
+    capacity: 20,
+    created_at: '2025-01-01T12:00:00Z',
+    is_active: true,
+    coaches: {
+      first_name: 'Mike',
+      last_name: 'Johnson',
+    },
+  },
+  {
+    class_id: '4',
+    class_name: 'Aqua Fitness',
+    time: '10:00:00',
+    category: 'aquatic',
+    scheduled_on: '2025-01-01',
+    coach_id: 'coach4',
+    day: 1,
+    duration: 60,
+    capacity: 12,
+    created_at: '2025-01-01T10:00:00Z',
+    is_active: true,
+    coaches: {
+      first_name: 'Sarah',
+      last_name: 'Wilson',
+    },
+  },
+];
+export const mockEnrolledClasses: EnrolledBooking[] = [
+  {
+    class_id: 'mock-1',
+    booking_status: 'scheduled',
+    waitlisted: false,
+    joined_at: new Date().toISOString(),
+    class_details: {
+      class_name: 'Mock Yoga Class',
+      category: 'Yoga',
+      scheduled_on: '2025-08-01',
+      time: '14:00:00',
+    },
+  },
+  {
+    class_id: 'mock-2',
+    booking_status: 'scheduled',
+    waitlisted: false,
+    joined_at: new Date().toISOString(),
+    class_details: {
+      class_name: 'Mock Spin Class',
+      category: 'Cycling',
+      scheduled_on: '2025-08-02',
+      time: '10:00:00',
+    },
+  },
+];

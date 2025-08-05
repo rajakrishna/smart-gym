@@ -56,8 +56,9 @@ const NumberInput = ({ name, label, step }: { name: string; label: string; step?
                 <Input
                     type="number"
                     step={step}
+                    min="0"
                     {...field}
-                    onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
+                    onChange={(e) => field.onChange(Math.max(0, parseFloat(e.target.value) || 0))}
                     className="h-12"
                 />
             </FormControl>

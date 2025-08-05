@@ -99,6 +99,7 @@ export interface ClassScheduleItem {
   duration: number;
   capacity: number;
   created_at: string;
+  is_active?: boolean;
   coaches?: {
     first_name?: string;
     last_name?: string;
@@ -219,4 +220,25 @@ export interface EnrolledClassMember {
 export interface MemberProfileItem {
   label: string;
   icon: React.ComponentType<{ className?: string }>;
+}
+
+export interface EnrolledClass{
+    class_id: string;
+    category: string;
+    scheduled_on: string;
+    start_time: string;
+    coach_name: string;
+    coach_id: string;
+    status: string;
+}
+
+export interface EnrolledBooking {
+  class_id: string;
+  booking_status: ClassStatus;
+  waitlisted: boolean;
+  joined_at: string;
+  class_details: Pick<
+    ClassData,
+    'class_name' | 'category' | 'scheduled_on' | 'time'
+  >;
 }

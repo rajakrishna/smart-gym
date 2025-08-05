@@ -129,7 +129,7 @@ const chartData = [
 const chartConfig = {
   memberVisits: {
     label: "Visitors",
-    color: "var(--primary)",
+    color: "hsl(221, 83%, 53%)",
   },
 } satisfies ChartConfig
 

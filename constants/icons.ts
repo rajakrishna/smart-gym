@@ -33,7 +33,10 @@ import {
   Users,
   X,
   XCircle,
+  Smartphone,
   ShieldCheck, 
+  Construction
+  
 } from 'lucide-react';
 
 const ICONS = {
@@ -47,17 +50,8 @@ const ICONS = {
   login: LogIn,
   // Gym Logo icons
   dumbbell: Dumbbell,
-  construction: ToolCase,
-
-  memberProfile: {
-    memberDetails: User,
-    paymentMethod: CreditCard,
-    notifications: Bell,
-    checkinHistory: ShieldCheck,
-    classHistory: Calendar,
-    inviteFriends: Users, 
-    userIcon: UserCircle
-  },
+  construction:ToolCase,
+  phone:Phone,
   // Admin icons
   admin: {
     dashboard: LayoutDashboard,
@@ -67,6 +61,7 @@ const ICONS = {
     members: Users,
     cafe: Coffee,
     branding: Dumbbell,
+    
   },
 
   adminMembersPage: {
@@ -106,7 +101,15 @@ const ICONS = {
     bellDot: BellDot,
     scanBarcode: ScanBarcode,
   },
-
+memberProfile: {
+    memberDetails: User,
+    paymentMethod: CreditCard,
+    notifications: Bell,
+    checkinHistory: ShieldCheck,
+    classHistory: Calendar,
+    inviteFriends: Users, 
+    userIcon: UserCircle
+  },
   // AI Chat icons
   aiChat: {
     send: Send,

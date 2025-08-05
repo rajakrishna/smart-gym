@@ -6,6 +6,7 @@ import './../globals.css';
 import { BottomNavbar } from '@/components/layouts/member/bottom-navbar';
 import MemberWelcome from '@/components/layouts/member/member-welcome-banner';
 import LABELS from '@/constants/labels';
+import MobileOnly from '@/components/layouts/member/required-view';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -31,6 +32,8 @@ export default function RootLayout({
         <html lang='en'>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 {/* This pb-20 is so that the user can scroll to the bottom of the page and still see the bottom navbar */}
+                <MobileOnly>
+
                 <div className="min-h-screen flex flex-col pb-20">
                     <MemberWelcome />
                     <main className="flex-1">
@@ -38,6 +41,7 @@ export default function RootLayout({
                     </main>
                 </div>
                 <BottomNavbar />
+                </MobileOnly>
             </body>
         </html>
     );
