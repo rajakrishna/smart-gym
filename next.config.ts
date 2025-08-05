@@ -1,15 +1,11 @@
 import type { NextConfig } from 'next';
 
-const nextConfig = {
+const nextConfig: NextConfig = {
+  /* config options here */
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'example.com',
-        pathname: '/images/**', // adjust as needed
-      },
-    ],
+    domains: ['via.placeholder.com', 'www.lorempixel.com', 'dummyimage.com', 'placekitten.com', 'placeimg.com', 'external-content.duckduckgo.com', 'picsum.photos', 'loremflickr.com', 'images.unsplash.com', 'res.cloudinary.com'],
   },
+    // devIndicators: false 
 };
 
 export default nextConfig;

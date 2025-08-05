@@ -1,25 +1,33 @@
 import { NextResponse } from 'next/server';
+
+import { updateClassSchema } from '@/lib/zod/zodSkema';
 import { createClient } from '@/utils/supabase/server';
 
 export async function PATCH(req: Request) {
-    const supabase = await createClient();
-    const body = await req.json();
-    const { class_id, ...updateFields } = body;
+  const supabase = await createClient();
+  const body = await req.json();
 
-    if (!class_id) {
-        return NextResponse.json({ error: 'Missing class_id in request body' }, { status: 400 });
-    }
+  const parsed = updateClassSchema.safeParse(body);
 
-    const { error } = await supabase
-        .from('Classes')
-        .update(updateFields)
-        .eq('class_id', class_id);
+  if (!parsed.success) {
+    return NextResponse.json({ error: 'Invalid input', details: parsed.error.flatten() }, { status: 400 });
+  }
 
-    if (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
-    }
+  const { class_id, ...updateFields } = parsed.data;
 
-    return NextResponse.json({ message: 'Class updated'});
+  if (!class_id) {
+    return NextResponse.json({ error: 'Missing class_id in request body' }, { status: 400 });
+  }
+
+  const { data: classes, error } = await supabase
+    .from('classes')
+    .update(updateFields)
+    .eq('class_id', class_id)
+    .select();
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json({ message: 'Class updated', data: classes[0] });
 }
-
-

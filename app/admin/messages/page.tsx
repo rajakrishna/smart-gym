@@ -5,53 +5,41 @@ import { Button } from '@/components/ui/button'
 import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
 import { DataTable } from '@/components/ui/data-table'
+import SendMessageModal from '@/components/admin/messages/modals/SendMessageModal'
+import { Message } from '@/types/shared'
 
 async function getData() {
-    // TODO: Fetch data from the database
-    return [
-        {
-            id: "1",
-            from: "John Smith",
-            messageType: "Email",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "2",
-            from: "Sarah Johnson",
-            messageType: "SMS",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "3",
-            from: "Mike Wilson",
-            messageType: "Email",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "4",
-            from: "Emily Davis",
-            messageType: "SMS",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "5",
-            from: "David Brown",
-            messageType: "Email",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "6",
-            from: "David Brown",
-            messageType: "SMS",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
+    try {
+
+        const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+        const response = await fetch(`${baseUrl}/api/messages/getAll`, {
+            method: 'GET',
+            cache: 'no-store'
+        })
+
+        if (!response.ok) {
+            throw new Error(`API request failed with status ${response.status}`)
         }
-    ]
+
+        const data = await response.json()
+
+        if (data.status === 'ok' && data.messages) {
+            const mappedMessages = data.messages.map((message: Message) => ({
+                id: message.message_id,
+                from: message.email,
+                messageType: message.delivery_method,
+                subject: message.title,
+                createdAt: new Date(message.sent_at).toLocaleDateString()
+            }))
+
+            return mappedMessages
+        }
+
+        return []
+    } catch (error) {
+        console.error('Error fetching messages:', error)
+        return []
+    }
 }
 
 const Page = async () => {
@@ -59,13 +47,17 @@ const Page = async () => {
 
     return (
         <div className="container mx-auto py-10 px-4">
+            <div className="flex justify-end">
+                <SendMessageModal>
+                    <Button className="bg-green-500 hover:bg-green-600" >
+                        <ICONS.adminMessagesPage.createMessage />
+                        {LABELS.pages.admin_messages.buttons.createMessage}
+                    </Button>
+                </SendMessageModal>
+            </div>
             <div className="mt-4">
                 <DataTable columns={columns} data={data} />
             </div>
-            <Button className="mt-4 bg-green-500 hover:bg-green-600" >
-                <ICONS.adminMembersPage.addMember />
-                {LABELS.pages.admin_messages.buttons.createMessage}
-            </Button>
         </div >
     )
 }
