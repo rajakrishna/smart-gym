@@ -99,6 +99,7 @@ export interface ClassScheduleItem {
   duration: number;
   capacity: number;
   created_at: string;
+  is_active?: boolean;
   coaches?: {
     first_name?: string;
     last_name?: string;
@@ -194,20 +195,20 @@ export interface Invoice {
   status: 'paid' | 'pending' | 'overdue';
 }
 
-// Cafe/Nutrition Products Interface
+// Start of Product Related Interfaces
 export interface Product {
   product_id: string;
   name: string;
-  product_image: string;
   product_description: string;
   price: number;
   quantity: number;
   min_quantity: number;
-  category: 'cafe' | 'drink' | 'snack' | 'protein_bar';
   number_sold: number;
+  category: 'cafe' | 'drink' | 'snack' | 'protein_bar';
+  product_image: string;
+  sku: string;
   restock: boolean;
   is_active: boolean;
-  sku: string;
 }
 
 export interface EnrolledClassMember {
@@ -219,4 +220,25 @@ export interface EnrolledClassMember {
 export interface MemberProfileItem {
   label: string;
   icon: React.ComponentType<{ className?: string }>;
+}
+
+export interface EnrolledClass{
+    class_id: string;
+    category: string;
+    scheduled_on: string;
+    start_time: string;
+    coach_name: string;
+    coach_id: string;
+    status: string;
+}
+
+export interface EnrolledBooking {
+  class_id: string;
+  booking_status: ClassStatus;
+  waitlisted: boolean;
+  joined_at: string;
+  class_details: Pick<
+    ClassData,
+    'class_name' | 'category' | 'scheduled_on' | 'time'
+  >;
 }

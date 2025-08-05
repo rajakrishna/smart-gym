@@ -56,8 +56,9 @@ const NumberInput = ({ name, label, step }: { name: string; label: string; step?
                 <Input
                     type="number"
                     step={step}
+                    min="0"
                     {...field}
-                    onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
+                    onChange={(e) => field.onChange(Math.max(0, parseFloat(e.target.value) || 0))}
                     className="h-12"
                 />
             </FormControl>
@@ -132,7 +133,18 @@ const CafeProductModal = ({ children, mode, product }: CafeProductModalProps) =>
 
     const getDefaultValues = () => {
         if (isEditMode && product) {
-            return { ...product }
+            return {
+                name: product.name,
+                product_description: product.product_description,
+                category: product.category,
+                product_image: product.product_image || '',
+                sku: product.sku,
+                quantity: product.quantity,
+                min_quantity: product.min_quantity,
+                price: product.price,
+                restock: product.restock,
+                is_active: product.is_active,
+            }
         }
         return {
             name: '',

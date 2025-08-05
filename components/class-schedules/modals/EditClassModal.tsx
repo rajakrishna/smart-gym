@@ -210,8 +210,9 @@ const EditClassModal: React.FC<EditClassModalProps> = ({
             <Label>Capacity</Label>
             <Input
               type="number"
+              min="0"
               value={classForm.capacity}
-              onChange={(e) => setClassForm(prev => ({ ...prev, capacity: parseInt(e.target.value || '0') }))}
+              onChange={(e) => setClassForm(prev => ({ ...prev, capacity: Math.max(0, parseInt(e.target.value || '0')) }))}
             />
           </div>
         </div>
