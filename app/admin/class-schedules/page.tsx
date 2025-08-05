@@ -49,8 +49,7 @@ const ClassSchedulesPage = () => {
         openClassActionDialog,
         openViewUsersDialog,
         closeDialog,
-        // handleAddClass,
-        handleDeleteClass,
+        handleKeepClass,
         handleCancelClass,
         handleViewUsers,
     } = useClassSchedules()
@@ -192,7 +191,6 @@ const ClassSchedulesPage = () => {
                                             <ClassCard
                                                 key={cls.class_id}
                                                 classItem={cls}
-                                                onDelete={handleDeleteClass}
                                                 onCancel={(classId, classTitle) => openClassActionDialog(classId, classTitle)}
                                                 onViewUsers={(classId, classTitle) => openViewUsersDialog(classId, classTitle)}
                                             />
@@ -238,6 +236,7 @@ const ClassSchedulesPage = () => {
                     isOpen={dialogs.classAction.isOpen}
                     onClose={() => closeDialog('classAction')}
                     classTitle={dialogs.classAction.classTitle}
+                    onKeep={handleKeepClass}
                     onCancel={handleCancelClass}
                 />
 

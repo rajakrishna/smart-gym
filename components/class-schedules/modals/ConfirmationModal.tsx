@@ -4,17 +4,20 @@ import React from 'react'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import ICONS from '@/constants/icons'
+import LABELS from '@/constants/labels'
 
 interface ClassActionModalProps {
     isOpen: boolean
     onClose: () => void
     classTitle: string
     onCancel: () => void
+    onKeep: () => void
 }
 
 const ClassActionModal: React.FC<ClassActionModalProps> = ({
     isOpen,
     onClose,
+    onKeep,
     classTitle,
     onCancel
 }) => {
@@ -24,16 +27,16 @@ const ClassActionModal: React.FC<ClassActionModalProps> = ({
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-2">
                         <ICONS.classSchedules.cancelClass className="h-5 w-5" />
-                        Class Actions
+                        {LABELS.classSchedules.modals.confirmClass.title}
                     </DialogTitle>
                     <DialogDescription>
-                        What would you like to do with &ldquo;{classTitle}&rdquo;?
+                        {LABELS.classSchedules.modals.confirmClass.descriptionPrefix} &ldquo;{classTitle}&rdquo;?
                     </DialogDescription>
                 </DialogHeader>
 
                 <DialogFooter className="flex gap-2">
-                    <Button variant="outline" onClick={onClose}>
-                        Keep Class
+                    <Button variant="outline" onClick={onKeep}>
+                        {LABELS.classSchedules.modals.confirmClass.keepClass}
                     </Button>
                     <Button
                         variant="secondary"
@@ -41,16 +44,8 @@ const ClassActionModal: React.FC<ClassActionModalProps> = ({
                         className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-white"
                     >
                         <ICONS.classSchedules.cancel className="h-4 w-4" />
-                        Cancel Class
+                        {LABELS.classSchedules.modals.confirmClass.cancelClass}
                     </Button>
-                    {/* <Button
-                        variant="destructive"
-                        onClick={onDelete}
-                        className="flex items-center gap-2"
-                    >
-                        <ICONS.classSchedules.delete className="h-4 w-4" />
-                        Delete Class
-                    </Button> */}
                 </DialogFooter>
             </DialogContent>
         </Dialog>

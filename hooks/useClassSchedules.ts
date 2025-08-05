@@ -170,40 +170,50 @@ export const useClassSchedules = () => {
     }
   };
 
+  const handleKeepClass = async () => {
+    const classId = dialogs.classAction.classId;
+    if (!classId) return;
 
-  // TODO: Action handlers to use with APIs in the modals (Talk to Danny about using these vs on the modal components)
-  const handleAddClass = () => {
-    // TODO: Implement actual class creation logic
-    closeDialog('addClass');
+    try {
+      const res = await fetch('/api/classes/update', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ class_id: classId, is_active: true }),
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        console.error('Failed to cancel class:', error.error);
+        return;
+      }
+
+      closeDialog('classAction');
+    } catch (err) {
+      console.error('Error cancelling class:', err);
+    }
   };
 
-  const [loadingId, setLoadingId] = useState<string | null>(null);
-  const [classes, setClasses] = useState<ClassScheduleItem[]>([])
+  const handleCancelClass = async () => {
+    const classId = dialogs.classAction.classId;
+    if (!classId) return;
 
-  const handleDeleteClass = async (class_id: string) => {
-        setLoadingId(class_id);
-        try {
-            const res = await fetch('/api/classes/delete', {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ class_id })
-            });
-            if (res.ok) {
-            setClasses(prev => prev.filter(cls => cls.class_id !== class_id));
-            } else {
-            const err = await res.json();
-            console.error('Delete failed:', err.error);
-            }
-        } catch (err) {
-            console.error('Delete error:', err);
-        } finally {
-            setLoadingId(null);
-        }
-    };
+    try {
+      const res = await fetch('/api/classes/update', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ class_id: classId, is_active: false }),
+      });
 
-  const handleCancelClass = () => {
-    // TODO: Implement actual class cancellation logic
-    closeDialog('classAction');
+      if (!res.ok) {
+        const error = await res.json();
+        console.error('Failed to cancel class:', error.error);
+        return;
+      }
+
+      closeDialog('classAction');
+    } catch (err) {
+      console.error('Error cancelling class:', err);
+    }
   };
 
   const handleViewUsers = () => {
@@ -231,8 +241,7 @@ export const useClassSchedules = () => {
     openClassActionDialog,
     openViewUsersDialog,
     closeDialog,
-    handleAddClass,
-    handleDeleteClass,
+    handleKeepClass,
     handleCancelClass,
     handleViewUsers,
   };

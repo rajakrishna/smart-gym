@@ -12,7 +12,6 @@ interface ClassCardProps {
     classItem: ClassScheduleItem
     onViewUsers: (classId: string, classTitle: string) => void
     onCancel: (classId: string, classTitle: string) => void
-    onDelete: (classId: string) => void
 }
 
 const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onViewUsers }) => {
@@ -27,15 +26,24 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onViewUsers 
 
     return (
         <div className={`bg-muted relative rounded-md p-3 pl-6 text-sm border hover:shadow-md transition-shadow after:absolute after:inset-y-2 after:left-2 after:w-1 after:rounded-full ${colors.indicator}`}>
-            <div className="font-medium">{classItem.class_name}</div>
+            <div className={`font-medium ${!classItem.is_active ? 'line-through text-muted-foreground italic' : ''}`}>
+                {classItem.class_name}
+            </div>
             <div className="text-muted-foreground text-xs">{formatTime(classItem.time)}</div>
             <div className="text-muted-foreground text-xs mt-1">
                 {LABELS.classSchedules.page.classes.coachLabel} {coachFullName}
             </div>
             <div className="mt-2 flex items-center justify-between">
+                <div className="flex gap-2 items-center">
                 <Badge variant="outline" className={`text-xs ${colors.badge}`}>
                     {classItem.category}
                 </Badge>
+                {!classItem.is_active && (
+                    <Badge variant="destructive" className="text-xs mr-1.5">
+                    {LABELS.classSchedules.page.classes.cancelled}
+                    </Badge>
+                )}
+                </div>
                 <div className="flex gap-1">
                     {/* Cancel / Delete Class Icon */}
                     <Button
@@ -46,16 +54,6 @@ const ClassCard: React.FC<ClassCardProps> = ({ classItem, onCancel, onViewUsers 
                     >
                         <ICONS.classSchedules.cancelClass className="w-3 h-3" />
                     </Button>
-                    {/* <Button
-                        size="sm"
-                        variant="ghost"
-                        className="h-6 w-6 p-0 text-yellow-600 hover:text-yellow-700 hover:bg-yellow-50"
-                        onClick={() => handleDeleteClass(classItem.class_id)}
-                        >
-                        <ICONS.classSchedules.cancelClass className="w-3 h-3" />
-                        </Button> */}
-
-                    {/* View Users Icon */}
                     <Button
                         size="sm"
                         variant="ghost"

@@ -20,6 +20,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import ICONS from '@/constants/icons'
+import LABELS from '@/constants/labels'
 import type { ClassFormData, Coach, ClassData, ClassType } from '@/types/shared'
 
 interface EditClassModalProps {
@@ -121,10 +122,10 @@ const EditClassModal: React.FC<EditClassModalProps> = ({
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <ICONS.classSchedules.edit className="h-5 w-5" />
-            Edit Class
+            {LABELS.classSchedules.modals.editClass.title}
           </DialogTitle>
           <DialogDescription>
-            Select a class to edit on{' '}
+            {LABELS.classSchedules.modals.editClass.descriptionPrefix}{' '}
             {selectedDate?.toLocaleDateString('en-US', {
               weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
             })}
@@ -132,12 +133,11 @@ const EditClassModal: React.FC<EditClassModalProps> = ({
         </DialogHeader>
 
         <div className="grid gap-4 py-4">
-          {/* Class Selection */}
           <div className="grid gap-2">
-            <Label>Select Class</Label>
+            <Label>{LABELS.classSchedules.modals.editClass.fields.selectClass}</Label>
             <Select onValueChange={(value) => setSelectedClassId(value)} value={selectedClassId}>
               <SelectTrigger>
-                <SelectValue placeholder="Choose a class" />
+                <SelectValue placeholder={LABELS.classSchedules.modals.editClass.placeholders.selectClass} />
               </SelectTrigger>
               <SelectContent>
                 {availableClasses.map((cls, idx) => (
@@ -149,20 +149,19 @@ const EditClassModal: React.FC<EditClassModalProps> = ({
             </Select>
           </div>
 
-          {/* Coach Selection */}
           <div className="grid gap-2">
-            <Label>Coach</Label>
+            <Label>{LABELS.classSchedules.modals.editClass.fields.coach}</Label>
             <Select
               value={classForm.coach_id}
               onValueChange={(value) => setClassForm(prev => ({ ...prev, coach_id: value }))}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select a coach" />
+                <SelectValue placeholder={LABELS.classSchedules.modals.editClass.placeholders.selectCoach} />
               </SelectTrigger>
               <SelectContent>
                 {coachLoading ? (
                   <div className="px-4 py-2 text-muted-foreground text-sm">
-                    Loading...
+                    {LABELS.classSchedules.modals.editClass.loading}
                   </div>
                 ) : coaches.length > 0 ? (
                   coaches.map((coach) => (
@@ -172,24 +171,23 @@ const EditClassModal: React.FC<EditClassModalProps> = ({
                   ))
                 ) : (
                   <div className="px-4 py-2 text-muted-foreground text-sm">
-                    No coaches available
+                    {LABELS.classSchedules.modals.editClass.noCoaches}
                   </div>
                 )}
               </SelectContent>
             </Select>
           </div>
 
-          {/* Form Fields */}
           <div className="grid gap-2">
-            <Label>Class Name</Label>
+            <Label>{LABELS.classSchedules.modals.editClass.fields.className}</Label>
             <Input value={classForm.class_name} onChange={(e) => setClassForm(prev => ({ ...prev, class_name: e.target.value }))} />
           </div>
 
           <div className="grid gap-2">
-            <Label>Category</Label>
+            <Label>{LABELS.classSchedules.modals.editClass.fields.category}</Label>
             <Select value={classForm.category} onValueChange={(value) => setClassForm(prev => ({ ...prev, category: value }))}>
               <SelectTrigger>
-                <SelectValue placeholder="Select category" />
+                <SelectValue placeholder={LABELS.classSchedules.modals.editClass.placeholders.selectCategory} />
               </SelectTrigger>
               <SelectContent>
                 {classTypes.map(type => (
@@ -201,13 +199,13 @@ const EditClassModal: React.FC<EditClassModalProps> = ({
 
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
-              <Label>Start Time</Label>
+              <Label>{LABELS.classSchedules.modals.editClass.fields.startTime}</Label>
               <Input type="time" value={classForm.time} onChange={(e) => setClassForm(prev => ({ ...prev, time: e.target.value }))} />
             </div>
           </div>
 
           <div className="grid gap-2">
-            <Label>Capacity</Label>
+            <Label>{LABELS.classSchedules.modals.editClass.fields.capacity}</Label>
             <Input
               type="number"
               min="0"
@@ -218,9 +216,13 @@ const EditClassModal: React.FC<EditClassModalProps> = ({
         </div>
 
         <DialogFooter>
-          <Button variant="outline" onClick={onClose}>Cancel</Button>
+          <Button variant="outline" onClick={onClose}>
+            {LABELS.classSchedules.modals.editClass.cancel}
+          </Button>
           <Button onClick={handleUpdateClass} disabled={!selectedClassId || loading}>
-            {loading ? 'Updating...' : 'Update Class'}
+            {loading
+              ? LABELS.classSchedules.modals.editClass.updating
+              : LABELS.classSchedules.modals.editClass.update}
           </Button>
         </DialogFooter>
       </DialogContent>
