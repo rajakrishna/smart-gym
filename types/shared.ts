@@ -195,20 +195,20 @@ export interface Invoice {
   status: 'paid' | 'pending' | 'overdue';
 }
 
-// Cafe/Nutrition Products Interface
+// Start of Product Related Interfaces
 export interface Product {
   product_id: string;
   name: string;
-  product_image: string;
   product_description: string;
   price: number;
   quantity: number;
   min_quantity: number;
-  category: 'cafe' | 'drink' | 'snack' | 'protein_bar';
   number_sold: number;
+  category: 'cafe' | 'drink' | 'snack' | 'protein_bar';
+  product_image: string;
+  sku: string;
   restock: boolean;
   is_active: boolean;
-  sku: string;
 }
 
 export interface EnrolledClassMember {

@@ -1,4 +1,12 @@
-import { CheckInHistory, ClassScheduleItem, ClassTaken, Invoice, Member, Product, EnrolledBooking} from '@/types/shared';
+import {
+  CheckInHistory,
+  ClassScheduleItem,
+  ClassTaken,
+  EnrolledBooking,
+  Invoice,
+  Member,
+  Product,
+} from '@/types/shared';
 
 // Mock data for Member Detail Page - In a real app, this would come from an API
 export const mockMember: Member = {
@@ -184,6 +192,15 @@ export const mockProducts: Product[] = [
     sku: 'SKU-006',
   },
 ];
+
+export const mockProduct = {
+  id: 1,
+  name: 'Espresso',
+  price: 4.5,
+  image: 'https://via.placeholder.com/400x300',
+  description: 'Strong coffee shot with rich flavor and aromatic notes. Perfect for energy boost.',
+  nutritionalInfo: 'Calories: 5 | Caffeine: 63mg | Fat: 0g | Carbs: 1g',
+};
 
 export const mockClasses: ClassScheduleItem[] = [
   {
