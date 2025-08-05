@@ -2,24 +2,32 @@
 import React, {useEffect, useState} from 'react';
 import ClassCard from './classCard';
 import { ClassInfo } from './classCard';
+import { mockDashClasses } from '@/constants/mockData';
 
 const label = {
   heading: 'Upcoming Classes Today'
 }
 
-const Classes: React.FC = () => {
-  const [classes, setClasses] = useState<ClassInfo[]>([])
-  const [loading, setLoading] = useState(true)
+const mapMockToClassInfo = (mock: any): ClassInfo => ({
+  id: mock.class_id,
+  coach_name: mock.coach?.[0]?.first_name || 'Coach TBA',
+  time: mock.time,
+  src: '/assets/fallback.png',
+  category: mock.category,
+});
 
-useEffect(() => {
+const Classes: React.FC = () => {
+  const [classes, setClasses] = useState<ClassInfo[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
     const fetchClasses = async () => {
       try {
         const res = await fetch('/api/classes/memberdash');
         const json = await res.json();
 
         if (json.success && Array.isArray(json.data)) {
-
-          const mapped: ClassInfo[] = json.data.map((item: ClassInfo) => ({
+          const mapped: ClassInfo[] = json.data.map((item: any) => ({
             id: item.id,
             coach_name: item.coach_name,
             time: item.time,
@@ -27,10 +35,21 @@ useEffect(() => {
             category: item.category,
           }));
 
-          setClasses(mapped);
+          if (mapped.length > 0) {
+            setClasses(mapped);
+            return;
+          } else {
+            console.warn('No classes returned from API. Falling back to mock data.');
+          }
+        } else {
+          console.warn('Unexpected API response. Falling back to mock data.');
         }
+
+        // Fallback to mock if API data is invalid or empty
+        setClasses(mockDashClasses.map(mapMockToClassInfo));
       } catch (err) {
         console.error('Error fetching classes:', err);
+        setClasses(mockDashClasses.map(mapMockToClassInfo));
       } finally {
         setLoading(false);
       }
@@ -38,6 +57,7 @@ useEffect(() => {
 
     fetchClasses();
   }, []);
+
   return (
     <section className=''>
           <h1 className='h1 container'>{label.heading}</h1>

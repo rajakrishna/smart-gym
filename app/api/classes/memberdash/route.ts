@@ -1,44 +1,9 @@
 import { NextResponse } from 'next/server';
 
 import { createClient } from '@/utils/supabase/server';
+import { mockDashClasses } from '@/constants/mockData';
 
-const MOCK_CLASSES = [
-  {
-    class_id: 'dummy-1',
-    category: 'yoga',
-    coach: [{ first_name: 'Mock' }],
-    time: '07:00:00',
-    capacity: 10,
-  },
-  {
-    class_id: 'dummy-12',
-    category: 'Cycling',
-    coach: [{ first_name: 'Mock' }],
-    time: '08:30:00',
-    capacity: 15,
-  },
-  {
-    class_id: 'dummy-2',
-    category: 'Hiit',
-    coach: [{ first_name: 'Mock' }],
-    time: '09:00:00',
-    capacity: 15,
-  },
-  {
-    class_id: 'dummy-3',
-    category: 'aquatic',
-    coach: [{ first_name: 'Mock' }],
-    time: '10:30:00',
-    capacity: 15,
-  },
-  {
-    class_id: 'dummy-4',
-    category: 'boxing',
-    coach: [{ first_name: 'Mock' }],
-    time: '14:30:00',
-    capacity: 15,
-  },
-];
+
 const ALLOWED_CATEGORIES = [
   'yoga',
   'Yoga',
@@ -99,7 +64,7 @@ export async function GET() {
       throw error;
     }
 
-    const classesToTransform = data.length === 0 ? MOCK_CLASSES : data;
+    const classesToTransform = data.length === 0 ? mockDashClasses : data;
 
     const transformed = classesToTransform.map(c => {
       const coach = Array.isArray(c.coach) ? c.coach[0] : c.coach;
