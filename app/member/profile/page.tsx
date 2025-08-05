@@ -36,7 +36,7 @@ export default function MemberProfilePage() {
                     <ICONS.memberProfile.userIcon className="w-8 h-8" />
                 </AvatarFallback>
             </Avatar>
-        <p className="text-sm font-semibold mt-1">Member Name</p>
+        <p className="text-sm font-semibold mt-1">John</p>
         </div>
 
         <MemberProfileCard items={memberProfileItems} />
