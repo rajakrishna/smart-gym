@@ -2,33 +2,12 @@ import { NextResponse } from 'next/server';
 
 import { createClient } from '@/utils/supabase/server';
 import { mockDashClasses } from '@/constants/mockData';
-
-
-const ALLOWED_CATEGORIES = [
-  'yoga',
-  'Yoga',
-  'cycling',
-  'Cycling',
-  'boxing',
-  'Boxing',
-  'aquatic',
-  'Aquatic',
-  'hiit',
-  'HIIT',
-  'Hitt',
-];
-const CATEGORY_IMAGE_MAP: Record<string, string> = {
-  yoga: '/assets/gc1.png',
-  cycling: '/assets/gc2.png',
-  boxing: '/assets/gc3.png',
-  aquatic: '/assets/gc4.png',
-  hiit: '/assets/gc5.png',
-};
+import { CATEGORY_IMAGE_MAP, ALLOWED_CLASS_CATEGORIES } from '@/constants/classSchedules';
 
 export async function GET() {
   const supabase = await createClient();
   const date =  new Date().toISOString().split('T')[0];
-  console.log('Received date query param:', date);
+  // console.log('Received date query param:', date);
   try {
     let query = supabase
       .from('classes')
@@ -49,7 +28,7 @@ export async function GET() {
                 )
       `
       )
-      .in('category', ALLOWED_CATEGORIES);
+      .in('category', ALLOWED_CLASS_CATEGORIES);
 
     if (date) {
       query = query.eq('scheduled_on', date);
