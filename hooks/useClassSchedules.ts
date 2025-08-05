@@ -11,8 +11,8 @@ interface UseClassSchedulesState {
 }
 
 export const useClassSchedules = () => {
-  const [currentMonth, setCurrentMonth] = useState(new Date(2025, 5, 9));
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date(2025, 5, 9));
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const [selectedCoach, setSelectedCoach] = useState(null)
   const [filterCoach, setFilteredCoach] = useState(null)
 
