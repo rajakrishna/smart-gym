@@ -259,3 +259,33 @@ export interface EnrolledBooking {
     'class_name' | 'category' | 'scheduled_on' | 'time'
   >;
 }
+export type AdminStatType = 'totalMembers' | 'revenue' | 'activeUsers' | 'newUsers';
+
+export interface AnalyticsStatistic {
+  stat_id: string;
+  title: string;
+  value: number;
+  percentage_change: number;
+  increase: boolean;
+  icon_name: AdminStatType;
+}
+
+export interface MembershipGrowth {
+  month: string;
+  percentage_growth: number;
+}
+
+export interface ClassAttendance {
+  class_type: string;
+  visits: number 
+}
+
+export interface TargetRevenue {
+  achieved: number;
+  target: number;
+}
+
+export interface ActiveHours {
+  hour: string;
+  active_users: number; 
+}
