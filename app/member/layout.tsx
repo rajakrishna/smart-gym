@@ -29,7 +29,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const userId = '1828034c-85bb-4763-a623-e67c1bedac3d';
+  const userId = LABELS.memberContextId.id;
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/user/${userId}`, {
     cache: 'no-store',
   });

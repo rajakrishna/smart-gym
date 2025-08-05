@@ -23,7 +23,9 @@ const LABELS = {
       submitLabel: 'Submit Login Form',
     },
   },
-
+memberContextId:{
+  id:'1828034c-85bb-4763-a623-e67c1bedac3d'},
+  
   hero: {
     header: 'Maximize Your Fitness',
     subHeader1: 'A Revolutionary',
