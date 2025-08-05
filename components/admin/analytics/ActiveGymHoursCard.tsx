@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from 'recharts';
 import { ActiveHours } from '@/types/shared';
+import { GRAY_SHADES } from '@/constants/analyticsConstants';
 
 type Props = {
   data: ActiveHours[];
@@ -16,13 +17,6 @@ type Props = {
 
 export default function ActiveGymHoursCard({ data }: Props) {
   const max = Math.max(...data.map((d) => d.active_users));
-
-  const getGrayShade = (ratio: number) => {
-    if (ratio >= 0.75) return '#374151'; 
-    if (ratio >= 0.5) return '#6b7280';  
-    if (ratio >= 0.25) return '#9ca3af'; 
-    return '#e5e7eb';                   
-  };
 
   return (
     <Card className="w-full">
@@ -50,7 +44,7 @@ export default function ActiveGymHoursCard({ data }: Props) {
           <PieChart>
             {data.map((entry, i) => {
               const ratio = entry.active_users / max;
-              const fill = getGrayShade(ratio);
+              const fill = GRAY_SHADES(ratio);
               const outerRadius = 50 + ratio * 30; // slices "stick out" more if active
               const angle = 360 / data.length;
 
