@@ -99,3 +99,25 @@ export const CLASS_SCHEDULE: readonly ClassScheduleItem[] = [
     duration: 60,
   },
 ];
+
+export const CATEGORY_IMAGE_MAP: Record<string, string> = {
+  yoga: '/assets/gc1.png',
+  cycling: '/assets/gc2.png',
+  boxing: '/assets/gc3.png',
+  aquatic: '/assets/gc4.png',
+  hiit: '/assets/gc5.png',
+};
+
+export const ALLOWED_CLASS_CATEGORIES = [
+  'yoga',
+  'Yoga',
+  'cycling',
+  'Cycling',
+  'boxing',
+  'Boxing',
+  'aquatic',
+  'Aquatic',
+  'hiit',
+  'HIIT',
+  'Hitt',
+];

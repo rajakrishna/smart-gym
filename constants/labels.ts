@@ -68,6 +68,9 @@ memberContextId:{
 
     }
   },
+memberClasses:{
+  coach:'Coach'
+},
 
   cafeMenu: {
     header: 'Cafe Menu',

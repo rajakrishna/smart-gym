@@ -60,6 +60,23 @@ export interface ClassData {
   created_at: string;
 }
 
+export interface MockClassData {
+  class_id: string;
+  category: string;
+  time: string;
+    coaches?: {
+    first_name?: string;
+    last_name?: string;
+  };
+}
+
+export interface APIClassData {
+  class_id: string;
+  coach_name: string;
+  time: string;
+  category: string;
+  src: string;
+}
 export type ClassStatus = 'scheduled' | 'cancelled' | 'completed' | 'in-progress';
 
 export interface ClassSchedule {
