@@ -111,46 +111,36 @@ const AddClassModal: React.FC<AddClassModalProps> = ({
         </DialogHeader>
 
         <div className='grid gap-4 py-4'>
-          {/* Class Name */}
           <div className='grid gap-2'>
             <Label htmlFor='class_name' className='flex items-center gap-2'>
               <ICONS.classSchedules.type className='h-4 w-4' />
-              Class Name
+              {LABELS.classSchedules.modals.addClass.fields.className}
             </Label>
             <Input
               id='class_name'
               value={classForm.class_name}
-              onChange={e =>
-                setClassForm(prev => ({
-                  ...prev,
-                  class_name: e.target.value,
-                }))
-              }
-              placeholder='Enter class name'
+              onChange={e => setClassForm(prev => ({ ...prev, class_name: e.target.value }))}
+              placeholder={LABELS.classSchedules.modals.addClass.placeholders.className}
             />
           </div>
 
-          {/* Coach Select */}
           <div className='grid gap-2'>
             <Label htmlFor='coach_id' className='flex items-center gap-2'>
               <ICONS.classSchedules.coach className='h-4 w-4' />
-              Coach
+              {LABELS.classSchedules.modals.addClass.fields.coach}
             </Label>
             <Select
               value={classForm.coach_id}
-              onValueChange={value =>
-                setClassForm(prev => ({
-                  ...prev,
-                  coach_id: value,
-                }))
-              }
+              onValueChange={value => setClassForm(prev => ({ ...prev, coach_id: value }))}
             >
               <SelectTrigger>
-                <SelectValue placeholder='Select a coach' />
+                <SelectValue placeholder={LABELS.classSchedules.modals.addClass.placeholders.coach} />
               </SelectTrigger>
               <SelectContent>
                 {coachLoading ? (
-                  <div className='px-4 py-2 text-muted-foreground text-sm'>Loading...</div>
+                  <div className='px-4 py-2 text-muted-foreground text-sm'>
+                    {LABELS.classSchedules.modals.addClass.loading}
+                  </div>
                 ) : coaches.length > 0 ? (
                   coaches.map(coach => (
                     <SelectItem key={coach.coach_id} value={coach.coach_id}>
@@ -158,29 +148,25 @@ const AddClassModal: React.FC<AddClassModalProps> = ({
                     </SelectItem>
                   ))
                 ) : (
-                  <div className='px-4 py-2 text-muted-foreground text-sm'>No coaches available</div>
+                  <div className='px-4 py-2 text-muted-foreground text-sm'>
+                    {LABELS.classSchedules.modals.addClass.noCoaches}
+                  </div>
                 )}
               </SelectContent>
             </Select>
           </div>
 
-          {/* Category */}
           <div className='grid gap-2'>
             <Label htmlFor='category' className='flex items-center gap-2'>
               <ICONS.classSchedules.type className='h-4 w-4' />
-              Category
+              {LABELS.classSchedules.modals.addClass.fields.category}
             </Label>
             <Select
               value={classForm.category}
-              onValueChange={value =>
-                setClassForm(prev => ({
-                  ...prev,
-                  category: value,
-                }))
-              }
+              onValueChange={value => setClassForm(prev => ({ ...prev, category: value }))}
             >
               <SelectTrigger>
-                <SelectValue placeholder='Select category' />
+                <SelectValue placeholder={LABELS.classSchedules.modals.addClass.placeholders.category} />
               </SelectTrigger>
               <SelectContent>
                 {classTypes.map(type => (
@@ -192,7 +178,6 @@ const AddClassModal: React.FC<AddClassModalProps> = ({
             </Select>
           </div>
 
-          {/* Time Input */}
           <div className='grid gap-2'>
             <Label htmlFor={LABELS.classSchedules.modals.addClass.fields.time} className='flex items-center gap-2'>
               <ICONS.classSchedules.time className='h-4 w-4' />
@@ -205,15 +190,16 @@ const AddClassModal: React.FC<AddClassModalProps> = ({
               onChange={e => setClassForm(prev => ({ ...prev, time: e.target.value }))}
             />
           </div>
+
           <div className='grid gap-2'>
             <Label htmlFor='capacity' className='flex items-center gap-2'>
               <ICONS.classSchedules.users className='h-4 w-4' />
-              Capacity
+              {LABELS.classSchedules.modals.addClass.fields.capacity}
             </Label>
             <Input
               id='capacity'
               type='number'
-              min="0"
+              min='0'
               value={classForm.capacity}
               onChange={e =>
                 setClassForm(prev => ({
@@ -221,14 +207,14 @@ const AddClassModal: React.FC<AddClassModalProps> = ({
                   capacity: Math.max(0, parseInt(e.target.value || '0')),
                 }))
               }
-              placeholder='Enter class capacity'
+              placeholder={LABELS.classSchedules.modals.addClass.placeholders.capacity}
             />
           </div>
         </div>
 
         <DialogFooter>
           <Button variant='outline' onClick={onClose}>
-            Cancel
+            {LABELS.classSchedules.modals.addClass.buttons.cancel}
           </Button>
           <Button
             onClick={handleAddClass}
@@ -243,7 +229,9 @@ const AddClassModal: React.FC<AddClassModalProps> = ({
             className='flex items-center gap-2'
           >
             <ICONS.classSchedules.add className='h-4 w-4' />
-            {loading ? 'Adding...' : 'Add Class'}
+            {loading
+              ? LABELS.classSchedules.modals.addClass.buttons.adding
+              : LABELS.classSchedules.modals.addClass.buttons.add}
           </Button>
         </DialogFooter>
       </DialogContent>
