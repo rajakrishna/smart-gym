@@ -15,6 +15,7 @@ export const createClassSchema = z.object({
 //@/update/route.ts (PATCH)
 export const updateClassSchema = createClassSchema.partial().extend({
   class_id: z.uuid({ message: 'Invalid class_id' }),
+  is_active: z.boolean().optional()
 });
 
 export type CreateClassInput = z.infer<typeof createClassSchema>;
