@@ -23,16 +23,18 @@ const LABELS = {
       submitLabel: 'Submit Login Form',
     },
   },
-
+memberContextId:{
+  id:'1828034c-85bb-4763-a623-e67c1bedac3d'},
+  
   hero: {
     header: 'Maximize Your Fitness',
     subHeader1: 'A Revolutionary',
     span: 'AI',
     subHeader2: 'Fitness App',
-    button1: 'Contact',
-    href1: '#contact',
+    button1: 'Admin',
+    href1: '/admin/dashboard',
     button2: 'Member Login',
-    href2: '#login',
+    href2: '/member/dashboard',
     button3: 'Watch Demo',
     href3: '#demo',
   },

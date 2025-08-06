@@ -1,13 +1,14 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import ICONS from '@/constants/icons'
 import LABELS from '@/constants/labels'
-// import { Button } from '@/components/ui/button'
+import { useUser } from '@/context/user-context'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import ReactBarcode from './ReactBarcode'
 
-const { firstName, imageURL, greeting, profileHref } = LABELS.memberDash
+const { imageURL, greeting, profileHref } = LABELS.memberDash
 
 const BarCodeModal = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -33,6 +34,8 @@ const BarCodeModal = ({ children }: { children: React.ReactNode }) => {
 }
 
 const MemberWelcome = () => {
+  const user = useUser()
+  if (!user) return null
   return (
     <div className="px-6 py-4 border-b border-gray-100">
       <div className="flex items-center justify-between">
@@ -50,7 +53,7 @@ const MemberWelcome = () => {
               {greeting}
             </p>
             <p className="text-lg tracking-widest text-gray-900 font-semibold">
-              {firstName}
+              {user.first_name}
             </p>
           </div>
         </div>
