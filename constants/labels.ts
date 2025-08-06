@@ -395,6 +395,16 @@ memberContextId:{
         },
       },
     },
+    admin_analytics: {
+      totalMembers: 'total members', 
+      revenue: 'revenue', 
+      activeUsers: 'active users',
+      newUsers: 'new users',
+      membershipGrowth: 'membership growth', 
+      classAttendance: 'class attendence', 
+      targetRevenue: 'target revenue',
+      activeGymHours: 'active gym hours'
+    }
   },
 
   // AI Chat labels
