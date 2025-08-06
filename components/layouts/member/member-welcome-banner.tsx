@@ -35,7 +35,6 @@ const BarCodeModal = ({ children }: { children: React.ReactNode }) => {
 
 const MemberWelcome = () => {
   const user = useUser()
-  console.log('UserContext:', user)
   if (!user) return null
   return (
     <div className="px-6 py-4 border-b border-gray-100">
