@@ -49,8 +49,7 @@ const ClassSchedulesPage = () => {
         openClassActionDialog,
         openViewUsersDialog,
         closeDialog,
-        // handleAddClass,
-        handleDeleteClass,
+        handleKeepClass,
         handleCancelClass,
         handleViewUsers,
     } = useClassSchedules()
@@ -188,9 +187,9 @@ const ClassSchedulesPage = () => {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                                     {filteredClasses.length > 0 ? (
-                                        filteredClasses.map((cls, index) => (
+                                        filteredClasses.map((cls) => (
                                             <ClassCard
-                                                key={index}
+                                                key={cls.class_id}
                                                 classItem={cls}
                                                 onCancel={(classId, classTitle) => openClassActionDialog(classId, classTitle)}
                                                 onViewUsers={(classId, classTitle) => openViewUsersDialog(classId, classTitle)}
@@ -237,8 +236,8 @@ const ClassSchedulesPage = () => {
                     isOpen={dialogs.classAction.isOpen}
                     onClose={() => closeDialog('classAction')}
                     classTitle={dialogs.classAction.classTitle}
+                    onKeep={handleKeepClass}
                     onCancel={handleCancelClass}
-                    onDelete={handleDeleteClass}
                 />
 
                 <ViewUsersModal

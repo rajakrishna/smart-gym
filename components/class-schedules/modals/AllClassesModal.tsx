@@ -10,8 +10,8 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-// import LABELS from '@/constants/labels'
 import ICONS from '@/constants/icons'
+import LABELS from '@/constants/labels'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Badge } from '@/components/ui/badge'
 
@@ -81,10 +81,10 @@ const AllClassesModal: React.FC<AllClassesModalProps> = ({ isOpen, onClose }) =>
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <ICONS.classSchedules.calendar className="h-5 w-5" />
-            All Scheduled Classes
+            {LABELS.classSchedules.modals.allClasses.title}
           </DialogTitle>
           <DialogDescription>
-            Here&apos;s a full list of all scheduled classes in the system.
+            {LABELS.classSchedules.modals.allClasses.description}
           </DialogDescription>
         </DialogHeader>
 
@@ -95,16 +95,16 @@ const AllClassesModal: React.FC<AllClassesModalProps> = ({ isOpen, onClose }) =>
                 <div>
                   <div className="text-base font-semibold">{cls.class_name}</div>
                   <div className="text-sm text-muted-foreground">
-                    {new Date(cls.scheduled_on).toLocaleDateString()} • {cls.time}
+                    {new Date(cls.scheduled_on).toLocaleDateString()} {LABELS.classSchedules.modals.allClasses.badgeSeparator} {cls.time}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Coach:{' '}
+                    {LABELS.classSchedules.modals.allClasses.coachPrefix}{' '}
                     {cls.coaches?.first_name && cls.coaches?.last_name
                       ? `${cls.coaches.first_name} ${cls.coaches.last_name}`
-                      : 'Unassigned'}
+                      : LABELS.classSchedules.modals.allClasses.unassigned}
                   </div>
                   <Badge variant="outline" className="text-xs mt-1">
-                    {cls.category} • {cls.capacity} spots
+                    {cls.category} {LABELS.classSchedules.modals.allClasses.badgeSeparator} {cls.capacity} spots
                   </Badge>
                 </div>
                 <Button
@@ -123,7 +123,7 @@ const AllClassesModal: React.FC<AllClassesModalProps> = ({ isOpen, onClose }) =>
 
         <DialogFooter>
           <Button variant="outline" onClick={onClose}>
-            Close
+            {LABELS.classSchedules.modals.allClasses.closeButton}
           </Button>
         </DialogFooter>
       </DialogContent>

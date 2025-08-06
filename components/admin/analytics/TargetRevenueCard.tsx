@@ -2,6 +2,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { TargetRevenue } from '@/types/shared';
 import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { REVENUE_GROWTH_CHART_COLORS } from '@/constants/analyticsConstants';
 
 type Props = {
     data: TargetRevenue;
@@ -13,7 +14,6 @@ export default function TargetRevenueCard({ data }: Props) {
         {name: 'achieved', value: achieved}, 
         {name: 'remaining', value: Math.max(target - achieved, 0)},
     ]
-    const COLORS = ['#6b7280', '#e5e7eb']; 
 
     const percentAchieved = Math.round((achieved / target) * 100);
 
@@ -25,10 +25,10 @@ export default function TargetRevenueCard({ data }: Props) {
                 </h3>
                 <div className='flex items-center justify-center gap-6 text-sm text-muted-foreground mb-2'>
                     <div className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-full bg-gray-700"></span> achieved 
+                        <span className="w-3 h-3 rounded-full bg-teal-300"></span> achieved 
                     </div>
-                    <div>
-                        <span className="w-3 h-3 rounded-full bg-gray-200"></span> remaining 
+                    <div className="flex items-center gap-2">
+                        <span className="w-3 h-3 rounded-full bg-teal-100"></span> remaining 
                     </div>
                 </div>
                 <div className="relative flex justify-center items-center h-[200px]">
@@ -44,7 +44,7 @@ export default function TargetRevenueCard({ data }: Props) {
                                 stroke="none"
                             >
                                 {chartData.map((_, i) =>(
-                                    <Cell key={i} fill={COLORS[i]} />
+                                    <Cell key={i} fill={REVENUE_GROWTH_CHART_COLORS[i]} />
                                 ))}
                             </Pie>
                         </PieChart>

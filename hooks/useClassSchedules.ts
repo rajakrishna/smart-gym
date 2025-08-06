@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import type { ClassFormData, DialogState, ClassData, Coach } from '@/types/shared';
+import type { ClassFormData, DialogState, ClassData, Coach, ClassScheduleItem } from '@/types/shared';
 
 interface UseClassSchedulesState {
   currentMonth: Date;
@@ -11,8 +11,11 @@ interface UseClassSchedulesState {
 }
 
 export const useClassSchedules = () => {
-  const [currentMonth, setCurrentMonth] = useState(new Date(2025, 5, 9));
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date(2025, 5, 9));
+  const today = new Date();
+  const firstOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+
+  const [currentMonth, setCurrentMonth] = useState(firstOfMonth);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(firstOfMonth);
   const [selectedCoach, setSelectedCoach] = useState(null)
   const [filterCoach, setFilteredCoach] = useState(null)
 
@@ -161,6 +164,7 @@ export const useClassSchedules = () => {
 
   const closeDialog = (dialogType: keyof DialogState) => {
     if (dialogType === 'addClass' || dialogType === 'editClass' || dialogType === 'allClasses') {
+      fetchClasses();
       setDialogs(prev => ({ ...prev, [dialogType]: false }));
     } else {
       setDialogs(prev => ({
@@ -170,21 +174,52 @@ export const useClassSchedules = () => {
     }
   };
 
+  const handleKeepClass = async () => {
+    const classId = dialogs.classAction.classId;
+    if (!classId) return;
 
-  // TODO: Action handlers to use with APIs in the modals (Talk to Danny about using these vs on the modal components)
-  const handleAddClass = () => {
-    // TODO: Implement actual class creation logic
-    closeDialog('addClass');
+    try {
+      const res = await fetch('/api/classes/update', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ class_id: classId, is_active: true }),
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        console.error('Failed to cancel class:', error.error);
+        return;
+      }
+
+      await fetchClasses();
+      closeDialog('classAction');
+    } catch (err) {
+      console.error('Error cancelling class:', err);
+    }
   };
 
-  const handleDeleteClass = () => {
-    // TODO: Implement actual class deletion logic
-    closeDialog('classAction');
-  };
+  const handleCancelClass = async () => {
+    const classId = dialogs.classAction.classId;
+    if (!classId) return;
 
-  const handleCancelClass = () => {
-    // TODO: Implement actual class cancellation logic
-    closeDialog('classAction');
+    try {
+      const res = await fetch('/api/classes/update', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ class_id: classId, is_active: false }),
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        console.error('Failed to cancel class:', error.error);
+        return;
+      }
+
+      await fetchClasses();
+      closeDialog('classAction');
+    } catch (err) {
+      console.error('Error cancelling class:', err);
+    }
   };
 
   const handleViewUsers = () => {
@@ -212,8 +247,7 @@ export const useClassSchedules = () => {
     openClassActionDialog,
     openViewUsersDialog,
     closeDialog,
-    handleAddClass,
-    handleDeleteClass,
+    handleKeepClass,
     handleCancelClass,
     handleViewUsers,
   };

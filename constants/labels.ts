@@ -23,16 +23,18 @@ const LABELS = {
       submitLabel: 'Submit Login Form',
     },
   },
-
+memberContextId:{
+  id:'1828034c-85bb-4763-a623-e67c1bedac3d'},
+  
   hero: {
     header: 'Maximize Your Fitness',
     subHeader1: 'A Revolutionary',
     span: 'AI',
     subHeader2: 'Fitness App',
-    button1: 'Contact',
-    href1: '#contact',
+    button1: 'Admin',
+    href1: '/admin/dashboard',
     button2: 'Member Login',
-    href2: '#login',
+    href2: '/member/dashboard',
     button3: 'Watch Demo',
     href3: '#demo',
   },
@@ -468,6 +470,7 @@ memberClasses:{
       classes: {
         title: 'Classes for',
         editClass: 'Edit Class',
+        cancelled: 'Cancelled',
         addClass: 'Add Class',
         allClasses: 'View All Classes',
         filterByCoach: 'Filter by Coach',
@@ -494,21 +497,58 @@ memberClasses:{
     },
     modals: {
       addClass: {
-        title: 'Add New Class',
+        title: 'Add Class',
         description: 'Create a new class for',
-        fields: {
-          title: 'Class Title',
-          titlePlaceholder: 'e.g., Morning Yoga',
-          coach: 'Coach',
-          coachPlaceholder: 'Select a coach',
-          type: 'Class Type',
-          typePlaceholder: 'Select class type',
-          time: 'Start Time',
-        },
         buttons: {
           cancel: 'Cancel',
           add: 'Add Class',
+          adding: 'Adding...',
         },
+        placeholders: {
+          className: 'Enter class name',
+          coach: 'Select a coach',
+          category: 'Select category',
+          capacity: 'Enter class capacity',
+        },
+        fields: {
+          className: 'Class Name',
+          coach: 'Coach',
+          category: 'Category',
+          time: 'Time',
+          capacity: 'Capacity',
+        },
+        loading: 'Loading...',
+        noCoaches: 'No coaches available',
+      },
+      allClasses: {
+        title: 'All Scheduled Classes',
+        description: "Here's a full list of all scheduled classes in the system.",
+        coachPrefix: 'Coach:',
+        unassigned: 'Unassigned',
+        badgeSeparator: '•',
+        closeButton: 'Close',
+      },
+      editClass: {
+        title: 'Edit Class',
+        descriptionPrefix: 'Select a class to edit on',
+        fields: {
+          selectClass: 'Select Class',
+          className: 'Class Name',
+          coach: 'Coach',
+          category: 'Category',
+          startTime: 'Start Time',
+          capacity: 'Capacity',
+        },
+        placeholders: {
+          selectClass: 'Choose a class',
+          selectCoach: 'Select a coach',
+          selectCategory: 'Select category',
+        },
+        loading: 'Loading...',
+        noCoaches: 'No coaches available',
+        cancel: 'Cancel',
+        update: 'Update Class',
+        updating: 'Updating...',
       },
       cancelClass: {
         title: 'Cancel Class',
@@ -520,6 +560,12 @@ memberClasses:{
           cancel: 'Cancel Class',
         },
       },
+      confirmClass: {
+        title: 'Class Actions',
+        descriptionPrefix: 'What would you like to do with',
+        keepClass: 'Keep Class',
+        cancelClass: 'Cancel Class',
+      },
       deleteClass: {
         title: 'Delete Class',
         description: 'Are you sure you want to permanently delete',
@@ -528,6 +574,10 @@ memberClasses:{
           cancel: 'Cancel',
           delete: 'Delete Class',
         },
+      },
+      viewUsers: {
+        title: 'View Users',
+        noMembers: 'No members enrolled in this class yet.',
       },
     },
   },
