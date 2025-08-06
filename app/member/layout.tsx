@@ -48,13 +48,13 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <UserProvider userData={userData}>
           {/* This pb-20 is so that the user can scroll to the bottom of the page and still see the bottom navbar */}
-          {/* <MobileOnly> */}
+          <MobileOnly>
             <div className='min-h-screen flex flex-col pb-20'>
               <MemberWelcome />
               <main className='flex-1'>{children}</main>
             </div>
             <BottomNavbar />
-          {/* </MobileOnly> */}
+          </MobileOnly>
         </UserProvider>
       </body>
     </html>

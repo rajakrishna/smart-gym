@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 
-import ClassCard from '@/components/class-schedules/ClassCard';
 import CoachTypeSection from '@/components/class-schedules/CoachTypeSidebarSection';
 import {
   AddClassModal,
@@ -11,6 +10,8 @@ import {
   EditClassModal,
   ViewUsersModal,
 } from '@/components/class-schedules/modals';
+// import ClassCard from '@/components/class-schedules/ClassCard';
+import ClassCard from '@/components/layouts/member/classCard';
 import ClassLegend from '@/components/layouts/member/classlegend';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
@@ -43,6 +44,22 @@ const MONTH_NAMES = [
   LABELS.classSchedules.page.months.november,
   LABELS.classSchedules.page.months.december,
 ] as const;
+function getImageForCategory(category: string) {
+  switch (category.toLowerCase()) {
+    case 'hiit':
+      return '/assets/gcwide3.png';
+    case 'yoga':
+      return '/assets/gcwide1.png';
+    case 'boxing':
+      return '/assets/gcwide4.png';
+    case 'aquatic':
+      return '/assets/gcwide5.png';
+    case 'cycling':
+      return '/assets/gcwide2.png';
+    default:
+      return '/assets/default-class.jpg';
+  }
+}
 
 const ClassSchedulesPage = () => {
   const {
@@ -96,14 +113,14 @@ const ClassSchedulesPage = () => {
 
   return (
     <SidebarProvider>
-      <div className='container mx-auto'>
+      <div className='container mx-auto mt-4'>
         {/* Month Tabs */}
 
-        <div className='bg-white rounded-lg border shadow-sm p-6 min-h-[600px]'>
+        <div className='bg-white rounded-lg p-6 min-h-[600px]'>
+          {/* <ClassLegend /> */}
           <div className='flex flex-col gap-6'>
             <div className='flex gap-6'>
               {/* Class Legend */}
-              <ClassLegend />
 
               {/* Calendar */}
               <div className='flex-1 flex flex-col justify-center items-center'>
@@ -143,43 +160,27 @@ const ClassSchedulesPage = () => {
                       })}
                     </h3>
                   </div>
-                  <div className='flex items-center gap-2 flex-col md:flex-row'>
-                    <Button size='sm' className='flex items-center gap-2' onClick={() => openDialog('allClasses')}>
-                      <ICONS.classSchedules.calendar className='w-4 h-4' />
-                      {LABELS.classSchedules.page.classes.allClasses}
-                    </Button>
-                    <Button
-                      size='sm'
-                      variant='secondary'
-                      className='flex items-center gap-2'
-                      disabled={!selectedDate}
-                      onClick={() => openDialog('editClass')}
-                    >
-                      <ICONS.classSchedules.edit className='w-4 h-4' />
-                      {LABELS.classSchedules.page.classes.editClass}
-                    </Button>
-                    <Button
-                      size='sm'
-                      className='flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white'
-                      disabled={!selectedDate}
-                      onClick={openAddDialog}
-                    >
-                      <ICONS.classSchedules.add className='w-4 h-4' />
-                      {LABELS.classSchedules.page.classes.addClass}
-                    </Button>
-                  </div>
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3'>
                   {filteredClasses.length > 0 ? (
-                    filteredClasses.map(cls => (
-                      <ClassCard
-                        key={cls.class_id}
-                        classItem={cls}
-                        onCancel={(classId, classTitle) => openClassActionDialog(classId, classTitle)}
-                        onViewUsers={(classId, classTitle) => openViewUsersDialog(classId, classTitle)}
-                      />
-                    ))
+                    filteredClasses.map((cls, index) => {
+                      // console.log('Class object:', cls);
+
+                      return (
+                        <ClassCard
+                          key={cls.class_id}
+                          classInfo={{
+                            id: cls.class_id,
+                            src: getImageForCategory(cls.category),
+                            category: cls.category,
+                            coach_name: `${cls.coaches.first_name} ${cls.coaches.last_name}`,
+                            time: cls.time,
+                          }}
+                          index={index}
+                        />
+                      );
+                    })
                   ) : (
                     <div className='col-span-full text-center text-muted-foreground py-8'>
                       {LABELS.classSchedules.page.classes.noClasses}
