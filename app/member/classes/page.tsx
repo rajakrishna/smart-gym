@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import CoachTypeSection from '@/components/class-schedules/CoachTypeSidebarSection';
 import {
   AddClassModal,
   AllClassesModal,
@@ -12,38 +11,17 @@ import {
 } from '@/components/class-schedules/modals';
 // import ClassCard from '@/components/class-schedules/ClassCard';
 import ClassCard from '@/components/layouts/member/classCard';
-import ClassLegend from '@/components/layouts/member/classlegend';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Card, CardContent } from '@/components/ui/card';
 import {
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarProvider,
 } from '@/components/ui/sidebar';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CLASS_TYPES } from '@/constants/classSchedules';
 import ICONS from '@/constants/icons';
 import LABELS from '@/constants/labels';
 import { useClassSchedules } from '@/hooks/useClassSchedules';
-import type { Coach } from '@/types/shared';
 
-const MONTH_NAMES = [
-  LABELS.classSchedules.page.months.january,
-  LABELS.classSchedules.page.months.february,
-  LABELS.classSchedules.page.months.march,
-  LABELS.classSchedules.page.months.april,
-  LABELS.classSchedules.page.months.may,
-  LABELS.classSchedules.page.months.june,
-  LABELS.classSchedules.page.months.july,
-  LABELS.classSchedules.page.months.august,
-  LABELS.classSchedules.page.months.september,
-  LABELS.classSchedules.page.months.october,
-  LABELS.classSchedules.page.months.november,
-  LABELS.classSchedules.page.months.december,
-] as const;
 function getImageForCategory(category: string) {
   switch (category.toLowerCase()) {
     case 'hiit':
@@ -71,45 +49,13 @@ const ClassSchedulesPage = () => {
     filteredClasses,
     fetchClasses,
     handleDateSelect,
-    handleMonthChange,
     goToToday,
-    openDialog,
-    openAddDialog,
-    openClassActionDialog,
-    openViewUsersDialog,
     closeDialog,
     handleKeepClass,
     handleCancelClass,
     handleViewUsers,
   } = useClassSchedules();
 
-  const activeTab = MONTH_NAMES[currentMonth.getMonth()];
-  const [coaches, setCoaches] = useState<Coach[]>([]);
-
-  // Fetch coaches from API
-  useEffect(() => {
-    const fetchCoaches = async () => {
-      try {
-        const res = await fetch('/api/coaches/getAll');
-        const data = await res.json();
-
-        if (Array.isArray(data)) {
-          setCoaches(data);
-        } else {
-          console.error('Unexpected response for coaches:', data);
-        }
-      } catch (err) {
-        console.error('Error fetching coaches:', err);
-      }
-    };
-
-    fetchCoaches();
-  }, []);
-
-  // Helper function to filter coaches by type (case-insensitive)
-  const getCoachesByType = (classType: string): Coach[] => {
-    return coaches.filter(coach => coach.coach_type?.toLowerCase() === classType.toLowerCase());
-  };
 
   return (
     <SidebarProvider>
@@ -117,7 +63,6 @@ const ClassSchedulesPage = () => {
         {/* Month Tabs */}
 
         <div className='bg-white rounded-lg p-6 min-h-[600px]'>
-          {/* <ClassLegend /> */}
           <div className='flex flex-col gap-6'>
             <div className='flex gap-6'>
               {/* Class Legend */}
@@ -165,7 +110,11 @@ const ClassSchedulesPage = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3'>
                   {filteredClasses.length > 0 ? (
                     filteredClasses.map((cls, index) => {
-                      // console.log('Class object:', cls);
+                      const formattedTime = new Date(`1970-01-01T${cls.time}Z`).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: '2-digit',
+                        hour12: true,
+                      });
 
                       return (
                         <ClassCard
@@ -174,8 +123,8 @@ const ClassSchedulesPage = () => {
                             id: cls.class_id,
                             src: getImageForCategory(cls.category),
                             category: cls.category,
-                            coach_name: `${cls.coaches.first_name} ${cls.coaches.last_name}`,
-                            time: cls.time,
+                            coach_name: `${cls.coaches.first_name}`,
+                            time: formattedTime,
                           }}
                           index={index}
                         />

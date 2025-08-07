@@ -1,7 +1,7 @@
 import React from 'react';
-import { CLASS_TYPE_COLORS, CLASS_TYPES } from '@/constants/classSchedules';
+import { CLASS_TYPES } from '@/constants/classSchedules';
 import { getClassColors } from '@/lib/classScheduleUtils';
-import type { ClassType } from '@/types/shared';
+
 
 const ClassLegend: React.FC = () => {
   return (
