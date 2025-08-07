@@ -6,7 +6,7 @@ import { CATEGORY_IMAGE_MAP, ALLOWED_CLASS_CATEGORIES } from '@/constants/classS
 
 export async function GET() {
   const supabase = await createClient();
-  const date =  new Date().toISOString().split('T')[0];
+  const date =  new Date().toLocaleDateString('en-CA');
   // console.log('Received date query param:', date);
   try {
     let query = supabase
