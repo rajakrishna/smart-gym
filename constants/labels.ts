@@ -49,7 +49,7 @@ const LABELS = {
   },
   mobileView: {
     banner: 'Please use a mobile device to view this page',
-    sub: 'This experience is designed for mobile devices only.'
+    sub: 'This experience is designed for mobile devices only.',
   },
   memberDash: {
     firstName: 'John',
@@ -62,9 +62,8 @@ const LABELS = {
       noReturns: 'You have no classes scheduled',
       status1: 'Waitlisted',
       status2: 'Confirmed',
-      button: 'Cancel'
-
-    }
+      button: 'Cancel',
+    },
   },
 
   cafeMenu: {
@@ -246,6 +245,9 @@ const LABELS = {
       buttons: {
         addMember: 'Add Member',
         searchMembers: 'Search Members',
+      },
+      loading: {
+        loadingMembers: 'Loading members...',
       },
     },
     admin_messages: {

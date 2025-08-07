@@ -8,6 +8,8 @@ import { DataTable } from '@/components/ui/data-table'
 import { User } from '@/types/shared'
 import SearchMembersComponent from '@/components/admin/members/SearchMembersComponent'
 import { mockMembersData } from '@/constants/mockData'
+import ICONS from '@/constants/icons'
+import LABELS from '@/constants/labels'
 
 const MembersPage = () => {
     const [search, setSearch] = useState('')
@@ -31,7 +33,7 @@ const MembersPage = () => {
                 const users: User[] = data.users || data
 
                 if (!users || !Array.isArray(users) || users.length === 0) {
-                    console.log('No users found, using mock data')
+                    // console.log('No users found, using mock data')
                     setData(mockMembersData as unknown as Member[])
                 } else {
                     const mappedMembers: Member[] = users.map((user: User) => ({
@@ -68,7 +70,7 @@ const MembersPage = () => {
         return (
             <div className="container mx-auto py-10 px-4">
                 <div className="flex items-center justify-center h-64">
-                    <div className="text-lg">Loading members...</div>
+                    <div className="text-lg">{LABELS.pages.admin_members.loading.loadingMembers}.</div>
                 </div>
             </div>
         )
