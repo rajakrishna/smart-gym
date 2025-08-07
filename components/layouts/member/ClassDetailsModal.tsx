@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-
+import { useUser } from '@/context/user-context';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/dialog';
 // import LABELS from '@/constants/labels';
 import type { ClassData } from '@/types/shared';
-
+import type { UserData } from '@/context/user-context';
 type Props = {
   isOpen: boolean;
   onClose: () => void;
@@ -23,6 +23,7 @@ type Props = {
 const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
   const [classInfo, setClassInfo] = useState<ClassData | null>(null);
   const [loading, setLoading] = useState(false);
+  const user = useUser()
 
   useEffect(() => {
     if (!classId) return;
@@ -40,12 +41,16 @@ const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
   }, [classId]);
 
   const handleEnroll = async () => {
-    if (!classId) return;
+    if (!classId || !user?.user_id) return;
 
-    const res = await fetch('/api/classes/enroll', {
+    const res = await fetch('/api/user/createEnroll', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ class_id: classId }),
+      body: JSON.stringify({ 
+        class_id: classId, 
+        user_id: user.user_id,
+        status: 'confirmed'
+      }),
     });
 
     const result = await res.json();
@@ -53,9 +58,11 @@ const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
       alert('Enrolled successfully!');
       onClose();
     } else {
-      console.error(result.error);
+      console.error(result.error || 'Enrollment failed')
+      alert('Enrollment failed. Please try again');
     }
   };
+
 function formatTime(timeString: string): string {
   const [hour, minute] = timeString.split(':');
   const date = new Date();
