@@ -33,6 +33,7 @@ const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
       const data = await res.json();
       setClassInfo(data);
       setLoading(false);
+      console.log('Modal Data:', data)
     };
 
     fetchClass();
@@ -55,6 +56,17 @@ const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
       console.error(result.error);
     }
   };
+function formatTime(timeString: string): string {
+  const [hour, minute] = timeString.split(':');
+  const date = new Date();
+  date.setHours(parseInt(hour), parseInt(minute));
+
+  return date.toLocaleTimeString([], {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  });
+}
   return (
     <Dialog open={isOpen} onOpenChange={open => !open && onClose()}>
       <DialogContent className='sm:max-w-lg'>
@@ -63,12 +75,12 @@ const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
           <DialogDescription>
             {classInfo ? (
               <>
-                <p>Category: {classInfo.category}</p>
-                <p>Time: {classInfo.time}</p>
-                <p>
+                Category: {classInfo.category}<br/>
+                Time: {formatTime(classInfo.time)}<br/>
+                {/* <p> */}
                   {/* Coach: {classInfo.coaches?.first_name} {classInfo.coaches?.last_name} */}
-                </p>
-                <p>Capacity: {classInfo.capacity}</p>
+                {/* </p> */}
+                Capacity: {classInfo.capacity}<br/>
               </>
             ) : (
               'Fetching class details...'

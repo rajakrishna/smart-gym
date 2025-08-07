@@ -58,6 +58,7 @@ export interface ClassData {
   duration: number;
   capacity: number;
   created_at: string;
+  
 }
 
 export interface MockClassData {

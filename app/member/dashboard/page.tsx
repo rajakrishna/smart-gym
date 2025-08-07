@@ -9,7 +9,7 @@ const page = () => {
     <div>
       <Classes />
       <CafeMenu />
-      <EnrolledClasses memberId='37d00ea7-e391-460f-957e-5a7d3917133d'/>
+      <EnrolledClasses memberId='1828034c-85bb-4763-a623-e67c1bedac3d'/>
     </div>
   );
 };
