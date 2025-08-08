@@ -70,7 +70,7 @@ const ClassSchedulesPage = () => {
               {/* Calendar */}
               <div className='flex-1 flex flex-col justify-center items-center'>
                 <Card className='w-fit py-4'>
-                  <CardContent className='px-4'>
+                  <CardContent className='p-0'>
                     <Calendar
                       mode='single'
                       selected={selectedDate}
