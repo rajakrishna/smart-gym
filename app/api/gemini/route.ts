@@ -39,9 +39,6 @@ export async function POST(req: NextRequest) {
                 - Structure your response with clear paragraphs
                 - Use bullet points or numbered lists when appropriate
                 - Each paragraph should contain 2-4 sentences maximum
-
-                // TODO: We can add other data here as props to make it more personalized. For example, if the user is a member, we can add their name and other data to the response, or if they have a specific goal, we can add that to the response.
-                // TODO: We can also add the user's name to the response.
                 
                 User question: ${input}
               `,
