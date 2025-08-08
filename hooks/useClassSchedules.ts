@@ -12,12 +12,11 @@ interface UseClassSchedulesState {
 
 export const useClassSchedules = () => {
   const today = new Date();
-  const firstOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
-  const [currentMonth, setCurrentMonth] = useState(firstOfMonth);
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(firstOfMonth);
+  const [currentMonth, setCurrentMonth] = useState(today);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(today);
   const [selectedCoach, setSelectedCoach] = useState(null)
-  const [filterCoach, setFilteredCoach] = useState(null)
+  // const [filterCoach, setFilteredCoach] = useState(null)
 
   // Dialog state management for the modals
   const [dialogs, setDialogs] = useState<DialogState>({
@@ -104,6 +103,7 @@ export const useClassSchedules = () => {
 
   const goToToday = () => {
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
     setSelectedDate(today);
     setCurrentMonth(today);
   };
