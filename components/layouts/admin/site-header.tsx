@@ -6,8 +6,10 @@ import { usePathname } from "next/navigation"
 
 export function SiteHeader() {
   const pathname = usePathname()
-  const title = pathname.split('/').pop()
 
+  // These next lines are used to handle cases where the pathname is like /admin/class-schedules/{id}
+  const pathSegments = pathname.split('/')
+  const title = pathSegments.length > 2 ? pathSegments[2] : pathSegments.pop()
 
   const handleDashboardTitles = (title?: string) =>
     title?.split('-').map(word =>
