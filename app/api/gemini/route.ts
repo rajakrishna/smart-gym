@@ -1,39 +1,21 @@
-// app/api/gemini-assistant/route.ts
 // https://aistudio.google.com/apikey - GET YOUR API KEY FROM HERE
 import { NextRequest, NextResponse } from 'next/server';
+
 import { GoogleGenerativeAI } from '@google/generative-ai';
-
-export const runtime = 'nodejs';
-
-// Optional: narrow to known moods so you don't pass arbitrary strings
-type MoodValue = 'happy' | 'neutral' | 'tired' | 'sore' | 'motivated';
-
-function normalizeMood(mood: unknown): MoodValue | null {
-  if (typeof mood !== 'string') return null;
-  const v = mood.toLowerCase();
-  const allowed: MoodValue[] = ['happy', 'neutral', 'tired', 'sore', 'motivated'];
-  return (allowed as string[]).includes(v) ? (v as MoodValue) : null;
-}
 
 export async function POST(req: NextRequest) {
   try {
-    const { input, mood } = await req.json();
+    const { input } = await req.json();
 
-    if (!input || typeof input !== 'string') {
-      return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
+    const modelType = process.env.GEMINI_MODEL_TYPE || 'gemini-1.5-pro';
+
+    console.log('modelType', modelType);
+
+    if (!modelType) {
+      return NextResponse.json({ error: 'Model not found' }, { status: 500 });
     }
 
-    const modelType = process.env.GEMINI_MODEL_TYPE || 'gemini-2.5-flash-lite';
-    if (!process.env.GEMINI_API_KEY) {
-      return NextResponse.json({ error: 'GEMINI_API_KEY missing' }, { status: 500 });
-    }
-
-    const moodNorm = normalizeMood(mood);
-    const moodLine = moodNorm
-      ? `User reported mood: ${moodNorm}. Adjust advice accordingly (e.g., scale intensity, volume, and recovery).`
-      : `No mood provided. Use standard guidance.`;
-
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'failed');
     const model = genAI.getGenerativeModel({ model: modelType });
 
     const result = await model.generateContent({
@@ -43,52 +25,43 @@ export async function POST(req: NextRequest) {
           parts: [
             {
               text: `
-${moodLine}
+                You are a friendly and knowledgeable gym assistant and personal trainer. You help people with:
+                - Workout routines and exercise recommendations
+                - Nutrition advice and meal planning
+                - Fitness goals and motivation
+                - Proper form and exercise techniques
+                - Recovery and rest recommendations
+                
+                Keep your responses helpful, encouraging, and practical. Always prioritize safety and remind users to consult qualified fitness professionals for personalized guidance. Don't return more than 500 words. Finish with a TLDR, and a question to help the user continue the conversation.
+                
+                IMPORTANT FORMATTING RULES:
+                - Use double line breaks between paragraphs for proper spacing
+                - Structure your response with clear paragraphs
+                - Use bullet points or numbered lists when appropriate
+                - Each paragraph should contain 2-4 sentences maximum
 
-You are a friendly and knowledgeable **gym assistant and personal trainer**. You are ONLY allowed to answer questions related to:
-
-- Workout routines and exercise recommendations  
-- Nutrition advice and meal planning  
-- Fitness goals and motivation  
-- Proper form and exercise techniques  
-- Recovery and rest recommendations  
-
-If a question is outside health/fitness/wellness, politely decline and ask for a fitness-related question.
-
-Tone:
-- Encouraging, supportive, and practical  
-- Clear and easy to understand  
-- Respectful and motivational  
-
-ALWAYS prioritize safety. Remind users to consult healthcare professionals for medical conditions or injuries.
-
-Formatting rules:  
-- Use double line breaks between paragraphs  
-- Clear paragraphs (2–4 sentences each)  
-- Use bullet points or numbered lists when appropriate  
-- Max 500 words  
-
-End every response with:  
-- A short TL;DR  
-- A follow-up question to continue the conversation
-
-User question: ${input}
-              `.trim(),
+                // TODO: We can add other data here as props to make it more personalized. For example, if the user is a member, we can add their name and other data to the response, or if they have a specific goal, we can add that to the response.
+                // TODO: We can also add the user's name to the response.
+                
+                User question: ${input}
+              `,
             },
           ],
         },
       ],
       generationConfig: {
+        // USE THIS TO CONTROL THE OUTPUT LENGTH
         maxOutputTokens: 500,
+        // USE THIS TO CONTROL THE CREATIVITY OF THE RESPONSE
+        // 0.0 is the least creative, 1.0 is the most creative
         temperature: 0.7,
       },
     });
 
-    const text = result.response.text();
-    return NextResponse.json({ text, mood: moodNorm });
-  } catch (error: any) {
-    console.error('Error generating content:', error?.message || error);
-    const status = error?.response?.status || 500;
-    return NextResponse.json({ error: 'Error generating content' }, { status });
+    const text = await result.response.text();
+    return NextResponse.json({ text });
+  } catch (error) {
+    console.error('Error generating content:', error);
+    return NextResponse.json({ error: 'Error generating content' }, { status: 500 });
   }
 }

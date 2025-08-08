@@ -31,7 +31,7 @@ export default function FloatingAIChat({ children }: FloatingAIChatProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [bootLoading, setBootLoading] = useState(true);
 
-  // Fetch initial message from server API (server uses Supabase)
+  // Fetch initial message from server API 
   const fetchInitialMessage = async (): Promise<Message> => {
     try {
       const res = await fetch('/api/gemini/initialMessage', { cache: 'no-store' });
