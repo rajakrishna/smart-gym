@@ -23,9 +23,10 @@ const LABELS = {
       submitLabel: 'Submit Login Form',
     },
   },
-memberContextId:{
-  id:'1828034c-85bb-4763-a623-e67c1bedac3d'},
-  
+  memberContextId: {
+    id: '1828034c-85bb-4763-a623-e67c1bedac3d',
+  },
+
   hero: {
     header: 'Maximize Your Fitness',
     subHeader1: 'A Revolutionary',
@@ -51,7 +52,7 @@ memberContextId:{
   },
   mobileView: {
     banner: 'Please use a mobile device to view this page',
-    sub: 'This experience is designed for mobile devices only.'
+    sub: 'This experience is designed for mobile devices only.',
   },
   memberDash: {
     firstName: 'John',
@@ -64,13 +65,12 @@ memberContextId:{
       noReturns: 'You have no classes scheduled',
       status1: 'Waitlisted',
       status2: 'Confirmed',
-      button: 'Cancel'
-
-    }
+      button: 'Cancel',
+    },
   },
-memberClasses:{
-  coach:'Coach'
-},
+  memberClasses: {
+    coach: 'Coach',
+  },
 
   cafeMenu: {
     header: 'Cafe Menu',
@@ -399,15 +399,37 @@ memberClasses:{
       },
     },
     admin_analytics: {
-      totalMembers: 'total members', 
-      revenue: 'revenue', 
+      totalMembers: 'total members',
+      revenue: 'revenue',
       activeUsers: 'active users',
       newUsers: 'new users',
-      membershipGrowth: 'membership growth', 
-      classAttendance: 'class attendence', 
+      membershipGrowth: 'membership growth',
+      classAttendance: 'class attendence',
       targetRevenue: 'target revenue',
-      activeGymHours: 'active gym hours'
-    }
+      activeGymHours: 'active gym hours',
+    },
+    elevenlabs: {
+      title: 'ElevenLabs Conversation',
+      description: 'Start an AI-powered voice conversation',
+      buttons: {
+        startConversation: 'Start Conversation',
+        endConversation: 'End Conversation',
+      },
+      status: {
+        label: 'Status:',
+        speaking: 'Agent is speaking',
+        listening: 'Agent is listening',
+      },
+      errors: {
+        failedToStart: 'Failed to start conversation:',
+      },
+      console: {
+        connected: 'Connected',
+        disconnected: 'Disconnected',
+        message: 'Message:',
+        error: 'Error:',
+      },
+    },
   },
 
   // AI Chat labels

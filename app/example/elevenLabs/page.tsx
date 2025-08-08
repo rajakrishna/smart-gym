@@ -6,13 +6,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Mic, MicOff, Phone, PhoneOff } from 'lucide-react';
+import LABELS from '@/constants/labels';
 
 export default function ConversationView() {
     const conversation = useConversation({
-        onConnect: () => console.log('Connected'),
-        onDisconnect: () => console.log('Disconnected'),
-        onMessage: (message) => console.log('Message:', message),
-        onError: (error) => console.error('Error:', error),
+        onConnect: () => console.log(LABELS.pages.elevenlabs.console.connected),
+        onDisconnect: () => console.log(LABELS.pages.elevenlabs.console.disconnected),
+        onMessage: (message) => console.log(LABELS.pages.elevenlabs.console.message, message),
+        onError: (error) => console.error(LABELS.pages.elevenlabs.console.error, error),
     });
 
     const startConversation = useCallback(async () => {
@@ -28,7 +29,7 @@ export default function ConversationView() {
             });
 
         } catch (error) {
-            console.error('Failed to start conversation:', error);
+            console.error(LABELS.pages.elevenlabs.errors.failedToStart, error);
         }
     }, [conversation]);
 
@@ -44,10 +45,10 @@ export default function ConversationView() {
                 <CardHeader className="text-center">
                     <CardTitle className="flex items-center justify-center gap-2">
                         <Phone className="h-6 w-6" />
-                        ElevenLabs Conversation
+                        {LABELS.pages.elevenlabs.title}
                     </CardTitle>
                     <CardDescription>
-                        Start an AI-powered voice conversation
+                        {LABELS.pages.elevenlabs.description}
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -59,7 +60,7 @@ export default function ConversationView() {
                             className="flex items-center gap-2"
                         >
                             <Mic className="h-4 w-4" />
-                            Start Conversation
+                            {LABELS.pages.elevenlabs.buttons.startConversation}
                         </Button>
                         <Button
                             onClick={stopConversation}
@@ -69,13 +70,13 @@ export default function ConversationView() {
                             className="flex items-center gap-2"
                         >
                             <PhoneOff className="h-4 w-4" />
-                            End Conversation
+                            {LABELS.pages.elevenlabs.buttons.endConversation}
                         </Button>
                     </div>
 
                     <div className="flex flex-col items-center space-y-4">
                         <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium">Status:</span>
+                            <span className="text-sm font-medium">{LABELS.pages.elevenlabs.status.label}</span>
                             <Badge variant={isConnected ? "default" : "secondary"}>
                                 {conversation.status}
                             </Badge>
@@ -86,12 +87,12 @@ export default function ConversationView() {
                                 {conversation.isSpeaking ? (
                                     <>
                                         <MicOff className="h-4 w-4" />
-                                        Agent is speaking
+                                        {LABELS.pages.elevenlabs.status.speaking}
                                     </>
                                 ) : (
                                     <>
                                         <Mic className="h-4 w-4" />
-                                        Agent is listening
+                                        {LABELS.pages.elevenlabs.status.listening}
                                     </>
                                 )}
                             </div>
