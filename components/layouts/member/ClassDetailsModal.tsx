@@ -18,13 +18,15 @@ type Props = {
   onClose: () => void;
   classId: string | null;
 };
+import { MOTIVATIONAL_MESSAGES } from '@/constants/motivationMessages';
+import LABELS from '@/constants/labels';
 
 const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
   const [classInfo, setClassInfo] = useState<ClassData | null>(null);
   const [loading, setLoading] = useState(false);
   const [enrollStatus, setEnrollStatus] = useState<'idle' | 'success' |'error'>('idle')
   const user = useUser()
-// console.log('modal user:', user?.user_id)
+
   useEffect(() => {
     if (!classId) return;
 
@@ -45,7 +47,7 @@ const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
     const timer = setTimeout(() => {
       onClose();
       setEnrollStatus('idle');
-    }, 2500);
+    }, 9500);
     return () => clearTimeout(timer);
   }
 }, [enrollStatus, onClose]);
@@ -83,6 +85,7 @@ function formatTime(timeString: string): string {
     hour12: true,
   });
 }
+const randomMessage = MOTIVATIONAL_MESSAGES[Math.floor(Math.random()* MOTIVATIONAL_MESSAGES.length)]
   return (
   <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
     <DialogContent className="sm:max-w-lg text-center">
@@ -93,9 +96,9 @@ function formatTime(timeString: string): string {
             <DialogDescription>
               {classInfo ? (
                 <>
-                  Category: {classInfo.category}<br />
-                  Time: {formatTime(classInfo.time)}<br />
-                  Capacity: {classInfo.capacity}<br />
+                  {LABELS.modals.gymClassModal.category} {classInfo.category}<br />
+                  {LABELS.modals.gymClassModal.time} {formatTime(classInfo.time)}<br />
+                  {LABELS.modals.gymClassModal.capacity} {classInfo.capacity}<br />
                 </>
               ) : (
                 'Fetching class details...'
@@ -105,10 +108,10 @@ function formatTime(timeString: string): string {
 
           <DialogFooter className="flex justify-center gap-2">
             <Button variant="outline" onClick={onClose}>
-              Cancel
+              {LABELS.modals.gymClassModal.cancelButton}
             </Button>
             <Button onClick={handleEnroll} disabled={!classInfo}>
-              Enroll
+              {LABELS.modals.gymClassModal.enrollButton}
             </Button>
           </DialogFooter>
         </>
@@ -116,19 +119,19 @@ function formatTime(timeString: string): string {
 
       {enrollStatus === 'success' && (
         <div className="space-y-4 py-6">
-          <h2 className="text-2xl font-bold">Get ready to sweat!</h2>
+          <h2 className="text-2xl font-bold">{randomMessage}</h2>
           <p className="text-muted-foreground">
-            {classInfo?.class_name ?? 'The class'} has been added to your schedule.
+            {classInfo?.class_name ?? 'The class'} 
           </p>
-          <Button onClick={onClose}>Close</Button>
+          <Button onClick={onClose}>{LABELS.modals.gymClassModal.closeButton}</Button>
         </div>
       )}
 
       {enrollStatus === 'error' && (
         <div className="space-y-4 py-6">
-          <h2 className="text-2xl font-bold text-red-600"> Enrollment Failed</h2>
-          <p className="text-muted-foreground">Please try again later.</p>
-          <Button onClick={() => setEnrollStatus('idle')}>Try Again</Button>
+          <h2 className="text-2xl font-bold text-red-600"> {LABELS.modals.gymClassModal.enrollFail}</h2>
+          <p className="text-muted-foreground">{LABELS.modals.gymClassModal.tryAgain}</p>
+          <Button onClick={() => setEnrollStatus('idle')}>{LABELS.modals.gymClassModal.try}</Button>
         </div>
       )}
     </DialogContent>
