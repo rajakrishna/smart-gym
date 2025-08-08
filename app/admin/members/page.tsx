@@ -8,7 +8,7 @@ import { DataTable } from '@/components/ui/data-table'
 import { User } from '@/types/shared'
 import SearchMembersComponent from '@/components/admin/members/SearchMembersComponent'
 import { mockMembersData } from '@/constants/mockData'
-import ICONS from '@/constants/icons'
+// import ICONS from '@/constants/icons'
 import LABELS from '@/constants/labels'
 
 const MembersPage = () => {
