@@ -115,6 +115,16 @@ const Page = () => {
         fetchProducts()
     }, [])
 
+    if (loading) {
+        return (
+            <div className="container mx-auto py-10 px-4">
+                <div className="flex items-center justify-center h-64">
+                    <div className="text-lg">Loading products...</div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="container mx-auto py-10 px-4">
             {/* Tabs to switch between items in cafe and transaction / order history */}
@@ -131,17 +141,11 @@ const Page = () => {
                     </CafeProductModal>
                 </div>
                 <TabsContent value="cafe">
-                    {loading ? (
-                        <div className="flex justify-center items-center py-8">
-                            <div className="text-gray-500">Loading products...</div>
-                        </div>
-                    ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {products.map((product: Product) => (
-                                <ProductCard key={product.product_id} product={product} />
-                            ))}
-                        </div>
-                    )}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {products.map((product: Product) => (
+                            <ProductCard key={product.product_id} product={product} />
+                        ))}
+                    </div>
                 </TabsContent>
                 <TabsContent value="transactions">
                     <DataTable columns={columns} data={data} />
