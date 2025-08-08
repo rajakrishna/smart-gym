@@ -3,7 +3,7 @@
 import React, { createContext, useContext } from 'react';
 
 export type UserData = {
-  id: string;
+  user_id: string;
   first_name: string;
   email: string;
   user_image:string;

@@ -15,9 +15,10 @@ export type ClassInfo = {
 type ClassCardProps = {
   classInfo: ClassInfo;
   index: number;
+  onClick?: (id:string)=>void;
 };
 
-const ClassCard: React.FC<ClassCardProps> = ({ classInfo, index }) => {
+const ClassCard: React.FC<ClassCardProps> = ({ classInfo, index, onClick }) => {
   console.log('ClassInfo', classInfo)
   function formatCategory(category: string) {
   if (!category) return '';
@@ -26,7 +27,7 @@ const ClassCard: React.FC<ClassCardProps> = ({ classInfo, index }) => {
 }
 
   return (
-    <div key={index} className='relative h-[220px] min-w-[160px] rounded-2xl overflow-hidden'>
+    <div key={index} className='relative h-[220px] min-w-[160px] rounded-2xl overflow-hidden' onClick={()=> onClick?.(classInfo.id)}>
       {/* Background image */}
       <Image src={classInfo.src} alt={classInfo.category} fill className='object-cover' />
 

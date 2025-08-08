@@ -4,9 +4,10 @@ import React, { useEffect, useState } from 'react';
 
 import { CATEGORY_IMAGE_MAP } from '@/constants/classSchedules';
 import { mockDashClasses } from '@/constants/mockData';
-import { MockClassData, APIClassData } from '@/types/shared';
+import { APIClassData, MockClassData } from '@/types/shared';
 
 import ClassCard, { ClassInfo } from './classCard';
+import ClassDetailsModal from './ClassDetailsModal';
 
 const label = {
   heading: 'Upcoming Classes Today',
@@ -28,7 +29,13 @@ const mapMockToClassInfo = (mock: MockClassData): ClassInfo => ({
 const Classes: React.FC = () => {
   const [classes, setClasses] = useState<ClassInfo[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedClassId, setSelectedClassId] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
+  const handleOpenModal = (id: string) => {
+    setSelectedClassId(id);
+    setModalOpen(true);
+  };
   useEffect(() => {
     const fetchClasses = async () => {
       try {
@@ -67,7 +74,6 @@ const Classes: React.FC = () => {
     fetchClasses();
   }, []);
 
-
   return (
     <section className=''>
       <h1 className='h1 container'>{label.heading}</h1>
@@ -99,8 +105,12 @@ const Classes: React.FC = () => {
         <div className='mx-auto max-w-[1440px] relative flex flex-col lg:mb-10 xl:mb-20'>
           <div className='hide-scrollbar flex h-[240px] w-full items-start justify-start gap-4 overflow-x-auto lg:h-[500px] xl:h-[640px] px-1'>
             {classes.map((classItem, index) => (
-              <ClassCard key={index} classInfo={classItem} index={index} />
+              <ClassCard key={index} classInfo={classItem} index={index} onClick={() => handleOpenModal(classItem.id)} />
             ))}
+            {modalOpen && (
+              <ClassDetailsModal onClose={() => setModalOpen(false)} isOpen={modalOpen} classId={selectedClassId}/>
+
+            )}
           </div>
         </div>
       )}
