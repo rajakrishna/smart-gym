@@ -1,11 +1,16 @@
 import {
+  ActiveHours,
+  AnalyticsStatistic,
   CheckInHistory,
+  ClassAttendance,
   ClassScheduleItem,
   ClassTaken,
   EnrolledBooking,
   Invoice,
   Member,
+  MembershipGrowth,
   Product,
+  TargetRevenue,
 } from '@/types/shared';
 
 // Mock data for Member Detail Page - In a real app, this would come from an API
@@ -244,6 +249,15 @@ export const mockProducts: Product[] = [
   },
 ];
 
+export const mockProduct = {
+  id: 1,
+  name: 'Espresso',
+  price: 4.5,
+  image: 'https://via.placeholder.com/400x300',
+  description: 'Strong coffee shot with rich flavor and aromatic notes. Perfect for energy boost.',
+  nutritionalInfo: 'Calories: 5 | Caffeine: 63mg | Fat: 0g | Carbs: 1g',
+};
+
 export const mockClasses: ClassScheduleItem[] = [
   {
     class_id: '1',
@@ -338,5 +352,110 @@ export const mockEnrolledClasses: EnrolledBooking[] = [
       scheduled_on: '2025-08-02',
       time: '10:00:00',
     },
+  },
+];
+
+export const mockStatisticsCards: AnalyticsStatistic[] = [
+  {
+    stat_id: '1',
+    title: 'totalMembers',
+    value: 2400,
+    percentage_change: 4.5,
+    increase: true,
+    icon_name: 'totalMembers',
+  },
+  {
+    stat_id: '2',
+    title: 'revenue',
+    value: 42800,
+    percentage_change: 2.1,
+    increase: false,
+    icon_name: 'revenue',
+  },
+  {
+    stat_id: '3',
+    title: 'activeUsers',
+    value: 1345,
+    percentage_change: -3.2,
+    increase: false,
+    icon_name: 'activeUsers',
+  },
+  {
+    stat_id: '4',
+    title: 'newUsers',
+    value: 98,
+    percentage_change: 6.8,
+    increase: true,
+    icon_name: 'newUsers',
+  },
+];
+
+export const mockMembershipGrowth: MembershipGrowth[] = [
+  { month: 'Jan', percentage_growth: 12 },
+  { month: 'Feb', percentage_growth: 15 },
+  { month: 'Mar', percentage_growth: 18 },
+  { month: 'Apr', percentage_growth: 20 },
+  { month: 'May', percentage_growth: 14 },
+  { month: 'Jun', percentage_growth: 22 },
+];
+
+export const mockClassAttendance: ClassAttendance[] = [
+  { class_type: 'Yoga', visits: 120 },
+  { class_type: 'HIIT', visits: 90 },
+  { class_type: 'Cycling', visits: 75 },
+  { class_type: 'Boxing', visits: 110 },
+];
+
+export const mockTargetRevenue: TargetRevenue = {
+  achieved: 28000,
+  target: 42000,
+};
+
+export const mockActiveHours: ActiveHours[] = [
+  { hour: '6 AM', active_users: 45 },
+  { hour: '8 AM', active_users: 72 },
+  { hour: '10 AM', active_users: 53 },
+  { hour: '12 PM', active_users: 95 },
+  { hour: '2 PM', active_users: 38 },
+  { hour: '4 PM', active_users: 87 },
+  { hour: '6 PM', active_users: 102 },
+  { hour: '8 PM', active_users: 76 },
+];
+
+export const mockDashClasses = [
+  {
+    class_id: 'dummy-1',
+    category: 'yoga',
+    coach: [{ first_name: 'Mock' }],
+    time: '07:00:00',
+    capacity: 10,
+  },
+  {
+    class_id: 'dummy-12',
+    category: 'Cycling',
+    coach: [{ first_name: 'Mock' }],
+    time: '08:30:00',
+    capacity: 15,
+  },
+  {
+    class_id: 'dummy-2',
+    category: 'Hiit',
+    coach: [{ first_name: 'Mock' }],
+    time: '09:00:00',
+    capacity: 15,
+  },
+  {
+    class_id: 'dummy-3',
+    category: 'aquatic',
+    coach: [{ first_name: 'Mock' }],
+    time: '10:30:00',
+    capacity: 15,
+  },
+  {
+    class_id: 'dummy-4',
+    category: 'boxing',
+    coach: [{ first_name: 'Mock' }],
+    time: '14:30:00',
+    capacity: 15,
   },
 ];

@@ -58,8 +58,29 @@ export interface ClassData {
   duration: number;
   capacity: number;
   created_at: string;
+    coaches: {
+    first_name: string;
+    last_name: string;
+  };
 }
 
+export interface MockClassData {
+  class_id: string;
+  category: string;
+  time: string;
+    coaches?: {
+    first_name?: string;
+    last_name?: string;
+  };
+}
+
+export interface APIClassData {
+  class_id: string;
+  coach_name: string;
+  time: string;
+  category: string;
+  src: string;
+}
 export type ClassStatus = 'scheduled' | 'cancelled' | 'completed' | 'in-progress';
 
 export interface ClassSchedule {
@@ -195,20 +216,20 @@ export interface Invoice {
   status: 'paid' | 'pending' | 'overdue';
 }
 
-// Cafe/Nutrition Products Interface
+// Start of Product Related Interfaces
 export interface Product {
   product_id: string;
   name: string;
-  product_image: string;
   product_description: string;
   price: number;
   quantity: number;
   min_quantity: number;
-  category: 'cafe' | 'drink' | 'snack' | 'protein_bar';
   number_sold: number;
+  category: 'cafe' | 'drink' | 'snack' | 'protein_bar';
+  product_image: string;
+  sku: string;
   restock: boolean;
   is_active: boolean;
-  sku: string;
 }
 
 export interface EnrolledClassMember {
@@ -241,4 +262,34 @@ export interface EnrolledBooking {
     ClassData,
     'class_name' | 'category' | 'scheduled_on' | 'time'
   >;
+}
+export type AdminStatType = 'totalMembers' | 'revenue' | 'activeUsers' | 'newUsers';
+
+export interface AnalyticsStatistic {
+  stat_id: string;
+  title: string;
+  value: number;
+  percentage_change: number;
+  increase: boolean;
+  icon_name: AdminStatType;
+}
+
+export interface MembershipGrowth {
+  month: string;
+  percentage_growth: number;
+}
+
+export interface ClassAttendance {
+  class_type: string;
+  visits: number 
+}
+
+export interface TargetRevenue {
+  achieved: number;
+  target: number;
+}
+
+export interface ActiveHours {
+  hour: string;
+  active_users: number; 
 }

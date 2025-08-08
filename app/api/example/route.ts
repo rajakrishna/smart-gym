@@ -22,7 +22,7 @@ export async function GET() {
       data: examples,
     });
   } catch (error) {
-    console.error('GET /api/example error:', error);
+    console.error('GET /api/example error:', error)
     return NextResponse.json({ success: false, data: [], error: 'Internal server error' }, { status: 500 });
   }
 }
