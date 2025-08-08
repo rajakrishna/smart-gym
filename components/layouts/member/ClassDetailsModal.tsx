@@ -64,12 +64,12 @@ const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
       setEnrollStatus('success')
     } else {
       console.error(result.error || 'Enrollment failed')
-      alert('Enrollment failed. Please try again');
       setEnrollStatus('error')
     }
   };
 
-function formatTime(timeString: string): string {
+function formatTime(timeString?: string): string {
+  if(!timeString) return "TBD"
   const [hour, minute] = timeString.split(':');
   const date = new Date();
   date.setHours(parseInt(hour), parseInt(minute));
