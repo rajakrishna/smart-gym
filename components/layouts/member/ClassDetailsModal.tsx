@@ -11,7 +11,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-// import LABELS from '@/constants/labels';
 import type { ClassData } from '@/types/shared';
 type Props = {
   isOpen: boolean;
@@ -23,7 +22,6 @@ import LABELS from '@/constants/labels';
 
 const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
   const [classInfo, setClassInfo] = useState<ClassData | null>(null);
-  const [loading, setLoading] = useState(false);
   const [enrollStatus, setEnrollStatus] = useState<'idle' | 'success' |'error'>('idle')
   const user = useUser()
 
@@ -31,12 +29,9 @@ const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
     if (!classId) return;
 
     const fetchClass = async () => {
-      setLoading(true);
       const res = await fetch(`/api/classes/${classId}`);
       const data = await res.json();
       setClassInfo(data);
-      setLoading(false);
-      console.log('Modal Class Data:', data)
     };
 
     fetchClass();
@@ -47,7 +42,7 @@ const ClassDetailsModal: React.FC<Props> = ({ isOpen, onClose, classId }) => {
     const timer = setTimeout(() => {
       onClose();
       setEnrollStatus('idle');
-    }, 9500);
+    }, 2500);
     return () => clearTimeout(timer);
   }
 }, [enrollStatus, onClose]);
@@ -121,7 +116,7 @@ const randomMessage = MOTIVATIONAL_MESSAGES[Math.floor(Math.random()* MOTIVATION
         <div className="space-y-4 py-6">
           <h2 className="text-2xl font-bold">{randomMessage}</h2>
           <p className="text-muted-foreground">
-            {classInfo?.class_name ?? 'The class'} 
+            {classInfo?.class_name ?? 'The class'} {LABELS.modals.gymClassModal.success}
           </p>
           <Button onClick={onClose}>{LABELS.modals.gymClassModal.closeButton}</Button>
         </div>
