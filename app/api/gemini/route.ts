@@ -1,64 +1,44 @@
-// https://aistudio.google.com/apikey - GET YOUR API KEY FROM HERE
 import { NextRequest, NextResponse } from 'next/server';
+import { generateText } from 'ai';
+import { google } from '@ai-sdk/google';
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
+const FITNESS_ONLY_SYSTEM = `
+You are a friendly and knowledgeable gym assistant and personal trainer.
+ONLY cover fitness and nutrition topics:
+- Nutrition advice and meal planning
+- Workout routines and exercise recommendations
+- Fitness goals and motivation
+- Proper form and exercise techniques
+- Recovery and rest recommendations
+
+Keep your responses helpful, encouraging, and practical.
+Always prioritize safety and suggest consulting qualified fitness professionals for personalized guidance.
+Don't return more than 500 words. Finish with a TLDR, and a question to help the user continue the conversation.
+
+IMPORTANT FORMATTING RULES:
+- Use double line breaks between paragraphs for proper spacing
+- Structure your response with clear paragraphs
+- Use bullet points or numbered lists when appropriate
+- Each paragraph should contain 2–4 sentences maximum
+`;
 
 export async function POST(req: NextRequest) {
   try {
     const { input } = await req.json();
 
-    const modelType = process.env.GEMINI_MODEL_TYPE || 'gemini-1.5-pro';
+    const modelType = process.env.GEMINI_MODEL_TYPE || 'gemini-1.5-flash';
 
-    console.log('modelType', modelType);
-
-    if (!modelType) {
-      return NextResponse.json({ error: 'Model not found' }, { status: 500 });
-    }
-
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'failed');
-    const model = genAI.getGenerativeModel({ model: modelType });
-
-    const result = await model.generateContent({
-      contents: [
-        {
-          role: 'user',
-          parts: [
-            {
-              text: `
-                You are a friendly and knowledgeable gym assistant and personal trainer. You help people with:
-                - Workout routines and exercise recommendations
-                - Nutrition advice and meal planning
-                - Fitness goals and motivation
-                - Proper form and exercise techniques
-                - Recovery and rest recommendations
-                
-                Keep your responses helpful, encouraging, and practical. Always prioritize safety and remind users to consult qualified fitness professionals for personalized guidance. Don't return more than 500 words. Finish with a TLDR, and a question to help the user continue the conversation.
-                
-                IMPORTANT FORMATTING RULES:
-                - Use double line breaks between paragraphs for proper spacing
-                - Structure your response with clear paragraphs
-                - Use bullet points or numbered lists when appropriate
-                - Each paragraph should contain 2-4 sentences maximum
-                
-                User question: ${input}
-              `,
-            },
-          ],
-        },
-      ],
-      generationConfig: {
-        // USE THIS TO CONTROL THE OUTPUT LENGTH
-        maxOutputTokens: 500,
-        // USE THIS TO CONTROL THE CREATIVITY OF THE RESPONSE
-        // 0.0 is the least creative, 1.0 is the most creative
-        temperature: 0.7,
-      },
+    const { text } = await generateText({
+      model: google(modelType), // reads GOOGLE_GENERATIVE_AI_API_KEY
+      system: FITNESS_ONLY_SYSTEM,
+      prompt: `User question: ${input}`,
+      maxOutputTokens: 500,
+      temperature: 0.7,
     });
 
-    const text = await result.response.text();
     return NextResponse.json({ text });
-  } catch (error) {
-    console.error('Error generating content:', error);
+  } catch (err) {
+    console.error('AI SDK error:', err);
     return NextResponse.json({ error: 'Error generating content' }, { status: 500 });
   }
 }
