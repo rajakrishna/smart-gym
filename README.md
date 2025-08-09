@@ -256,7 +256,8 @@ The application uses Next.js API Routes organized by feature:
 | `/api/checkins`                     | gets all checkins by user ID          |
 | `/api/invoices/add`                 | adds invoice to user_invoice table    |
 | `/api/invoices/[userId]`            | gets all invoices by user ID          |
-| `/api/invoices/purchase`            | adds invoice and updates user total   |
+| `/api/invoices/purchase`            | + invoice, updates total, supports +1 |
+| `/api/profile/[userId]`             | gets all profile data by user ID      |
 ---
 
 ### API Endpoints

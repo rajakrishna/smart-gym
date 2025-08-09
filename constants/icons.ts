@@ -37,7 +37,8 @@ import {
   UserPlus,
   BarChart,
   PieChart,
-  ShieldCheck, 
+  ShieldCheck,
+  ChevronRight, 
 } from 'lucide-react';
 
 const ICONS = {
@@ -115,12 +116,11 @@ const ICONS = {
   },
 memberProfile: {
     memberDetails: User,
-    paymentMethod: CreditCard,
-    notifications: Bell,
+    memberInvoices: CreditCard,
     checkinHistory: ShieldCheck,
     classHistory: Calendar,
-    inviteFriends: Users, 
-    userIcon: UserCircle
+    userIcon: UserCircle,
+    dropDown: ChevronRight
   },
   // AI Chat icons
   aiChat: {
