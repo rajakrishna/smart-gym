@@ -215,19 +215,12 @@ const LABELS = {
       description: 'This is an example page',
       link: '/example',
     },
-    member_profile: {
-      header: 'profile',
-      name: 'member name',
-      menu: {
-        memberDetails: 'member details',
-        paymentMethod: 'payment method',
-        notifications: 'notifications',
-        checkinHistory: 'check-in history',
-        classHistory: 'fitness class history',
-        inviteFriends: 'invite friends',
-        userIcon: 'user icon',
-        logout: '',
-      },
+    member_profile: {    
+      memberDetails: 'Member Details',
+      memberInvoice: 'Member Invoice',
+      checkinHistory: 'Check-In History',
+      classHistory: 'Fitness Class',
+      userIcon: 'User Profile',
     },
     admin_members: {
       columns: {
