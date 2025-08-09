@@ -1,7 +1,8 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import type { ClassFormData, DialogState, ClassData, Coach, ClassScheduleItem } from '@/types/shared';
+
+import type { ClassData, ClassFormData, ClassScheduleItem, Coach, DialogState } from '@/types/shared';
 
 interface UseClassSchedulesState {
   currentMonth: Date;
@@ -15,8 +16,8 @@ export const useClassSchedules = () => {
 
   const [currentMonth, setCurrentMonth] = useState(today);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(today);
-  const [selectedCoach, setSelectedCoach] = useState(null)
-  // const [filterCoach, setFilteredCoach] = useState(null)
+  const [selectedCoach, setSelectedCoach] = useState(null);
+  const [filterCoach, setFilteredCoach] = useState(null);
 
   // Dialog state management for the modals
   const [dialogs, setDialogs] = useState<DialogState>({
@@ -60,24 +61,23 @@ export const useClassSchedules = () => {
     fetchClasses();
   }, [fetchClasses]);
 
-
-  const [coaches, setCoaches] = useState<Coach[]>([])
+  const [coaches, setCoaches] = useState<Coach[]>([]);
 
   useEffect(() => {
     const fetchCoaches = async () => {
       try {
-        const res = await fetch('/api/coaches/getAll')
-        const data = await res.json()
+        const res = await fetch('/api/coaches/getAll');
+        const data = await res.json();
         if (Array.isArray(data)) {
-          setCoaches(data)
+          setCoaches(data);
         }
       } catch (err) {
-        console.error('Failed to fetch coaches:', err)
+        console.error('Failed to fetch coaches:', err);
       }
-    }
+    };
 
-    fetchCoaches()
-  }, [])
+    fetchCoaches();
+  }, []);
 
   const resetClassForm = useCallback(() => {
     setClassForm({
@@ -143,10 +143,18 @@ export const useClassSchedules = () => {
   );
 
   const openAddDialog = () => {
-    setClassForm({ title: '', class_name: '', coach_id: '', category: '', capacity: 0, time: '', duration: 60, type: '' });
+    setClassForm({
+      title: '',
+      class_name: '',
+      coach_id: '',
+      category: '',
+      capacity: 0,
+      time: '',
+      duration: 60,
+      type: '',
+    });
     setDialogs(prev => ({ ...prev, addClass: true }));
   };
-
 
   const openClassActionDialog = (classId: string, classTitle: string) => {
     setDialogs(prev => ({

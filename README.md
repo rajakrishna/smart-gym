@@ -240,6 +240,7 @@ The application uses Next.js API Routes organized by feature:
 | `/api/classes/enrolled/[classId]`   | get all members enrolled in a class   |
 | `/api/classes/getAll`               | get classes                           |
 | `/api/classes/update`               | updates class                         |
+| `/api/classes/memberdash`           | get daily classes                     |
 | `/api/classes/waitlisted/[classId]` | get all members waitlisted in a class |
 | `/api/coaches/getAll`               | get all coaches                       |
 | `/api/gemini/`                      | member AI assistant                   |
@@ -252,8 +253,10 @@ The application uses Next.js API Routes organized by feature:
 | `/api/users/create`                 | creates user                          |
 | `/api/users/getAll`                 | get all users                         |
 | `/api/users/update`                 | updates user                          |
-| `/api/checkins`                     | gets all checkins by user i           |
-
+| `/api/checkins`                     | gets all checkins by user ID          |
+| `/api/invoices/add`                 | adds invoice to user_invoice table    |
+| `/api/invoices/[userId]`            | gets all invoices by user ID          |
+| `/api/invoices/purchase`            | adds invoice and updates user total   |
 ---
 
 ### API Endpoints
@@ -277,7 +280,13 @@ The application uses Next.js API Routes organized by feature:
   - [Step 2]
   - [Step 3]
   - [Step 4]
-
+- API Endpoint: `/api/classes/memberdash`
+- Purpose: Get Gym classes by date and categories
+- Triggered by: Gym Member
+- Steps:
+  - Gym Member logs in
+  - System fetches all gym classes to display or mock fallback
+  
 - API Endpoint: `/api/messages/getAll`
 - Purpose: Get all messages
 - Triggered by: Admin user
