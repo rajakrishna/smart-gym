@@ -256,6 +256,9 @@ const LABELS = {
         addMember: 'Add Member',
         searchMembers: 'Search Members',
       },
+      loading: {
+        loadingMembers: 'Loading members...',
+      },
     },
     admin_messages: {
       columns: {
