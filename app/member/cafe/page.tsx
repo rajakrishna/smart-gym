@@ -4,15 +4,18 @@
 
 import React, { useEffect, useState } from 'react'
 import { Tabs, TabsTrigger, TabsList, TabsContent } from '@/components/ui/tabs'
-import { Loader2 } from 'lucide-react'
+import { Loader2, ShoppingCart } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Image from 'next/image'
 import Link from 'next/link'
 import { mockProducts } from '@/constants/mockData';
 import { Product } from '@/types/shared';
 import { CATEGORIES, DEFAULT_CATEGORY, CATEGORY_LABELS } from '@/constants/cafeConstants';
+import { Button } from '@/components/ui/button';
+import CheckoutPageModal from '@/components/members/cafe/modals/CheckoutPageModal';
+import { useShoppingCart } from '@/contexts/ShoppingCartContext';
 
-const MenuItemCard = ({ product }: { product: Product }) => {
+const MenuItemCard = ({ product, quantity, onIncrease, onDecrease }: { product: Product, quantity: number, onIncrease: () => void, onDecrease: () => void }) => {
     return (
         <Card className="group overflow-hidden cursor-pointer">
             <Link href={`/member/cafe/${product.product_id}`} className="block">
@@ -26,20 +29,40 @@ const MenuItemCard = ({ product }: { product: Product }) => {
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200" />
                 </CardContent>
-                <CardHeader className="space-y-2">
-                    <CardTitle className="text-lg font-semibold text-gray-900 group-hover:text-primary text-center my-2">
-                        {product.name}
-                    </CardTitle>
-                    <CardDescription className="text-sm text-gray-600 line-clamp-2 text-center">
-                        {product.product_description}
-                    </CardDescription>
-                    <div className="pt-1">
-                        <span className="text-xl font-bold text-green-600 text-center flex justify-center">
-                            ${product.price.toFixed(2)}
-                        </span>
-                    </div>
-                </CardHeader>
             </Link>
+            <CardHeader className="space-y-2">
+                <CardTitle className="text-lg font-semibold text-gray-900 group-hover:text-primary text-center my-2">
+                    {product.name}
+                </CardTitle>
+                <CardDescription className="text-sm text-gray-600 line-clamp-2 text-center">
+                    {product.product_description}
+                </CardDescription>
+                <div className="pt-1">
+                    <span className="text-xl font-bold text-green-600 text-center flex justify-center">
+                        ${product.price.toFixed(2)}
+                    </span>
+                </div>
+                <div className="flex justify-between items-center gap-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1"
+                        onClick={onDecrease}
+                        disabled={quantity === 0}
+                    >
+                        -
+                    </Button>
+                    <span className="px-3 py-1 bg-gray-100 rounded min-w-[2rem] text-center">{quantity}</span>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1"
+                        onClick={onIncrease}
+                    >
+                        +
+                    </Button>
+                </div>
+            </CardHeader>
         </Card>
     )
 }
@@ -49,11 +72,7 @@ const CafePage = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const [activeFilter, setActiveFilter] = useState<string>('all')
-
-    const filteredProducts = products.filter(product => {
-        if (activeFilter === DEFAULT_CATEGORY) return true
-        return product.category === activeFilter
-    })
+    const { totalItems, totalPrice, addItem, removeItem, getItemQuantity } = useShoppingCart()
 
     useEffect(() => {
         const getProducts = async () => {
@@ -67,10 +86,12 @@ const CafePage = () => {
 
                 const data = await response.json()
 
+                // eslint-disable-next-line no-console
                 console.log(data, 'data')
 
                 setProducts(data)
             } catch (error) {
+                // eslint-disable-next-line no-console
                 console.error('Error fetching products:', error)
                 setError('Failed to fetch products')
             } finally {
@@ -80,6 +101,13 @@ const CafePage = () => {
 
         getProducts()
     }, [])
+
+
+
+    const filteredProducts = products.filter(product => {
+        if (activeFilter === DEFAULT_CATEGORY) return true
+        return product.category === activeFilter
+    })
 
     return (
         <div className="container mx-auto pt-4 px-4 pb-10">
@@ -112,11 +140,21 @@ const CafePage = () => {
                             <MenuItemCard
                                 key={product.product_id}
                                 product={product}
+                                quantity={getItemQuantity(product.product_id.toString()) || 0}
+                                onIncrease={() => addItem(product, 1)}
+                                onDecrease={() => removeItem(product.product_id.toString())}
                             />
                         ))}
                     </TabsContent>
                 </Tabs>
             </div>
+            {/* Checkout Button */}
+            <CheckoutPageModal>
+                <Button className="flex justify-center mx-auto w-4/5 fixed bottom-20 left-4 right-4 bg-green-500 hover:bg-green-600 text-white px-6 py-3 border-t shadow-lg">
+                    <ShoppingCart className='w-4 h-4 mr-2' />
+                    Checkout ({totalItems} items) - ${totalPrice.toFixed(2)}
+                </Button>
+            </CheckoutPageModal>
         </div>
     )
 }

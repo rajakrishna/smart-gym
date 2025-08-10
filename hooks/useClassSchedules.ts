@@ -103,6 +103,7 @@ export const useClassSchedules = () => {
 
   const goToToday = () => {
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
     setSelectedDate(today);
     setCurrentMonth(today);
   };

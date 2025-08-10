@@ -7,6 +7,8 @@ import LABELS from '@/constants/labels'
 import { useUser } from '@/context/user-context'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import ReactBarcode from './ReactBarcode'
+import CheckoutPageModal from '@/components/members/cafe/modals/CheckoutPageModal'
+import { useShoppingCart } from '@/contexts/ShoppingCartContext'
 
 const { imageURL, greeting, profileHref } = LABELS.memberDash
 
@@ -35,11 +37,18 @@ const BarCodeModal = ({ children }: { children: React.ReactNode }) => {
 
 const MemberWelcome = () => {
   const user = useUser()
+  const { items } = useShoppingCart()
+
+  const totalItems = items.reduce((acc, item) => acc + item.quantity, 0)
+
+  console.log(user)
+
   if (!user) return null
+
   return (
     <div className="px-6 py-4 border-b border-gray-100">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Link href={profileHref}>
             <Image
               src={imageURL}
@@ -71,6 +80,16 @@ const MemberWelcome = () => {
             <ICONS.member.bellDot />
           </Link>
           {/* </Button> */}
+          <CheckoutPageModal>
+            <div className="relative">
+              <ICONS.cart className='w-6 h-6' />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                  {totalItems > 99 ? '99+' : totalItems}
+                </span>
+              )}
+            </div>
+          </CheckoutPageModal>
         </div>
       </div>
     </div >

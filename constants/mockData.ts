@@ -1,16 +1,16 @@
 import {
+  ActiveHours,
+  AnalyticsStatistic,
   CheckInHistory,
+  ClassAttendance,
   ClassScheduleItem,
   ClassTaken,
   EnrolledBooking,
   Invoice,
   Member,
-  Product,
-  AnalyticsStatistic,
   MembershipGrowth,
-  ClassAttendance,
+  Product,
   TargetRevenue,
-  ActiveHours,
 } from '@/types/shared';
 
 // Mock data for Member Detail Page - In a real app, this would come from an API
@@ -30,6 +30,57 @@ export const mockMember: Member = {
   state: 'CA',
   zip_code: '12345',
 };
+
+export const mockMembersData: Member[] = [
+  {
+    user_id: '1',
+    first_name: 'John',
+    last_name: 'Smith',
+    email: 'john.smith@email.com',
+    phone: '(555) 123-4567',
+    user_image: 'https://ui-avatars.com/api/?name=John+Smith',
+    role_name: 'member',
+    date_of_birth: '1990-01-01',
+    address: '123 Main St',
+    city: 'Anytown',
+    state: 'CA',
+    zip_code: '12345',
+    membership_plan: 'Basic',
+    created_at: '2021-01-01',
+  },
+  {
+    user_id: '2',
+    first_name: 'Sarah',
+    last_name: 'Johnson',
+    email: 'sarah.johnson@email.com',
+    phone: '(555) 234-5678',
+    user_image: 'https://ui-avatars.com/api/?name=Sarah+Johnson',
+    role_name: 'member',
+    date_of_birth: '1990-01-01',
+    address: '123 Main St',
+    city: 'Anytown',
+    state: 'CA',
+    zip_code: '12345',
+    membership_plan: 'Basic',
+    created_at: '2021-01-01',
+  },
+  {
+    user_id: '3',
+    first_name: 'Mike',
+    last_name: 'Wilson',
+    email: 'mike.wilson@email.com',
+    phone: '(555) 345-6789',
+    user_image: 'https://ui-avatars.com/api/?name=Mike+Wilson',
+    role_name: 'member',
+    date_of_birth: '1990-01-01',
+    address: '123 Main St',
+    city: 'Anytown',
+    state: 'CA',
+    zip_code: '12345',
+    membership_plan: 'Basic',
+    created_at: '2021-01-01',
+  },
+];
 
 export const mockCheckInHistory: CheckInHistory[] = [
   { id: 1, date: '2024-01-15', time: '09:30 AM', status: 'checked-in' },
