@@ -10,6 +10,7 @@ import MemberWelcome from '@/components/layouts/member/member-welcome-banner';
 import MobileOnly from '@/components/layouts/member/required-view';
 import LABELS from '@/constants/labels';
 import { UserProvider } from '@/context/user-context';
+import { ShoppingCartProvider } from '@/contexts/ShoppingCartContext';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -47,14 +48,16 @@ export default async function RootLayout({
     <html lang='en'>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <UserProvider userData={userData}>
-          {/* This pb-20 is so that the user can scroll to the bottom of the page and still see the bottom navbar */}
-          <MobileOnly>
-            <div className='min-h-screen flex flex-col pb-20'>
-              <MemberWelcome />
-              <main className='flex-1'>{children}</main>
-            </div>
-            <BottomNavbar />
-          </MobileOnly>
+          <ShoppingCartProvider>
+            {/* This pb-20 is so that the user can scroll to the bottom of the page and still see the bottom navbar */}
+            <MobileOnly>
+              <div className='min-h-screen flex flex-col pb-20'>
+                <MemberWelcome />
+                <main className='flex-1'>{children}</main>
+              </div>
+              <BottomNavbar />
+            </MobileOnly>
+          </ShoppingCartProvider>
         </UserProvider>
       </body>
     </html>

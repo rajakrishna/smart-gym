@@ -26,7 +26,6 @@ const LABELS = {
   memberContextId: {
     id: '1828034c-85bb-4763-a623-e67c1bedac3d',
   },
-
   hero: {
     header: 'Maximize Your Fitness',
     subHeader1: 'A Revolutionary',
@@ -71,7 +70,6 @@ const LABELS = {
   memberClasses: {
     coach: 'Coach',
   },
-
   cafeMenu: {
     header: 'Cafe Menu',
     calories: 'Calories:',
@@ -207,6 +205,18 @@ const LABELS = {
       description: 'Scan the barcode to check in or out of the gym',
       scanButton: 'Scan',
     },
+    gymClassModal: {
+      category: 'category:',
+      time: 'time:',
+      capacity: 'capacity',
+      success: 'has been added to your schedule.',
+      closeButton: 'Close',
+      cancelButton: 'Cancel',
+      enrollButton: 'Enroll',
+      enrollFail: 'Enrollment Failed',
+      tryAgain: 'Please Try Again Later.',
+      try: 'Try Again.',
+    },
   },
 
   pages: {
@@ -216,18 +226,12 @@ const LABELS = {
       link: '/example',
     },
     member_profile: {
-      header: 'profile',
-      name: 'member name',
-      menu: {
-        memberDetails: 'member details',
-        paymentMethod: 'payment method',
-        notifications: 'notifications',
-        checkinHistory: 'check-in history',
-        classHistory: 'fitness class history',
-        inviteFriends: 'invite friends',
-        userIcon: 'user icon',
-        logout: '',
-      },
+      memberDetails: 'Member Details',
+      memberInvoice: 'Member Invoice',
+      checkinHistory: 'Check-In History',
+      classHistory: 'Fitness Class',
+      userIcon: 'User Profile',
+      nextMonthPayment: 'Next Month Payment:',
     },
     admin_members: {
       columns: {
