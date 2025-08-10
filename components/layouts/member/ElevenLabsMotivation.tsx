@@ -1,4 +1,4 @@
-import { Mic, MicOff, Phone, PhoneOff } from 'lucide-react'
+import { Mic, Mic2, MicOff, Phone, PhoneOff } from 'lucide-react'
 import React, { useCallback } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -52,6 +52,16 @@ const ElevenLabsMotivation = () => {
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
+
+                <div className="flex flex-col items-center justify-center gap-4">
+                    <Mic2 className={`h-24 w-24 ${isConnected ? 'animate-pulse text-green-500' : 'text-muted-foreground'}`} />
+                    {isConnected && (
+                        <p className="text-sm font-medium text-green-500 animate-pulse">
+                            You are now talking to your wellness coach
+                        </p>
+                    )}
+                </div>
+
                 <div className="flex flex-col justify-center gap-4">
                     <Button
                         onClick={startConversation}
