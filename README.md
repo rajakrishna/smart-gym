@@ -244,6 +244,8 @@ The application uses Next.js API Routes organized by feature:
 | `/api/classes/waitlisted/[classId]` | get all members waitlisted in a class |
 | `/api/coaches/getAll`               | get all coaches                       |
 | `/api/gemini/`                      | member AI assistant                   |
+| `/api/gemini/aiCheckin`             | checks to see last ai checkin time    |
+| `/api/gemini/mood`                  | checksi or updates user mood          |
 | `/api/messages/create`              | creates msg associated w user ID      |
 | `/api/messages/delete`              | deletes msg associated w msg ID       |
 | `/api/messages/getAll`              | get all msgs                          |
