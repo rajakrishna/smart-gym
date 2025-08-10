@@ -51,7 +51,7 @@ const LABELS = {
   },
   mobileView: {
     banner: 'Please use a mobile device to view this page',
-    sub: 'This experience is designed for mobile devices only.',,
+    sub: 'This experience is designed for mobile devices only.',
   },
   memberDash: {
     firstName: 'John',
