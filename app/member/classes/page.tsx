@@ -1,22 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
-import {
-  AddClassModal,
-  AllClassesModal,
-  ClassActionModal,
-  EditClassModal,
-  ViewUsersModal,
-} from '@/components/class-schedules/modals';
-// import ClassCard from '@/components/class-schedules/ClassCard';
 import ClassCard from '@/components/layouts/member/classCard';
+import ClassDetailsModal from '@/components/layouts/member/ClassDetailsModal';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-  SidebarProvider,
-} from '@/components/ui/sidebar';
+import { SidebarProvider } from '@/components/ui/sidebar';
 import { CLASS_TYPES } from '@/constants/classSchedules';
 import ICONS from '@/constants/icons';
 import LABELS from '@/constants/labels';
@@ -40,6 +31,14 @@ function getImageForCategory(category: string) {
 }
 
 const ClassSchedulesPage = () => {
+  const [selectedClassId, setSelectedClassId] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = (id: string) => {
+    setSelectedClassId(id);
+    setModalOpen(true);
+  };
+
   const {
     currentMonth,
     selectedDate,
@@ -55,7 +54,6 @@ const ClassSchedulesPage = () => {
     handleCancelClass,
     handleViewUsers,
   } = useClassSchedules();
-
 
   return (
     <SidebarProvider>
@@ -127,6 +125,7 @@ const ClassSchedulesPage = () => {
                             time: formattedTime,
                           }}
                           index={index}
+                          onClick={()=> handleOpenModal(cls.class_id)}
                         />
                       );
                     })
@@ -140,45 +139,13 @@ const ClassSchedulesPage = () => {
             </div>
           </div>
         </div>
-
-        {/* Modals */}
-        <AllClassesModal isOpen={dialogs.allClasses} onClose={() => closeDialog('allClasses')} />
-
-        <EditClassModal
-          isOpen={dialogs.editClass}
-          onClose={() => closeDialog('editClass')}
-          selectedDate={selectedDate}
-          classForm={classForm}
-          setClassForm={setClassForm}
-          availableClasses={filteredClasses}
-          classTypes={CLASS_TYPES}
-          fetchClasses={fetchClasses}
-        />
-
-        <AddClassModal
-          isOpen={dialogs.addClass}
-          onClose={() => closeDialog('addClass')}
-          selectedDate={selectedDate}
-          classForm={classForm}
-          setClassForm={setClassForm}
-          classTypes={CLASS_TYPES}
-        />
-
-        <ClassActionModal
-          isOpen={dialogs.classAction.isOpen}
-          onClose={() => closeDialog('classAction')}
-          classTitle={dialogs.classAction.classTitle}
-          onKeep={handleKeepClass}
-          onCancel={handleCancelClass}
-        />
-
-        <ViewUsersModal
-          isOpen={dialogs.viewUsers.isOpen}
-          onClose={() => closeDialog('viewUsers')}
-          classTitle={dialogs.viewUsers.classTitle}
-          onViewUsers={handleViewUsers}
-          classId={dialogs.viewUsers.classId}
-        />
+        {modalOpen && (
+  <ClassDetailsModal
+    onClose={() => setModalOpen(false)}
+    isOpen={modalOpen}
+    classId={selectedClassId}
+  />
+)}
       </div>
     </SidebarProvider>
   );
