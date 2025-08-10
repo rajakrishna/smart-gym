@@ -38,12 +38,14 @@ import {
   BarChart,
   PieChart,
   ShieldCheck, 
+  LogOutIcon,
 } from 'lucide-react';
 
 const ICONS = {
   // Layout icons
   layoutDashboard: LayoutDashboard,
   home: Home,
+  logOut:LogOutIcon,
   calendar: Calendar,
   coffee: Coffee,
   messageSquare: MessageSquare,

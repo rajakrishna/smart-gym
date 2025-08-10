@@ -34,7 +34,7 @@ const LABELS = {
     subHeader2: 'Fitness App',
     button1: 'Admin',
     href1: '/admin/dashboard',
-    button2: 'Member Login',
+    button2: 'Member',
     href2: '/member/dashboard',
     button3: 'Watch Demo',
     href3: '#demo',
@@ -204,7 +204,7 @@ const LABELS = {
     },
     barCodeModal: {
       title: 'Scan Barcode',
-      description: 'Scan the barcode to check in or out of the gym',
+      description: 'Scan the barcode to check in to the gym',
       scanButton: 'Scan',
     },
   },

@@ -39,7 +39,7 @@ const MobileOnly = ({ children }: { children: React.ReactNode }) => {
     );
   }
 
-  return <>{children}</>;
+  return <div className='px-8 pt-4'>{children}</div>;
 };
 
 export default MobileOnly;

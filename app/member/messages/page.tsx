@@ -1,58 +1,37 @@
 import { DataTable } from '@/components/ui/data-table'
 import React from 'react'
 import { columns } from './columns'
+import ICONS from '@/constants/icons'
+import Link from 'next/link'
 
 async function getData() {
     // TODO: Fetch data from the database
     return [
         {
             id: "1",
-            from: "John Smith",
-            messageType: "Email",
-            subject: "Hello, how are you?",
+            from: "Coach Mike",
+            messageType: "Message",
+            subject: "Logan, great class today 🔥",
             message: "Hello, how are you?",
             createdAt: "2021-01-01"
         },
         {
             id: "2",
-            from: "Sarah Johnson",
+            from: "Coach Sarah ",
             messageType: "SMS",
-            subject: "Hello, how are you?",
+            subject: "Excited to see you in class!",
             message: "Hello, how are you?",
             createdAt: "2021-01-01"
         },
         {
             id: "3",
-            from: "Mike Wilson",
+            from: "Gym Staff",
             messageType: "Email",
-            subject: "Hello, how are you?",
+            subject: "Logan, how's everything going?",
             message: "Hello, how are you?",
             createdAt: "2021-01-01"
         },
-        {
-            id: "4",
-            from: "Emily Davis",
-            messageType: "SMS",
-            subject: "Hello, how are you?",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "5",
-            from: "David Brown",
-            messageType: "Email",
-            subject: "Hello, how are you?",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        },
-        {
-            id: "6",
-            from: "David Brown",
-            messageType: "SMS",
-            subject: "Hello, how are you?",
-            message: "Hello, how are you?",
-            createdAt: "2021-01-01"
-        }
+
     ]
 }
 
@@ -62,6 +41,9 @@ const page = async () => {
 
     return (
         <div className="container mx-auto py-10 px-4">
+            <Link href={'/member/dashboard'} className='flex justify-end w-full pr-4'>
+            <ICONS.classSchedules.cancel />
+            </Link>
             <div className="mt-4">
                 <DataTable columns={columns} data={data} />
             </div>
