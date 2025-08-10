@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
     }
 
     return NextResponse.json({ mood: data?.mood ?? null });
-  } catch (e: any) {
+  } catch (e: unknown) {
     console.error('GET /gemini/mood handler error:', e);
     return NextResponse.json({ error: 'Internal error' }, { status: 500 });
   }
@@ -79,7 +79,7 @@ export async function PATCH(req: NextRequest) {
     }
 
     return NextResponse.json({ ok: true, mood, ai_check_in: nowISO, mode: updated ? 'updated' : 'inserted' });
-  } catch (e: any) {
+  } catch (e: unknown) {
     console.error('PATCH /gemini/mood handler error:', e);
     return NextResponse.json({ error: 'Internal error' }, { status: 500 });
   }
