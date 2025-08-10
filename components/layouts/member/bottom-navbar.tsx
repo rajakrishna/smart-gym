@@ -21,14 +21,14 @@ export function BottomNavbar() {
             href: '/member/classes',
         },
         {
-            icon: ICONS.coffee,
-            label: LABELS.navigation.cafe,
-            href: '/member/cafe',
-        },
-        {
             icon: ICONS.messageSquare,
             label: LABELS.navigation.aiCoach,
             href: '/member/messages',
+        },
+        {
+            icon: ICONS.coffee,
+            label: LABELS.navigation.cafe,
+            href: '/member/cafe',
         },
         {
             icon: ICONS.user,
@@ -50,14 +50,13 @@ export function BottomNavbar() {
                             return (
                                 <FloatingAIChat key={item.label}>
                                     <button
-                                        className={`flex flex-col items-center space-y-1 py-2 px-2 min-w-0 flex-1 rounded-md transition-colors hover:bg-gray-100 ${isActive
-                                            ? 'text-red-600'
-                                            : 'text-gray-600 hover:text-gray-900'
+                                        className={`relative flex flex-col items-center justify-center w-16 h-16 -mt-6 bg-red-600 rounded-t-full shadow-lg transition-all duration-200 hover:bg-red-700 hover:scale-105 ${isActive
+                                            ? 'bg-red-700 scale-105'
+                                            : ''
                                             }`}
                                     >
-                                        <Icon className={`h-5 w-5 ${isActive ? 'text-red-600' : ''}`} />
-                                        <span className={`text-xs font-medium ${isActive ? 'text-red-600' : ''
-                                            }`}>
+                                        <Icon className={`h-6 w-6 text-white`} />
+                                        <span className={`text-xs font-medium text-white mt-1`}>
                                             {item.label}
                                         </span>
                                     </button>

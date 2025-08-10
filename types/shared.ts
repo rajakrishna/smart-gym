@@ -239,9 +239,34 @@ export interface EnrolledClassMember {
   email: string;
 }
 
-export interface MemberProfileItem {
-  label: string;
-  icon: React.ComponentType<{ className?: string }>;
+export interface MemberProfileDetails {
+  first_name: string;
+  last_name: string; 
+  dob: string;
+  address: string;
+  city: string;  
+  state: string;
+  zip_code: string;
+  email: string; 
+}
+
+export interface MemberProfileInvoices {
+    invoice_id: string;
+    invoice_amount: number; 
+}
+
+export interface MemberProfileCheckins {
+  checkins: {
+    timestamp: string;
+  }[];
+}
+
+export interface MemberProfileClassHistory {
+  classes: {
+    class_name: string; 
+    category: string;
+    scheduled_on: string;
+  }[];
 }
 
 export interface EnrolledClass{
