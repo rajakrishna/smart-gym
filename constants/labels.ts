@@ -205,18 +205,17 @@ const LABELS = {
       description: 'Scan the barcode to check in or out of the gym',
       scanButton: 'Scan',
     },
-      gymClassModal: {
+    gymClassModal: {
       category: 'category:',
       time: 'time:',
       capacity: 'capacity',
       success: 'has been added to your schedule.',
       closeButton: 'Close',
-      cancelButton:'Cancel',
+      cancelButton: 'Cancel',
       enrollButton: 'Enroll',
-      enrollFail:'Enrollment Failed',
-      tryAgain:'Please Try Again Later.',
-      try:'Try Again.'
-
+      enrollFail: 'Enrollment Failed',
+      tryAgain: 'Please Try Again Later.',
+      try: 'Try Again.',
     },
   },
 
@@ -226,12 +225,13 @@ const LABELS = {
       description: 'This is an example page',
       link: '/example',
     },
-    member_profile: {    
+    member_profile: {
       memberDetails: 'Member Details',
       memberInvoice: 'Member Invoice',
       checkinHistory: 'Check-In History',
       classHistory: 'Fitness Class',
       userIcon: 'User Profile',
+      nextMonthPayment: 'Next Month Payment:',
     },
     admin_members: {
       columns: {

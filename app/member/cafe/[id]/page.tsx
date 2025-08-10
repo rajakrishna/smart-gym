@@ -2,9 +2,9 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { ShoppingCart } from 'lucide-react'
 import { mockProduct } from '@/constants/mockData'
 import Link from 'next/link'
+import AddIndividualItemToCartButton from '@/components/members/cafe/buttons/AddIndividualItemToCartButton'
 
 
 
@@ -38,7 +38,6 @@ const CafeDetailPage = async ({ params }: { params: Promise<{ id: string }> }) =
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
             <div className="container mx-auto px-4 max-w-md">
-                {/* Back Navigation */}
                 <div className="pt-6 pb-4">
                     <Button variant="ghost" className="p-0 h-auto text-gray-600 hover:text-gray-800 transition-colors" asChild>
                         <Link href="/member/cafe" className="flex items-center gap-2">
@@ -77,11 +76,7 @@ const CafeDetailPage = async ({ params }: { params: Promise<{ id: string }> }) =
                             {/* <p className="text-sm text-gray-600">{product?.product_nutritional_info || ''}</p> */}
                         </div>
 
-                        {/* Add to Cart Button */}
-                        <Button className="w-full flex items-center justify-center gap-3 bg-green-600 text-white hover:bg-green-700 active:bg-green-800 transition-all duration-200 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]">
-                            <ShoppingCart size={22} />
-                            Add to Cart
-                        </Button>
+                        <AddIndividualItemToCartButton product={product} />
                     </div>
                 </div>
             </div>

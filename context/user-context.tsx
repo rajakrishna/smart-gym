@@ -6,7 +6,8 @@ export type UserData = {
   user_id: string;
   first_name: string;
   email: string;
-  user_image:string;
+  user_image: string;
+  running_total: number;
 };
 
 const UserContext = createContext<UserData | null>(null);
