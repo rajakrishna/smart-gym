@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Card, CardContent } from '@/components/ui/card';
 import { SidebarProvider } from '@/components/ui/sidebar';
-import { CLASS_TYPES } from '@/constants/classSchedules';
 import ICONS from '@/constants/icons';
 import LABELS from '@/constants/labels';
 import { useClassSchedules } from '@/hooks/useClassSchedules';
@@ -42,17 +41,9 @@ const ClassSchedulesPage = () => {
   const {
     currentMonth,
     selectedDate,
-    dialogs,
-    classForm,
-    setClassForm,
     filteredClasses,
-    fetchClasses,
     handleDateSelect,
     goToToday,
-    closeDialog,
-    handleKeepClass,
-    handleCancelClass,
-    handleViewUsers,
   } = useClassSchedules();
 
   return (
