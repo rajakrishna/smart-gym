@@ -76,7 +76,7 @@ const Classes: React.FC = () => {
 
   return (
     <section className=''>
-      <h1 className='h1 container'>{label.heading}</h1>
+      <h1 className='h1 container pb-4 text-semibold'>{label.heading}</h1>
       {loading ? (
         <div className='mx-auto max-w-[1440px] relative flex flex-col lg:mb-10 xl:mb-20'>
           <div className='hide-scrollbar flex h-[240px] w-full items-start justify-start gap-4 overflow-x-auto lg:h-[500px] xl:h-[640px] px-1'>
@@ -108,7 +108,7 @@ const Classes: React.FC = () => {
               <ClassCard key={index} classInfo={classItem} index={index} onClick={() => handleOpenModal(classItem.id)} />
             ))}
             {modalOpen && (
-              <ClassDetailsModal onClose={() => setModalOpen(false)} isOpen={modalOpen} classId={selectedClassId}/>
+              <ClassDetailsModal onClose={() => setModalOpen(false)} isOpen={modalOpen} classId={selectedClassId} />
 
             )}
           </div>

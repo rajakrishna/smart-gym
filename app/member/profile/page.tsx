@@ -3,8 +3,14 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
 import { User } from 'lucide-react'
 import MemberDetailsSection from '@/components/member/MemberProfileCard'
+import { useUser } from '@/context/user-context'
+import labels from '@/constants/labels'
 
 export default function MemberProfilePage() {
+  const user = useUser()
+
+  if (!user) return null
+
   return (
     <div className="container px-4">
       <div className="flex flex-col items-center justify-center gap-2 my-10">
@@ -14,12 +20,17 @@ export default function MemberProfilePage() {
             <User className="w-8 h-8 text-gray-500" />
           </AvatarFallback>
         </Avatar>
-        <p className="text-sm font-semibold mt-1">User Profile</p>
+        <p className="text-sm font-semibold mt-1">{user.first_name}&apos;s Profile</p>
+        {user.running_total ? (
+          <p className="text-sm tracking-tighter font-semibold text-red-500">
+            {labels.pages.member_profile.nextMonthPayment} ${user.running_total.toFixed(2)}
+          </p>
+        ) : null}
       </div>
       <div className='p-6'>
-        <MemberDetailsSection/>  
+        <MemberDetailsSection />
       </div>
-      
+
     </div>
   )
 }
