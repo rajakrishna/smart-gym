@@ -445,6 +445,15 @@ const LABELS = {
     },
     resetTooltip: 'Reset chat',
   },
+  clientAiCheckinNotice: {
+    title: 'Daily AI Check-In',
+    description: 'You haven’t completed today’s check-in yet. Do you want to do it now?',
+    later: 'Later',
+    checkInNow: 'Check in now',
+  },
+  moodPicker: {
+    moodSelect: 'How are you feeling today?',
+  },
 
   navigation: {
     home: 'Home',

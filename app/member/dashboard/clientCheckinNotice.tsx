@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import LABELS from '@/constants/labels';
 
 function isOlderThanTodayLocal(isoOrNull: string | null) {
   if (!isoOrNull) return true;
@@ -21,7 +22,7 @@ export default function ClientCheckinNotice({ userId }: { userId: string }) {
 
     (async () => {
       try {
-        const res = await fetch(`/api/checkins/aiCheckin?userId=${encodeURIComponent(userId)}`, { cache: 'no-store' });
+        const res = await fetch(`/api/gemini/aiCheckin?userId=${encodeURIComponent(userId)}`, { cache: 'no-store' });
         if (!res.ok) return;
         const { lastCheckIn } = await res.json();
         if (isOlderThanTodayLocal(lastCheckIn)) setOpen(true);
@@ -32,11 +33,11 @@ export default function ClientCheckinNotice({ userId }: { userId: string }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent>
-        <DialogHeader><DialogTitle>Daily AI Check-In</DialogTitle></DialogHeader>
-        <p className="text-sm text-muted-foreground">You haven’t completed today’s check-in yet. Do you want to do it now?</p>
+        <DialogHeader><DialogTitle>{LABELS.clientAiCheckinNotice.title}</DialogTitle></DialogHeader>
+        <p className="text-sm text-muted-foreground">{LABELS.clientAiCheckinNotice.description}</p>
         <DialogFooter>
-          <Button variant="outline" onClick={() => setOpen(false)}>Later</Button>
-          <Button onClick={() => (window.location.href = '/member/check-in')}>Check in now</Button>
+          <Button variant="outline" onClick={() => setOpen(false)}>{LABELS.clientAiCheckinNotice.later}</Button>
+          <Button onClick={() => (window.location.href = '/member/check-in')}>{LABELS.clientAiCheckinNotice.checkInNow}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

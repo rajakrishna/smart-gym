@@ -26,4 +26,3 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ lastCheckIn: lastCheckInISO });
 }
 
-// http://localhost:3000/api/checkins/aiCheckin?userId=1828034c-85bb-4763-a623-e67c1bedac3d
