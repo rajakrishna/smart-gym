@@ -18,6 +18,7 @@ An app that serves as a center for membership management, class scheduling, orde
   <img style="height:100px;width:160px" src="https://cdn.brandfetch.io/idxAg10C0L/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1746435914582" alt="Stripe logo" />
   <img style="height:100px" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma logo" />
   <img style="height:100px;width:160px" src="https://cdn.brandfetch.io/idl_sWY35e/theme/light/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1741336812996" alt="Eleven Labs" />
+  <img style="height:100px;width:160px" src="https://cdn.brandfetch.io/idDpCfN4VD/theme/light/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1726463494227" alt="Vercel" />
 </div>
 
 ## Docs for this project
