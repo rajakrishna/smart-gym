@@ -26,7 +26,6 @@ const LABELS = {
   memberContextId: {
     id: '1828034c-85bb-4763-a623-e67c1bedac3d',
   },
-
   hero: {
     header: 'Maximize Your Fitness',
     subHeader1: 'A Revolutionary',
@@ -71,7 +70,6 @@ const LABELS = {
   memberClasses: {
     coach: 'Coach',
   },
-
   cafeMenu: {
     header: 'Cafe Menu',
     calories: 'Calories:',
@@ -206,6 +204,19 @@ const LABELS = {
       title: 'Scan Barcode',
       description: 'Scan the barcode to check in or out of the gym',
       scanButton: 'Scan',
+    },
+      gymClassModal: {
+      category: 'category:',
+      time: 'time:',
+      capacity: 'capacity',
+      success: 'has been added to your schedule.',
+      closeButton: 'Close',
+      cancelButton:'Cancel',
+      enrollButton: 'Enroll',
+      enrollFail:'Enrollment Failed',
+      tryAgain:'Please Try Again Later.',
+      try:'Try Again.'
+
     },
   },
 
