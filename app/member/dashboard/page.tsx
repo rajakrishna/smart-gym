@@ -6,10 +6,10 @@ import EnrolledClasses from '@/components/layouts/member/enrolled-classes';
 
 const page = () => {
   return (
-    <div>
+    <div className="container mx-auto pt-4 px-4 pb-10">
       <Classes />
       <CafeMenu />
-      <EnrolledClasses memberId='37d00ea7-e391-460f-957e-5a7d3917133d'/>
+      <EnrolledClasses memberId='1828034c-85bb-4763-a623-e67c1bedac3d' />
     </div>
   );
 };
