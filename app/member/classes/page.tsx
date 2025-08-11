@@ -29,6 +29,20 @@ function getImageForCategory(category: string) {
   }
 }
 
+function formatTimeString(timeString: string): string {
+  const [hours, minutes] = timeString.split(':').map(Number);
+  const date = new Date();
+  date.setHours(hours);
+  date.setMinutes(minutes);
+  date.setSeconds(0);
+
+  return date.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  });
+}
+
 const ClassSchedulesPage = () => {
   const [selectedClassId, setSelectedClassId] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -38,13 +52,7 @@ const ClassSchedulesPage = () => {
     setModalOpen(true);
   };
 
-  const {
-    currentMonth,
-    selectedDate,
-    filteredClasses,
-    handleDateSelect,
-    goToToday,
-  } = useClassSchedules();
+  const { currentMonth, selectedDate, filteredClasses, handleDateSelect, goToToday } = useClassSchedules();
 
   return (
     <SidebarProvider>
@@ -99,11 +107,7 @@ const ClassSchedulesPage = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3'>
                   {filteredClasses.length > 0 ? (
                     filteredClasses.map((cls, index) => {
-                      const formattedTime = new Date(`1970-01-01T${cls.time}Z`).toLocaleTimeString('en-US', {
-                        hour: 'numeric',
-                        minute: '2-digit',
-                        hour12: true,
-                      });
+                      const formattedTime = formatTimeString(cls.time);
 
                       return (
                         <ClassCard
@@ -116,7 +120,7 @@ const ClassSchedulesPage = () => {
                             time: formattedTime,
                           }}
                           index={index}
-                          onClick={()=> handleOpenModal(cls.class_id)}
+                          onClick={() => handleOpenModal(cls.class_id)}
                         />
                       );
                     })
@@ -131,12 +135,8 @@ const ClassSchedulesPage = () => {
           </div>
         </div>
         {modalOpen && (
-  <ClassDetailsModal
-    onClose={() => setModalOpen(false)}
-    isOpen={modalOpen}
-    classId={selectedClassId}
-  />
-)}
+          <ClassDetailsModal onClose={() => setModalOpen(false)} isOpen={modalOpen} classId={selectedClassId} />
+        )}
       </div>
     </SidebarProvider>
   );

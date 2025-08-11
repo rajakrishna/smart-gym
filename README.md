@@ -8,7 +8,7 @@ An app that serves as a center for membership management, class scheduling, orde
 
 # Technologies Used
 
-<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+<div style="display: flex; flex-wrap: wrap; gap: 16px;">
   <img style="height:100px;" src="https://cdn.brandfetch.io/id2alue-rx/theme/dark/idqNI71Hra.svg?c=1bxid64Mup7aczewSAYMX&t=1714556221292" alt="Next.js logo" />
   <img style="height:100px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" alt="React logo" />
   <img style="height:100px;" src="https://cdn.brandfetch.io/idKX_Hb7va/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1748419318745" alt="TypeScript logo" />
@@ -17,6 +17,8 @@ An app that serves as a center for membership management, class scheduling, orde
   <img style="height:100px; width:160px" src="https://lucide.dev/library-logos/shadcn-ui-light.svg" alt="Shadcn logo" />
   <img style="height:100px;width:160px" src="https://cdn.brandfetch.io/idxAg10C0L/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1746435914582" alt="Stripe logo" />
   <img style="height:100px" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma logo" />
+  <img style="height:100px;width:160px" src="https://cdn.brandfetch.io/idl_sWY35e/theme/light/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1741336812996" alt="Eleven Labs" />
+  <img style="height:100px;width:160px" src="https://cdn.brandfetch.io/idDpCfN4VD/theme/light/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1726463494227" alt="Vercel" />
 </div>
 
 ## Docs for this project
@@ -27,7 +29,9 @@ An app that serves as a center for membership management, class scheduling, orde
 - [Supabase](https://supabase.com/docs)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [shadcn/ui](https://ui.shadcn.com/docs)
-- [Stripe](https://stripe.com/docs)
+- [Vercel AI SDK](https://sdk.vercel.ai/docs)
+- [Google Gemini](https://ai.google.dev/)
+- [ElevenLabs](https://elevenlabs.io/docs)
 
 ## Team Contributors To The Project
 
@@ -46,26 +50,20 @@ An app that serves as a center for membership management, class scheduling, orde
       </a>
     </td>
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
-      <a href="https://linkedin.com/in/noahwhlim">
-        <img src="https://avatars.githubusercontent.com/u/91938285?v=4" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Noah Lim Profile Picture" /><br />
-        <sub><b>Noah Lim</b></sub>
-      </a>
-    </td>
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/dannyrivasdev/">
         <img src="https://github.com/user-attachments/assets/53cebcf7-2e3e-46f3-9346-94ec5a27ad19" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" 
         alt="Danny Rivas Profile Picture" /><br />
         <sub><b>Danny Rivas</b></sub>
       </a>
     </td>
-    </tr>
-   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
-    <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
+<td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/developerdiego/">
         <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_800_800/B56ZYiPX.lHoAg-/0/1744331178327?e=1754514000&v=beta&t=z5WYYml_5szjwihEfjwdIW3rrPXncMSDf5xy15eth0Q" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
         <sub><b>Diego Espino</b></sub>
       </a>
     </td>
+    </tr>
+   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/rajakrishna/">
         <img src="https://media.licdn.com/dms/image/v2/D5603AQFDLs3Zm3m01A/profile-displayphoto-shrink_200_200/B56Zd56YWwGoAc-/0/1750097037071?e=1755734400&v=beta&t=BMpj0zVVOMehE_fiukehMx2GkxnrZvAtZ9UsDSjUPDo" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Raja Krishna Profile Picture" /><br />
@@ -91,38 +89,44 @@ An app that serves as a center for membership management, class scheduling, orde
 2. [🏗️ Architecture Overview](#-architecture-overview)
 3. [🛠️ Technology Stack](#-technology-stack)
 4. [💾 Database Schema](#-database-schema)
-5. [🔐 Authentication Flow](#-authentication-flow)
-6. [✨ Key Features](#-key-features)
-7. [🔌 API Details](#-api-details)
-8. [🧩 Component Structure](#-component-structure)
-9. [🔄 Data Flow](#-data-flow)
-10. [🚀 Deployment](#-deployment)
-11. [📝 Commitlint Configuration](#-commitlint-configuration)
-12. [💻 Jira/Git Workflow](#-jiragit-workflow)
-13. [🎨 Design System](#-design-system)
-14. [📝 Code Organization & Best Practices](#-code-organization--best-practices)
+5. [✨ Key Features](#-key-features)
+   - [📅 Member class scheduling](#-1-member-class-scheduling)
+   - [🛠️ Admin class management](#-2-admin-class-management)
+   - [☕ Cafe catalog and orders](#-3-cafe-catalog-and-orders)
+   - [💬 Messaging](#-4-messaging)
+   - [🤖 AI assistant (chatbot)](#-5-ai-assistant-chatbot)
+   - [🔊 Voice responses (optional)](#-6-voice-responses-optional)
+   - [📈 Analytics dashboard](#-7-analytics-dashboard)
+   - [🧾 Invoices and purchases](#-8-invoices-and-purchases)
+6. [🔌 API Details](#-api-details)
+7. [🧩 Component Structure](#-component-structure)
+8. [🚀 Deployment](#-deployment)
+9. [📝 Commitlint Configuration](#-commitlint-configuration)
+10. [💻 Jira/Git Workflow](#-jiragit-workflow)
+11. [🎨 Design System](#-design-system)
+12. [📝 Code Organization & Best Practices](#-code-organization--best-practices)
 
 ---
 
 ## 📌 Introduction
 
-[Project Name] is a [brief description of what your application does]. The application provides a modern solution to [describe the main problem you're solving], offering features such as [list 3-5 key features].
+Smart Gym is a modern operations hub for gyms and fitness studios. It streamlines daily workflows for staff and members, centralizing membership management, class scheduling and enrollment, cafe purchasing, messaging, and analytics. The app also includes an AI member assistant powered by Vercel AI SDK with Gemini, plus optional voice responses via ElevenLabs.
 
 ---
 
 ## 🏗️ Architecture Overview
 
-The application follows a [describe your architecture pattern] using [main framework/technology]. The architecture can be broken down into the following key components:
+The application is built with a modular Next.js (App Router) architecture. UI is rendered with React, shadcn/ui, and Tailwind CSS. Server-side functionality is implemented via Next.js Route Handlers under `app/api`, integrating with Supabase for data and auth, Stripe for payments, and AI services for chat and optional voice.
 
-| Component                | Description                           |
-| ------------------------ | ------------------------------------- |
-| **Frontend**             | [Frontend description and technology] |
-| **Backend API**          | [Backend description and technology]  |
-| **Database**             | [Database description and technology] |
-| **Authentication**       | [Auth service description]            |
-| **[Additional Service]** | [Additional service description]      |
-
-The application follows a [architectural pattern] where [describe the flow between components].
+| Component          | Description                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend**       | Next.js 15 + React with shadcn/ui and Tailwind CSS; component-driven UI, client/server components as appropriate.                |
+| **Backend API**    | Next.js Route Handlers in `app/api/*` for REST-style endpoints; TypeScript-first; integrates Supabase, Stripe, and AI providers. |
+| **Database**       | Supabase (PostgreSQL). Core tables include users, classes, enrollments, cafe products, messages, invoices, and check-ins.        |
+| **Authentication** | Supabase Auth for user management and sessions.                                                                                  |
+| **AI Assistant**   | Vercel AI SDK using Google Gemini models exposed via `/api/gemini` for member Q&A and guidance.                                  |
+| **Voice AI**       | ElevenLabs for text-to-speech responses in the client where voice is enabled.                                                    |
+| **Payments**       | Stripe for cafe purchases and invoicing flows.                                                                                   |
 
 ---
 
@@ -130,22 +134,23 @@ The application follows a [architectural pattern] where [describe the flow betwe
 
 ### 🖥️ Frontend
 
-| Technology     | Version/Description |
-| -------------- | ------------------- |
-| **Framework**  | Next.js 15          |
-| **UI Library** | shadcn/ui           |
-| **Icons**      | Lucide, Radix Icons |
-| **Styling**    | Tailwind CSS v4     |
+| Technology     | Version/Description    |
+| -------------- | ---------------------- |
+| **Framework**  | Next.js 15             |
+| **UI Library** | shadcn/ui              |
+| **AI**         | Vercel AI SDK (Gemini) |
+| **Voice AI**   | ElevenLabs             |
+| **Icons**      | Lucide, Radix Icons    |
+| **Styling**    | Tailwind CSS v4        |
 
 ### ⚙️ Backend
 
-| Technology             | Version/Description |
-| ---------------------- | ------------------- |
-| **API Framework**      | Next.js API Routes  |
-| **Database ORM**       | Supabase            |
-| **Database**           | Supabase            |
-| **Authentication**     | Supabase Auth       |
-| **Payment Processing** | Stripe              |
+| Technology          | Version/Description |
+| ------------------- | ------------------- |
+| **API Framework**   | Next.js API Routes  |
+| **Database Client** | Supabase JS SDK     |
+| **Database**        | Supabase            |
+| **Authentication**  | Supabase Auth       |
 
 ### 🧰 Development Tools
 
@@ -163,56 +168,59 @@ The application follows a [architectural pattern] where [describe the flow betwe
 
 The application uses a PostgreSQL(Supabase) database. Below is the ERD (Entity Relationship Diagram) illustrating the key models and their relationships:
 
-![ERD Image](https://github.com/rajakrishna/smart-gym/blob/master/public/erd-image.png)
-
----
-
-## 🔐 Authentication Flow
-
-The application uses [Authentication Service] for authentication. The authentication flow works as follows:
-
-| Step | Description                |
-| ---- | -------------------------- |
-| 1    | [First step of auth flow]  |
-| 2    | [Second step of auth flow] |
-| 3    | [Third step of auth flow]  |
-| 4    | [Fourth step of auth flow] |
+![ERD Image](https://github.com/rajakrishna/smart-gym/blob/master/public/erd.png)
 
 ---
 
 ## ✨ Key Features
 
-### 📄 1. [Feature Name]
+### 📅 1. Member class scheduling
 
-- [Feature capability 1]
-- [Feature capability 2]
-- [Feature capability 3]
+- Browse classes by date and category
+- View details (category, time, capacity, coach)
+- Enroll with confirmation modal flow
 
-### 🚪 2. [Feature Name]
+### 🛠️ 2. Admin class management
 
-- [Feature capability 1]
-- [Feature capability 2]
-- [Feature capability 3]
+- Create, update, cancel classes
+- View enrolled and waitlisted members
+- Sort and filter schedules by date/time
 
-### 📦 3. [Feature Name]
+### ☕ 3. Cafe catalog and orders
 
-- [Feature capability 1]
-- [Feature capability 2]
-- [Feature capability 3]
+- Create, update, delete cafe products
+- View top purchases analytics
+- Fetch product detail and full catalog
 
-### 🚗 4. [Feature Name]
+### 💬 4. Messaging
 
-- [Feature capability 1]
-- [Feature capability 2]
-- [Feature capability 3]
+- Create messages tied to a user ID
+- Fetch all messages or by message ID
+- Retrieve messages by user ID
 
-### 🔔 5. [Feature Name]
+### 🤖 5. AI assistant (chatbot)
 
-- [Feature capability 1]
-- [Feature capability 2]
-- [Feature capability 3]
+- Member Q&A via `/api/gemini`
+- Class guidance, FAQs, and tips
+- Powered by Vercel AI SDK using Gemini models
 
-<!-- Add more features as needed -->
+### 🔊 6. Voice responses (optional)
+
+- ElevenLabs text-to-speech playback
+- Optional voice responses in client UI
+- Per-session/user toggling
+
+### 📈 7. Analytics dashboard
+
+- Membership growth and attendance charts
+- Revenue target progress tracking
+- Cafe insights (e.g., top purchases)
+
+### 🧾 8. Invoices and purchases
+
+- Create invoices and add purchases
+- Update invoice totals on purchase
+- Retrieve invoices by user
 
 ---
 
@@ -225,7 +233,6 @@ The application uses Next.js API Routes organized by feature:
 <!-- Example:
 | `/api/[notifications]` | Manage  notifications |
 -->
-
 | API Endpoint                        | Purpose                               |
 | ----------------------------------- | ------------------------------------- |
 | `/api/cafe/create`                  | create a cafe item                    |
@@ -261,7 +268,6 @@ The application uses Next.js API Routes organized by feature:
 | `/api/invoices/[userId]`            | gets all invoices by user ID          |
 | `/api/invoices/purchase`            | + invoice, updates total, supports +1 |
 | `/api/profile/[userId]`             | gets all profile data by user ID      |
----
 
 ### API Endpoints
 
@@ -290,7 +296,6 @@ The application uses Next.js API Routes organized by feature:
 - Steps:
   - Gym Member logs in
   - System fetches all gym classes to display or mock fallback
-  
 - API Endpoint: `/api/messages/getAll`
 - Purpose: Get all messages
 - Triggered by: Admin user
@@ -423,37 +428,12 @@ The application uses a component-based architecture with the following key compo
 
 ### 🎨 UI Components
 
-- `ActiveGymHours`: pie chart with darkest/most active hour slices popping out 
+- `ActiveGymHours`: pie chart with darkest/most active hour slices popping out
 - `AnalyticsStatCard`: generic card component for statistics at top of admin analytics page
-- `TargetRevenueCard`: shows progress to goal revenue 
+- `TargetRevenueCard`: shows progress to goal revenue
 - `MembershipGrowthCard`: bar graph showing growth or decline in gym memberships
-- `ClassAttendanceCard`: horizontal bar chart showing how many users attending each class    
+- `ClassAttendanceCard`: horizontal bar chart showing how many users attending each class
 - `[Component]`: [Description]
-
----
-
-## 🔄 Data Flow
-
-### 👤 [Key Flow 1] (e.g., User Registration)
-
-| Step | Description   |
-| ---- | ------------- |
-| 1    | [First step]  |
-| 2    | [Second step] |
-| 3    | [Third step]  |
-| 4    | [Fourth step] |
-| 5    | [Fifth step]  |
-
-### 🚗 [Key Flow 2]
-
-| Step | Description   |
-| ---- | ------------- |
-| 1    | [First step]  |
-| 2    | [Second step] |
-| 3    | [Third step]  |
-| 4    | [Fourth step] |
-
-<!-- Add more data flows as needed -->
 
 ---
 
