@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { cn } from '@/lib/utils'; 
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import LABELS from '@/constants/labels';
 
@@ -9,9 +9,9 @@ type MoodValue = 'very_happy' | 'happy' | 'neutral' | 'sad' | 'very_sad';
 
 const MOODS: { value: MoodValue; emoji: string; label: string }[] = [
   { value: 'very_happy', emoji: '😀', label: 'Very Happy' },
-  { value: 'happy',     emoji: '🙂', label: 'Happy' },
-  { value: 'neutral',   emoji: '😐', label: 'Neutral' },
-  { value: 'sad',      emoji: '☹️', label: 'Sad' },
+  { value: 'happy', emoji: '🙂', label: 'Happy' },
+  { value: 'neutral', emoji: '😐', label: 'Neutral' },
+  { value: 'sad', emoji: '☹️', label: 'Sad' },
   { value: 'very_sad', emoji: '🤕', label: 'Very Sad' },
 ];
 
@@ -25,7 +25,7 @@ export default function MoodPicker({ userId }: { userId: string }) {
         const res = await fetch(`/api/gemini/mood?userId=${encodeURIComponent(userId)}`, { cache: 'no-store' });
         const json = await res.json();
         if (res.ok && json.mood) setSelected(json.mood as MoodValue);
-      } catch {}
+      } catch { }
     })();
   }, [userId]);
 
@@ -44,9 +44,9 @@ export default function MoodPicker({ userId }: { userId: string }) {
   };
 
   return (
-    <div className="space-y-2">
-      <p className="text-sm font-medium">{LABELS.moodPicker.moodSelect}</p>
-      <div className="flex gap-2 flex-wrap">
+    <div className="space-y-2 flex flex-col items-center justify-center mb-4">
+      <p className="text-lg font-medium">{LABELS.moodPicker.moodSelect}</p>
+      <div className="flex gap-4 flex-wrap items-center justify-center">
         {MOODS.map((m) => (
           <Button
             key={m.value}
@@ -57,7 +57,7 @@ export default function MoodPicker({ userId }: { userId: string }) {
             onClick={() => handlePick(m.value)}
             title={m.label}
           >
-            <span className="text-lg" aria-hidden>{m.emoji}</span>
+            <span className="text-2xl" aria-hidden>{m.emoji}</span>
             <span className="ml-2 hidden sm:inline text-sm">{m.label}</span>
           </Button>
         ))}
