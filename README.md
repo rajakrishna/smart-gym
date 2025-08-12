@@ -262,6 +262,7 @@ The application uses Next.js API Routes organized by feature:
 | `/api/users/create`                 | creates user                          |
 | `/api/users/getAll`                 | get all users                         |
 | `/api/users/update`                 | updates user                          |
+| `/api/users/enrolled/[userId]`.     | gets user classes or cancel           |
 | `/api/checkins`                     | gets all checkins by user ID          |
 | `/api/invoices/add`                 | adds invoice to user_invoice table    |
 | `/api/invoices/[userId]`            | gets all invoices by user ID          |

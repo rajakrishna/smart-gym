@@ -65,6 +65,20 @@ const LABELS = {
       status1: 'Waitlisted',
       status2: 'Confirmed',
       button: 'Cancel',
+      cancelError: 'Failed to cancel booking.',
+      cancelling: 'Cancelling…',
+      confirmTitle: 'Cancel this class?',
+      confirmDescription:
+        'This will remove your booking from your schedule. You can re-enroll if spots remain.',
+      keepBooking: 'Keep Booking',
+      confirmCancel: 'Confirm Cancellation',
+      toasts: {
+        cancelSuccessTitle: 'Class Successfully Removed\u00A0✅',
+        cancelSuccessDescriptionSuffix: 'has been removed from your schedule.',
+        cancelErrorTitle: 'Could not cancel',
+        cancelErrorDescription: 'Please try again.',
+        shortDurationMs: 1200,
+      },
     },
   },
   memberClasses: {
