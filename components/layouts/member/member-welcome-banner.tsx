@@ -66,9 +66,6 @@ const MemberWelcome = () => {
             {/* <Button size="lg"> */}
             <ICONS.member.bellDot />
           </Link>
-          <Link href={'/'}>
-            <ICONS.logOut />
-          </Link>
           {/* </Button> */}
           <CheckoutPageModal>
             <div className="relative">
@@ -80,6 +77,9 @@ const MemberWelcome = () => {
               )}
             </div>
           </CheckoutPageModal>
+          <Link href={'/'}>
+            <ICONS.logOut />
+          </Link>
         </div>
       </div>
     </div>
