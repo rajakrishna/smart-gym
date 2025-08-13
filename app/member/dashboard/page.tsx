@@ -1,17 +1,17 @@
-import React from 'react';
-
 import CafeMenu from '@/components/layouts/member/cafe-menu';
 import Classes from '@/components/layouts/member/classes';
 import EnrolledClasses from '@/components/layouts/member/enrolled-classes';
+import ClientCheckinNotice from './clientCheckinNotice';
 
-const page = () => {
+const USER_ID = '1828034c-85bb-4763-a623-e67c1bedac3d';
+
+export default function Page() {
   return (
-    <div>
+    <div className="container mx-auto pt-4 px-4 pb-10">
       <Classes />
       <CafeMenu />
-      <EnrolledClasses memberId='37d00ea7-e391-460f-957e-5a7d3917133d'/>
+      <EnrolledClasses memberId={USER_ID} />
+      <ClientCheckinNotice userId={USER_ID} />
     </div>
   );
-};
-
-export default page;
+}

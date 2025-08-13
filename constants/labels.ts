@@ -26,7 +26,6 @@ const LABELS = {
   memberContextId: {
     id: '1828034c-85bb-4763-a623-e67c1bedac3d',
   },
-
   hero: {
     header: 'Maximize Your Fitness',
     subHeader1: 'A Revolutionary',
@@ -66,12 +65,24 @@ const LABELS = {
       status1: 'Waitlisted',
       status2: 'Confirmed',
       button: 'Cancel',
+      cancelError: 'Failed to cancel booking.',
+      cancelling: 'Cancelling…',
+      confirmTitle: 'Cancel this class?',
+      confirmDescription: 'This will remove your booking from your schedule. You can re-enroll if spots remain.',
+      keepBooking: 'Keep Booking',
+      confirmCancel: 'Confirm Cancellation',
+      toasts: {
+        cancelSuccessTitle: 'Class Successfully Removed\u00A0✅',
+        cancelSuccessDescriptionSuffix: 'has been removed from your schedule.',
+        cancelErrorTitle: 'Could not cancel',
+        cancelErrorDescription: 'Please try again.',
+        shortDurationMs: 1200,
+      },
     },
   },
   memberClasses: {
     coach: 'Coach',
   },
-
   cafeMenu: {
     header: 'Cafe Menu',
     calories: 'Calories:',
@@ -207,6 +218,19 @@ const LABELS = {
       description: 'Scan the barcode to check in to the gym',
       scanButton: 'Scan',
     },
+    gymClassModal: {
+      category: 'category:',
+      time: 'time:',
+      capacity: 'capacity',
+      success: 'has been added to your schedule.',
+      closeButton: 'Close',
+      cancelButton: 'Cancel',
+      enrollButton: 'Enroll',
+      enrollFail: 'Enrollment Failed',
+      tryAgain: 'Please Try Again Later.',
+      try: 'Try Again.',
+      enrolling: 'Enrolling...',
+    },
   },
 
   pages: {
@@ -216,18 +240,12 @@ const LABELS = {
       link: '/example',
     },
     member_profile: {
-      header: 'profile',
-      name: 'member name',
-      menu: {
-        memberDetails: 'member details',
-        paymentMethod: 'payment method',
-        notifications: 'notifications',
-        checkinHistory: 'check-in history',
-        classHistory: 'fitness class history',
-        inviteFriends: 'invite friends',
-        userIcon: 'user icon',
-        logout: '',
-      },
+      memberDetails: 'Member Details',
+      memberInvoice: 'Member Invoice',
+      checkinHistory: 'Check-In History',
+      classHistory: 'Fitness Class',
+      userIcon: 'User Profile',
+      nextMonthPayment: 'Next Month Payment:',
     },
     admin_members: {
       columns: {
@@ -251,6 +269,9 @@ const LABELS = {
       buttons: {
         addMember: 'Add Member',
         searchMembers: 'Search Members',
+      },
+      loading: {
+        loadingMembers: 'Loading members...',
       },
     },
     admin_messages: {
@@ -439,11 +460,25 @@ const LABELS = {
     placeholder: 'Ask about workouts, nutrition, or fitness advice...',
     errorMessage: "Sorry, I'm having trouble connecting right now. Please try again later.",
     promptsHeading: 'Try asking:',
+    dialogAriaTitle: 'AI Coach chat',
     screenReaderLabels: {
       sendMessage: 'Send message',
       resetChat: 'Reset chat',
     },
     resetTooltip: 'Reset chat',
+  },
+  clientAiCheckinNotice: {
+    title: 'How are you feeling today?',
+    description: 'Pick a mood to help tailor your AI coaching.',
+    later: 'Not now',
+  },
+  moodPicker: {
+    changeButton: 'Change mood',
+    moodSelect: 'Select your mood',
+    savedTitle: 'Mood Successfully Updated ✅',
+    errorTitle: 'Could not save',
+    errorDescription: 'Please try again.',
+    ariaGroup: 'Select your mood',
   },
 
   navigation: {
@@ -613,6 +648,16 @@ const LABELS = {
       title: 'Fitmax',
       description: 'Description',
     },
+  },
+
+  // Footer labels
+  footer: {
+    sections: {
+      teamLeads: 'Team Leads',
+      teamMembers: 'Team Members',
+      projectRepository: 'Project Repository',
+    },
+    copyright: 'All rights reserved.',
   },
 } as const;
 

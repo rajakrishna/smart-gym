@@ -1,24 +1,16 @@
-'use client';
+'use client'
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import ICONS from '@/constants/icons'
+import LABELS from '@/constants/labels'
+import { useUser } from '@/context/user-context'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import ReactBarcode from './ReactBarcode'
+import CheckoutPageModal from '@/components/members/cafe/modals/CheckoutPageModal'
+import { useShoppingCart } from '@/contexts/ShoppingCartContext'
 
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-import ICONS from '@/constants/icons';
-import LABELS from '@/constants/labels';
-import { useUser } from '@/context/user-context';
-
-import ReactBarcode from './ReactBarcode';
-
-const { imageURL, greeting, profileHref } = LABELS.memberDash;
+const { imageURL, greeting, profileHref } = LABELS.memberDash
 
 const BarCodeModal = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -38,7 +30,14 @@ const BarCodeModal = ({ children }: { children: React.ReactNode }) => {
 
 const MemberWelcome = () => {
   const user = useUser();
+  const { items } = useShoppingCart()
+
+  const totalItems = items.reduce((acc, item) => acc + item.quantity, 0)
+
+  console.log(user)
+
   if (!user) return null;
+
   return (
     <div className='px-4 py-4 border-b border-gray-100'>
       <div className='flex items-center justify-between'>
@@ -71,6 +70,16 @@ const MemberWelcome = () => {
             <ICONS.logOut />
           </Link>
           {/* </Button> */}
+          <CheckoutPageModal>
+            <div className="relative">
+              <ICONS.cart className='w-6 h-6' />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                  {totalItems > 99 ? '99+' : totalItems}
+                </span>
+              )}
+            </div>
+          </CheckoutPageModal>
         </div>
       </div>
     </div>

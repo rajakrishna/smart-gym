@@ -1,8 +1,11 @@
 import {
+  Activity,
+  BarChart,
   BarChart3,
   Bell,
   BellDot,
   Calendar,
+  ChevronRight,
   Clock,
   Coffee,
   CreditCard,
@@ -19,25 +22,24 @@ import {
   MessageSquare,
   MoreVertical,
   Phone,
+  PieChart,
   Plus,
   RotateCcw,
   ScanBarcode,
   Search,
   Send,
   Sheet,
-  ToolCase,
+  ShieldCheck,
+  ShoppingCart,
   Tag,
+  ToolCase,
   Trash2,
   User,
   UserCircle,
+  UserPlus,
   Users,
   X,
   XCircle,
-  Activity,
-  UserPlus,
-  BarChart,
-  PieChart,
-  ShieldCheck, 
   LogOutIcon,
 } from 'lucide-react';
 
@@ -53,8 +55,10 @@ const ICONS = {
   login: LogIn,
   // Gym Logo icons
   dumbbell: Dumbbell,
-  construction:ToolCase,
-  phone:Phone,
+  construction: ToolCase,
+  phone: Phone,
+  cart: ShoppingCart,
+
   // Admin icons
   admin: {
     dashboard: LayoutDashboard,
@@ -64,7 +68,6 @@ const ICONS = {
     members: Users,
     cafe: Coffee,
     branding: Dumbbell,
-    
   },
 
   adminMembersPage: {
@@ -88,14 +91,14 @@ const ICONS = {
   adminAnalyticsStats: {
     totalMembers: Users,
     revenue: DollarSign,
-    activeUsers: Activity, 
+    activeUsers: Activity,
     newUsers: UserPlus,
   },
   adminAnalyticsCharts: {
     membershipGrowth: BarChart,
     classAttendence: BarChart,
-    targetRevenue: PieChart, 
-    activeGymHours: Clock
+    targetRevenue: PieChart,
+    activeGymHours: Clock,
   },
   adminCafePage: {
     addProduct: Plus,
@@ -115,14 +118,13 @@ const ICONS = {
     bellDot: BellDot,
     scanBarcode: ScanBarcode,
   },
-memberProfile: {
+  memberProfile: {
     memberDetails: User,
-    paymentMethod: CreditCard,
-    notifications: Bell,
+    memberInvoices: CreditCard,
     checkinHistory: ShieldCheck,
     classHistory: Calendar,
-    inviteFriends: Users, 
-    userIcon: UserCircle
+    userIcon: UserCircle,
+    dropDown: ChevronRight,
   },
   // AI Chat icons
   aiChat: {

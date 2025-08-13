@@ -10,8 +10,13 @@ export const invoiceIdSchema = z.object({
 });
 
 export const purchaseSchema = z.object({
-    user_id: z.uuid({ message: 'user_id must be valid UUID' }),
-    product_id: z.uuid({ message: 'product_id must be valid UUID' })
+  user_id: z.uuid({ message: "user_id must be valid UUID" }),
+  items: z.array(
+    z.object({
+      product_id: z.uuid({ message: "product_id must be valid UUID" }),
+      quantity: z.number().int().positive({ message: "quantity must be > 0" }),
+    })
+  ).min(1, "At least one product must be included"),
 });
 
 export type InvoiceIdInput = z.infer<typeof invoiceIdSchema>;
