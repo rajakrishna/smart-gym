@@ -109,7 +109,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Get recommendations from the class module
-    const { lines: recLines, wants } = recommendClasses(input, moodCode, 3);
+    const { lines: recLines } = recommendClasses(input, moodCode, 3);
     const recBlock = recLines.length
       ? `\n\nRECOMMENDED_UPCOMING_CLASSES (top matches):\n${recLines.join('\n')}\n\nIf helpful, suggest one specifically and explain why. Otherwise, ignore.`
       : '';
@@ -124,14 +124,10 @@ export async function POST(req: NextRequest) {
       temperature: 0.7,
     });
 
-    const payload: any = { text };
-
-    return NextResponse.json(payload);
-  } catch (err: any) {
-    console.error('AI SDK error:', err);
-    return NextResponse.json(
-      { error: 'Error generating content', details: err?.message || String(err) },
-      { status: 500 }
-    );
+    return NextResponse.json({ text });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : typeof err === 'string' ? err : 'Unknown error';
+    if (process.env.NODE_ENV !== 'production') console.error('[api/gemini] error', err);
+    return NextResponse.json({ error: 'Error generating content', details: msg }, { status: 500 });
   }
 }
