@@ -470,13 +470,13 @@ const LABELS = {
   },
   clientAiCheckinNotice: {
     title: 'How are you feeling today?',
-    description: 'Pick a mood to help tailor your coaching. You can change this anytime.',
+    description: 'Pick a mood to help tailor your AI coaching.',
     later: 'Not now',
   },
   moodPicker: {
     changeButton: 'Change mood',
     moodSelect: 'Select your mood',
-    savedTitle: 'Preference saved ✅',
+    savedTitle: 'Mood Successfully Updated ✅',
     errorTitle: 'Could not save',
     errorDescription: 'Please try again.',
     ariaGroup: 'Select your mood',
