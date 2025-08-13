@@ -6,11 +6,7 @@ export interface Message {
   content: string;
   isUser: boolean;
   timestamp: Date;
-  mood?: MoodValue;
 }
-
-export type MoodValue = 'happy' | 'neutral' | 'tired' | 'sore' | 'motivated';
-export type MoodOption = { emoji: string; label: string; value: MoodValue };
 
 // Suggested prompts for users to try
 export const SUGGESTED_PROMPTS = [
@@ -20,23 +16,14 @@ export const SUGGESTED_PROMPTS = [
   'Best exercises for building muscle',
 ];
 
-export const MOOD_OPTIONS: MoodOption[] = [
-  { emoji: '😀', label: 'Happy', value: 'happy' },
-  { emoji: '😐', label: 'Neutral', value: 'neutral' },
-  { emoji: '😴', label: 'Tired', value: 'tired' },
-  { emoji: '🤕', label: 'Sore', value: 'sore' },
-  { emoji: '🔥', label: 'Motivated', value: 'motivated' },
-];
 
 // Helper function to create messages
 export const createMessage = (
   content: string,
-  isUser: boolean,
-  mood?: MoodValue
+  isUser: boolean
 ): Message => ({
   id: (Date.now() + Math.random()).toString(),
   content,
   isUser,
-  timestamp: new Date(),
-  ...(mood ? { mood } : {}),
+  timestamp: new Date()
 });

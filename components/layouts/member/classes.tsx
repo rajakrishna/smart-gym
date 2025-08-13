@@ -1,17 +1,13 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState, useCallback } from 'react';
 import { CATEGORY_IMAGE_MAP } from '@/constants/classSchedules';
 import { mockDashClasses } from '@/constants/mockData';
 import { APIClassData, MockClassData } from '@/types/shared';
-
 import ClassCard, { ClassInfo } from './classCard';
 import ClassDetailsModal from './ClassDetailsModal';
 
-const label = {
-  heading: 'Upcoming Classes Today',
-};
+const label = { heading: 'Upcoming Classes Today' };
 
 const getImageForCategory = (category: string): string => {
   const key = category.toLowerCase();
@@ -36,6 +32,14 @@ const Classes: React.FC = () => {
     setSelectedClassId(id);
     setModalOpen(true);
   };
+
+  // 🔔 fire a global event that EnrolledClasses listens to
+  const announceEnrollment = useCallback((classId?: string) => {
+    window.dispatchEvent(
+      new CustomEvent('enrollment:updated', { detail: { action: 'enrolled', classId } })
+    );
+  }, []);
+
   useEffect(() => {
     const fetchClasses = async () => {
       try {
@@ -75,41 +79,47 @@ const Classes: React.FC = () => {
   }, []);
 
   return (
-    <section className=''>
-      <h1 className='h1 container pb-4 text-semibold'>{label.heading}</h1>
+    <section>
+      <h1 className="h1 container pb-4 text-semibold">{label.heading}</h1>
+
       {loading ? (
-        <div className='mx-auto max-w-[1440px] relative flex flex-col lg:mb-10 xl:mb-20'>
-          <div className='hide-scrollbar flex h-[240px] w-full items-start justify-start gap-4 overflow-x-auto lg:h-[500px] xl:h-[640px] px-1'>
+        <div className="mx-auto max-w-[1440px] relative flex flex-col lg:mb-10 xl:mb-20">
+          <div className="hide-scrollbar flex h-[240px] w-full items-start justify-start gap-4 overflow-x-auto lg:h-[500px] xl:h-[640px] px-1">
             {[...Array(4)].map((_, i) => (
-              <div
-                key={i}
-                className='relative h-[220px] min-w-[160px] rounded-2xl overflow-hidden2bg-gray-300 animate-pulse'
-              >
-                {/* Simulated image background */}
-                <div className='absolute inset-0 bg-gray-300 rounded-2xl' />
-
-                {/* Gradient overlay (static placeholder) */}
-                <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent rounded-2xl' />
-
-                {/* Simulated text content */}
-                <div className='absolute bottom-2 left-2 z-10 space-y-2 w-[90%]'>
-                  <div className='h-4 w-3/4 bg-gray-500 rounded' />
-                  <div className='h-3 w-1/2 bg-gray-500 rounded' />
-                  <div className='h-3 w-1/3 bg-gray-500 rounded' />
+              <div key={i} className="relative h-[220px] min-w-[160px] rounded-2xl overflow-hidden2bg-gray-300 animate-pulse">
+                <div className="absolute inset-0 bg-gray-300 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent rounded-2xl" />
+                <div className="absolute bottom-2 left-2 z-10 space-y-2 w-[90%]">
+                  <div className="h-4 w-3/4 bg-gray-500 rounded" />
+                  <div className="h-3 w-1/2 bg-gray-500 rounded" />
+                  <div className="h-3 w-1/3 bg-gray-500 rounded" />
                 </div>
               </div>
             ))}
           </div>
         </div>
       ) : (
-        <div className='mx-auto max-w-[1440px] relative flex flex-col lg:mb-10 xl:mb-20'>
-          <div className='hide-scrollbar flex h-[240px] w-full items-start justify-start gap-4 overflow-x-auto lg:h-[500px] xl:h-[640px] px-1'>
+        <div className="mx-auto max-w-[1440px] relative flex flex-col lg:mb-10 xl:mb-20">
+          <div className="hide-scrollbar flex h-[240px] w-full items-start justify-start gap-4 overflow-x-auto lg:h-[500px] xl:h-[640px] px-1">
             {classes.map((classItem, index) => (
-              <ClassCard key={index} classInfo={classItem} index={index} onClick={() => handleOpenModal(classItem.id)} />
+              <ClassCard
+                key={index}
+                classInfo={classItem}
+                index={index}
+                onClick={() => handleOpenModal(classItem.id)}
+              />
             ))}
-            {modalOpen && (
-              <ClassDetailsModal onClose={() => setModalOpen(false)} isOpen={modalOpen} classId={selectedClassId} />
 
+            {modalOpen && (
+              <ClassDetailsModal
+                isOpen={modalOpen}
+                classId={selectedClassId}
+                onClose={() => setModalOpen(false)}
+                onEnrolled={(enrolledClassId?: string) => {
+                  announceEnrollment(enrolledClassId ?? selectedClassId ?? undefined);
+                  setModalOpen(false);
+                }}
+              />
             )}
           </div>
         </div>
