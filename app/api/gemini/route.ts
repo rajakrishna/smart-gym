@@ -1,7 +1,11 @@
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { generateText } from 'ai';
 import { google } from '@ai-sdk/google';
 import { createClient } from '@/utils/supabase/server';
+import { recommendClasses } from '@/constants/upcomingClasses';
 
 const CORE_INVARIANTS = `
 You are a friendly, knowledgeable gym assistant and personal trainer.
@@ -9,10 +13,9 @@ You are a friendly, knowledgeable gym assistant and personal trainer.
 Scope (MUST follow):
 - Fitness & nutrition only (workouts, programming, form cues, recovery, basic nutrition).
 - Politely refuse anything outside scope.
-
-Safety:
-- No diagnosis or medical claims.
-- Suggest seeing a professional for pain/injury/red flags.
+- Keep your responses helpful, encouraging, and practical. 
+- Always prioritize safety and remind users to consult healthcare professionals for medical concerns. 
+- Finish with a TLDR, and a question to help the user continue the conversation.
 
 Coaching constraints:
 - Advice must be actionable and scalable (beginner→advanced variants).
@@ -28,12 +31,10 @@ Default tone:
 
 const RESPONSE_FORMAT = `
 Response format (follow this order):
-1) Opener (1–2 sentences; may acknowledge mood)
-2) Workout plan (bulleted, sets × reps or time; include easy/progression options)
-3) Nutrition tip(s) (1–2 bullets)
-4) Recovery note (1 bullet)
-5) TL;DR (one line)
-6) Follow-up question (one line)
+- Use double line breaks between paragraphs for proper spacing
+- Structure your response with clear paragraphs
+- Use bullet points or numbered lists when appropriate
+- Each paragraph should contain 2-4 sentences maximum
 `.trim();
 
 /** Mood → acknowledgement + tone-only style */
@@ -75,7 +76,7 @@ If any conflict occurs, prefer higher-priority instructions.
 
   const MOOD_STYLE = mood
     ? `
-MUST ACKNOWLEDGE MOOD:
+MAY ACKNOWLEDGE MOOD:
 - First sentence should briefly acknowledge: "${mood.ack}"
 
 MOOD_STYLE (tone only):
@@ -96,8 +97,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing or invalid "input"' }, { status: 400 });
     }
 
-    const modelName = process.env.GEMINI_MODEL_TYPE || 'gemini-1.5-flash';
-
     let moodCode: string | null = null;
     if (userId) {
       const supabase = await createClient();
@@ -109,19 +108,26 @@ export async function POST(req: NextRequest) {
       moodCode = data?.mood ?? null;
     }
 
+    // Get recommendations from the class module
+    const { lines: recLines } = recommendClasses(input, moodCode, 3);
+    const recBlock = recLines.length
+      ? `\n\nRECOMMENDED_UPCOMING_CLASSES (top matches):\n${recLines.join('\n')}\n\nIf helpful, suggest one specifically and explain why. Otherwise, ignore.`
+      : '';
+
     const system = buildSystem(moodCode);
 
     const { text } = await generateText({
-      model: google(modelName),
+      model: google(process.env.GEMINI_MODEL_TYPE || 'gemini-1.5-flash'),
       system,
-      prompt: `User question:\n${input}`.trim(),
+      prompt: `User question:\n${input}${recBlock}`.trim(),
       maxOutputTokens: 500,
-      temperature: 0.4, 
+      temperature: 0.7,
     });
 
     return NextResponse.json({ text });
-  } catch (err) {
-    console.error('AI SDK error:', err);
-    return NextResponse.json({ error: 'Error generating content' }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : typeof err === 'string' ? err : 'Unknown error';
+    if (process.env.NODE_ENV !== 'production') console.error('[api/gemini] error', err);
+    return NextResponse.json({ error: 'Error generating content', details: msg }, { status: 500 });
   }
 }
