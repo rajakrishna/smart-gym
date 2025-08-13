@@ -268,6 +268,8 @@ The application uses Next.js API Routes organized by feature:
 | `/api/invoices/[userId]`            | gets all invoices by user ID          |
 | `/api/invoices/purchase`            | + invoice, updates total, supports +1 |
 | `/api/profile/[userId]`             | gets all profile data by user ID      |
+| `/api/adminMemberProfile/[userId]`  | gets profile data by user ID admin    |
+
 
 ### API Endpoints
 
