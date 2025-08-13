@@ -68,8 +68,7 @@ const LABELS = {
       cancelError: 'Failed to cancel booking.',
       cancelling: 'Cancelling…',
       confirmTitle: 'Cancel this class?',
-      confirmDescription:
-        'This will remove your booking from your schedule. You can re-enroll if spots remain.',
+      confirmDescription: 'This will remove your booking from your schedule. You can re-enroll if spots remain.',
       keepBooking: 'Keep Booking',
       confirmCancel: 'Confirm Cancellation',
       toasts: {
@@ -649,6 +648,16 @@ const LABELS = {
       title: 'Fitmax',
       description: 'Description',
     },
+  },
+
+  // Footer labels
+  footer: {
+    sections: {
+      teamLeads: 'Team Leads',
+      teamMembers: 'Team Members',
+      projectRepository: 'Project Repository',
+    },
+    copyright: 'All rights reserved.',
   },
 } as const;
 
