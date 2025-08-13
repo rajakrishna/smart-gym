@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import LABELS from '@/constants/labels';
+import MoodPicker from '@/components/layouts/member/moodPicker';
 
 function isOlderThanTodayLocal(isoOrNull: string | null) {
   if (!isoOrNull) return true;
@@ -32,12 +33,22 @@ export default function ClientCheckinNotice({ userId }: { userId: string }) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent>
-        <DialogHeader><DialogTitle>{LABELS.clientAiCheckinNotice.title}</DialogTitle></DialogHeader>
-        <p className="text-sm text-muted-foreground">{LABELS.clientAiCheckinNotice.description}</p>
-        <DialogFooter>
-          <Button variant="outline" onClick={() => setOpen(false)}>{LABELS.clientAiCheckinNotice.later}</Button>
-          <Button onClick={() => (window.location.href = '/member/check-in')}>{LABELS.clientAiCheckinNotice.checkInNow}</Button>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>{LABELS.clientAiCheckinNotice.title}</DialogTitle>
+          {LABELS.clientAiCheckinNotice.description && (
+            <p className="text-sm text-muted-foreground">
+              {LABELS.clientAiCheckinNotice.description}
+            </p>
+          )}
+        </DialogHeader>
+
+        <MoodPicker userId={userId} compact onSaved={() => setOpen(false)} />
+
+        <DialogFooter className="mt-2">
+          <Button variant="ghost" onClick={() => setOpen(false)}>
+            {LABELS.clientAiCheckinNotice.later}
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -22,7 +22,7 @@ export async function GET() {
     : null;
 
   const moodLine = mood
-    ? `\n\nI’ll keep in mind you’re feeling **${mood}** today and adjust suggestions accordingly.`
+    ? `\n\nI’ll keep in mind you’re feeling **${mood}** (can click on emoji to edit) today and adjust suggestions accordingly.`
     : '';
 
   return NextResponse.json({

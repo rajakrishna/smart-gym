@@ -229,6 +229,7 @@ const LABELS = {
       enrollFail: 'Enrollment Failed',
       tryAgain: 'Please Try Again Later.',
       try: 'Try Again.',
+      enrolling: 'Enrolling...',
     },
   },
 
@@ -459,6 +460,7 @@ const LABELS = {
     placeholder: 'Ask about workouts, nutrition, or fitness advice...',
     errorMessage: "Sorry, I'm having trouble connecting right now. Please try again later.",
     promptsHeading: 'Try asking:',
+    dialogAriaTitle: 'AI Coach chat',
     screenReaderLabels: {
       sendMessage: 'Send message',
       resetChat: 'Reset chat',
@@ -466,13 +468,17 @@ const LABELS = {
     resetTooltip: 'Reset chat',
   },
   clientAiCheckinNotice: {
-    title: 'Daily AI Check-In',
-    description: 'You haven’t completed today’s check-in yet. Do you want to do it now?',
-    later: 'Later',
-    checkInNow: 'Check in now',
+    title: 'How are you feeling today?',
+    description: 'Pick a mood to help tailor your AI coaching.',
+    later: 'Not now',
   },
   moodPicker: {
-    moodSelect: 'How are you feeling today?',
+    changeButton: 'Change mood',
+    moodSelect: 'Select your mood',
+    savedTitle: 'Mood Successfully Updated ✅',
+    errorTitle: 'Could not save',
+    errorDescription: 'Please try again.',
+    ariaGroup: 'Select your mood',
   },
 
   navigation: {
