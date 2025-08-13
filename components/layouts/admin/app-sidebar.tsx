@@ -23,9 +23,9 @@ import Link from "next/link"
 
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "FitMax Admin",
+    email: "admin@fitmax.com",
+    avatar: "https://avatars.githubusercontent.com/u/https://www.publicdomainpictures.net/en/view-image.php?image=539171&picture=cardigan-corgi-puppy-dog",
   },
   navMain: [
     {
