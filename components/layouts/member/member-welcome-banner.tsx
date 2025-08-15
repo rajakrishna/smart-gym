@@ -39,7 +39,7 @@ const MemberWelcome = () => {
   if (!user) return null;
 
   return (
-    <div className='px-4 py-4 border-b border-gray-100'>
+    <div className='px-8 py-4 border-b border-gray-100'>
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-3'>
           <Link href={profileHref}>

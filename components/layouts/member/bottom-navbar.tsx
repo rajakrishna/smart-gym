@@ -38,9 +38,9 @@ export function BottomNavbar() {
     ];
 
     return (
-        <nav className="fixed bottom-0 left-0 right-0 z-50 border-t bg-white shadow-lg px-6">
+        <nav className="fixed bottom-0 left-0 right-0 z-50 border-t bg-white shadow-lg px-12">
             <div className="mx-auto max-w-7xl">
-                <div className="flex justify-around items-center py-2">
+                <div className="flex justify-around items-center">
                     {navItems.map((item) => {
                         const Icon = item.icon;
                         const isActive = pathname === item.href;

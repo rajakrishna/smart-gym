@@ -22,7 +22,7 @@ const MobileOnly = ({ children }: { children: React.ReactNode }) => {
 
   if (!isMobile) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen pb-24 gap-4 text-center px-4">
+      <div className="flex flex-col items-center justify-center min-h-screen pb-24 gap-4 text-center px-8">
         <h1 className="text-3xl sm:text-4xl font-bold">
           {LABELS.mobileView.banner}
         </h1>
@@ -39,7 +39,7 @@ const MobileOnly = ({ children }: { children: React.ReactNode }) => {
     );
   }
 
-  return <div className='px-8 pt-4'>{children}</div>;
+  return <div className='px-10 pt-6'>{children}</div>;
 };
 
 export default MobileOnly;

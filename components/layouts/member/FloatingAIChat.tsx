@@ -129,7 +129,7 @@ export default function FloatingAIChat({ children }: FloatingAIChatProps) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-md w-full max-w-[95vw] max-h-[90vh] min-h-[400px] h-auto p-0">
+      <DialogContent className="sm:max-w-md w-full max-w-[70vw] max-h-[90vh] min-h-[400px] h-auto p-0 ">
         {/* Hidden title for a11y (prevents Radix warning) */}
         <DialogHeader>
           <VisuallyHidden asChild>
