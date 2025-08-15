@@ -38,7 +38,7 @@ An app that serves as a center for membership management, class scheduling, orde
 <table style="width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
   <tr style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
     <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px; border-radius: 50%;">
-      <a href="www.linkedin.com/in/joeaguado">
+      <a href="https://www.linkedin.com/in/joeaguado">
         <img src="https://github.com/user-attachments/assets/ed822669-8b90-4d8e-bd15-82513aaffe3e" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%; "alt="Joe Aguado Profile Picture" /><br />
         <sub><b>Joe Aguado</b></sub>
       </a>
@@ -58,7 +58,7 @@ An app that serves as a center for membership management, class scheduling, orde
     </td>
 <td align="center" width="200" style="flex: 1; max-width: 200px; padding: 10px;">
       <a href="https://www.linkedin.com/in/developerdiego/">
-        <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_800_800/B56ZYiPX.lHoAg-/0/1744331178327?e=1754514000&v=beta&t=z5WYYml_5szjwihEfjwdIW3rrPXncMSDf5xy15eth0Q" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
+        <img src="https://media.licdn.com/dms/image/v2/D5635AQEH7-tkmh8rgw/profile-framedphoto-shrink_800_800/B56ZYiPX.lHoAg-/0/1744331178327?e=1755900000&v=beta&t=CiU7vRtmSPJ9tvn1rFn6Bw0Z9BjQaUrDoqQHd02Gpo0" style="width: 100%; max-width: 150px; height: auto; border-radius: 50%;" alt="Diego Espino Profile Picture" /><br />
         <sub><b>Diego Espino</b></sub>
       </a>
     </td>
@@ -85,26 +85,50 @@ An app that serves as a center for membership management, class scheduling, orde
 
 ## 📑 Table of Contents
 
-1. [📌 Introduction](#-introduction)
-2. [🏗️ Architecture Overview](#-architecture-overview)
-3. [🛠️ Technology Stack](#-technology-stack)
-4. [💾 Database Schema](#-database-schema)
-5. [✨ Key Features](#-key-features)
-   - [📅 Member class scheduling](#-1-member-class-scheduling)
-   - [🛠️ Admin class management](#-2-admin-class-management)
-   - [☕ Cafe catalog and orders](#-3-cafe-catalog-and-orders)
-   - [💬 Messaging](#-4-messaging)
-   - [🤖 AI assistant (chatbot)](#-5-ai-assistant-chatbot)
-   - [🔊 Voice responses (optional)](#-6-voice-responses-optional)
-   - [📈 Analytics dashboard](#-7-analytics-dashboard)
-   - [🧾 Invoices and purchases](#-8-invoices-and-purchases)
-6. [🔌 API Details](#-api-details)
-7. [🧩 Component Structure](#-component-structure)
-8. [🚀 Deployment](#-deployment)
-9. [📝 Commitlint Configuration](#-commitlint-configuration)
-10. [💻 Jira/Git Workflow](#-jiragit-workflow)
-11. [🎨 Design System](#-design-system)
-12. [📝 Code Organization & Best Practices](#-code-organization--best-practices)
+- [Smart Gym](#smart-gym)
+- [Technologies Used](#technologies-used)
+  - [Docs for this project](#docs-for-this-project)
+  - [Team Contributors To The Project](#team-contributors-to-the-project)
+- [💪 Smart Gym Documentation](#-smart-gym-documentation)
+  - [📑 Table of Contents](#-table-of-contents)
+  - [📌 Introduction](#-introduction)
+  - [🏗️ Architecture Overview](#️-architecture-overview)
+  - [🛠️ Technology Stack](#️-technology-stack)
+    - [🖥️ Frontend](#️-frontend)
+    - [⚙️ Backend](#️-backend)
+    - [🧰 Development Tools](#-development-tools)
+  - [💾 Database Schema](#-database-schema)
+  - [✨ Key Features](#-key-features)
+    - [📅 1. Member class scheduling](#-1-member-class-scheduling)
+    - [🛠️ 2. Admin class management](#️-2-admin-class-management)
+    - [☕ 3. Cafe catalog and orders](#-3-cafe-catalog-and-orders)
+    - [💬 4. Messaging](#-4-messaging)
+    - [🤖 5. AI assistant (chatbot)](#-5-ai-assistant-chatbot)
+    - [🔊 6. Voice responses (optional)](#-6-voice-responses-optional)
+    - [📈 7. Analytics dashboard](#-7-analytics-dashboard)
+    - [🧾 8. Invoices and purchases](#-8-invoices-and-purchases)
+  - [🔌 API Details](#-api-details)
+    - [API Overview](#api-overview)
+    - [API Endpoints](#api-endpoints)
+  - [🧩 Component Structure](#-component-structure)
+    - [📏 Layout Components](#-layout-components)
+    - [📄 Page Components](#-page-components)
+    - [⚙️ Feature Components](#️-feature-components)
+    - [🎨 UI Components](#-ui-components)
+  - [🚀 Deployment](#-deployment)
+  - [📝 Commitlint Configuration](#-commitlint-configuration)
+    - [Configuration File](#configuration-file)
+    - [Allowed Commit Types](#allowed-commit-types)
+    - [Example Commit Messages](#example-commit-messages)
+  - [💻 Jira/Git Workflow](#-jiragit-workflow)
+    - [Choose a Jira ticket](#choose-a-jira-ticket)
+    - [Create a branch from JIRA](#create-a-branch-from-jira)
+    - [Local work](#local-work)
+    - [Push to GitHub and make a pull request](#push-to-github-and-make-a-pull-request)
+  - [🎨 Design System](#-design-system)
+    - [Example Usage](#example-usage)
+      - [Background Color](#background-color)
+  - [📝 Code Organization \& Best Practices](#-code-organization--best-practices)
 
 ---
 
